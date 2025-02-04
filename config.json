@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Monzo Bank",
+    "type": "Bank",
+    "module": "scraper_functions",
+    "function": "monzo",
+    "url": "https://job-boards.greenhouse.io/monzo/?offices%5B%5D=114747&departments%5B%5D=53656&departments%5B%5D=43595",
+    "location_qualifiers": null,
+    "job_qualifiers": ["Data Analyst", "Data Engineer", "Software Developer", "Software Engineer"],
+    "job_disqualifiers": null
+  },
+  {
+    "name": "Credit Karma",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "credit_karma",
+    "url": "https://boards.greenhouse.io/creditkarma",
+    "location_qualifiers": ["Charlotte", "Culver", "Oakland"],
+    "job_qualifiers": ["Data", "Software Developer", "Software Engineer", "Site Reliability"],
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager"]
+  },
+  {
+    "name": "Block",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "block",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=block",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer", "Site Reliability"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Lead", "Mobile", "Android", "Frontend", "Scientist", "Manager", "ASIC ", "Console", "Tax", "iOS", "Manufacturing", " EPM", "Hardware"]
+  },
+  {
+    "name": "Coinbase",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "coinbase",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=coinbase",
+    "location_qualifiers": ["USA"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer", "Site Reliability"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Lead", "Mobile", "Android", "Frontend", "Scientist", "Manager", "Advocate", "Head of", "Security"]
+  }
+]
