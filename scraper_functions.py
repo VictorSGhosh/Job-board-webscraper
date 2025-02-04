@@ -35,7 +35,7 @@ def webscraper_driver_cleanup():
 
 ## Qualifier Functions
 def is_valid_location(location, location_qualifiers):
-    return any(location_qualifier.lower() in location.lower() for location_qualifier in location_qualifiers)
+    return any(location_qualifier.lower() in location.lower() for location_qualifier in location_qualifiers) if location_qualifiers else True
 
 def is_valid_title(job_title, title_qualifiers, title_disqualifiers):
     return ((any(title_qualifier.lower() in job_title.lower() for title_qualifier in title_qualifiers) if title_qualifiers else True) and
@@ -148,6 +148,34 @@ def coinbase(board=None):
             job_title = job_link.text.strip()
             job_url = f"{job_link['href']}"  # Creating full URL
             job_location = job_location.text.strip() if job_location else "Not specified"
+
+            if is_valid(job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    # Step 5: Print job data
+    for job in jobs_list:
+        print(job)
+    return jobs_list
+
+def point72(board=None):
+    job_posts = driver.find_elements(By.CLASS_NAME, "job-post")
+    jobs_list = []
+
+    company = board.company
+    for job in job_posts:
+        outer_html = job.get_attribute("outerHTML")
+        soup = BeautifulSoup(outer_html, "html.parser")
+
+        job_link = soup.find("a")
+        job_title_elem = soup.find("p", class_="body body--medium")
+        job_location_elem = soup.find("p", class_="body body__secondary body--metadata")
+
+        if job_link and job_title_elem:
+            job_url = job_link["href"]
+            parsed_url = urlparse(job_url)
+            job_id = parsed_url.path.split("/")[-1]
+            job_title = job_title_elem.get_text(strip=True)
+            job_location = job_location_elem.get_text(strip=True) if job_location_elem else "Not specified"
 
             if is_valid(job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))

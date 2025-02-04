@@ -5,9 +5,9 @@
     "module": "scraper_functions",
     "function": "monzo",
     "url": "https://job-boards.greenhouse.io/monzo/?offices%5B%5D=114747&departments%5B%5D=53656&departments%5B%5D=43595",
-    "location_qualifiers": null,
+    "location_qualifiers": [],
     "job_qualifiers": ["Data Analyst", "Data Engineer", "Software Developer", "Software Engineer"],
-    "job_disqualifiers": null
+    "job_disqualifiers": []
   },
   {
     "name": "Credit Karma",
@@ -38,5 +38,16 @@
     "location_qualifiers": ["USA"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer", "Site Reliability"],
     "job_disqualifiers": ["Staff", "Principal", "Director", "Lead", "Mobile", "Android", "Frontend", "Scientist", "Manager", "Advocate", "Head of", "Security"]
+  },
+  {
+    "name": "Point72",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "point72",
+    "url": "https://job-boards.greenhouse.io/point72?gh_src=caca3a982us&offices%5B%5D=4041642002&departments%5B%5D=4072592002&departments%5B%5D=4077185002&departments%5B%5D=4056169002",
+    "location_qualifiers": ["New York", "Stamford", "United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer", "Site Reliability"],
+    "job_disqualifiers": ["Scientist", "Security"]
   }
+
 ]

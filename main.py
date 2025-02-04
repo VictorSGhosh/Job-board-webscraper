@@ -9,10 +9,11 @@ with open("config.json", "r") as f:
 
 # Dictionary to map function names to actual functions
 function_map = {
-    "monzo": monzo,
-    "credit_karma": credit_karma,
-    "block": block,
-    "coinbase": coinbase
+    # "monzo": monzo,
+    # "credit_karma": credit_karma,
+    # "block": block,
+    # "coinbase": coinbase,
+    "point72": point72
 }
 
 if __name__ == "__main__":
