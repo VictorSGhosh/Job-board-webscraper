@@ -9,11 +9,29 @@ with open("config.json", "r") as f:
 
 # Dictionary to map function names to actual functions
 function_map = {
-    # "monzo": monzo,
-    # "credit_karma": credit_karma,
-    # "block": block,
-    # "coinbase": coinbase,
-    "point72": point72
+    "monzo": monzo,
+    "credit_karma": cmn_scraper1,
+    "block": cmn_scraper1,
+    "coinbase": cmn_scraper1,
+    "robinhood": cmn_scraper1,
+    "stripe": cmn_scraper1,
+    "ripple": cmn_scraper1,
+    "sofi": cmn_scraper1,
+    "hudson_river_trading": cmn_scraper1,
+    "drw": cmn_scraper1,
+    "nerdwallet": cmn_scraper1,
+    "akuna_capital": cmn_scraper1,
+    "vatic_labs": cmn_scraper1,
+    "pdt": cmn_scraper1,
+    "aqr": cmn_scraper1,
+    "point72": cmn_scraper2,
+    "spotter": cmn_scraper2,
+    "human_interest": cmn_scraper2,
+    "carta": cmn_scraper2,
+    "propel": cmn_scraper2,
+    "arcesium": cmn_scraper2,
+    "bolt": cmn_scraper2,
+    "aquatic": cmn_scraper2
 }
 
 if __name__ == "__main__":

@@ -4,10 +4,11 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, ParseResult, urlunparse
 
 import time
 import json
+import re
 
 from classes import Job
 
@@ -47,6 +48,15 @@ def is_valid(job_location, job_title, board):
     job_title_disqualifiers = board.job_title_disqualifiers
     return is_valid_location(job_location, location_qualifiers) and is_valid_title(job_title, job_title_qualifiers, job_title_disqualifiers)
 
+### Helper Fns
+def get_full_url_and_id(parsed_url: ParseResult)-> (str, str):
+    if not parsed_url.scheme and not parsed_url.netloc:
+        url = f"https://boards.greenhouse.io{parsed_url.path}"
+    else:
+        url = f"{urlunparse(parsed_url)}"
+    id = id if (id:=parsed_url.path.split('/')[-1]).isdigit() else parsed_url.query.split('=')[-1]
+    return url, id
+
 ## Specific WebScrapers
 def monzo(board):
     # Step 4: Execute JavaScript to access window.__remixContext
@@ -74,8 +84,7 @@ def monzo(board):
         print(job)
     return job_list
 
-
-def credit_karma(board=None):
+def cmn_scraper1(board):
     job_posts = driver.find_elements(By.CLASS_NAME, "opening")
     jobs_list = []
 
@@ -88,76 +97,19 @@ def credit_karma(board=None):
         job_location = soup.find("span", class_="location")
 
         if job_link:
-            job_id = job_link["href"].split("/")[-1]  # Extracting job ID from URL
+            parsed_url = urlparse(job_link["href"])
+            job_url, job_id = get_full_url_and_id(parsed_url)  # Creating full URL
             job_title = job_link.text.strip()
-            job_url = f"https://boards.greenhouse.io{job_link['href']}"  # Creating full URL
             job_location = job_location.text.strip() if job_location else "Not specified"
 
             if is_valid(job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    # Step 5: Print job data
     for job in jobs_list:
         print(job)
     return jobs_list
 
-def block(board=None):
-    job_posts = driver.find_elements(By.CLASS_NAME, "opening")
-    jobs_list = []
-
-    company = board.company
-    for job in job_posts:
-        outer_html = job.get_attribute("outerHTML")
-        soup = BeautifulSoup(outer_html, "html.parser")
-
-        job_link = soup.find("a")
-        job_location = soup.find("span", class_="location")
-
-        if job_link:
-            job_url = job_link["href"]
-            parsed_url = urlparse(job_url)
-            job_id = parse_qs(parsed_url.query).get("gh_jid", ["Unknown"])[0]  # Extract job_id correctly
-            job_title = job_link.text.strip()
-            job_url = f"{job_link['href']}"  # Creating full URL
-            job_location = job_location.text.strip() if job_location else "Not specified"
-
-            if is_valid(job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    # Step 5: Print job data
-    for job in jobs_list:
-        print(job)
-    return jobs_list
-
-def coinbase(board=None):
-    job_posts = driver.find_elements(By.CLASS_NAME, "opening")
-    jobs_list = []
-
-    company = board.company
-    for job in job_posts:
-        outer_html = job.get_attribute("outerHTML")
-        soup = BeautifulSoup(outer_html, "html.parser")
-
-        job_link = soup.find("a")
-        job_location = soup.find("span", class_="location")
-
-        if job_link:
-            job_url = job_link["href"]
-            parsed_url = urlparse(job_url)
-            job_id = parse_qs(parsed_url.query).get("gh_jid", ["Unknown"])[0]  # Extract job_id correctly
-            job_title = job_link.text.strip()
-            job_url = f"{job_link['href']}"  # Creating full URL
-            job_location = job_location.text.strip() if job_location else "Not specified"
-
-            if is_valid(job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    # Step 5: Print job data
-    for job in jobs_list:
-        print(job)
-    return jobs_list
-
-def point72(board=None):
+def cmn_scraper2(board=None):
     job_posts = driver.find_elements(By.CLASS_NAME, "job-post")
     jobs_list = []
 
@@ -180,7 +132,6 @@ def point72(board=None):
             if is_valid(job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    # Step 5: Print job data
     for job in jobs_list:
         print(job)
     return jobs_list

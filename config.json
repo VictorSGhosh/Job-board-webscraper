@@ -47,7 +47,188 @@
     "url": "https://job-boards.greenhouse.io/point72?gh_src=caca3a982us&offices%5B%5D=4041642002&departments%5B%5D=4072592002&departments%5B%5D=4077185002&departments%5B%5D=4056169002",
     "location_qualifiers": ["New York", "Stamford", "United States"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer", "Site Reliability"],
-    "job_disqualifiers": ["Scientist", "Security"]
+    "job_disqualifiers": ["Scientist", "Security", "Intern"]
+  },
+  {
+    "name": "Robinhood",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "robinhood",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=Robinhood",
+    "location_qualifiers": ["Chicago", "Denver", "Lake Mary", "Westlake", "Menlo Park", "New York", "Bellevue", "Washington"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer", "Site Reliability"],
+    "job_disqualifiers": ["Staff", "Head Of", "iOS", "Manager", "Security", "Quality", "QA", "Scientist", "Android", "Privacy"]
+  },
+  {
+    "name": "Spotter",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "spotter",
+    "url": "https://job-boards.greenhouse.io/spotter?departments%5B%5D=4008794005&departments%5B%5D=4000767005&departments%5B%5D=4007869005",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal", "Director", "President"]
+  },
+  {
+    "name": "Stripe",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "stripe",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=Stripe",
+    "location_qualifiers": ["San Francisco", "New York", "Seattle", "Chicago", "US", "NYC", "SFO"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager", "Security", "Android", "iOS", "Solution", "Scientist", "PhD", "Lead", "Sales", "Partner", "Design"]
+  },
+  {
+    "name": "Ripple",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "ripple",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=ripple&b=https%3A%2F%2Fripple.com%2Fcareers%2Fall-jobs%2Fjob%2F5749901%2F",
+    "location_qualifiers": ["New York", "San Francisco", "Miami", "Washington", "United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager", "Principal"]
+  },
+  {
+    "name": "Sofi",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "sofi",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=sofi&b=https%3A%2F%2Fwww.sofi.com%2Fpage%2F959%2F",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager", "Principal", "Scientist", "Director", "Mobile", "Financials"]
+  },
+  {
+    "name": "Human Interest",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "human_interest",
+    "url": "https://job-boards.greenhouse.io/humaninterest?departments%5B%5D=44253",
+    "location_qualifiers": [],
+    "job_qualifiers": [],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Carta",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "carta",
+    "url": "https://job-boards.greenhouse.io/carta?departments%5B%5D=4003615003&offices%5B%5D=4001900003&offices%5B%5D=4001899003&offices%5B%5D=4001896003&offices%5B%5D=4001897003&offices%5B%5D=4001898003",
+    "location_qualifiers": [],
+    "job_qualifiers": [],
+    "job_disqualifiers": ["Manager"]
+  },
+  {
+    "name": "NerdWallet",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "nerdwallet",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=nerdwallet",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager"]
+  },
+  {
+    "name": "Propel",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "propel",
+    "url": "https://job-boards.greenhouse.io/propel?departments%5B%5D=4035197002",
+    "location_qualifiers": [],
+    "job_qualifiers": [],
+    "job_disqualifiers": ["Staff", "Frontend"]
+  },
+  {
+    "name": "Hudson River Trading",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "hudson_river_trading",
+    "url": "https://boards.greenhouse.io/wehrtyou",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Design", "Security"]
+  },
+  {
+    "name": "DRW",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "drw",
+    "url": "https://boards.greenhouse.io/drweng",
+    "location_qualifiers": ["Palo Alto", "Chicago", "New York", "Remote"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Akuna Capital",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "akuna_capital",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=akunacapital",
+    "location_qualifiers": ["Chicago"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Security"]
+  },
+  {
+    "name": "Vatic Labs",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "vatic_labs",
+    "url": "https://boards.greenhouse.io/vaticlabs",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Arcesium",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "arcesium",
+    "url": "https://job-boards.greenhouse.io/arcesiumllc/?offices%5B%5D=4022018007",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal", "Solutions"]
+  },
+  {
+    "name": "Bolt",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "bolt",
+    "url": "https://job-boards.greenhouse.io/bolt42/?offices%5B%5D=4029564004&offices%5B%5D=4047004004",
+    "location_qualifiers": [],
+    "job_qualifiers": [],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "AQR Capital Management",
+    "type": "Investments",
+    "module": "scraper_functions",
+    "function": "aqr",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=aqr",
+    "location_qualifiers": [],
+    "job_qualifiers": [],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Aquatic Capital Management",
+    "type": "Investments",
+    "module": "scraper_functions",
+    "function": "aquatic",
+    "url": "https://job-boards.greenhouse.io/aquaticcapitalmanagement?offices%5B%5D=4012647002&offices%5B%5D=4056394002",
+    "location_qualifiers": [],
+    "job_qualifiers": [],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "PDT Partners",
+    "type": "Investments",
+    "module": "scraper_functions",
+    "function": "pdt",
+    "url": "https://boards.greenhouse.io/pdtpartners",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Fund"]
   }
+
 
 ]
