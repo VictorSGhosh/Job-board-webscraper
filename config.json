@@ -107,7 +107,7 @@
     "url": "https://job-boards.greenhouse.io/humaninterest?departments%5B%5D=44253",
     "location_qualifiers": [],
     "job_qualifiers": [],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["Staff"]
   },
   {
     "name": "Carta",
@@ -115,7 +115,7 @@
     "module": "scraper_functions",
     "function": "carta",
     "url": "https://job-boards.greenhouse.io/carta?departments%5B%5D=4003615003&offices%5B%5D=4001900003&offices%5B%5D=4001899003&offices%5B%5D=4001896003&offices%5B%5D=4001897003&offices%5B%5D=4001898003",
-    "location_qualifiers": [],
+    "location_qualifiers": ["San Francisco", "Seattle", "Santa Clara"],
     "job_qualifiers": [],
     "job_disqualifiers": ["Manager"]
   },
@@ -127,7 +127,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=nerdwallet",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Manager"]
+    "job_disqualifiers": ["Staff", "Manager", "Front End"]
   },
   {
     "name": "Propel",
@@ -137,7 +137,7 @@
     "url": "https://job-boards.greenhouse.io/propel?departments%5B%5D=4035197002",
     "location_qualifiers": [],
     "job_qualifiers": [],
-    "job_disqualifiers": ["Staff", "Frontend"]
+    "job_disqualifiers": ["Staff", "Frontend", "Scientist"]
   },
   {
     "name": "Hudson River Trading",
@@ -157,7 +157,7 @@
     "url": "https://boards.greenhouse.io/drweng",
     "location_qualifiers": ["Palo Alto", "Chicago", "New York", "Remote"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["ServiceNow", "Team Lead"]
   },
   {
     "name": "Akuna Capital",
@@ -337,7 +337,7 @@
     "url": "https://job-boards.greenhouse.io/nightfall?offices%5B%5D=4003297006&offices%5B%5D=4003295006",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["Staff"]
   },
   {
     "name": "Ping Identity",
@@ -417,7 +417,7 @@
     "url": "https://job-boards.greenhouse.io/sumologic?t=Simplify&offices%5B%5D=75904&departments%5B%5D=72142",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["Staff"]
   },
   {
     "name": "Pinterest",
@@ -428,16 +428,6 @@
     "location_qualifiers": ["San Francisco", "Seattle", "Chicago", "Los Angeles", "New York", "Palo Alto", "US"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Staff", "Manager", "Director", "Intern", "iOS", "Scientist", "Principal", "Android"]
-  },
-  {
-    "name": "Qualia",
-    "type": "Internet Services",
-    "module": "scraper_functions",
-    "function": "qualia",
-    "url": "https://job-boards.greenhouse.io/qualia?t=Simplify&departments%5B%5D=91709&departments%5B%5D=91711",
-    "location_qualifiers": [],
-    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Manager"]
   },
   {
     "name": "Roku",
@@ -610,6 +600,16 @@
     "job_disqualifiers": ["Staff", "Scientist", "iOS"]
   },
   {
+    "name": "Thumbtack",
+    "type": "Internet Services",
+    "module": "scraper_functions",
+    "function": "thumbtack",
+    "url": "https://boards.greenhouse.io/thumbtack",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Scientist"]
+  },
+  {
     "name": "Cerebras Systems",
     "type": "Computers and Hardware",
     "module": "scraper_functions",
@@ -671,7 +671,7 @@
   },
   {
     "name": "Otter AI",
-    "type": "Computers Software",
+    "type": "Computer Software",
     "module": "scraper_functions",
     "function": "otterai",
     "url": "https://boards.greenhouse.io/embed/job_board?for=otterai",
@@ -681,13 +681,742 @@
   },
   {
     "name": "Notion",
-    "type": "Computers Software",
+    "type": "Computer Software",
     "module": "scraper_functions",
     "function": "notion",
     "url": "https://job-boards.greenhouse.io/notion?gh_src=Simplify&departments%5B%5D=4038154003&departments%5B%5D=4016655003&departments%5B%5D=4046146003&offices%5B%5D=4068347003&offices%5B%5D=4009672003&offices%5B%5D=4009671003&offices%5B%5D=4027145003",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Android", "iOS", "Scientist", "Head", "Manager", "Security"]
+  },
+  {
+    "name": "Perplexity AI",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "perplexity",
+    "url": "https://job-boards.greenhouse.io/perplexityai",
+    "location_qualifiers": ["New York", "San Francisco"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Scientist", "Manager", "Android", "iOS", "Customer Success", "Research", "Frontend"]
+  },
+  {
+    "name": "MongoDB",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "mongodb",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=mongodb",
+    "location_qualifiers": ["San Francisco", "New York", "Raleigh", "Tampa", "Boston", "Seattle", "United States", "Austin", "Chicago", "Atlanta", "Dallas", "Denver", "Houston", "Minneapolis", "Princeton", "Philadephia", "Baltimore", "Washington"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Manager", "Lead", "HRIS", "Security", "Advocate"]
+  },
+  {
+    "name": "HubSpot",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "hubspot",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=hubspotjobs",
+    "location_qualifiers": ["USA", "Cambridge"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Manager", "Workday", "Lead", "Front End"]
+  },
+  {
+    "name": "Elastic",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "elastic",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=elastic",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Director", "Support Engineer", "SalesForce", "Security", "Manager"]
+  },
+  {
+    "name": "MoveWorks",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "moveworks",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=moveworks",
+    "location_qualifiers": ["Mountain View", "USA"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Customer Success", "PreSales", "Manager"]
+  },
+  {
+    "name": "Voltron Data",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "voltron",
+    "url": "https://boards.greenhouse.io/voltrondata",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "C3 AI",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "c3ai",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=c3iot",
+    "location_qualifiers": ["Redwood", "Tysons", "Chicago", "Houston", "Minneapolis"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Director", "Solution", "Scientist", "Manager", "Lead", "Intern", "QA"]
+  },
+  {
+    "name": "Hashicorp",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "hashicorp",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=hashicorp",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Director", "Solutions", "Vice President", "Support", "Product Reliability", "Quality"]
+  },
+  {
+    "name": "Temporal Technologies",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "temporal",
+    "url": "https://job-boards.greenhouse.io/temporaltechnologies?offices%5B%5D=4022749007",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager"]
+  },
+  {
+    "name": "Dialpad",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "dialpad",
+    "url": "https://job-boards.greenhouse.io/dialpad?offices%5B%5D=4017310002",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "UX", "Sales"]
+  },
+  {
+    "name": "DFINITY",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "dfinity",
+    "url": "https://boards.greenhouse.io/dfinity",
+    "location_qualifiers": ["San Francisco"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager"]
+  },
+  {
+    "name": "Latent AI",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "latentai",
+    "url": "https://boards.greenhouse.io/latentai",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "SalesLoft",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "salesloft",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=salesloft",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "React", "Node.js", "UI", "Architect"]
+  },
+  {
+    "name": "Databricks",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "databricks",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=databricks",
+    "location_qualifiers": ["San Francisco", "Mountain View", "Seattle", "Bellevue", "United States", "Atlanta"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager", "Principal", "Sales", "Solution", "Security", "Scientist", "Intern", "Advocate", "PhD Candidates"]
+  },
+  {
+    "name": "Asana",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "asana",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=asana",
+    "location_qualifiers": ["San Francisco", "New York", "Chicago"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Datadog",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "datadog",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=datadog",
+    "location_qualifiers": ["USA"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager", "Advocate", "Director", "Sales", "Escalations", "Curriculum", "Audio", "Researcher", "Scientist", "Solutions", "Support", "Strategy and Operations Senior Associate", "Business Partner", "Security"]
+  },
+  {
+    "name": "Redis",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "redis",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=redislabs",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Cohesity",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "cohesity",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=cohesity",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Sales", "HRIS"]
+  },
+  {
+    "name": "Dropbox",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "dropbox",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=dropbox",
+    "location_qualifiers": ["US"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["iOS", "Android", "Scientist", "Manager", "Principal", "Director", "Staff", "Workday", "Intern", "Corp IT"]
+  },
+  {
+    "name": "Sentry",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "sentry",
+    "url": "https://boards.greenhouse.io/sentry/",
+    "location_qualifiers": ["San Francisco", "Seattle"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Smartsheet",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "smartsheet",
+    "url": "https://job-boards.greenhouse.io/smartsheet/?offices%5B%5D=89489&offices%5B%5D=21386&offices%5B%5D=21385&departments%5B%5D=43784",
+    "location_qualifiers": ["Bellevue", "USA"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal", "Manager"]
+  },
+  {
+    "name": "Braze",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "braze",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=braze",
+    "location_qualifiers": ["San Francisco", "New York", "Chicago", "Austin"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Stackline",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "stackline",
+    "url": "https://job-boards.greenhouse.io/stackline/",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Collibra",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "collibra",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=collibra",
+    "location_qualifiers": ["Raleigh", "USA"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Support", "Customer", "Quality"]
+  },
+  {
+    "name": "LaunchDarkly",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "launchdarkly",
+    "url": "https://job-boards.greenhouse.io/launchdarkly/",
+    "location_qualifiers": ["US", "San Francisco"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Frontend", "Staff"]
+  },
+  {
+    "name": "HeyGen",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "heygen",
+    "url": "https://job-boards.greenhouse.io/heygen/",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Research", "Scientist", "Frontend", "Solutions"]
+  },
+  {
+    "name": "BuildOps",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "buildops",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=buildops",
+    "location_qualifiers": ["Raleigh", "Los Angeles", "US"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Quality", "Solutions", "Manager", "Director", "Frontend"]
+  },
+  {
+    "name": "Optiver",
+    "type": "Telecommunications and Networks",
+    "module": "scraper_functions",
+    "function": "optiver",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=optiverus",
+    "location_qualifiers": ["New York", "Chicago", "Austin"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["FPGA", "Data Center", "Network", "Manager", "Research"]
+  },
+  {
+    "name": "RAPP",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "rapp",
+    "url": "https://boards.greenhouse.io/rapp",
+    "location_qualifiers": ["Los Angeles", "Chicago"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["SalesForce", "Governance", "Scientist", "Director", "Meta Data Specialist"]
+  },
+  {
+    "name": "AppLovin",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "applovin",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=applovin",
+    "location_qualifiers": ["Palo Alto"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Intern"]
+  },
+  {
+    "name": "adMarketplace",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "admarketplace",
+    "url": "https://job-boards.greenhouse.io/admarketplaceinc",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Lead"]
+  },
+  {
+    "name": "PMG",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "pmg",
+    "url": "https://job-boards.greenhouse.io/pmg?t=Simplify&departments%5B%5D=4041345002",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Interested", "Lead", "Manager", "Director", "Operations Associate"]
+  },
+  {
+    "name": "EDO",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "edo",
+    "url": "https://job-boards.greenhouse.io/edo",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Head Of", "Solutions", "Manager"]
+  },
+  {
+    "name": "Moloco",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "moloco",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=moloco",
+    "location_qualifiers": ["Redwood", "San Francisco", "New York", "Seattle"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Scientist", "Lead"]
+  },
+  {
+    "name": "DoubleVerify",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "doubleverify",
+    "url": "https://job-boards.greenhouse.io/doubleverify?departments%5B%5D=4107885002&offices%5B%5D=4039478002",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Frontend"]
+  },
+  {
+    "name": "The Trade Desk",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "trade_desk",
+    "url": "https://job-boards.greenhouse.io/thetradedesk?offices%5B%5D=4013983007&departments%5B%5D=4015976007&departments%5B%5D=4015970007&departments%5B%5D=4015977007&departments%5B%5D=4015972007",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Scientist", "Manager", "Front End"]
+  },
+  {
+    "name": "VideoAmp",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "videoamp",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=videoamp",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Signify Health",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "signify_health",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=signifyhealth",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "MyFitnessPal",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "myfitnesspal",
+    "url": "https://boards.greenhouse.io/myfitnesspal",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["iOS", "Android", "Manager", "Food", "Intern", "Staff", "Scientist"]
+  },
+  {
+    "name": "Omada Health",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "omada_health",
+    "url": "https://job-boards.greenhouse.io/omadahealth",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["iOS", "Manager"]
+  },
+  {
+    "name": "Cedar",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "cedar",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=careportalinc",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Director", "Scientist", "Staff", "Security"]
+  },
+  {
+    "name": "Peloton",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "peloton",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=peloton",
+    "location_qualifiers": ["New York", "California", "Linden", "Texas", "Virginia", "United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Android", "Mobile", "Scientist", "Field", "Security", "iOS", "Staff", "Safety"]
+  },
+  {
+    "name": "Kalderos",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "kalderos",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=kalderos",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Intern"]
+  },
+  {
+    "name": "PicnicHealth",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "picnichealth",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=picnichealth",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Research"]
+  },
+  {
+    "name": "Rightway",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "rightway",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=rightwayhealthcare",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Security"]
+  },
+  {
+    "name": "Doximity",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "doximity",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=doximity",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["QA"]
+  },
+  {
+    "name": "Heartflow",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "heartflow",
+    "url": "https://job-boards.greenhouse.io/heartflowinc",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Staff"]
+  },
+  {
+    "name": "Headway",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "headway",
+    "url": "https://job-boards.greenhouse.io/headway",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager"]
+  },
+  {
+    "name": "Schrodinger",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "schrodinger",
+    "url": "https://job-boards.greenhouse.io/schrdinger/",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Security", "Intern"]
+  },
+  {
+    "name": "Strava",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "strava",
+    "url": "https://job-boards.greenhouse.io/strava?error=true&offices%5B%5D=202267&offices%5B%5D=2155",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "iOS", "Android", "Director"]
+  },
+  {
+    "name": "Aurora Innovation",
+    "type": "Automobiles",
+    "module": "scraper_functions",
+    "function": "aurora",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=aurorainnovation",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Director", "FPGA", "Manager", "Photonics", "Senior Engineer", "Safety", "Perception", "PKI", "Camera", "Performance", "Remote Assist"]
+  },
+  {
+    "name": "Waymo",
+    "type": "Automobiles",
+    "module": "scraper_functions",
+    "function": "waymo",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=waymo",
+    "location_qualifiers": ["Bay Area", "Mountain View", "USA", "New York", "San Francisco", "Bellevue","United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "iOS", "Systems", "Director", "Intern", "Compiler", "Scientist", "Lead", "Simulation", "Eval", "Perception", "GPU", "Hardware", "Sensor", "Vision"]
+  },
+  {
+    "name": "Latitude AI",
+    "type": "Automobiles",
+    "module": "scraper_functions",
+    "function": "latitude",
+    "url": "https://job-boards.greenhouse.io/latitude",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager", "Tech Lead", "Systems", "Technician", "Embedded", "Perception State", "PCIe", "Simulation"]
+  },
+  {
+    "name": "Sony Music Entertainment",
+    "type": "Media",
+    "module": "scraper_functions",
+    "function": "sony_music",
+    "url": "https://job-boards.greenhouse.io/sonymusic?t=330dc3cb2us",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Digital Data Specialist"]
+  },
+  {
+    "name": "NPR",
+    "type": "Media",
+    "module": "scraper_functions",
+    "function": "npr",
+    "url": "https://job-boards.greenhouse.io/nationalpublicradioinc",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Supervisor"]
+  },
+  {
+    "name": "Roblox",
+    "type": "Gaming",
+    "module": "scraper_functions",
+    "function": "roblox",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=roblox",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Scientist", "Director", "Principal", "PhD", "Distinguished", "Data Center", "Manager", "Frontend", "Network", "Security", "Vulnerability", "Privacy", "Safety", "Audiovisual", "Engagement", "VR", "iOS", "Rendering", "Game Engine", "Graphics", "Front End", "Animation", "Game Physics", "QA", "Intern", "Telemetry", "Traffic", "Studio Builder"]
+  },
+  {
+    "name": "Rec Room",
+    "type": "Gaming",
+    "module": "scraper_functions",
+    "function": "recroom",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=recroom",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Scientist", "Gameplay"]
+  },
+  {
+    "name": "Unity",
+    "type": "Gaming",
+    "module": "scraper_functions",
+    "function": "unity",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=unity3d",
+    "location_qualifiers": ["New York", "San Francisco", "Bellevue"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal"]
+  },
+  {
+    "name": "Rockstar Games",
+    "type": "Gaming",
+    "module": "scraper_functions",
+    "function": "rockstar_games",
+    "url": "https://job-boards.greenhouse.io/rockstargames?t=Simplify&offices%5B%5D=4003598003&offices%5B%5D=4003596003&offices%5B%5D=4003597003",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Scientist", "Manager", "Director"]
+  },
+  {
+    "name": "Riot Games",
+    "type": "Gaming",
+    "module": "scraper_functions",
+    "function": "riot_games",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=riotgames",
+    "location_qualifiers": ["Los Angeles", "USA"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Scientist", "Manager", "Director", "Staff", "Principal"]
+  },
+  {
+    "name": "Zynga",
+    "type": "Gaming",
+    "module": "scraper_functions",
+    "function": "zynga",
+    "url": "https://job-boards.greenhouse.io/zyngacareers?offices%5B%5D=4003561004",
+    "location_qualifiers": ["Austin", "Bay Area", "San Mateo", "Carlsbad", "Chicago", "Los Angeles", "New York"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal", "Performance"]
+  },
+  {
+    "name": "Otter",
+    "type": "Food and Drinks",
+    "module": "scraper_functions",
+    "function": "otter",
+    "url": "https://job-boards.greenhouse.io/otter",
+    "location_qualifiers": ["San Francisco", "New York", "Seattle", "Austin", "Mountain View"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Mobile", "Manager", "Staff"]
+  },
+  {
+    "name": "MasterControl",
+    "type": "Consultancies",
+    "module": "scraper_functions",
+    "function": "mastercontrol",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=mastercontrol",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Architect", "Vice President", "Lead"]
+  },
+  {
+    "name": "Equal Experts",
+    "type": "Consultancies",
+    "module": "scraper_functions",
+    "function": "equal_experts",
+    "url": "https://boards.greenhouse.io/equalexperts",
+    "location_qualifiers": ["USA"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Samsung Research",
+    "type": "Manufacturing amd Engineering",
+    "module": "scraper_functions",
+    "function": "samsung_research",
+    "url": "https://boards.greenhouse.io/samsungresearchamerica",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Android", "Staff", "Principal", "Staff", "Imag"]
+  },
+  {
+    "name": "EnergyHub",
+    "type": "Manufacturing amd Engineering",
+    "module": "scraper_functions",
+    "function": "energyhub",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=energyhub",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Front End", "Director", "Support"]
+  },
+  {
+    "name": "Varda Space industries",
+    "type": "Manufacturing amd Engineering",
+    "module": "scraper_functions",
+    "function": "varda_space",
+    "url": "https://job-boards.greenhouse.io/vardaspace",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Intern", "Process", "Manager", "Embedded", "Test", "Avionics", "Mission", "Principal", "Astrodynamics", "Navigation", "RF"]
+  },
+  {
+    "name": "Samsung Semiconductor",
+    "type": "Manufacturing amd Engineering",
+    "module": "scraper_functions",
+    "function": "samsung_semiconductor",
+    "url": "https://job-boards.greenhouse.io/samsungsemiconductor?offices%5B%5D=4010616003&departments%5B%5D=4018205003",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Intern", "Performance", "Manager", "NVMe", "Field"]
+  },
+  {
+    "name": "Qualia",
+    "type": "Real-Estate",
+    "module": "scraper_functions",
+    "function": "qualia",
+    "url": "https://job-boards.greenhouse.io/qualia",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Manager"]
+  },
+  {
+    "name": "City Storage Systems",
+    "type": "Real Estate",
+    "module": "scraper_functions",
+    "function": "city_storage",
+    "url": "https://job-boards.greenhouse.io/citystoragesystems",
+    "location_qualifiers": ["San Francisco", "New York", "Seattle", "San Francisco", "Mountain View", "Austin"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Security", "Scientist", "Manager", "Staff"]
+  },
+  {
+    "name": "Axon",
+    "type": "Defence and Weapons",
+    "module": "scraper_functions",
+    "function": "axon",
+    "url": "https://boards.greenhouse.io/axon",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manufacturing", "Quality", "Hardware", "Manager", "Embedded", "Field", "Support", "Firmware", "Design", "Principal", "Security", "Privacy", "Partner", "Electrical", "Android", "Sales", "Mechanical"]
+  },
+  {
+    "name": "Neuralink",
+    "type": "BioTech",
+    "module": "scraper_functions",
+    "function": "neuralink",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=neuralink",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Field", "Imaging", "Design", "Embedded", "Mechanical", "Electrical", "Firmware", "Test", "Intern", "Systems", "Robotics"]
+  },
+  {
+    "name": "Twist Bioscience",
+    "type": "BioTech",
+    "module": "scraper_functions",
+    "function": "twist_bioscience",
+    "url": "https://job-boards.greenhouse.io/twistbioscience",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "SalesForce"]
   }
-
 ]

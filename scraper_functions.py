@@ -167,3 +167,10 @@ def otterai(board=None):
         job.url = job.url.replace("careers", "job-detail")
     print_jobs(job_list)
     return job_list
+
+def moloco(board=None):
+    job_list = cmn_scraper1(board)
+    for job in job_list:
+        job.url = "https://job-boards.greenhouse.io/moloco/jobs/" + job.id
+    print_jobs(job_list)
+    return job_list
