@@ -1,3 +1,4 @@
+from collections import defaultdict
 from typing import List
 
 from selenium import webdriver
@@ -17,10 +18,23 @@ from classes import Job
 
 ## WebDriver Functions
 driver = None
-
+visited_data = None
 
 # Setup Selenium WebDriver (in headless mode)
 def webscraper_driver_init():
+    global visited_data
+    # Load visited.json
+    visited_filename = "visited.json"
+    try:
+        with open(visited_filename, "r", encoding="utf-8") as f:
+            visited_data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        visited_data = {}  # Fallback to an empty dictionary
+
+    # Ensure visited_data is a defaultdict
+    if not isinstance(visited_data, defaultdict):
+        visited_data = defaultdict(list, visited_data)  # Initialize as empty dictionary if file not found or corrupt
+
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Run in headless mode
 
@@ -50,11 +64,15 @@ def is_valid_title(job_title, title_qualifiers, title_disqualifiers):
             (not any(title_disqualifier.lower() in job_title.lower() for title_disqualifier in title_disqualifiers) if title_disqualifiers else True))
 
 
-def is_valid(job_location, job_title, board):
+def is_id_visited(job_id, company):
+    return job_id in visited_data[company]
+
+def is_valid(job_id, job_location, job_title, board):
     location_qualifiers = board.location_qualifiers
     job_title_qualifiers = board.job_title_qualifiers
     job_title_disqualifiers = board.job_title_disqualifiers
-    return is_valid_location(job_location, location_qualifiers) and is_valid_title(job_title, job_title_qualifiers, job_title_disqualifiers)
+    company_func = board.func
+    return is_valid_location(job_location, location_qualifiers) and is_valid_title(job_title, job_title_qualifiers, job_title_disqualifiers) and not is_id_visited(job_id, company_func)
 
 
 ### Helper Fns
@@ -90,7 +108,7 @@ def cmn_scraper1(board):
             job_title = job_link.text.strip()
             job_location = job_location.text.strip() if job_location else "Not specified"
 
-            if is_valid(job_location, job_title, board):
+            if is_valid(job_id, job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
     caller = inspect.stack()[1]  # Get caller's frame
@@ -120,7 +138,7 @@ def cmn_scraper2(board=None):
             job_title = job_title_elem.get_text(strip=True)
             job_location = job_location_elem.get_text(strip=True) if job_location_elem else "Not specified"
 
-            if is_valid(job_location, job_title, board):
+            if is_valid(job_id, job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
     caller = inspect.stack()[1]  # Get caller's frame
