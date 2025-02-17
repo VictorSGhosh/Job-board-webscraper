@@ -10,7 +10,7 @@ with open("config.json", "r") as f:
 
 # Dictionary to map function names to actual functions
 function_map = {
-    "cerebras": cerebras,       "otterai": otterai,             "moloco": moloco,
+    "cerebras": cerebras,           "otterai": otterai,         "moloco": moloco,               "7-11": seven_eleven,           "nationwide": nationwide,   "gm": gm,
 
     "credit_karma": cmn_scraper1,   "block": cmn_scraper1,      "coinbase": cmn_scraper1,       "robinhood": cmn_scraper1,      "stripe": cmn_scraper1,     "ripple": cmn_scraper1,
     "sofi": cmn_scraper1,           "drw": cmn_scraper1,        "nerdwallet": cmn_scraper1,     "akuna_capital": cmn_scraper1,  "vatic_labs": cmn_scraper1, "hudson_river_trading": cmn_scraper1,
@@ -50,6 +50,34 @@ function_map = {
     "outreach": cmn_scraper5,       "opengov": cmn_scraper5,    "palantir": cmn_scraper5,       "sysdig": cmn_scraper5,         "lamini": cmn_scraper5,     "sonar": cmn_scraper5,
     "savinynt": cmn_scraper5,       "bounteous": cmn_scraper5,  "veeva": cmn_scraper5,          "digital_turbine": cmn_scraper5,"aledade": cmn_scraper5,    "included_health": cmn_scraper5,
     "mercedes": cmn_scraper5,       "zoox": cmn_scraper5,       "egen": cmn_scraper5,           "clear_capital": cmn_scraper5,
+
+    "bank_of_america": cmn_scraper6,"citi": cmn_scraper6,       "wells_fargo": cmn_scraper6,    "us_bank": cmn_scraper6,        "truist": cmn_scraper6,     "pnc": cmn_scraper6,
+    "discover": cmn_scraper6,       "m_n_t": cmn_scraper6,      "state_street": cmn_scraper6,   "53rd": cmn_scraper6,           "barclays": cmn_scraper6,   "nt": cmn_scraper6,
+    "huntington": cmn_scraper6,     "regions": cmn_scraper6,    "td": cmn_scraper6,             "mufg": cmn_scraper6,           "deutsche": cmn_scraper6,   "federal_reserve": cmn_scraper6,
+    "rbc": cmn_scraper6,            "mastercard": cmn_scraper6, "paypal": cmn_scraper6,         "equifax": cmn_scraper6,        "avant": cmn_scraper6,      "transunion": cmn_scraper6,
+    "fiserve": cmn_scraper6,        "remitly": cmn_scraper6,    "fractal": cmn_scraper6,        "q2": cmn_scraper6,             "verily": cmn_scraper6,     "s_n_p": cmn_scraper6,
+    "rocket": cmn_scraper6,         "blackrock": cmn_scraper6,  "arrowstreet": cmn_scraper6,    "vanguard": cmn_scraper6,       "lpl": cmn_scraper6,        "blackstone": cmn_scraper6,
+    "target": cmn_scraper6,         "bjs": cmn_scraper6,        "home_depot": cmn_scraper6,     "dicks": cmn_scraper6,          "meijer": cmn_scraper6,     "qurate": cmn_scraper6,
+    "puma": cmn_scraper6,           "nordstrom": cmn_scraper6,  "kohls": cmn_scraper6,          "walmart": cmn_scraper6,        "expedia": cmn_scraper6,    "ebay": cmn_scraper6,
+    "twitter": cmn_scraper6,        "cloudera": cmn_scraper6,   "yahoo": cmn_scraper6,          "grubhub": cmn_scraper6,        "snapchat": cmn_scraper6,   "zillow": cmn_scraper6,
+    "pluralsight": cmn_scraper6,    "chegg": cmn_scraper6,      "hp": cmn_scraper6,             "hp_enterprise": cmn_scraper6,  "nvidia": cmn_scraper6,     "dell": cmn_scraper6,
+    "asml": cmn_scraper6,           "intel": cmn_scraper6,      "allstate": cmn_scraper6,       "guidewire": cmn_scraper6,      "massmutual": cmn_scraper6, "usaa": cmn_scraper6,
+    "guardian": cmn_scraper6,       "unum": cmn_scraper6,       "fidelity": cmn_scraper6,       "prudential": cmn_scraper6,     "onemain": cmn_scraper6,    "northwestern_mutual": cmn_scraper6,
+    "frost": cmn_scraper6,          "starr": cmn_scraper6,      "radian": cmn_scraper6,         "salesforce": cmn_scraper6,     "adobe": cmn_scraper6,      "alliancebernstein": cmn_scraper6,
+    "autodesk": cmn_scraper6,       "slack": cmn_scraper6,      "quantiphi": cmn_scraper6,      "commvault": cmn_scraper6,      "blueyonder": cmn_scraper6, "alteryx": cmn_scraper6,
+    "cadence": cmn_scraper6,        "trimble": cmn_scraper6,    "workiva": cmn_scraper6,        "zendesk": cmn_scraper6,        "comcast": cmn_scraper6,    "verizon": cmn_scraper6,
+    "tmobile": cmn_scraper6,        "syniverse": cmn_scraper6,  "dentsu": cmn_scraper6,         "davita": cmn_scraper6,         "centene": cmn_scraper6,    "cardinal": cmn_scraper6,
+    "medtronic": cmn_scraper6,      "sanofi": cmn_scraper6,     "bms": cmn_scraper6,            "dexcom": cmn_scraper6,         "amgen": cmn_scraper6,      "gsk": cmn_scraper6,
+    "hermann": cmn_scraper6,        "bcbsa": cmn_scraper6,      "bd": cmn_scraper6,             "vertex": cmn_scraper6,         "merck": cmn_scraper6,      "chg": cmn_scraper6,
+    "cvs": cmn_scraper6,            "oreilly": cmn_scraper6,    "borgwarner": cmn_scraper6,     "sony_pictures": cmn_scraper6,  "draftkings": cmn_scraper6, "thomson_reuters": cmn_scraper6,
+    "pixar": cmn_scraper6,          "pbs": cmn_scraper6,        "wolters_kluwer": cmn_scraper6, "pernod_richard": cmn_scraper6, "ncr": cmn_scraper6,        "synechron": cmn_scraper6,
+    "ntt": cmn_scraper6,            "sonos": cmn_scraper6,      "philips": cmn_scraper6,        "broadcom": cmn_scraper6,       "occ": cmn_scraper6,        "peter_millar": cmn_scraper6,
+    "nxp": cmn_scraper6,            "sysco": cmn_scraper6,      "pennstate": cmn_scraper6,      "utaustin": cmn_scraper6,       "kla": cmn_scraper6,        "thermofisher": cmn_scraper6,
+    "ancestry": cmn_scraper6,
+
+    "samsung": cmn_scraper7,        "redhat": cmn_scraper7,     "travellers": cmn_scraper7,     "workday": cmn_scraper7,        "at_n_t": cmn_scraper7,     "jll": cmn_scraper7,
+
+    "f5": cmn_scraper8,             "sony": cmn_scraper8,
 }
 
 if __name__ == "__main__":
