@@ -1,3 +1,4 @@
+import urllib
 from collections import defaultdict
 
 from typing import List
@@ -16,6 +17,7 @@ from urllib.parse import urlparse, parse_qs, ParseResult, urlunparse, urljoin
 import time
 import json
 import inspect
+import re
 
 from classes import Job
 
@@ -295,13 +297,13 @@ def cmn_scraper5(board):
 
 def cmn_scraper6(board):
     webscraper_driver_get(board.url)
-    wait = WebDriverWait(driver, 10)
+    time.sleep(1)
+    wait = WebDriverWait(driver, 5)
 
     jobs_list = []
     company = board.company
-    pages = 20
 
-    while pages > 0:
+    while True:
         soup = BeautifulSoup(driver.page_source, "html.parser")
 
         # Find all job listings
@@ -332,7 +334,6 @@ def cmn_scraper6(board):
         except:
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
-        pages -= 1
 
     caller = inspect.stack()[1]  # Get caller's frame
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
@@ -342,7 +343,7 @@ def cmn_scraper6(board):
 
 def cmn_scraper7(board):
     webscraper_driver_get(board.url)
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 5)
 
     jobs_list = []
     company = board.company
@@ -390,7 +391,7 @@ def cmn_scraper7(board):
 
 def cmn_scraper8(board):
     webscraper_driver_get(board.url)
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 5)
 
     jobs_list = []
     company = board.company
@@ -434,30 +435,200 @@ def cmn_scraper8(board):
     return jobs_list
 
 
+def scroll_to_load_jobs():
+    last_height = driver.execute_script("return document.body.scrollHeight")
+    while True:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(1)  # Allow time for jobs to load
+
+        new_height = driver.execute_script("return document.body.scrollHeight")
+        if new_height == last_height:  # If the height doesn't change, stop scrolling
+            print("Reached the end of the page.")
+            break
+        last_height = new_height       # No button available, continue scrolling
+
+
+def click_button_to_show_more_jobs():
+    wait = WebDriverWait(driver, 5)
+    while True:
+        # Get the page source after it's fully loaded
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+
+        # Find all "Show more jobs" buttons using BeautifulSoup
+        show_more_btns = soup.find_all("a", class_="js-more")
+
+        if not show_more_btns:  # If no buttons are found, break out of the loop
+            print("No more jobs to load.")
+            break
+
+        # Loop through all found buttons
+        for show_more_btn in show_more_btns:
+            try:
+                # Find the button element using Selenium
+                button = driver.find_element(By.CSS_SELECTOR, f"a.js-more[href='{show_more_btn['href']}']")
+
+                # Wait for the button to be clickable
+                wait.until(EC.element_to_be_clickable(button))
+                driver.execute_script("arguments[0].scrollIntoView();", button)  # Scroll to button
+                driver.execute_script("window.scrollBy(0, -300);")  # Scroll a bit further down
+                time.sleep(1)  # Wait for the button to be fully in view
+                print("Clicking on \"Show More Jobs\" Button...")
+                button.click()  # Click the button
+
+            except Exception as e:
+                print(f"Error or button not clickable: {e}")
+                break  # Exit loop if an error occurs or no buttons are found
+
+
+def cmn_scraper9(board=None):
+    webscraper_driver_get(board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
+    scroll_to_load_jobs()
+    click_button_to_show_more_jobs()
+
+    # Parse the page after all jobs are loaded
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    job_posts = soup.find_all("li", class_="opening-job")
+
+    for job in job_posts:
+        job_link_elem = job.find("a", class_="link--block details")
+        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
+        job_location_elem = job.find_previous("h3", class_="opening-title")
+
+        if job_link_elem and job_title_elem:
+            job_url = job_link_elem["href"]
+            job_title = job_title_elem.text.strip()
+            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
+            job_id = (job_url.split("/")[-1]).split("-")[0]
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    return jobs_list
+
+
+def cmn_scraper10(board=None):
+    webscraper_driver_get(board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
+    scroll_to_load_jobs()
+
+    # Parse the page after all jobs are loaded
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    job_posts = soup.find_all("li", class_="opening-job")
+
+    for job in job_posts:
+        job_link_elem = job.find("a", class_="link--block details")
+        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
+        job_location_elem = job.find("li", class_="job-desc")
+
+        if job_link_elem and job_title_elem:
+            job_url = job_link_elem["href"]
+            job_title = job_title_elem.text.strip()
+            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
+            job_id = (job_url.split("/")[-1]).split("-")[0]
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    return jobs_list
+
+
+def click_show_more():
+    """Finds and clicks the 'Show More Results' button until it's no longer available."""
+    wait = WebDriverWait(driver, 10)
+    while True:
+        try:
+            # Find the button
+            show_more_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[span[contains(text(), 'Show More Results')]]")))
+            show_more_button.click()
+            print("Clicked 'Show More Results' button.")
+            time.sleep(1)
+
+        except Exception:
+            print("No more 'Show More Results' button found.")
+            break
+
+def cmn_scraper11(board=None):
+    webscraper_driver_get(board.url)
+    time.sleep(2)
+
+    jobs_list = []
+    company = board.company
+
+    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
+    scroll_to_load_jobs()
+    click_show_more()
+
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    job_posts = soup.find_all("div", class_="job-tile job-grid-item search-results job-grid-item--all-actions-visible")
+
+    for job_tile in job_posts:
+        job_id = job_tile.find("div", class_="job-grid-item__link")["id"] if job_tile.find("div", class_="job-grid-item__link") else None
+        job_title = job_tile.find("span", class_="job-tile__title").text.strip() if job_tile.find("span", class_="job-tile__title") else None
+        job_url = job_tile.find("a", class_="job-grid-item__link")["href"] if job_tile.find("a", class_="job-grid-item__link") else None
+        job_location = job_tile.find("span", attrs={"data-bind": "html: primaryLocation"}).text.strip() if job_tile.find("span", attrs={"data-bind": "html: primaryLocation"}) else None
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    return jobs_list
+
+
+def cmn_scraper12(board=None):
+    webscraper_driver_get(board.url)
+    time.sleep(2)
+
+    jobs_list = []
+    company = board.company
+
+    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
+    scroll_to_load_jobs()
+    click_show_more()
+
+    jobs = driver.find_elements(By.CLASS_NAME, "search-results.job-tile.job-list-item")
+    for job in jobs:
+        try:
+
+            job_title = job.find_element(By.CLASS_NAME, "job-tile__title").text  # Extract job title
+            job_url = job.find_element(By.CLASS_NAME, "job-list-item__link").get_attribute("href")  # Extract job URL
+            job_id = re.search(r'/job/(\d+)/', job_url).group(1)
+            job_location = job.find_element(By.CLASS_NAME, "job-list-item__job-info-value").text  # Extract location
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        except Exception:
+            continue  # Skip if any field is missing
+
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    return jobs_list
+
+
 # Specific Webscraper Functions
-# def monzo(board):
-#     # Step 4: Execute JavaScript to access window.__remixContext
-#     remix_context = driver.execute_script("return window.__remixContext;")
-#
-#     company = board.company
-#     job_list = []
-#     if remix_context:
-#         job_openings = remix_context['state']['loaderData']["routes/$url_token"]['jobPosts']['data']
-#
-#         for job in job_openings:
-#             job_obj = Job(
-#                 company=company, job_id=job['id'], title=job['title'],
-#                 location=job['location'], url=job['absolute_url'],
-#                 content=job.get('content', "No description available"),
-#                 published_at=job.get('published_at', "Not specified")
-#             )
-#             job_list.append(job_obj)
-#     else:
-#         print("window.__remixContext not found in monzo")
-#     print_jobs(job_list)
-#     return job_list
-
-
 def cerebras(board=None):
     job_list = cmn_scraper1(board)
     for job in job_list:
@@ -613,6 +784,74 @@ def gm(board=None):
 
     caller = inspect.stack()[1]  # Get caller's frame
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    return jobs_list
+
+
+def arista(board=None):
+    webscraper_driver_get(board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
+    scroll_to_load_jobs()
+
+    # Parse the page after all jobs are loaded
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    job_posts = soup.find_all("li", class_="opening-job")
+
+    for job in job_posts:
+        job_link_elem = job.find("a", class_="link--block details")
+        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
+        job_location_elem_list = job.find_all("li", class_="job-desc")
+
+        if job_link_elem and job_title_elem:
+            job_url = job_link_elem["href"]
+            job_title = job_title_elem.text.strip()
+            job_location = job_location_elem_list[1].text.strip() if job_location_elem_list and len(job_location_elem_list) > 1 else "Not specified"
+            job_id = (job_url.split("/")[-1]).split("-")[0]
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    return jobs_list
+
+def palo_alto(board=None):
+    webscraper_driver_get(board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
+    scroll_to_load_jobs()
+    click_button_to_show_more_jobs()
+
+    # Parse the page after all jobs are loaded
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    job_posts = soup.find_all("li", class_="opening-job")
+
+    for job in job_posts:
+        job_link_elem = job.find("a", class_="link--block details")
+        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
+        job_location_elem = job.find("p", class_="job-desc")
+
+        if job_link_elem and job_title_elem:
+            job_url = job_link_elem["href"]
+            job_title = job_title_elem.text.strip()
+            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
+            job_id = (job_url.split("/")[-1]).split("-")[0]
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
     return jobs_list

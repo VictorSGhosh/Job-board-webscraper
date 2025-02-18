@@ -11,6 +11,7 @@ with open("config.json", "r") as f:
 # Dictionary to map function names to actual functions
 function_map = {
     "cerebras": cerebras,           "otterai": otterai,         "moloco": moloco,               "7-11": seven_eleven,           "nationwide": nationwide,   "gm": gm,
+    "arista": arista,               "palo_alto": palo_alto,
 
     "credit_karma": cmn_scraper1,   "block": cmn_scraper1,      "coinbase": cmn_scraper1,       "robinhood": cmn_scraper1,      "stripe": cmn_scraper1,     "ripple": cmn_scraper1,
     "sofi": cmn_scraper1,           "drw": cmn_scraper1,        "nerdwallet": cmn_scraper1,     "akuna_capital": cmn_scraper1,  "vatic_labs": cmn_scraper1, "hudson_river_trading": cmn_scraper1,
@@ -73,11 +74,21 @@ function_map = {
     "pixar": cmn_scraper6,          "pbs": cmn_scraper6,        "wolters_kluwer": cmn_scraper6, "pernod_richard": cmn_scraper6, "ncr": cmn_scraper6,        "synechron": cmn_scraper6,
     "ntt": cmn_scraper6,            "sonos": cmn_scraper6,      "philips": cmn_scraper6,        "broadcom": cmn_scraper6,       "occ": cmn_scraper6,        "peter_millar": cmn_scraper6,
     "nxp": cmn_scraper6,            "sysco": cmn_scraper6,      "pennstate": cmn_scraper6,      "utaustin": cmn_scraper6,       "kla": cmn_scraper6,        "thermofisher": cmn_scraper6,
-    "ancestry": cmn_scraper6,
+    "ancestry": cmn_scraper6,       "morgan_stanley": cmn_scraper6,
 
     "samsung": cmn_scraper7,        "redhat": cmn_scraper7,     "travellers": cmn_scraper7,     "workday": cmn_scraper7,        "at_n_t": cmn_scraper7,     "jll": cmn_scraper7,
 
     "f5": cmn_scraper8,             "sony": cmn_scraper8,
+
+    "walmart2": cmn_scraper9,       "servicenow": cmn_scraper9, "visa": cmn_scraper9,           "experian": cmn_scraper9,       "intuitive": cmn_scraper9,  "western_digital": cmn_scraper9,
+    "nbc": cmn_scraper9,            "balsam": cmn_scraper9,
+
+    "abbvie": cmn_scraper10,        "pa": cmn_scraper10,
+
+    "jpmc": cmn_scraper11,          "bny": cmn_scraper11,       "fortinet": cmn_scraper11,      "oracle": cmn_scraper11,
+
+    "citizen": cmn_scraper12,        "macys": cmn_scraper12,    "pearson": cmn_scraper12,       "nokia": cmn_scraper12,         "ford": cmn_scraper12,      "mount_sinai": cmn_scraper12,
+    "goldman_sachs": cmn_scraper12,  "fanatics": cmn_scraper12, "hackett": cmn_scraper12,       "perficient": cmn_scraper12,    "cummins": cmn_scraper12,   "jefferies": cmn_scraper12,
 }
 
 if __name__ == "__main__":
@@ -122,7 +133,6 @@ if __name__ == "__main__":
     # Iterate through each job source
     for source in job_sources:
         func_name = source["function"]
-
 
         # Check if the function exists in the mapping
         if func_name in function_map:
