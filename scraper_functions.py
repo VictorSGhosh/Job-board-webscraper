@@ -555,7 +555,7 @@ def click_show_more():
     while True:
         try:
             # Find the button
-            show_more_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[span[contains(text(), 'Show More Results')]]")))
+            show_more_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[span[contains(text(), 'Show More Results')]] | //button[contains(text(), 'Show more')]")))
             show_more_button.click()
             print("Clicked 'Show More Results' button.")
             time.sleep(1)
@@ -564,17 +564,10 @@ def click_show_more():
             print("No more 'Show More Results' button found.")
             break
 
-def cmn_scraper11(board=None):
-    webscraper_driver_get(board.url)
-    time.sleep(2)
 
+def grid_style_job_posts(board=None):
     jobs_list = []
     company = board.company
-
-    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs()
-    click_show_more()
-
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     job_posts = soup.find_all("div", class_="job-tile job-grid-item search-results job-grid-item--all-actions-visible")
 
@@ -586,6 +579,37 @@ def cmn_scraper11(board=None):
 
         if is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+    return jobs_list
+
+def list_style_job_posts(board=None):
+    jobs_list = []
+    company = board.company
+
+    job_posts = driver.find_elements(By.CLASS_NAME, "search-results.job-tile.job-list-item")
+    for job in job_posts:
+        try:
+            job_title = job.find_element(By.CLASS_NAME, "job-tile__title").text  # Extract job title
+            job_url = job.find_element(By.CLASS_NAME, "job-list-item__link").get_attribute("href")  # Extract job URL
+            job_id = re.search(r'/job/(\d+)/', job_url).group(1)
+            job_location = job.find_element(By.CLASS_NAME, "job-list-item__job-info-value").text  # Extract location
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+        except Exception:
+            continue  # Skip if any field is missing
+    return jobs_list
+
+def cmn_scraper11(board=None):
+    webscraper_driver_get(board.url)
+    time.sleep(2)
+
+    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
+    scroll_to_load_jobs()
+    click_show_more()
+
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    job_posts = soup.find_all("div", class_="job-tile job-grid-item search-results job-grid-item--all-actions-visible")
+    jobs_list = grid_style_job_posts(board) if job_posts else list_style_job_posts(board)
 
     caller = inspect.stack()[1]
     caller_module = inspect.getmodule(caller[0])
@@ -594,32 +618,54 @@ def cmn_scraper11(board=None):
     return jobs_list
 
 
+def handle_cookie_popup():
+    wait = WebDriverWait(driver, 5)
+    # Handle cookie popup if present
+    try:
+        cookie_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Decline') or contains(text(), 'Disagree')]")))
+        cookie_button.click()
+        print("Declined cookies.")
+        time.sleep(1)  # Wait a bit for changes to apply
+    except Exception:
+        print("No cookie popup found or already declined.")
+
+
 def cmn_scraper12(board=None):
     webscraper_driver_get(board.url)
-    time.sleep(2)
 
     jobs_list = []
     company = board.company
 
     # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs()
+    handle_cookie_popup()
     click_show_more()
 
-    jobs = driver.find_elements(By.CLASS_NAME, "search-results.job-tile.job-list-item")
-    for job in jobs:
-        try:
+    soup = BeautifulSoup(driver.page_source, "html.parser")
 
-            job_title = job.find_element(By.CLASS_NAME, "job-tile__title").text  # Extract job title
-            job_url = job.find_element(By.CLASS_NAME, "job-list-item__link").get_attribute("href")  # Extract job URL
-            job_id = re.search(r'/job/(\d+)/', job_url).group(1)
-            job_location = job.find_element(By.CLASS_NAME, "job-list-item__job-info-value").text  # Extract location
+    # Find all job elements
+    job_posts = soup.find_all("li", {"role": "listitem"})
+    for job in job_posts:
+        # Extract job ID from the <a> tag's href attribute
+        if not (job_link := job.find("a")):
+            continue
 
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+        job_href = job_link["href"]
+        job_id = job_href.split("/")[-2]  # Extract job ID from URL
 
-        except Exception:
-            continue  # Skip if any field is missing
+        # Extract job title
+        job_title_element = job.find("h3", attrs={"data-id": "job-item"}) or job.find("h3", attrs={"data-ui": "job-title"})
+        job_title = job_title_element.text.strip() if job_title_element else "N/A"
 
+        # Extract job URL
+        job_url = urljoin(board.url, job_href)
+
+        # Extract job location(s)
+        location_elements = job.find_all("div", {"data-ui": "job-location-tooltip"})
+        locations = [" ".join([span.text.strip() for span in loc.find_all("span", attrs={"class": "styles--2TdGW"})]) for loc in location_elements]
+        job_location = "; ".join(locations)
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
     caller = inspect.stack()[1]
     caller_module = inspect.getmodule(caller[0])
@@ -656,9 +702,8 @@ def seven_eleven(board):
 
     jobs_list = []
     company = board.company
-    pages = 20
 
-    while pages > 0:
+    while True:
         soup = BeautifulSoup(driver.page_source, "html.parser")
 
         # Find all job listings
@@ -687,7 +732,6 @@ def seven_eleven(board):
         except:
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
-        pages -= 1
 
     caller = inspect.stack()[1]  # Get caller's frame
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
@@ -701,9 +745,8 @@ def nationwide(board):
 
     jobs_list = []
     company = board.company
-    pages = 20
 
-    while pages > 0:
+    while True:
         soup = BeautifulSoup(driver.page_source, "html.parser")
 
         # Find all job listings
@@ -732,7 +775,6 @@ def nationwide(board):
         except:
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
-        pages -= 1
 
     caller = inspect.stack()[1]  # Get caller's frame
     caller_module = inspect.getmodule(caller[0])  # Get caller's module

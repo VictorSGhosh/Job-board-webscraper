@@ -85,10 +85,12 @@ function_map = {
 
     "abbvie": cmn_scraper10,        "pa": cmn_scraper10,
 
-    "jpmc": cmn_scraper11,          "bny": cmn_scraper11,       "fortinet": cmn_scraper11,      "oracle": cmn_scraper11,
+    "jpmc": cmn_scraper11,          "bny": cmn_scraper11,       "fortinet": cmn_scraper11,      "oracle": cmn_scraper11,       "citizen": cmn_scraper11,    "macys": cmn_scraper11,
+    "pearson": cmn_scraper11,       "nokia": cmn_scraper11,     "ford": cmn_scraper11,          "mount_sinai": cmn_scraper11,  "fanatics": cmn_scraper11,   "goldman_sachs": cmn_scraper11,
+    "hackett": cmn_scraper11,       "cummins": cmn_scraper11,   "jefferies": cmn_scraper11,     "perficient": cmn_scraper11,
 
-    "citizen": cmn_scraper12,        "macys": cmn_scraper12,    "pearson": cmn_scraper12,       "nokia": cmn_scraper12,         "ford": cmn_scraper12,      "mount_sinai": cmn_scraper12,
-    "goldman_sachs": cmn_scraper12,  "fanatics": cmn_scraper12, "hackett": cmn_scraper12,       "perficient": cmn_scraper12,    "cummins": cmn_scraper12,   "jefferies": cmn_scraper12,
+    "tplink": cmn_scraper12,        "mindex": cmn_scraper12,    "therapynotes": cmn_scraper12,  "prepass": cmn_scraper12,      "datavisor": cmn_scraper12,  "tiger_analytics": cmn_scraper12,
+    "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,
 }
 
 if __name__ == "__main__":
