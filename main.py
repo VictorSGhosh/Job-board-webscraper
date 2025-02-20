@@ -85,12 +85,17 @@ function_map = {
 
     "abbvie": cmn_scraper10,        "pa": cmn_scraper10,
 
-    "jpmc": cmn_scraper11,          "bny": cmn_scraper11,       "fortinet": cmn_scraper11,      "oracle": cmn_scraper11,       "citizen": cmn_scraper11,    "macys": cmn_scraper11,
-    "pearson": cmn_scraper11,       "nokia": cmn_scraper11,     "ford": cmn_scraper11,          "mount_sinai": cmn_scraper11,  "fanatics": cmn_scraper11,   "goldman_sachs": cmn_scraper11,
+    "jpmc": cmn_scraper11,          "bny": cmn_scraper11,       "fortinet": cmn_scraper11,      "oracle": cmn_scraper11,        "citizen": cmn_scraper11,   "macys": cmn_scraper11,
+    "pearson": cmn_scraper11,       "nokia": cmn_scraper11,     "ford": cmn_scraper11,          "mount_sinai": cmn_scraper11,   "fanatics": cmn_scraper11,  "goldman_sachs": cmn_scraper11,
     "hackett": cmn_scraper11,       "cummins": cmn_scraper11,   "jefferies": cmn_scraper11,     "perficient": cmn_scraper11,
 
-    "tplink": cmn_scraper12,        "mindex": cmn_scraper12,    "therapynotes": cmn_scraper12,  "prepass": cmn_scraper12,      "datavisor": cmn_scraper12,  "tiger_analytics": cmn_scraper12,
+    "tplink": cmn_scraper12,        "mindex": cmn_scraper12,    "therapynotes": cmn_scraper12,  "prepass": cmn_scraper12,       "datavisor": cmn_scraper12, "tiger_analytics": cmn_scraper12,
     "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,
+
+    "github": cmn_scraper13,        "statefarm": cmn_scraper13, "constellation": cmn_scraper13, "gallagher": cmn_scraper13,     "sirius": cmn_scraper13,    "dollar_general": cmn_scraper13,
+
+    "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "sas": cmn_scraper14,           "lord_abbett": cmn_scraper14,"liberty_mutual": cmn_scraper14,
+    "charles_schwab": cmn_scraper14,
 }
 
 if __name__ == "__main__":
@@ -136,15 +141,18 @@ if __name__ == "__main__":
     for source in job_sources:
         func_name = source["function"]
 
-        # Check if the function exists in the mapping
-        if func_name in function_map:
-            print(f"Scraping jobs from {source['name']}...")
-            board = Board(company=source["name"], func=func_name, url=source["url"], location_qualifiers=source['location_qualifiers'], job_title_qualifiers=source['job_qualifiers'], job_title_disqualifiers=source['job_disqualifiers'])
-            jobs = function_map[func_name](board)  # Call the function dynamically
-            all_jobs.extend(jobs)
-            filed_data[source["function"]].extend([job.id for job in jobs])
-        else:
-            print(f"Skipping {source['name']} - Function '{func_name}' not found.")
+        try:
+            # Check if the function exists in the mapping
+            if func_name in function_map:
+                print(f"Scraping jobs from {source['name']}...")
+                board = Board(company=source["name"], func=func_name, url=source["url"], location_qualifiers=source['location_qualifiers'], job_title_qualifiers=source['job_qualifiers'], job_title_disqualifiers=source['job_disqualifiers'])
+                jobs = function_map[func_name](board)  # Call the function dynamically
+                all_jobs.extend(jobs)
+                filed_data[source["function"]].extend([job.id for job in jobs])
+            else:
+                print(f"Skipping {source['name']} - Function '{func_name}' not found.")
+        except Exception as e:
+            print(f"Exception while scraping jobs from {source['name']}: {e}")
 
     # Save to CSV
     csv_filename = "job_listings.csv"

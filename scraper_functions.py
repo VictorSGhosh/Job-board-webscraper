@@ -3,6 +3,7 @@ from collections import defaultdict
 
 from typing import List
 
+import requests
 from selenium import webdriver
 from selenium.common import NoSuchElementException, ElementClickInterceptedException
 from selenium.webdriver.chrome.service import Service
@@ -666,6 +667,84 @@ def cmn_scraper12(board=None):
 
         if is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    return jobs_list
+
+
+def cmn_scraper13(board=None):
+    webscraper_driver_get(board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Parse the page after all jobs are loaded
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    # Extract job details
+    job_posts = soup.find_all("mat-expansion-panel", class_="search-result-item")
+
+    for job in job_posts:
+        # Job Title
+        title_tag = job.find("span", itemprop="title")
+        job_title = title_tag.text.strip() if title_tag else "N/A"
+
+        # Job ID (Extracted from the URL)
+        job_link = job.find("a", class_="job-title-link")
+        job_url = urljoin(board.url, job_link["href"]) if job_link else "N/A"
+        job_id = job_link["href"].split("/")[-1].split("?")[0] if job_link else "N/A"
+
+        # Job Location
+        location_tag = job.find("span", class_="label-value location")
+        job_location = location_tag.text.strip() if location_tag else "N/A"
+        job_location = job_location.replace("\n", ", ")
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    return jobs_list
+
+
+def cmn_scraper14(board=None):
+    jobs_list = []
+    company = board.company
+
+    headers = {"User-Agent": "Mozilla/5.0"}  # Some sites block non-browser requests
+    response = requests.get(board.url, headers=headers)
+
+    # Step 3: Check if the request was successful
+    if response.status_code == 200:
+        # Step 4: Parse the HTML content of the iframe page
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        # Step 5: Find all job listings inside the iframe
+        job_entries = soup.find_all("div", class_="row")  # Adjust based on actual structure
+
+        jobs = []
+
+        for job in job_entries:
+            # Extract job title
+            job_title_element = job.find("h3")
+            job_title = job_title_element.text.strip() if job_title_element else "N/A"
+
+            # Extract job URL
+            job_link = job.find("a", class_="iCIMS_Anchor")
+            job_url = job_link["href"] if job_link else "N/A"
+
+            # Extract job ID from the URL
+            job_id = job_url.split("/")[-3] if job_url != "N/A" else "N/A"
+
+            # Extract job location
+            location_element = job.find("span", string="Job Locations")
+
+            job_location = location_element.find_next_sibling("span").text.strip() if location_element else ", ".join([span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
     caller = inspect.stack()[1]
     caller_module = inspect.getmodule(caller[0])
