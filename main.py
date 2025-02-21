@@ -74,7 +74,8 @@ function_map = {
     "pixar": cmn_scraper6,          "pbs": cmn_scraper6,        "wolters_kluwer": cmn_scraper6, "pernod_richard": cmn_scraper6, "ncr": cmn_scraper6,        "synechron": cmn_scraper6,
     "ntt": cmn_scraper6,            "sonos": cmn_scraper6,      "philips": cmn_scraper6,        "broadcom": cmn_scraper6,       "occ": cmn_scraper6,        "peter_millar": cmn_scraper6,
     "nxp": cmn_scraper6,            "sysco": cmn_scraper6,      "pennstate": cmn_scraper6,      "utaustin": cmn_scraper6,       "kla": cmn_scraper6,        "thermofisher": cmn_scraper6,
-    "ancestry": cmn_scraper6,       "morgan_stanley": cmn_scraper6,
+    "ancestry": cmn_scraper6,       "circlek": cmn_scraper6,    "relx": cmn_scraper6,           "resmed": cmn_scraper6,         "broadridge": cmn_scraper6, "motorola": cmn_scraper6,
+    "warner_bros": cmn_scraper6,    "morgan_stanley": cmn_scraper6,
 
     "samsung": cmn_scraper7,        "redhat": cmn_scraper7,     "travellers": cmn_scraper7,     "workday": cmn_scraper7,        "at_n_t": cmn_scraper7,     "jll": cmn_scraper7,
 
@@ -93,6 +94,7 @@ function_map = {
     "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,
 
     "github": cmn_scraper13,        "statefarm": cmn_scraper13, "constellation": cmn_scraper13, "gallagher": cmn_scraper13,     "sirius": cmn_scraper13,    "dollar_general": cmn_scraper13,
+    "principal": cmn_scraper13,     "rivian": cmn_scraper13,
 
     "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "sas": cmn_scraper14,           "lord_abbett": cmn_scraper14,"liberty_mutual": cmn_scraper14,
     "charles_schwab": cmn_scraper14,

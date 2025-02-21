@@ -743,7 +743,7 @@ def cmn_scraper14(board=None):
             location_element = job.find("span", string="Job Locations")
 
             job_location = location_element.find_next_sibling("span").text.strip() if location_element else ", ".join([span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
-            if is_valid(job_id, job_location, job_title, board):
+            if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
     caller = inspect.stack()[1]
