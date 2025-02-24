@@ -321,7 +321,7 @@ def cmn_scraper6(board):
                 job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
                 job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
 
-                if is_valid(job_id, job_location, job_title, board):
+                if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
         # Try to click the "Next" button if it exists
@@ -725,8 +725,6 @@ def cmn_scraper14(board=None):
         # Step 5: Find all job listings inside the iframe
         job_entries = soup.find_all("div", class_="row")  # Adjust based on actual structure
 
-        jobs = []
-
         for job in job_entries:
             # Extract job title
             job_title_element = job.find("h3")
@@ -743,7 +741,7 @@ def cmn_scraper14(board=None):
             location_element = job.find("span", string="Job Locations")
 
             job_location = location_element.find_next_sibling("span").text.strip() if location_element else ", ".join([span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
-            if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
+            if is_valid(job_id, job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
     caller = inspect.stack()[1]
