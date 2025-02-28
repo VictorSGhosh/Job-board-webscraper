@@ -3,6 +3,7 @@ import os
 
 from classes import *
 from scraper_functions import *  # Importing functions dynamically
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Load the JSON config file
 with open("config.json", "r") as f:
@@ -28,7 +29,8 @@ function_map = {
     "waymo": cmn_scraper1,          "recroom": cmn_scraper1,    "unity": cmn_scraper1,          "roblox": cmn_scraper1,         "riot_games": cmn_scraper1, "mastercontrol": cmn_scraper1,
     "equal_experts": cmn_scraper1,  "energyhub": cmn_scraper1,  "axon": cmn_scraper1,           "neuralink": cmn_scraper1,      "nuro": cmn_scraper1,       "samsung_research": cmn_scraper1,
     "cloudflare": cmn_scraper1,     "bitgo": cmn_scraper1,      "okta": cmn_scraper1,           "anthropic": cmn_scraper1,      "brex": cmn_scraper1,       "upstart": cmn_scraper1,
-    "ixl": cmn_scraper1,            "tower_research": cmn_scraper1,
+    "ixl": cmn_scraper1,            "zuora": cmn_scraper1,      "tempus": cmn_scraper1,         "inovalon": cmn_scraper1,       "godaddy": cmn_scraper1,    "magicleap": cmn_scraper1,
+    "tower_research": cmn_scraper1,
 
     "point72": cmn_scraper2,        "spotter": cmn_scraper2,    "human_interest": cmn_scraper2, "carta": cmn_scraper2,          "propel": cmn_scraper2,     "arcesium": cmn_scraper2,
     "bolt": cmn_scraper2,           "aquatic": cmn_scraper2,    "engineers_gate": cmn_scraper2, "sentilink": cmn_scraper2,      "semgrep": cmn_scraper2,    "okx": cmn_scraper2,
@@ -41,7 +43,7 @@ function_map = {
     "zynga": cmn_scraper2,          "otter": cmn_scraper2,      "varda_space": cmn_scraper2,    "city_storage": cmn_scraper2,   "dialpad": cmn_scraper2,    "samsung_semiconductor": cmn_scraper2,
     "tripadvisor": cmn_scraper2,    "monzo": cmn_scraper2,      "postman": cmn_scraper2,        "oportun": cmn_scraper2,        "adyen": cmn_scraper2,      "stubhub": cmn_scraper2,
     "reddit": cmn_scraper2,         "affirm": cmn_scraper2,     "scaleai": cmn_scraper2,        "lucid_motors": cmn_scraper2,   "ipg": cmn_scraper2,        "playstation": cmn_scraper2,
-    "cloudkitchen": cmn_scraper2,   "niantic": cmn_scraper2,
+    "cloudkitchen": cmn_scraper2,   "niantic": cmn_scraper2,    "natera": cmn_scraper2,         "bridgewater": cmn_scraper2,    "airbyte": cmn_scraper2,    "appian": cmn_scraper2,
 
     "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,
 
@@ -49,10 +51,10 @@ function_map = {
 
     "plaid": cmn_scraper5,          "wolverine": cmn_scraper5,  "point": cmn_scraper5,          "lendbuzz": cmn_scraper5,       "protective": cmn_scraper5, "prosper": cmn_scraper5,
     "wealthfront": cmn_scraper5,    "spotify": cmn_scraper5,    "quizlet": cmn_scraper5,        "houzz": cmn_scraper5,          "pipedrive": cmn_scraper5,  "dun_n_bradstreet": cmn_scraper5,
-    "outreach": cmn_scraper5,       "opengov": cmn_scraper5,    "palantir": cmn_scraper5,       "sysdig": cmn_scraper5,         "lamini": cmn_scraper5,     "sonar": cmn_scraper5,
-    "savinynt": cmn_scraper5,       "bounteous": cmn_scraper5,  "veeva": cmn_scraper5,          "digital_turbine": cmn_scraper5,"aledade": cmn_scraper5,    "included_health": cmn_scraper5,
+    "outreach": cmn_scraper5,       "opengov": cmn_scraper5,    "palantir": cmn_scraper5,       "sysdig": cmn_scraper5,         "lamini": cmn_scraper5,     "digital_turbine": cmn_scraper5,
+    "savinynt": cmn_scraper5,       "bounteous": cmn_scraper5,  "veeva": cmn_scraper5,          "sonar": cmn_scraper5,          "aledade": cmn_scraper5,    "included_health": cmn_scraper5,
     "mercedes": cmn_scraper5,       "zoox": cmn_scraper5,       "egen": cmn_scraper5,           "kodiak": cmn_scraper5,         "match": cmn_scraper5,      "bitwise": cmn_scraper5,
-    "regrello": cmn_scraper5,       "clear_capital": cmn_scraper5,
+    "regrello": cmn_scraper5,       "penumbra": cmn_scraper5,   "coupa": cmn_scraper5,          "clear_capital": cmn_scraper5,
 
     "bank_of_america": cmn_scraper6,"citi": cmn_scraper6,       "wells_fargo": cmn_scraper6,    "us_bank": cmn_scraper6,        "truist": cmn_scraper6,     "pnc": cmn_scraper6,
     "discover": cmn_scraper6,       "m_n_t": cmn_scraper6,      "state_street": cmn_scraper6,   "53rd": cmn_scraper6,           "barclays": cmn_scraper6,   "nt": cmn_scraper6,
@@ -97,7 +99,7 @@ function_map = {
     "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,
 
     "github": cmn_scraper13,        "statefarm": cmn_scraper13, "constellation": cmn_scraper13, "gallagher": cmn_scraper13,     "sirius": cmn_scraper13,    "dollar_general": cmn_scraper13,
-    "principal": cmn_scraper13,     "rivian": cmn_scraper13,
+    "principal": cmn_scraper13,     "rivian": cmn_scraper13,    "amd": cmn_scraper13,           "booking": cmn_scraper13,
 
     "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "sas": cmn_scraper14,           "lord_abbett": cmn_scraper14,"liberty_mutual": cmn_scraper14,
     "charles_schwab": cmn_scraper14,
@@ -137,12 +139,44 @@ if __name__ == "__main__":
 
     print(f"Merged job IDs into {visited_filename}.")
 
-    webscraper_driver_init()
+    init()
 
     # List to accumulate job data
     all_jobs = []
     filed_data = defaultdict(list)  # Dictionary to store company-wise job IDs
-    # Iterate through each job source
+
+    # Multi-Threaded Scraping
+    # def scrape_source(source):
+    #     """ Function to scrape a single source """
+    #     func_name = source["function"]
+    #     try:
+    #         if func_name in function_map:
+    #             print(f"Scraping jobs from {source['name']}...")
+    #             board = Board(
+    #                 company=source["name"], func=func_name, url=source["url"],
+    #                 location_qualifiers=source['location_qualifiers'],
+    #                 job_title_qualifiers=source['job_qualifiers'],
+    #                 job_title_disqualifiers=source['job_disqualifiers']
+    #             )
+    #             jobs = function_map[func_name](board)  # Call the function dynamically
+    #             return source["name"], jobs  # Return the company name and jobs
+    #         else:
+    #             print(f"Skipping {source['name']} - Function '{func_name}' not found.")
+    #     except Exception as e:
+    #         print(f"Exception while scraping jobs from {source['name']}: {e}")
+    #     return source["name"], []  # Return empty if an error occurs
+    #
+    # # Use ThreadPoolExecutor to scrape in parallel
+    # with ThreadPoolExecutor(max_workers=10) as executor:  # Adjust max_workers as needed
+    #     future_to_source = {executor.submit(scrape_source, source): source for source in job_sources}
+    #
+    #     for future in as_completed(future_to_source):
+    #         source_name, jobs = future.result()  # Get the result
+    #         all_jobs.extend(jobs)
+    #         filed_data[source_name].extend([job.id for job in jobs])  # Store job IDs
+
+    # Single Threaded Scrapping
+    # # Iterate through each job source
     for source in job_sources:
         func_name = source["function"]
 
@@ -182,5 +216,3 @@ if __name__ == "__main__":
     with open(filed_filename, "w", encoding="utf-8") as f:
         json.dump(filed_data, f, indent=4)
     print(f"Job IDs saved to {filed_filename}.")
-
-    webscraper_driver_cleanup()

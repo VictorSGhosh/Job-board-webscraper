@@ -23,12 +23,12 @@ import re
 from classes import Job
 
 ## WebDriver Functions
-driver = None
+# driver = None
 visited_data = None
 qualifiers = None
 
 # Setup Selenium WebDriver (in headless mode)
-def webscraper_driver_init():
+def init():
     global visited_data
     # Load visited.json
     visited_filename = "visited.json"
@@ -55,23 +55,25 @@ def webscraper_driver_init():
     # if not isinstance(qualifiers, defaultdict):
     #     qualifiers = defaultdict(list, qualifiers)
 
+def webscraper_driver_init():
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Run in headless mode
 
-    global driver  # Setup WebDriver
+    # global driver  # Setup WebDriver
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    return driver
 
 
 # Prepare URL
-def webscraper_driver_get(url):
-    global driver
+def webscraper_driver_get(driver, url):
+    # global driver
     driver.get(url)
     time.sleep(1)
 
 
 # Driver Clean up
-def webscraper_driver_cleanup():
-    global driver
+def webscraper_driver_cleanup(driver):
+    # global driver
     driver.quit()
 
 
@@ -116,7 +118,8 @@ def print_jobs(job_list: List[Job]):
 
 ## Common WebScrapers
 def cmn_scraper1(board):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     job_posts = driver.find_elements(By.CLASS_NAME, "opening")
     jobs_list = []
 
@@ -141,10 +144,13 @@ def cmn_scraper1(board):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 def cmn_scraper2(board=None):
+    driver = webscraper_driver_init()
+
     page_num = 1
     jobs_list = []
     company = board.company
@@ -152,7 +158,7 @@ def cmn_scraper2(board=None):
     while True:  # Pagination loop
         sep = "&" if urlparse(board.url).query else "?"
         page_url = f"{board.url}{sep}page={page_num}"
-        webscraper_driver_get(page_url)  # Load the current page
+        webscraper_driver_get(driver, page_url)  # Load the current page
         time.sleep(2)  # Allow time for elements to load
 
         job_posts = driver.find_elements(By.CLASS_NAME, "job-post")
@@ -191,10 +197,13 @@ def cmn_scraper2(board=None):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 def cmn_scraper3(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+
     job_posts = driver.find_elements(By.CLASS_NAME, "_container_j2da7_1")
     jobs_list = []
 
@@ -221,11 +230,13 @@ def cmn_scraper3(board=None):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 def cmn_scraper4(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     job_posts = driver.find_elements(By.XPATH, "//tr[td[@class='jv-job-list-name']]")
     jobs_list = []
     company = board.company
@@ -264,11 +275,13 @@ def cmn_scraper4(board=None):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 def cmn_scraper5(board):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     job_posts = driver.find_elements(By.CLASS_NAME, "posting-title")
     jobs_list = []
 
@@ -294,10 +307,12 @@ def cmn_scraper5(board):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 def cmn_scraper6(board):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     time.sleep(1)
     wait = WebDriverWait(driver, 5)
 
@@ -340,10 +355,12 @@ def cmn_scraper6(board):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 def cmn_scraper7(board):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     wait = WebDriverWait(driver, 5)
 
     jobs_list = []
@@ -367,7 +384,7 @@ def cmn_scraper7(board):
                 job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
                 job_location = job_location_elem[1].text.strip() if job_location_elem and len(job_location_elem) > 1 else "Not specified"
 
-                if is_valid(job_id, job_location, job_title, board):
+                if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
         # Try to click the "Next" button if it exists
@@ -387,11 +404,13 @@ def cmn_scraper7(board):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 def cmn_scraper8(board):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     wait = WebDriverWait(driver, 5)
 
     jobs_list = []
@@ -433,10 +452,11 @@ def cmn_scraper8(board):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
-def scroll_to_load_jobs():
+def scroll_to_load_jobs(driver):
     last_height = driver.execute_script("return document.body.scrollHeight")
     while True:
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -449,7 +469,7 @@ def scroll_to_load_jobs():
         last_height = new_height       # No button available, continue scrolling
 
 
-def click_button_to_show_more_jobs():
+def click_button_to_show_more_jobs(driver):
     wait = WebDriverWait(driver, 5)
     while True:
         # Get the page source after it's fully loaded
@@ -482,14 +502,15 @@ def click_button_to_show_more_jobs():
 
 
 def cmn_scraper9(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
 
     jobs_list = []
     company = board.company
 
     # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs()
-    click_button_to_show_more_jobs()
+    scroll_to_load_jobs(driver)
+    click_button_to_show_more_jobs(driver)
 
     # Parse the page after all jobs are loaded
     soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -513,17 +534,19 @@ def cmn_scraper9(board=None):
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 def cmn_scraper10(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
 
     jobs_list = []
     company = board.company
 
     # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs()
+    scroll_to_load_jobs(driver)
 
     # Parse the page after all jobs are loaded
     soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -547,10 +570,11 @@ def cmn_scraper10(board=None):
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
-def click_show_more():
+def click_show_more(driver):
     """Finds and clicks the 'Show More Results' button until it's no longer available."""
     wait = WebDriverWait(driver, 10)
     while True:
@@ -566,7 +590,7 @@ def click_show_more():
             break
 
 
-def grid_style_job_posts(board=None):
+def grid_style_job_posts(driver, board=None):
     jobs_list = []
     company = board.company
     soup = BeautifulSoup(driver.page_source, 'html.parser')
@@ -582,7 +606,7 @@ def grid_style_job_posts(board=None):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
     return jobs_list
 
-def list_style_job_posts(board=None):
+def list_style_job_posts(driver, board=None):
     jobs_list = []
     company = board.company
 
@@ -601,25 +625,27 @@ def list_style_job_posts(board=None):
     return jobs_list
 
 def cmn_scraper11(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     time.sleep(2)
 
     # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs()
-    click_show_more()
+    scroll_to_load_jobs(driver)
+    click_show_more(driver)
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     job_posts = soup.find_all("div", class_="job-tile job-grid-item search-results job-grid-item--all-actions-visible")
-    jobs_list = grid_style_job_posts(board) if job_posts else list_style_job_posts(board)
+    jobs_list = grid_style_job_posts(driver, board) if job_posts else list_style_job_posts(driver, board)
 
     caller = inspect.stack()[1]
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
-def handle_cookie_popup():
+def handle_cookie_popup(driver):
     wait = WebDriverWait(driver, 5)
     # Handle cookie popup if present
     try:
@@ -632,14 +658,15 @@ def handle_cookie_popup():
 
 
 def cmn_scraper12(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
 
     jobs_list = []
     company = board.company
 
     # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    handle_cookie_popup()
-    click_show_more()
+    handle_cookie_popup(driver)
+    click_show_more(driver)
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
 
@@ -672,11 +699,13 @@ def cmn_scraper12(board=None):
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 def cmn_scraper13(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
 
     jobs_list = []
     company = board.company
@@ -707,6 +736,7 @@ def cmn_scraper13(board=None):
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
@@ -748,6 +778,7 @@ def cmn_scraper14(board=None):
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+
     return jobs_list
 
 
@@ -774,7 +805,8 @@ def moloco(board=None):
     return job_list
 
 def seven_eleven(board):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     wait = WebDriverWait(driver, 10)
 
     jobs_list = []
@@ -814,10 +846,12 @@ def seven_eleven(board):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 def nationwide(board):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     wait = WebDriverWait(driver, 10)
 
     jobs_list = []
@@ -857,11 +891,13 @@ def nationwide(board):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 def gm(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
     wait = WebDriverWait(driver, 10)
 
     jobs_list = []
@@ -905,17 +941,19 @@ def gm(board=None):
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 def arista(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
 
     jobs_list = []
     company = board.company
 
     # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs()
+    scroll_to_load_jobs(driver)
 
     # Parse the page after all jobs are loaded
     soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -939,17 +977,19 @@ def arista(board=None):
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
 
 def palo_alto(board=None):
-    webscraper_driver_get(board.url)
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
 
     jobs_list = []
     company = board.company
 
     # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs()
-    click_button_to_show_more_jobs()
+    scroll_to_load_jobs(driver)
+    click_button_to_show_more_jobs(driver)
 
     # Parse the page after all jobs are loaded
     soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -973,4 +1013,5 @@ def palo_alto(board=None):
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
     return jobs_list
