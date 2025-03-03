@@ -387,7 +387,7 @@
     "url": "https://boards.greenhouse.io/zscaler/",
     "location_qualifiers": ["USA"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Sales", "Manager", "Staff", "Principal", "Resident", "Focal", "Data Center", "Network", "Support", "Compensation Partner"]
+    "job_disqualifiers": ["Sales", "Manager", "Staff", "Principal", "Resident", "Focal", "Data Center", "Network", "Support", "Compensation Partner", "Customer"]
   },
   {
     "name": "Semgrep",
@@ -907,7 +907,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=hubspotjobs",
     "location_qualifiers": ["USA", "Cambridge"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Principal", "Manager", "Workday", "Lead", "Front End", "Web", "Designer"]
+    "job_disqualifiers": ["Staff", "Principal", "Manager", "Workday", "Lead", "Front End", "Web", "Designer", "Director"]
   },
   {
     "name": "Elastic",
@@ -1607,7 +1607,7 @@
     "url": "https://job-boards.greenhouse.io/vardaspace",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Intern", "Process", "Manager", "Embedded", "Test", "Avionics", "Mission", "Principal", "Astrodynamics", "Navigation", "RF"]
+    "job_disqualifiers": ["Intern", "Process", "Manager", "Embedded", "Test", "Avionics", "Mission", "Principal", "Astrodynamics", "Navigation", "RF", "Manufacturing"]
   },
   {
     "name": "Samsung Semiconductor",
@@ -1798,6 +1798,16 @@
     "location_qualifiers": ["Locations", "United States"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": []
+  },
+  {
+    "name": "Asus",
+    "type": "Computers and Hardware",
+    "module": "scraper_functions",
+    "function": "asus",
+    "url": "https://jobs.jobvite.com/asus",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Director", "Staff", "Principal", "Head of", "Manager", "Security", "Frontend"]
   },
   {
     "name": "Barracuda Networks Inc",
@@ -2287,7 +2297,7 @@
     "url": "https://careers.amd.com/careers-home/jobs?country=United%20States&page=1&categories=Engineering&tags1=No&sortBy=posted_date&descending=true&limit=100",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Principal", "SOC ", "Design", "3D", "Silicon", "Validation", "Director", "Verification", "Marketing", "PMTS", "Firmware", "Customer", "Power", "Kernel"]
+    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Principal", "SOC ", "Design", "3D", "Silicon", "Validation", "Director", "Verification", "Marketing", "PMTS", "Firmware", "Customer", "Power", "Kernel", "Manufacturing"]
   },
   {
     "name": "Booking",
@@ -2899,6 +2909,16 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "Workday", "SAP", "Frontend", "Front-End", "Testing"]
+  },
+  {
+    "name": "Lowe's",
+    "type": "Merchandisers",
+    "module": "scraper_functions",
+    "function": "lowes",
+    "url": "https://lowes.wd5.myworkdayjobs.com/en-US/LWS_External_CS/?jobFamilyGroup=02b0c958653f01d9810ce8fafb055745&locations=02b0c958653f01a228a5a41014066c9a&locations=8ec9148beca410141b721ebdaf9e0000&locations=02b0c958653f01368c99bf101406859a&locations=d465c07f14be016244f28a837128285e",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Engineer", "Developer", "Software"],
+    "job_disqualifiers": ["Manager", "Principal", "Scientist", "Director"]
   },
   {
     "name": "Expedia",
@@ -4088,7 +4108,7 @@
     "url": "https://careers.smartrecruiters.com/NBCUniversal3/",
     "location_qualifiers": ["Albuquerque", "Centennial", "Central LA", "Chicago", "El Paso", "Englewood Cliffs", "Fort Lee", "Fort Worth", "Fresno", "Glendale", "Hartford", "Las Vegas", "Los Angeles", "Miami", "Minneapolis", "Miramar", "Needham", "New York", "Newark", "Orlando", "Philadelphia", "Phoenix", "Sacramento", "Salt Lake City", "San Diego", "San Francisco", "San Jose", "Stamford", "Tampa", "Universal City", "Washington"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "President", "Field", "IAM", "Broadcast", "Video", "Governance", "Director", "Reliability", "Maintenance", "Detection", "Network"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "President", "Field", "IAM", "Broadcast", "Video", "Governance", "Director", "Reliability", "Maintenance", "Detection", "Network", "Mgr"]
   },
   {
     "name": "Balsam Brands",
@@ -4309,5 +4329,15 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Design", "Solutions"]
+  },
+  {
+    "name": "Kroger's Co",
+    "type": "Internet Services",
+    "module": "scraper_functions",
+    "function": "kroger",
+    "url": "https://www.krogerfamilycareers.com/en/sites/CX_2001/requisitions?lastSelectedFacet=AttributeChar4&selectedFlexFieldsFacets=%22AttributeChar4%7CTechnology+and+Digital%22",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Principal", "Director", "Android"]
   }
 ]

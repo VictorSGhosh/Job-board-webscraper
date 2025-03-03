@@ -256,7 +256,7 @@ def cmn_scraper4(board=None):
                 job_id = job_title_elem["href"].split("/")[-1]  # Extract job ID
                 job_title = job_title_elem.text.strip()  # Extract job title
                 job_url = f"https://jobs.jobvite.com{job_title_elem['href']}"  # Construct full job URL
-                job_location = job_location_elem.text.strip().replace("\n", "").replace("  ", " ")  # Clean location text
+                job_location = "".join(job_location_elem.text.replace("\n", "").split("  "))  # Clean location text
 
                 if is_valid(job_id, job_location, job_title, board):
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
