@@ -769,8 +769,11 @@ def cmn_scraper14(board=None):
 
             # Extract job location
             location_element = job.find("span", string="Job Locations")
+            job_location = location_element.parent.find_all("span")[-1].text.strip() if location_element else "N/A"
 
-            job_location = location_element.find_next_sibling("span").text.strip() if location_element else ", ".join([span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
+            if location_element or job_location == "Job Locations":
+                job_location = ", ".join([span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
+
             if is_valid(job_id, job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
