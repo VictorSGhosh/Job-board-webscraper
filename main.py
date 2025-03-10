@@ -31,7 +31,7 @@ function_map = {
     "cloudflare": cmn_scraper1,     "bitgo": cmn_scraper1,      "okta": cmn_scraper1,           "anthropic": cmn_scraper1,      "brex": cmn_scraper1,       "upstart": cmn_scraper1,
     "ixl": cmn_scraper1,            "zuora": cmn_scraper1,      "tempus": cmn_scraper1,         "inovalon": cmn_scraper1,       "godaddy": cmn_scraper1,    "magicleap": cmn_scraper1,
     "tower_research": cmn_scraper1, "flagship": cmn_scraper1,   "definitive": cmn_scraper1,     "coinbase2": cmn_scraper1,      "nasuni": cmn_scraper1,     "beyondtrust": cmn_scraper1,
-    "next": cmn_scraper1,
+    "next": cmn_scraper1,           "foursquare": cmn_scraper1, "applied_intuition": cmn_scraper1,
 
     "point72": cmn_scraper2,        "spotter": cmn_scraper2,    "human_interest": cmn_scraper2, "carta": cmn_scraper2,          "propel": cmn_scraper2,     "arcesium": cmn_scraper2,
     "bolt": cmn_scraper2,           "aquatic": cmn_scraper2,    "engineers_gate": cmn_scraper2, "sentilink": cmn_scraper2,      "semgrep": cmn_scraper2,    "okx": cmn_scraper2,
@@ -47,6 +47,7 @@ function_map = {
     "cloudkitchen": cmn_scraper2,   "niantic": cmn_scraper2,    "natera": cmn_scraper2,         "bridgewater": cmn_scraper2,    "airbyte": cmn_scraper2,    "appian": cmn_scraper2,
     "flex": cmn_scraper2,           "bilt": cmn_scraper2,       "vercel": cmn_scraper2,         "interactive": cmn_scraper2,    "labelbox": cmn_scraper2,   "farmers_dog": cmn_scraper2,
     "maven": cmn_scraper2,          "canonical": cmn_scraper2,  "noyo": cmn_scraper2,           "ethos": cmn_scraper2,          "pitchbook": cmn_scraper2,  "prove": cmn_scraper2,
+    "connectwise":cmn_scraper2,
 
     "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
     "academia": cmn_scraper3,       "nash": cmn_scraper3,
@@ -59,7 +60,7 @@ function_map = {
     "savinynt": cmn_scraper5,       "bounteous": cmn_scraper5,  "veeva": cmn_scraper5,          "sonar": cmn_scraper5,          "aledade": cmn_scraper5,    "included_health": cmn_scraper5,
     "mercedes": cmn_scraper5,       "zoox": cmn_scraper5,       "egen": cmn_scraper5,           "kodiak": cmn_scraper5,         "match": cmn_scraper5,      "bitwise": cmn_scraper5,
     "regrello": cmn_scraper5,       "penumbra": cmn_scraper5,   "coupa": cmn_scraper5,          "clear_capital": cmn_scraper5,  "cellares": cmn_scraper5,   "meridianlink": cmn_scraper5,
-    "plusai": cmn_scraper5,         "lightcast": cmn_scraper5,  "kandji": cmn_scraper5,         "activecampaign": cmn_scraper5, "greenlight": cmn_scraper5,
+    "plusai": cmn_scraper5,         "lightcast": cmn_scraper5,  "kandji": cmn_scraper5,         "activecampaign": cmn_scraper5, "greenlight": cmn_scraper5, "spreetail": cmn_scraper5,
 
     "bank_of_america": cmn_scraper6,"citi": cmn_scraper6,       "wells_fargo": cmn_scraper6,    "us_bank": cmn_scraper6,        "truist": cmn_scraper6,     "pnc": cmn_scraper6,
     "discover": cmn_scraper6,       "m_n_t": cmn_scraper6,      "state_street": cmn_scraper6,   "53rd": cmn_scraper6,           "barclays": cmn_scraper6,   "nt": cmn_scraper6,
@@ -87,7 +88,7 @@ function_map = {
     "warner_bros": cmn_scraper6,    "disney": cmn_scraper6,     "lilly": cmn_scraper6,          "elevance": cmn_scraper6,       "3m": cmn_scraper6,         "morgan_stanley": cmn_scraper6,
     "crowdstrike": cmn_scraper6,    "marvell": cmn_scraper6,    "blizzard": cmn_scraper6,       "athena": cmn_scraper6,         "lowes": cmn_scraper6,      "applied_materials": cmn_scraper6,
     "magellan": cmn_scraper6,       "saif": cmn_scraper6,       "uline": cmn_scraper6,          "wex": cmn_scraper6,            "epiq": cmn_scraper6,       "neuberger_berman": cmn_scraper6,
-    "zoom": cmn_scraper6,
+    "zoom": cmn_scraper6,           "us_foods": cmn_scraper6,
 
     "samsung": cmn_scraper7,        "redhat": cmn_scraper7,     "travellers": cmn_scraper7,     "workday": cmn_scraper7,        "at_n_t": cmn_scraper7,     "jll": cmn_scraper7,
 
@@ -106,7 +107,7 @@ function_map = {
     "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,
 
     "github": cmn_scraper13,        "statefarm": cmn_scraper13, "constellation": cmn_scraper13, "gallagher": cmn_scraper13,     "sirius": cmn_scraper13,    "dollar_general": cmn_scraper13,
-    "principal": cmn_scraper13,     "rivian": cmn_scraper13,    "amd": cmn_scraper13,           "booking": cmn_scraper13,
+    "principal": cmn_scraper13,     "rivian": cmn_scraper13,    "amd": cmn_scraper13,           "booking": cmn_scraper13,       "pds_health": cmn_scraper13,
 
     "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "sas": cmn_scraper14,           "lord_abbett": cmn_scraper14,"liberty_mutual": cmn_scraper14,
     "blackhawk": cmn_scraper14,     "msci": cmn_scraper14,      "charles_schwab": cmn_scraper14,"ddn": cmn_scraper14,

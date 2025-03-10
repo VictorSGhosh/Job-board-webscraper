@@ -418,7 +418,28 @@
     "location_qualifiers": ["Palo Alto", "Boston", "Rochester", "Remote"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "ServiceNow", "Frontend"]
-  },{
+  },
+  {
+    "name": "Foursquare",
+    "type": "Internet Services",
+    "module": "scraper_functions",
+    "function": "foursquare",
+    "url": "https://boards.greenhouse.io/foursquare26",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce"]
+  },
+  {
+    "name": "Applied Intuition",
+    "type": "Automobiles",
+    "module": "scraper_functions",
+    "function": "applied_intuition",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=appliedintuition",
+    "location_qualifiers": ["United States", "Locations", "Hybrid"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Manager", "Embedded", "PhD", "Research", "Electrical", "Safety", "Systems", "Android", "3D ", "Scenario", "Controls", "Perception", "Prediction", "Vehicle", "Validation", "Sales", "Customer", "Camera", "Quality", "Modeling", "Frontend", "Web", "Test ", "ATR", "Head of", "Defense", "Human", "Localization", "Planning", "Hardware", "Verification", "Simulation", "5G", "GNC", "Security", "Staff", "Autonomy"]
+  },
+  {
     "name": "SentiLink",
     "type": "Securities",
     "module": "scraper_functions",
@@ -2418,6 +2439,26 @@
     "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Sales"]
   },
   {
+    "name": "ConnectWise",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "connectwise",
+    "url": "https://job-boards.greenhouse.io/connectwise?offices%5B%5D=4004634005",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Manager", "Principal"]
+  },
+  {
+    "name": "Spreetail",
+    "type": "Merchandisers",
+    "module": "scraper_functions",
+    "function": "spreetail",
+    "url": "https://jobs.lever.co/spreetail",
+    "location_qualifiers": ["Arizona", "Austin", "Bedfordshire", "Colorado", "Dallas", "Florida", "Georgia", "Greenwood", "Illinois", "Indiana", "Kentucky", "Las Vegas", "Massachusetts", "Nantichoke", "Nebraska", "Hampshire", "Jersey", "Dakota", "Omaha", "Remote", "Savannah", "Seattle", "Tacoma", "Tennessee", "Texas", "Washington", "Wyoming"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist"]
+  },
+  {
     "name": "Kandji",
     "type": "Securities",
     "module": "scraper_functions",
@@ -2586,6 +2627,16 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Principal"]
+  },
+  {
+    "name": "PDS Health",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "pds_health",
+    "url": "https://jobs.pdshealth.com/jobs?categories=Information%20Technology&page=1&sortBy=posted_date&descending=true",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Manager"]
   },
   {
     "name": "StateFarm",
@@ -4397,6 +4448,16 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Project"]
+  },
+  {
+    "name": "US Foods",
+    "type": "Food and Drinks",
+    "module": "scraper_functions",
+    "function": "us_foods",
+    "url": "https://usfoods.wd1.myworkdayjobs.com/usfoodscareersExternal?jobFamilyGroup=219555bd7eda017c96e819617d2e018a",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Manager", "Mulesoft", "Quality", "Principal"]
   },
   {
     "name": "Walmart (SmartRecruiter Job Board)",
