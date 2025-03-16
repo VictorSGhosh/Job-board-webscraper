@@ -117,7 +117,7 @@ def print_jobs(job_list: List[Job]):
 
 
 ## Common WebScrapers
-def cmn_scraper1(board):
+def cmn_scraper1(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     job_posts = driver.find_elements(By.CLASS_NAME, "opening")
@@ -147,6 +147,12 @@ def cmn_scraper1(board):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+def cmn_scraper1_1(board=None):
+    job_list = cmn_scraper1(board)
+    for job in job_list:
+        job.url = f"https://boards.greenhouse.io/embed/job_app?for={board.func}&token={job.id}"
+    print_jobs(job_list)
+    return job_list
 
 def cmn_scraper2(board=None):
     driver = webscraper_driver_init()
@@ -743,40 +749,44 @@ def cmn_scraper13(board=None):
 def cmn_scraper14(board=None):
     jobs_list = []
     company = board.company
+    base_url = board.url  # Base URL without pagination parameter
+    headers = {"User-Agent": "Mozilla/5.0"}  # Prevent blocking by servers
 
-    headers = {"User-Agent": "Mozilla/5.0"}  # Some sites block non-browser requests
-    response = requests.get(board.url, headers=headers)
+    page_number = 0  # Start pagination from page 1
 
-    # Step 3: Check if the request was successful
-    if response.status_code == 200:
-        # Step 4: Parse the HTML content of the iframe page
+    while True:
+        paginated_url = f"{base_url}&pr={page_number}"  # Append pagination parameter
+        response = requests.get(paginated_url, headers=headers)
+
+        if response.status_code != 200:
+            break  # Stop if the request fails
+
         soup = BeautifulSoup(response.text, "html.parser")
-
-        # Step 5: Find all job listings inside the iframe
         job_entries = soup.find_all("div", class_="row")  # Adjust based on actual structure
 
+        if not job_entries:
+            break  # Stop if no more jobs are found on the page
+
         for job in job_entries:
-            # Extract job title
             job_title_element = job.find("h3")
             job_title = job_title_element.text.strip() if job_title_element else "N/A"
 
-            # Extract job URL
             job_link = job.find("a", class_="iCIMS_Anchor")
             job_url = job_link["href"] if job_link else "N/A"
-
-            # Extract job ID from the URL
             job_id = job_url.split("/")[-3] if job_url != "N/A" else "N/A"
 
-            # Extract job location
             location_element = job.find("span", string="Job Locations")
             job_location = location_element.parent.find_all("span")[-1].text.strip() if location_element else "N/A"
 
-            if location_element or job_location == "Job Locations":
+            if location_element is None or job_location == "Job Locations":
                 job_location = ", ".join([span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
 
             if is_valid(job_id, job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
+        page_number += 1  # Move to the next page
+
+    # Print jobs if function is not called within the same module
     caller = inspect.stack()[1]
     caller_module = inspect.getmodule(caller[0])
     if caller_module is None or caller_module.__name__ != __name__:
