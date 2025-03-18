@@ -620,6 +620,16 @@
     "job_disqualifiers": ["Research", "VP", "Scientist", "Solutions"]
   },
   {
+    "name": "Nexxen (formerly Tremor International)",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "nexxen",
+    "url": "https://boards.greenhouse.io/nexxen",
+    "location_qualifiers": ["Bellevue", "Chicago", "Dallas", "Los Angeles", "New York", "San Francisco", "Virginia"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Scientist"]
+  },
+  {
     "name": "Cisco ThousandEyes",
     "type": "Computers and Hardware",
     "module": "scraper_functions",
@@ -628,6 +638,26 @@
     "location_qualifiers": ["United States"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Research", "VP", "Scientist", "Sales", "Manager", "Principal", "Distinguished", "intern"]
+  },
+  {
+    "name": "EliseAI",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "eliseai",
+    "url": "https://job-boards.greenhouse.io/meetelise",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Solutions"]
+  },
+  {
+    "name": "Amount",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "amount",
+    "url": "https://job-boards.greenhouse.io/amount",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager"]
   },
   {
     "name": "BILL",
@@ -747,7 +777,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=wayfair",
     "location_qualifiers": ["Boston", "Romeoville", "South Elgin", "Cranbury", "Perris", "Mountain View"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Co-op", "Controls", "Manager", "Industrial", "Intern", "Service Engineer"]
+    "job_disqualifiers": ["Co-op", "Controls", "Manager", "Industrial", "Intern", "Service Engineer", "Frontend"]
   },
   {
     "name": "Faire",
@@ -1537,7 +1567,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=videoamp",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["Principal"]
   },
   {
     "name": "MyFitnessPal",
@@ -2200,6 +2230,26 @@
     "job_disqualifiers": ["Research", "VP", "Scientist"]
   },
   {
+    "name": "Acorns",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "acorns",
+    "url": "https://jobs.ashbyhq.com/Acorns",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Intern"]
+  },
+  {
+    "name": "Dave",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "dave",
+    "url": "https://jobs.ashbyhq.com/dave",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager"]
+  },
+  {
     "name": "Confluent",
     "type": "Computer Software",
     "module": "scraper_functions",
@@ -2747,6 +2797,16 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Research", "VP", "Scientist", "Staff", "Principal", "Intern"]
+  },
+  {
+    "name": "PointClickCare",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "pointclickcare",
+    "url": "https://jobs.lever.co/pointclickcare",
+    "location_qualifiers": ["Cleveland", "US", "Salt Lake", "in Office"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Salesforce"]
   },
   {
     "name": "Tiger Analytics",
@@ -4056,7 +4116,7 @@
     "url": "https://verizon.wd12.myworkdayjobs.com/verizon-careers?locations=4466d54cbeba1000c07be30fb8710000&locations=4466d54cbeba1000c07ba99610d60000&locations=4466d54cbeba1000c07b14c13e7b0000&locations=4466d54cbeba1000c0796f636f790000&locations=4466d54cbeba1000c077101eaea40000&locations=5a348e1180521001b47e8bd0b1490000&locations=4466d54cbeba1000c076d3c036890000&locations=4466d54cbeba1000c076bcd848fe0000&locations=4466d54cbeba1000c07683fcd5760000&locations=4466d54cbeba1000c07642250a080000&locations=4466d54cbeba1000c07380134a110000&locations=4466d54cbeba1000c07333ff23f80000&locations=4466d54cbeba1000c07278b146c50000&locations=4466d54cbeba1000c071f31ddc440000&locations=4466d54cbeba1000c071bb4fff2a0000&locations=4466d54cbeba1000c071ad5d3e540000&locations=4466d54cbeba1000c071a57875890000&locations=4466d54cbeba1000c0710e97d7dd0000&locations=4466d54cbeba1000c0707892bf650000&locations=4466d54cbeba1000c06ea37666a10000&locations=4466d54cbeba1000c06e4e75d53c0000&locations=4466d54cbeba1000c06e116b1a870000&locations=4466d54cbeba1000c06df63721660000&locations=4466d54cbeba1000c06d191e28610000&locations=4466d54cbeba1000c06c879b02710000&locations=4466d54cbeba1000c06a67bc81900000&locations=4466d54cbeba1000c06a2d0951380000&locations=4466d54cbeba1000c06931a704100000&locations=4466d54cbeba1000c068c9c665a90000&locations=4466d54cbeba1000c066d953aff80000&locations=4466d54cbeba1000c0662a013a9b0000&locations=4466d54cbeba1000c0661a5f4ba20000&locations=4466d54cbeba1000c06576e6c4dc0000&locations=4466d54cbeba1000c06e7b195da30000&locations=4466d54cbeba1000c0653bc858f00000&locations=4466d54cbeba1000c0650c1a0fea0000&locations=4466d54cbeba1000c064da174aa10000&locations=4466d54cbeba1000c064d23d4a7d0000&locations=4466d54cbeba1000c064771285e10000&locations=4466d54cbeba1000c063363545430000&locations=4466d54cbeba1000c062edb776d30000&locations=4466d54cbeba1000c062e4a9cac50000&locations=4466d54cbeba1000c062121a0bbe0000&locations=4466d54cbeba1000c06186c06a190000&locations=4466d54cbeba1000c061832360a70000&locations=4466d54cbeba1000c06042eb87500000&locations=4466d54cbeba1000c05f2ff44a6d0000&locations=79e1d1ac75241001e25cf309961a0000&locations=4466d54cbeba1000c05c8b354c980000&locations=4466d54cbeba1000c05c4d8fd0fa0000&locations=4466d54cbeba1000c059bc7aa01d0000&locations=4466d54cbeba1000c058cd5e6c2d0000&locations=4466d54cbeba1000c057fcf002e40000&locations=4466d54cbeba1000c057224c54ed0000&locations=4466d54cbeba1000c055d05618f40000&locations=4466d54cbeba1000c055787ec12e0000&locations=4466d54cbeba1000c055108c74810000&locations=4466d54cbeba1000c07b8e5258340000&locations=4466d54cbeba1000c0793d44134e0000&locations=4466d54cbeba1000c072225977390000&locations=4466d54cbeba1000c05e395280d90000&locations=4466d54cbeba1000c05844f75e970000&locations=4466d54cbeba1000c0496b5b46570000&locations=4466d54cbeba1000c055519faaae0000&locations=4466d54cbeba1000c070ff6f4e630000&locations=4466d54cbeba1000c06dbb9791610000&locations=4466d54cbeba1000c06ce8e1c81e0000&locations=4466d54cbeba1000c06b812fb0a50000&locations=4466d54cbeba1000c069c3dbc8440000&locations=4466d54cbeba1000c0685600662f0000&locations=4466d54cbeba1000c0680a82539b0000&locations=4466d54cbeba1000c0671ce6d07b0000&locations=4466d54cbeba1000c06705f446910000&locations=4466d54cbeba1000c0663faf21de0000&locations=4466d54cbeba1000c060b79226e90000&locations=4466d54cbeba1000c05eb91a8e300000&locations=4466d54cbeba1000c05bd7d079bf0000&locations=4466d54cbeba1000c059772848ab0000&locations=4466d54cbeba1000c057f0990cd20000&locations=4466d54cbeba1000c0564d5f1a0a0000&locations=4466d54cbeba1000c0556a0e5a690000&locations=4466d54cbeba1000c077b8e2b2080000&locations=4466d54cbeba1000c07983da8ae00000&jobFamilyGroup=4466d54cbeba1000ae7ce217cd6d0001&jobFamilyGroup=4466d54cbeba1000ae7ce17de98c0001",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Adobe", "SAP ", "Quality", "Director", "Distinguished"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Principle", "Security", "Sales", "Front-End", "Adobe", "SAP ", "Quality", "Director", "Distinguished"]
   },
   {
     "name": "T-Mobile",
@@ -4569,6 +4629,16 @@
     "job_disqualifiers": ["Scientist", "Principal", "Manager", "Staff", "Intern", "Cyber Security", "Quality", "Director"]
   },
   {
+    "name": "LexisNexis",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "lexisnexis",
+    "url": "https://relx.wd3.myworkdayjobs.com/en-US/lexisnexislegal?jobFamilyGroup=8c5fc5940f0b01ba8d012114be0035b9&jobFamilyGroup=8c5fc5940f0b01602e831f13be00aeb8&Country___Territory=bc33aa3152ec42d4995f4791a106ed09",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Scientist"]
+  },
+  {
     "name": "ResMed",
     "type": "Healthcare and Pharmaceuticals",
     "module": "scraper_functions",
@@ -4896,7 +4966,7 @@
     "url": "https://careers.smartrecruiters.com/Visa/",
     "location_qualifiers": ["Ashburn", "Austin", "Bellevue", "Foster", "Highlands Ranch", "Mentor", "San Francisco", "Washington"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Director", "Chief", "Scientist", "President", "Design", "Intern", "Lead", "Android", "Data Center"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Director", "Chief", "Scientist", "President", "Design", "Intern", "Lead", "Android", "Data Center", "Sales"]
   },
   {
     "name": "Experian",
@@ -5217,5 +5287,15 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce"]
+  },
+  {
+    "name": "Verint",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "verint",
+    "url": "https://fa-epcb-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs?lastSelectedFacet=LOCATIONS&mode=location&selectedLocationsFacet=300000000398131",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Frontend", "Intern"]
   }
 ]
