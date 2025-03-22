@@ -5,7 +5,7 @@ from typing import List
 
 import requests
 from selenium import webdriver
-from selenium.common import NoSuchElementException, ElementClickInterceptedException
+from selenium.common import NoSuchElementException, ElementClickInterceptedException, ElementNotInteractableException, StaleElementReferenceException
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
@@ -477,7 +477,8 @@ def scroll_to_load_jobs(driver):
 
 def click_button_to_show_more_jobs(driver):
     wait = WebDriverWait(driver, 5)
-    while True:
+    clicks = 20
+    while clicks >= 0:
         # Get the page source after it's fully loaded
         soup = BeautifulSoup(driver.page_source, "html.parser")
 
@@ -501,6 +502,9 @@ def click_button_to_show_more_jobs(driver):
                 time.sleep(1)  # Wait for the button to be fully in view
                 print("Clicking on \"Show More Jobs\" Button...")
                 button.click()  # Click the button
+                clicks -= 1
+                if clicks <= 0:
+                    break
 
             except Exception as e:
                 print(f"Error or button not clickable: {e}")
@@ -795,6 +799,94 @@ def cmn_scraper14(board=None):
     return jobs_list
 
 
+def load_more_jobs_on_ultipro(driver):
+    while True:
+        # Wait for the "View More Opportunities" link to be visible
+        try:
+            load_more_link = driver.find_element(By.ID, "LoadMoreJobs")
+            if not load_more_link.is_displayed():
+                break
+        except:
+            break  # Exit if the link is not found or not visible
+
+        # Click the "View More Opportunities" link
+        load_more_link.click()
+        print("Clicked on \'View More Opportunities\'")
+
+        # Wait for new jobs to load (you can adjust the sleep time or use WebDriverWait)
+        time.sleep(1)  # Sleep to wait for the page to load new job posts
+
+# def load_all_locations(driver):
+#     print("Loading all locations...")
+#     while True:
+#         # Locate all buttons for "More Locations"
+#         location_buttons = driver.find_elements(By.CSS_SELECTOR, '[data-automation="job-location-more"]')
+#
+#         if not location_buttons:
+#             print("No more 'More Locations' buttons found.")
+#             break  # Exit if no buttons are found
+#
+#         for button in location_buttons:
+#             try:
+#                 # Scroll into view before clicking
+#                 driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", button)
+#                 time.sleep(0.5)  # Small delay to ensure scrolling is done
+#
+#                 # Click the button
+#                 button.click()
+#                 print("Clicked on 'More Locations'")
+#
+#                 # Wait a moment to allow locations to load
+#                 time.sleep(1)
+#
+#             except (ElementNotInteractableException, StaleElementReferenceException):
+#                 print("Skipping a non-interactable or stale button.")
+#                 continue  # Move on to the next button if this one is not interactable
+
+def cmn_scraper15(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+
+    jobs_list = []
+    company = board.company
+
+    load_more_jobs_on_ultipro(driver)
+    # load_all_locations(driver)
+    # Parse the page
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+
+    # Extract job postings
+    job_posts = soup.find_all("div", {"data-automation": "opportunity"})
+
+    for job in job_posts:
+        # Job Title & URL
+        title_tag = job.find("a", {"data-automation": "job-title"})
+        job_title = title_tag.text.strip() if title_tag else "N/A"
+        job_url = urljoin(board.url, title_tag["href"]) if title_tag else "N/A"
+
+        # Extract Job ID from URL
+        job_id = job_url.split("opportunityId=")[-1] if "opportunityId=" in job_url else "N/A"
+
+        # Job Location
+        location_tag = job.find("span", {"data-automation": "location-description"})
+        city_tag = job.find("span", {"data-automation": "name-and-location-id-label"})
+        country_tag = job.find("span", {"data-automation": "city-state-zip-country-label"})
+
+        job_location = ", ".join(filter(None, [
+            city_tag.text.strip() if city_tag else None,
+            location_tag.text.strip() if location_tag else None,
+            country_tag.text.strip() if country_tag else None
+        ]))
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
 # Specific Webscraper Functions
 def cerebras(board=None):
     job_list = cmn_scraper1(board)
@@ -816,6 +908,57 @@ def moloco(board=None):
         job.url = "https://job-boards.greenhouse.io/moloco/jobs/" + job.id
     print_jobs(job_list)
     return job_list
+
+def vectra(board=None):
+    driver = webscraper_driver_init()
+
+    jobs_list = []
+    company = board.company
+
+    page_num = 1
+    while True:  # Pagination loop
+        sep = "&" if urlparse(board.url).query else "?"
+        page_url = f"{board.url}{sep}page={page_num}"
+        page_num += 1
+        webscraper_driver_get(driver, page_url)  # Load the current page
+        time.sleep(2)  # Allow time for elements to load
+
+        job_posts = driver.find_elements(By.CLASS_NAME, "job-post")
+        if not job_posts:
+            break  # Stop if no more job listings are found
+
+        for job in job_posts:
+            outer_html = job.get_attribute("outerHTML")
+            soup = BeautifulSoup(outer_html, "html.parser")
+
+            job_link = soup.find("a")
+            job_title_elem = soup.find("p", class_="body body--medium")
+
+            # Extract the span text if it exists
+            new_post_label = job_title_elem.find("span")
+            new_label = new_post_label.get_text(strip=True) if new_post_label else ""
+
+            job_location_elem = soup.find("p", class_="body body__secondary body--metadata")
+
+            if job_link and job_title_elem:
+                job_url = urljoin(board.url, job_link["href"])  # Convert relative URL to absolute
+                job_id = urlparse(job_url).query.split("=")[-1]
+                # Remove the span text manually (alternative method)
+                for span in job_title_elem.find_all("span"):
+                    span.extract()  # Removes all span elements
+                job_title = job_title_elem.get_text(strip=True)
+
+                job_location = job_location_elem.get_text(strip=True) if job_location_elem else "Not specified"
+
+                if is_valid(job_id, job_location, job_title, board):
+                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url, published_at=new_label))
+
+    caller = inspect.stack()[1]  # Get caller's frame
+    caller_module = inspect.getmodule(caller[0])  # Get caller's module
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
 
 def seven_eleven(board):
     driver = webscraper_driver_init()
@@ -915,7 +1058,7 @@ def gm(board=None):
 
     jobs_list = []
     company = board.company
-    pages = 20
+    pages = 5
 
     while pages > 0:
         soup = BeautifulSoup(driver.page_source, "html.parser")
