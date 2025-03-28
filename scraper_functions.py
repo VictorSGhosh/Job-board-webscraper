@@ -888,13 +888,6 @@ def cmn_scraper15(board=None):
     return jobs_list
 
 # Specific Webscraper Functions
-def cerebras(board=None):
-    job_list = cmn_scraper1(board)
-    for job in job_list:
-        job.url = job.url.replace("net", "ai").replace("career", "careers")
-    print_jobs(job_list)
-    return job_list
-
 def otterai(board=None):
     job_list = cmn_scraper1(board)
     for job in job_list:
