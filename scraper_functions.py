@@ -333,14 +333,20 @@ def cmn_scraper6(board):
 
         for job in job_posts:
             job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_location_elem = job.find("dd", class_="css-129m7dg")  # Location
+            job_location_elem = job.find("div", {"data-automation-id": "locations"}) # Location
             job_id_elem = job.find("li", class_="css-h2nt8k")  # Job ID
+
+            # Extract job location from <dd> inside the location <div>
+            job_location = "Not specified"
+            if job_location_elem:
+                location_dd = job_location_elem.find("dd", class_="css-129m7dg")
+                if location_dd:
+                    job_location = location_dd.text.strip()
 
             if job_title_elem:
                 job_url = urljoin(board.url, job_title_elem["href"])
                 job_title = job_title_elem.text.strip()
                 job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
-                job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
 
                 if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))

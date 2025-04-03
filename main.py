@@ -35,6 +35,8 @@ function_map = {
     "zeta_global": cmn_scraper1,    "seatgeek": cmn_scraper1,   "chewy": cmn_scraper1,          "taskrabbit": cmn_scraper1,     "6sense": cmn_scraper1,     "sentinelone": cmn_scraper1,
     "navan": cmn_scraper1,          "blend": cmn_scraper1,      "nexxen": cmn_scraper1,         "berkadia": cmn_scraper1,       "flock": cmn_scraper1,      "cerebras": cmn_scraper1,
     "impact.com": cmn_scraper1,     "glean": cmn_scraper1,      "updater": cmn_scraper1,        "orion": cmn_scraper1,          "skydio": cmn_scraper1,     "hunter_douglas": cmn_scraper1,
+    "equipmentshare": cmn_scraper1, "exiger": cmn_scraper1,     "skillz": cmn_scraper1,         "modmed": cmn_scraper1,         "toast": cmn_scraper1,      "honor": cmn_scraper1,
+    "plume": cmn_scraper1,          "ionq": cmn_scraper1,
 
     "billtrust": cmn_scraper1_1,    "fanduel": cmn_scraper1_1,
 
@@ -55,14 +57,17 @@ function_map = {
     "connectwise": cmn_scraper2,    "podium": cmn_scraper2,     "accuweather": cmn_scraper2,    "signify_health": cmn_scraper2, "guideline": cmn_scraper2,  "id.me": cmn_scraper2,
     "grammarly": cmn_scraper2,      "bill": cmn_scraper2,       "thousandeyes": cmn_scraper2,   "eliseai": cmn_scraper2,        "amount": cmn_scraper2,     "lightspeed": cmn_scraper2,
     "eventbrite": cmn_scraper2,     "verkada": cmn_scraper2,    "vivid_seats": cmn_scraper2,    "mozilla": cmn_scraper2,        "luminar": cmn_scraper2,    "avidxchange": cmn_scraper2,
-    "asm": cmn_scraper2,            "gusto": cmn_scraper2,      "truveta": cmn_scraper2,        "fetch": cmn_scraper2,
+    "asm": cmn_scraper2,            "gusto": cmn_scraper2,      "truveta": cmn_scraper2,        "fetch": cmn_scraper2,          "angi": cmn_scraper2,       "chatham_financial": cmn_scraper2,
+    "dbt": cmn_scraper2,            "groupon": cmn_scraper2,    "oppfi": cmn_scraper2,          "whatnot": cmn_scraper2,        "via": cmn_scraper2,        "headspace": cmn_scraper2,
+    "2k": cmn_scraper2,
 
     "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
     "academia": cmn_scraper3,       "nash": cmn_scraper3,       "phil": cmn_scraper3,           "commure": cmn_scraper3,        "vouch": cmn_scraper3,      "acorns": cmn_scraper3,
-    "dave": cmn_scraper3,           "crusoe": cmn_scraper3,     "sift": cmn_scraper3,
+    "dave": cmn_scraper3,           "crusoe": cmn_scraper3,     "sift": cmn_scraper3,           "lambda": cmn_scraper3,         "suzy": cmn_scraper3,       "par": cmn_scraper3,
+    "zip": cmn_scraper3,
 
     "confluent": cmn_scraper4,      "splunk": cmn_scraper4,     "barracuda": cmn_scraper4,      "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,    "asus": cmn_scraper4,
-    "gei": cmn_scraper4,            "funko": cmn_scraper4,
+    "gei": cmn_scraper4,            "funko": cmn_scraper4,      "amerisave": cmn_scraper4,      "edelman": cmn_scraper4,
 
     "plaid": cmn_scraper5,          "wolverine": cmn_scraper5,  "point": cmn_scraper5,          "lendbuzz": cmn_scraper5,       "protective": cmn_scraper5, "prosper": cmn_scraper5,
     "wealthfront": cmn_scraper5,    "spotify": cmn_scraper5,    "quizlet": cmn_scraper5,        "houzz": cmn_scraper5,          "pipedrive": cmn_scraper5,  "dun&bradstreet": cmn_scraper5,
@@ -72,7 +77,7 @@ function_map = {
     "regrello": cmn_scraper5,       "penumbra": cmn_scraper5,   "coupa": cmn_scraper5,          "clear_capital": cmn_scraper5,  "cellares": cmn_scraper5,   "meridianlink": cmn_scraper5,
     "plusai": cmn_scraper5,         "lightcast": cmn_scraper5,  "kandji": cmn_scraper5,         "activecampaign": cmn_scraper5, "greenlight": cmn_scraper5, "spreetail": cmn_scraper5,
     "attentive": cmn_scraper5,      "viant": cmn_scraper5,      "pointclickcare": cmn_scraper5, "thrive": cmn_scraper5,         "lyra": cmn_scraper5,       "ci&t": cmn_scraper5,
-    "varo": cmn_scraper5,
+    "varo": cmn_scraper5,           "granicus": cmn_scraper5,   "dronedeploy": cmn_scraper5,    "brillio": cmn_scraper5,
 
     "bank_of_america": cmn_scraper6,"citi": cmn_scraper6,       "wells_fargo": cmn_scraper6,    "us_bank": cmn_scraper6,        "truist": cmn_scraper6,     "pnc": cmn_scraper6,
     "discover": cmn_scraper6,       "m&t": cmn_scraper6,        "state_street": cmn_scraper6,   "53rd": cmn_scraper6,           "barclays": cmn_scraper6,   "nt": cmn_scraper6,
@@ -104,7 +109,9 @@ function_map = {
     "univ_chicago": cmn_scraper6,   "genesys": cmn_scraper6,    "deluxe": cmn_scraper6,         "geico": cmn_scraper6,          "bcbsnc": cmn_scraper6,     "cox": cmn_scraper6,
     "lexisnexis": cmn_scraper6,     "pros": cmn_scraper6,       "evolent": cmn_scraper6,        "johnson": cmn_scraper6,        "redwood": cmn_scraper6,    "wolverine_worldwide": cmn_scraper6,
     "western_union": cmn_scraper6,  "shipt": cmn_scraper6,      "nike": cmn_scraper6,           "cat": cmn_scraper6,            "revvity": cmn_scraper6,    "jbhunt": cmn_scraper6,
-    "proofpoint": cmn_scraper6,
+    "proofpoint": cmn_scraper6,     "redfin": cmn_scraper6,     "stryker": cmn_scraper6,        "ehealth": cmn_scraper6,        "arch": cmn_scraper6,       "first_national": cmn_scraper6,
+    "ascensus": cmn_scraper6,       "poshmark": cmn_scraper6,   "clearwater": cmn_scraper6,     "etsy": cmn_scraper6,           "sailpoint": cmn_scraper6,  "washington_post": cmn_scraper6,
+    "gordon": cmn_scraper6,         "insulet": cmn_scraper6,
 
     "samsung": cmn_scraper7,        "redhat": cmn_scraper7,     "travellers": cmn_scraper7,     "workday": cmn_scraper7,        "at&t": cmn_scraper7,       "jll": cmn_scraper7,
 
@@ -112,28 +119,28 @@ function_map = {
 
     "walmart2": cmn_scraper9,       "servicenow": cmn_scraper9, "visa": cmn_scraper9,           "experian": cmn_scraper9,       "intuitive": cmn_scraper9,  "western_digital": cmn_scraper9,
     "nbc": cmn_scraper9,            "balsam": cmn_scraper9,     "linkedin": cmn_scraper9,       "nagarro": cmn_scraper9,        "canva": cmn_scraper9,      "wise": cmn_scraper9,
-    "nielseniq": cmn_scraper9,
+    "nielseniq": cmn_scraper9,      "freshworks": cmn_scraper9,
 
-    "abbvie": cmn_scraper10,        "pa": cmn_scraper10,
+    "abbvie": cmn_scraper10,        "pa": cmn_scraper10,        "mcdonalds": cmn_scraper10,     "procore": cmn_scraper10,       "wellmark": cmn_scraper10,
 
     "jpmc": cmn_scraper11,          "bny": cmn_scraper11,       "fortinet": cmn_scraper11,      "oracle": cmn_scraper11,        "citizen": cmn_scraper11,   "macys": cmn_scraper11,
     "pearson": cmn_scraper11,       "nokia": cmn_scraper11,     "ford": cmn_scraper11,          "mount_sinai": cmn_scraper11,   "fanatics": cmn_scraper11,  "goldman_sachs": cmn_scraper11,
     "hackett": cmn_scraper11,       "cummins": cmn_scraper11,   "jefferies": cmn_scraper11,     "perficient": cmn_scraper11,    "kroger": cmn_scraper11,    "unitedlex": cmn_scraper11,
-    "s&c": cmn_scraper11,           "verint": cmn_scraper11,    "hexaware": cmn_scraper11,
+    "s&c": cmn_scraper11,           "verint": cmn_scraper11,    "hexaware": cmn_scraper11,      "staples": cmn_scraper11,       "envision": cmn_scraper11,
 
     "tplink": cmn_scraper12,        "mindex": cmn_scraper12,    "therapynotes": cmn_scraper12,  "prepass": cmn_scraper12,       "datavisor": cmn_scraper12, "tiger_analytics": cmn_scraper12,
     "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,       "byrider": cmn_scraper12,
 
     "github": cmn_scraper13,        "statefarm": cmn_scraper13, "constellation": cmn_scraper13, "gallagher": cmn_scraper13,     "sirius": cmn_scraper13,    "dollar_general": cmn_scraper13,
     "principal": cmn_scraper13,     "rivian": cmn_scraper13,    "amd": cmn_scraper13,           "booking": cmn_scraper13,       "pds_health": cmn_scraper13,"mcgraw_hill": cmn_scraper13,
-    "dish": cmn_scraper13,          "sheetz": cmn_scraper13,    "city_national": cmn_scraper13,
+    "dish": cmn_scraper13,          "sheetz": cmn_scraper13,    "city_national": cmn_scraper13, "hinge_health": cmn_scraper13,  "ice": cmn_scraper13,
 
     "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "sas": cmn_scraper14,           "lord_abbett": cmn_scraper14,"liberty_mutual": cmn_scraper14,
-    "blackhawk": cmn_scraper14,     "msci": cmn_scraper14,      "ddn": cmn_scraper14,           "biorad": cmn_scraper14,        "healthedge": cmn_scraper14, "charles_schwab": cmn_scraper14,
-    "fujifilm": cmn_scraper14,
+    "blackhawk": cmn_scraper14,     "msci": cmn_scraper14,      "ddn": cmn_scraper14,           "biorad": cmn_scraper14,        "healthedge": cmn_scraper14,"charles_schwab": cmn_scraper14,
+    "fujifilm": cmn_scraper14,      "vista_equity": cmn_scraper14,
 
-    "redsail": cmn_scraper15,       "vertex2": cmn_scraper15,   "convergint": cmn_scraper15,    "access": cmn_scraper15,        "ovative": cmn_scraper15,    "hensel_phelps": cmn_scraper15,
-    "frontier": cmn_scraper15,      "tandem": cmn_scraper15,    "realpage": cmn_scraper15,
+    "redsail": cmn_scraper15,       "vertex2": cmn_scraper15,   "convergint": cmn_scraper15,    "access": cmn_scraper15,        "ovative": cmn_scraper15,   "hensel_phelps": cmn_scraper15,
+    "frontier": cmn_scraper15,      "tandem": cmn_scraper15,    "realpage": cmn_scraper15,      "discovery": cmn_scraper15,     "milliman": cmn_scraper15,  "odw": cmn_scraper15,
 }
 
 if __name__ == "__main__":
