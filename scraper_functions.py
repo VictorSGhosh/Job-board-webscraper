@@ -27,6 +27,7 @@ from classes import Job
 visited_data = None
 qualifiers = None
 
+
 # Setup Selenium WebDriver (in headless mode)
 def init():
     global visited_data
@@ -54,6 +55,7 @@ def init():
     # # Ensure visited_data is a defaultdict
     # if not isinstance(qualifiers, defaultdict):
     #     qualifiers = defaultdict(list, qualifiers)
+
 
 def webscraper_driver_init():
     chrome_options = Options()
@@ -89,6 +91,7 @@ def is_valid_title(job_title, title_qualifiers, title_disqualifiers):
 
 def is_id_visited(job_id, company):
     return job_id in visited_data[company]
+
 
 def is_valid(job_id, job_location, job_title, board):
     location_qualifiers = board.location_qualifiers
@@ -147,12 +150,14 @@ def cmn_scraper1(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
 def cmn_scraper1_1(board=None):
     job_list = cmn_scraper1(board)
     for job in job_list:
         job.url = f"https://boards.greenhouse.io/embed/job_app?for={board.func}&token={job.id}"
     print_jobs(job_list)
     return job_list
+
 
 def cmn_scraper2(board=None):
     driver = webscraper_driver_init()
@@ -206,6 +211,14 @@ def cmn_scraper2(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
+def cmn_scraper2_1(board=None):
+    job_list = cmn_scraper2(board)
+    for job in job_list:
+        job.id = job.url.split("=")[-1]
+    print_jobs(job_list)
+    return job_list
+
 def cmn_scraper3(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
@@ -243,7 +256,6 @@ def cmn_scraper3(board=None):
 def cmn_scraper4(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
-    job_posts = driver.find_elements(By.XPATH, "//tr[td[@class='jv-job-list-name']]")
     jobs_list = []
     company = board.company
 
@@ -316,6 +328,7 @@ def cmn_scraper5(board):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
 def cmn_scraper6(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
@@ -333,7 +346,7 @@ def cmn_scraper6(board):
 
         for job in job_posts:
             job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_location_elem = job.find("div", {"data-automation-id": "locations"}) # Location
+            job_location_elem = job.find("div", {"data-automation-id": "locations"})  # Location
             job_id_elem = job.find("li", class_="css-h2nt8k")  # Job ID
 
             # Extract job location from <dd> inside the location <div>
@@ -370,16 +383,16 @@ def cmn_scraper6(board):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
 def cmn_scraper7(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
-    wait = WebDriverWait(driver, 5)
+    wait = WebDriverWait(driver, 10)
 
     jobs_list = []
     company = board.company
-    pages = 20
 
-    while pages > 0:
+    while True:
         soup = BeautifulSoup(driver.page_source, "html.parser")
 
         # Find all job listings
@@ -387,16 +400,14 @@ def cmn_scraper7(board):
 
         for job in job_posts:
             job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_location_elem = job.find_all("dd", class_="css-129m7dg")  # Location
-            job_id_elem = job.find("li", class_="css-h2nt8k")  # Job ID
+            job_id_elem_list = job.find_all("li", class_="css-h2nt8k")
 
             if job_title_elem:
                 job_url = urljoin(board.url, job_title_elem["href"])
                 job_title = job_title_elem.text.strip()
-                job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
-                job_location = job_location_elem[1].text.strip() if job_location_elem and len(job_location_elem) > 1 else "Not specified"
+                job_id, job_location = [elem.text.strip() for elem in job_id_elem_list] if job_id_elem_list else ["N/A", "N/A"]
 
-                if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
+                if is_valid(job_id, job_location, job_title, board):
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
         # Try to click the "Next" button if it exists
@@ -410,7 +421,6 @@ def cmn_scraper7(board):
         except:
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
-        pages -= 1
 
     caller = inspect.stack()[1]  # Get caller's frame
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
@@ -478,7 +488,7 @@ def scroll_to_load_jobs(driver):
         if new_height == last_height:  # If the height doesn't change, stop scrolling
             print("Reached the end of the page.")
             break
-        last_height = new_height       # No button available, continue scrolling
+        last_height = new_height  # No button available, continue scrolling
 
 
 def click_button_to_show_more_jobs(driver):
@@ -536,6 +546,42 @@ def cmn_scraper9(board=None):
         job_link_elem = job.find("a", class_="link--block details")
         job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
         job_location_elem = job.find_previous("h3", class_="opening-title")
+
+        if job_link_elem and job_title_elem:
+            job_url = job_link_elem["href"]
+            job_title = job_title_elem.text.strip()
+            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
+            job_id = (job_url.split("/")[-1]).split("-")[0]
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
+def cmn_scraper9_5(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
+    scroll_to_load_jobs(driver)
+    click_button_to_show_more_jobs(driver)
+
+    # Parse the page after all jobs are loaded
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    job_posts = soup.find_all("li", class_="opening-job")
+
+    for job in job_posts:
+        job_link_elem = job.find("a", class_="link--block details")
+        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
+        job_location_elem = job.find("p", class_="job-desc")
 
         if job_link_elem and job_title_elem:
             job_url = job_link_elem["href"]
@@ -622,6 +668,7 @@ def grid_style_job_posts(driver, board=None):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
     return jobs_list
 
+
 def list_style_job_posts(driver, board=None):
     jobs_list = []
     company = board.company
@@ -639,6 +686,7 @@ def list_style_job_posts(driver, board=None):
         except Exception:
             continue  # Skip if any field is missing
     return jobs_list
+
 
 def cmn_scraper11(board=None):
     driver = webscraper_driver_init()
@@ -785,11 +833,12 @@ def cmn_scraper14(board=None):
             job_url = job_link["href"] if job_link else "N/A"
             job_id = job_url.split("/")[-3] if job_url != "N/A" else "N/A"
 
-            location_element = job.find("span", string="Job Locations")
+            location_element = job.find("span", string=re.compile(r"^(Job Locations|Location)$"))
             job_location = location_element.parent.find_all("span")[-1].text.strip() if location_element else "N/A"
 
-            if location_element is None or job_location == "Job Locations":
-                job_location = ", ".join([span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
+            if location_element is None or job_location in ["Job Locations", "Location"]:
+                job_location = ", ".join(
+                    [span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
 
             if is_valid(job_id, job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
@@ -822,32 +871,6 @@ def load_more_jobs_on_ultipro(driver):
         # Wait for new jobs to load (you can adjust the sleep time or use WebDriverWait)
         time.sleep(1)  # Sleep to wait for the page to load new job posts
 
-# def load_all_locations(driver):
-#     print("Loading all locations...")
-#     while True:
-#         # Locate all buttons for "More Locations"
-#         location_buttons = driver.find_elements(By.CSS_SELECTOR, '[data-automation="job-location-more"]')
-#
-#         if not location_buttons:
-#             print("No more 'More Locations' buttons found.")
-#             break  # Exit if no buttons are found
-#
-#         for button in location_buttons:
-#             try:
-#                 # Scroll into view before clicking
-#                 driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", button)
-#                 time.sleep(0.5)  # Small delay to ensure scrolling is done
-#
-#                 # Click the button
-#                 button.click()
-#                 print("Clicked on 'More Locations'")
-#
-#                 # Wait a moment to allow locations to load
-#                 time.sleep(1)
-#
-#             except (ElementNotInteractableException, StaleElementReferenceException):
-#                 print("Skipping a non-interactable or stale button.")
-#                 continue  # Move on to the next button if this one is not interactable
 
 def cmn_scraper15(board=None):
     driver = webscraper_driver_init()
@@ -893,6 +916,7 @@ def cmn_scraper15(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
 # Specific Webscraper Functions
 def otterai(board=None):
     job_list = cmn_scraper1(board)
@@ -901,12 +925,14 @@ def otterai(board=None):
     print_jobs(job_list)
     return job_list
 
+
 def moloco(board=None):
     job_list = cmn_scraper1(board)
     for job in job_list:
         job.url = "https://job-boards.greenhouse.io/moloco/jobs/" + job.id
     print_jobs(job_list)
     return job_list
+
 
 def vectra(board=None):
     driver = webscraper_driver_init()
@@ -959,50 +985,6 @@ def vectra(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def seven_eleven(board):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-    wait = WebDriverWait(driver, 10)
-
-    jobs_list = []
-    company = board.company
-
-    while True:
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-
-        # Find all job listings
-        job_posts = soup.find_all("li", class_="css-1q2dra3")
-
-        for job in job_posts:
-            job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_id_elem_list = job.find_all("li", class_="css-h2nt8k")
-
-            if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
-                job_title = job_title_elem.text.strip()
-                job_id, job_location = [elem.text.strip() for elem in job_id_elem_list] if job_id_elem_list else ["N/A", "N/A"]
-
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        # Try to click the "Next" button if it exists
-        try:
-            # Locate the Next button using 'data-uxi-element-id'
-            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
-            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
-            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
-            print("Navigating to next page...")
-            time.sleep(1)
-        except:
-            print("No more pages to navigate.")
-            break  # Exit loop if no "Next" button is found
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
 
 def nationwide(board):
     driver = webscraper_driver_init()
@@ -1135,37 +1117,44 @@ def arista(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def palo_alto(board=None):
+def enverus(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
-
     jobs_list = []
     company = board.company
 
-    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs(driver)
-    click_button_to_show_more_jobs(driver)
+    while True:  # Pagination loop
+        time.sleep(2)  # Allow time for elements to load
+        job_posts = driver.find_elements(By.XPATH, "//div[div[@class='jv-job-list-name']]")
 
-    # Parse the page after all jobs are loaded
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    job_posts = soup.find_all("li", class_="opening-job")
+        for job in job_posts:
+            outer_html = job.get_attribute("outerHTML")
+            soup = BeautifulSoup(outer_html, "html.parser")
 
-    for job in job_posts:
-        job_link_elem = job.find("a", class_="link--block details")
-        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
-        job_location_elem = job.find("p", class_="job-desc")
+            job_title_elem = soup.find("div", class_="jv-job-list-name").find("a")
+            job_location_elem = soup.find("div", class_="jv-job-list-location")
 
-        if job_link_elem and job_title_elem:
-            job_url = job_link_elem["href"]
-            job_title = job_title_elem.text.strip()
-            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
-            job_id = (job_url.split("/")[-1]).split("-")[0]
+            if job_location_elem and job_title_elem:
+                job_id = job_title_elem["href"].split("/")[-1]  # Extract job ID
+                job_title = job_title_elem.text.strip()  # Extract job title
+                job_url = f"https://jobs.jobvite.com{job_title_elem['href']}"  # Construct full job URL
+                job_location = "".join(job_location_elem.text.replace("\n", "").split("  "))  # Clean location text
 
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+                if is_valid(job_id, job_location, job_title, board):
+                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
+        # Check if "Next" button exists
+        try:
+            next_button = driver.find_element(By.XPATH, "//a[contains(@class, 'jv-pagination-next')]")
+            if "disabled" in next_button.get_attribute("class"):  # Check if the button is disabled
+                break  # Stop pagination if no more pages
+            next_button.click()  # Click to load next page
+            time.sleep(2)  # Wait for the next page to load
+        except (NoSuchElementException, ElementClickInterceptedException):
+            break  # Stop pagination if button is missing
+
+    caller = inspect.stack()[1]  # Get caller's frame
+    caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
