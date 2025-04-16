@@ -213,11 +213,56 @@ def cmn_scraper2(board=None):
 
 
 def cmn_scraper2_1(board=None):
-    job_list = cmn_scraper2(board)
-    for job in job_list:
-        job.id = job.url.split("=")[-1]
-    print_jobs(job_list)
-    return job_list
+    driver = webscraper_driver_init()
+
+    page_num = 1
+    jobs_list = []
+    company = board.company
+
+    while True:  # Pagination loop
+        sep = "&" if urlparse(board.url).query else "?"
+        page_url = f"{board.url}{sep}page={page_num}"
+        webscraper_driver_get(driver, page_url)  # Load the current page
+        time.sleep(2)  # Allow time for elements to load
+
+        job_posts = driver.find_elements(By.CLASS_NAME, "job-post")
+        if not job_posts:
+            break  # Stop if no more job listings are found
+
+        for job in job_posts:
+            outer_html = job.get_attribute("outerHTML")
+            soup = BeautifulSoup(outer_html, "html.parser")
+
+            job_link = soup.find("a")
+            job_title_elem = soup.find("p", class_="body body--medium")
+
+            # Extract the span text if it exists
+            new_post_label = job_title_elem.find("span")
+            new_label = new_post_label.get_text(strip=True) if new_post_label else ""
+
+            job_location_elem = soup.find("p", class_="body body__secondary body--metadata")
+
+            if job_link and job_title_elem:
+                job_url = urljoin(board.url, job_link["href"])  # Convert relative URL to absolute
+                job_id = job_url.split("=")[-1]
+                # job_title = job_title_elem.get_text(" ", strip=True)
+                # Remove the span text manually (alternative method)
+                for span in job_title_elem.find_all("span"):
+                    span.extract()  # Removes all span elements
+                job_title = job_title_elem.get_text(strip=True)
+
+                job_location = job_location_elem.get_text(strip=True) if job_location_elem else "Not specified"
+
+                if is_valid(job_id, job_location, job_title, board):
+                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url, published_at=new_label))
+
+        page_num += 1  # Move to the next page
+    caller = inspect.stack()[1]  # Get caller's frame
+    caller_module = inspect.getmodule(caller[0])  # Get caller's module
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
 
 def cmn_scraper3(board=None):
     driver = webscraper_driver_init()
@@ -296,6 +341,49 @@ def cmn_scraper4(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+def cmn_scraper4_1(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+    jobs_list = []
+    company = board.company
+
+    while True:  # Pagination loop
+        time.sleep(2)  # Allow time for elements to load
+        job_posts = driver.find_elements(By.XPATH, "//li[@class='row']")
+
+        for job in job_posts:
+            outer_html = job.get_attribute("outerHTML")
+            soup = BeautifulSoup(outer_html, "html.parser")
+
+            job_title_elem = soup.find("div", class_="jv-job-list-name")
+            job_url_elem = soup.find("a")
+            job_location_elem = soup.find("div", class_="jv-job-list-location")
+
+            if job_location_elem and job_title_elem:
+                job_id = job_url_elem["href"].split("/")[-1]  # Extract job ID
+                job_title = job_title_elem.text.strip()  # Extract job title
+                job_url = f"https://jobs.jobvite.com{job_url_elem['href']}"  # Construct full job URL
+                job_location = "".join(job_location_elem.text.replace("\n", "").split("  "))  # Clean location text
+
+                if is_valid(job_id, job_location, job_title, board):
+                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        # Check if "Next" button exists
+        try:
+            next_button = driver.find_element(By.XPATH, "//a[contains(@class, 'jv-pagination-next')]")
+            if "disabled" in next_button.get_attribute("class"):  # Check if the button is disabled
+                break  # Stop pagination if no more pages
+            next_button.click()  # Click to load next page
+            time.sleep(2)  # Wait for the next page to load
+        except (NoSuchElementException, ElementClickInterceptedException):
+            break  # Stop pagination if button is missing
+
+    caller = inspect.stack()[1]  # Get caller's frame
+    caller_module = inspect.getmodule(caller[0])  # Get caller's module
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
 
 def cmn_scraper5(board):
     driver = webscraper_driver_init()
@@ -1152,6 +1240,82 @@ def enverus(board=None):
             time.sleep(2)  # Wait for the next page to load
         except (NoSuchElementException, ElementClickInterceptedException):
             break  # Stop pagination if button is missing
+
+    caller = inspect.stack()[1]  # Get caller's frame
+    caller_module = inspect.getmodule(caller[0])  # Get caller's module
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
+
+def magnite(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+    time.sleep(1)
+    wait = WebDriverWait(driver, 5)
+
+    jobs_list = []
+    company = board.company
+
+    while True:
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+
+        # Find all job listings
+        job_posts = soup.find_all("li", class_="css-1q2dra3")
+
+        for job in job_posts:
+            job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
+            job_location_elem = job.find("div", {"data-automation-id": "locations"})  # Location
+            job_id_elem = job.find("li", class_="css-h2nt8k")  # Job ID
+
+            # Extract job location from <dd> inside the location <div>
+            job_location = "Not specified"
+            if job_location_elem:
+                location_dd = job_location_elem.find("dd", class_="css-129m7dg")
+                if location_dd:
+                    job_location = location_dd.text.strip()
+
+            if job_title_elem:
+                job_url = urljoin(board.url, job_title_elem["href"])
+                job_title = job_title_elem.text.strip()
+                job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
+
+                if is_valid(job_id, job_location, job_title, board):
+                    # Visit the job URL to extract the job ID
+                    try:
+                        webscraper_driver_get(driver, job_url)
+                        time.sleep(1)
+                        job_soup = BeautifulSoup(driver.page_source, "html.parser")
+
+                        # Try to locate the job ID element on the detail page
+                        job_id_elem = job_soup.find("div", {"data-automation-id": "requisitionId"})
+                        job_id = "N/A"
+                        if job_id_elem:
+                            job_id_dd = job_id_elem.find("dd", class_="css-129m7dg")
+                            if job_id_dd:
+                                job_id = job_id_dd.text.strip()
+                    except Exception as e:
+                        print(f"Error visiting job URL: {job_url} — {str(e)}")
+                        job_id = "N/A"
+
+                    # Return to the listings page before continuing
+                    webscraper_driver_get(driver, board.url)
+                    time.sleep(1)
+                    if job_id != "N/A" and not is_id_visited(job_id, board.func):
+                        jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        # Try to click the "Next" button if it exists
+        try:
+            # Locate the Next button using 'data-uxi-element-id'
+            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
+            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
+            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
+            print("Navigating to next page...")
+            time.sleep(1)
+        except:
+            print("No more pages to navigate.")
+            break  # Exit loop if no "Next" button is found
 
     caller = inspect.stack()[1]  # Get caller's frame
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
