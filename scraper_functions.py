@@ -166,8 +166,8 @@ def cmn_scraper2(board=None):
     jobs_list = []
     company = board.company
 
+    sep = "&" if urlparse(board.url).query else "?"
     while True:  # Pagination loop
-        sep = "&" if urlparse(board.url).query else "?"
         page_url = f"{board.url}{sep}page={page_num}"
         webscraper_driver_get(driver, page_url)  # Load the current page
         time.sleep(2)  # Allow time for elements to load
@@ -191,8 +191,8 @@ def cmn_scraper2(board=None):
 
             if job_link and job_title_elem:
                 job_url = urljoin(board.url, job_link["href"])  # Convert relative URL to absolute
-                job_id = urlparse(job_url).path.split("/")[-1]
-                # job_title = job_title_elem.get_text(" ", strip=True)
+                parsed_url = urlparse(job_url)
+                job_id = id if (id := parsed_url.path.split('/')[-1]).isdigit() else parsed_url.query.split('=')[-1]
                 # Remove the span text manually (alternative method)
                 for span in job_title_elem.find_all("span"):
                     span.extract()  # Removes all span elements
