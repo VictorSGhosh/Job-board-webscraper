@@ -36,7 +36,7 @@ function_map = {
     "impact.com": cmn_scraper1,     "glean": cmn_scraper1,      "updater": cmn_scraper1,        "orion": cmn_scraper1,          "skydio": cmn_scraper1,     "hunter_douglas": cmn_scraper1,
     "equipmentshare": cmn_scraper1, "exiger": cmn_scraper1,     "skillz": cmn_scraper1,         "modmed": cmn_scraper1,         "toast": cmn_scraper1,      "honor": cmn_scraper1,
     "plume": cmn_scraper1,          "ionq": cmn_scraper1,       "impact": cmn_scraper1,         "material_bank": cmn_scraper1,  "guild": cmn_scraper1,      "aura_frames": cmn_scraper1,
-    "aura": cmn_scraper1,           "dremio": cmn_scraper1,     "inizio_evoke": cmn_scraper1,   "cockroach": cmn_scraper1,      "revolution": cmn_scraper1,
+    "aura": cmn_scraper1,           "dremio": cmn_scraper1,     "inizio_evoke": cmn_scraper1,   "cockroach": cmn_scraper1,      "komodo": cmn_scraper1,     "revolution": cmn_scraper1,
 
     "billtrust": cmn_scraper1_1,    "fanduel": cmn_scraper1_1,
 
@@ -63,11 +63,12 @@ function_map = {
     "vimeo": cmn_scraper2,          "galileo": cmn_scraper2,    "alten": cmn_scraper2,          "offerup": cmn_scraper2,        "motive": cmn_scraper2,     "warby_parker": cmn_scraper2,
     "tenable": cmn_scraper2,        "prime_ai": cmn_scraper2,   "flow_traders": cmn_scraper2,   "counterpart": cmn_scraper2,    "trumid": cmn_scraper2,     "uber_freight": cmn_scraper2,
     "boomi": cmn_scraper2,          "everquote": cmn_scraper2,  "zoro": cmn_scraper2,           "west_monroe": cmn_scraper2,    "cargurus": cmn_scraper2,   "alphasense": cmn_scraper2,
+    "bandwidth": cmn_scraper2,
 
     "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
     "academia": cmn_scraper3,       "nash": cmn_scraper3,       "phil": cmn_scraper3,           "commure": cmn_scraper3,        "vouch": cmn_scraper3,      "acorns": cmn_scraper3,
     "dave": cmn_scraper3,           "crusoe": cmn_scraper3,     "sift": cmn_scraper3,           "lambda": cmn_scraper3,         "suzy": cmn_scraper3,       "par": cmn_scraper3,
-    "zip": cmn_scraper3,            "kin": cmn_scraper3,        "writer": cmn_scraper3,         "virta": cmn_scraper3,
+    "zip": cmn_scraper3,            "kin": cmn_scraper3,        "writer": cmn_scraper3,         "virta": cmn_scraper3,          "uipath": cmn_scraper3,
 
     "confluent": cmn_scraper4,      "splunk": cmn_scraper4,     "barracuda": cmn_scraper4,      "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,    "asus": cmn_scraper4,
     "gei": cmn_scraper4,            "funko": cmn_scraper4,      "amerisave": cmn_scraper4,      "edelman": cmn_scraper4,        "cupertino": cmn_scraper4,
@@ -124,7 +125,7 @@ function_map = {
     "kyndryl": cmn_scraper6,        "toyota": cmn_scraper6,     "goosehead": cmn_scraper6,      "priceline": cmn_scraper6,      "ercot": cmn_scraper6,      "siemens_healthineers": cmn_scraper6,
     "jll": cmn_scraper6,            "aig": cmn_scraper6,        "morningstar": cmn_scraper6,    "vetsource": cmn_scraper6,      "dimensional": cmn_scraper6,"veterans_united": cmn_scraper6,
     "itron": cmn_scraper6,          "j&j": cmn_scraper6,        "labcorp": cmn_scraper6,        "ameriprise": cmn_scraper6,     "safelite": cmn_scraper6,   "chamberlain": cmn_scraper6,
-    "lseg": cmn_scraper6,
+    "lseg": cmn_scraper6,           "entrust": cmn_scraper6,    "scholastic": cmn_scraper6,
 
     "7-11": cmn_scraper7,           "raymond_james": cmn_scraper7,
 
@@ -148,18 +149,24 @@ function_map = {
     "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,       "byrider": cmn_scraper12,       "resource_innovation": cmn_scraper12,
 
     "github": cmn_scraper13,        "statefarm": cmn_scraper13, "constellation": cmn_scraper13, "gallagher": cmn_scraper13,     "sirius": cmn_scraper13,    "dollar_general": cmn_scraper13,
-    "principal": cmn_scraper13,     "rivian": cmn_scraper13,    "amd": cmn_scraper13,           "booking": cmn_scraper13,       "pds_health": cmn_scraper13,"mcgraw_hill": cmn_scraper13,
+    "principal": cmn_scraper13,     "rivian": cmn_scraper13,    "amd": cmn_scraper13,           "pds_health": cmn_scraper13,    "booking": cmn_scraper13,   "mcgraw_hill": cmn_scraper13,
     "dish": cmn_scraper13,          "sheetz": cmn_scraper13,    "city_national": cmn_scraper13, "hinge_health": cmn_scraper13,  "ice": cmn_scraper13,       "republic_finance": cmn_scraper13,
-    "selective": cmn_scraper13,     "incyte": cmn_scraper13,    "paychex": cmn_scraper13,       "medallia": cmn_scraper13,      "garmin": cmn_scraper13,
+    "selective": cmn_scraper13,     "incyte": cmn_scraper13,    "paychex": cmn_scraper13,       "medallia": cmn_scraper13,      "garmin": cmn_scraper13,    "gm_financial": cmn_scraper13,
 
-    "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "sas": cmn_scraper14,           "lord_abbett": cmn_scraper14,"liberty_mutual": cmn_scraper14,
-    "blackhawk": cmn_scraper14,     "msci": cmn_scraper14,      "ddn": cmn_scraper14,           "biorad": cmn_scraper14,        "healthedge": cmn_scraper14,"charles_schwab": cmn_scraper14,
+    "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "lord_abbett": cmn_scraper14,   "sas": cmn_scraper14,       "liberty_mutual": cmn_scraper14,
+    "blackhawk": cmn_scraper14,     "msci": cmn_scraper14,      "ddn": cmn_scraper14,           "healthedge": cmn_scraper14,    "biorad": cmn_scraper14,    "charles_schwab": cmn_scraper14,
     "fujifilm": cmn_scraper14,      "riverbed": cmn_scraper14,  "lynker": cmn_scraper14,        "vista_equity": cmn_scraper14,  "quest": cmn_scraper14,     "quest_diagnostics": cmn_scraper14,
-    "lennox": cmn_scraper14,        "tds": cmn_scraper14,       "carecentrix": cmn_scraper14,   "mercury": cmn_scraper14,       "joby_aviation": cmn_scraper14,
+    "lennox": cmn_scraper14,        "tds": cmn_scraper14,       "carecentrix": cmn_scraper14,   "mercury": cmn_scraper14,       "seismic": cmn_scraper14,   "joby_aviation": cmn_scraper14,
 
     "redsail": cmn_scraper15,       "vertex2": cmn_scraper15,   "convergint": cmn_scraper15,    "access": cmn_scraper15,        "ovative": cmn_scraper15,   "hensel_phelps": cmn_scraper15,
     "frontier": cmn_scraper15,      "tandem": cmn_scraper15,    "realpage": cmn_scraper15,      "discovery": cmn_scraper15,     "milliman": cmn_scraper15,  "odw": cmn_scraper15,
     "aventiv": cmn_scraper15,
+
+    "bamboo": cmn_scraper16,        "sheerid": cmn_scraper16,   "transcend": cmn_scraper16,     "rightcrowd": cmn_scraper16,    "cozey": cmn_scraper16,     "socket_telecom": cmn_scraper16,
+    "thrive_global": cmn_scraper16, "galileo2": cmn_scraper16,  "schoolai": cmn_scraper16,      "partner.co": cmn_scraper16,    "serviceup": cmn_scraper16, "forterra": cmn_scraper16,
+    "webull": cmn_scraper16,        "tixr": cmn_scraper16,      "odyssey": cmn_scraper16,       "infinitus": cmn_scraper16,     "cbts": cmn_scraper16,      "create_music": cmn_scraper16,
+    "intelliguard": cmn_scraper16,  "primerx": cmn_scraper16,   "closinglock": cmn_scraper16,   "piedmont": cmn_scraper16,      "alertwest": cmn_scraper16, "adelaide": cmn_scraper16,
+    "bizzycar": cmn_scraper16,      "charlie": cmn_scraper16,   "fountane": cmn_scraper16
 }
 
 
@@ -275,6 +282,6 @@ if __name__ == "__main__":
     print(f"Scraping complete. Data saved to {csv_filename}.")
     os.startfile(csv_filename)
 
-    # with open(filed_filename, "w", encoding="utf-8") as f:
-    #     json.dump(filed_data, f, indent=4)
-    # print(f"Job IDs saved to {filed_filename}.")
+    with open(filed_filename, "w", encoding="utf-8") as f:
+        json.dump(filed_data, f, indent=4)
+    print(f"Job IDs saved to {filed_filename}.")

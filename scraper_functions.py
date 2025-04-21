@@ -1005,6 +1005,57 @@ def cmn_scraper15(board=None):
     return jobs_list
 
 
+def cmn_scraper16(board=None):
+    driver = webscraper_driver_init()
+
+    jobs_list = []
+    company = board.company
+    page = 0
+
+    flag = True
+    while flag:
+        # Smart pagination URL construction
+        page_url = f"{board.url}{'&' if '?' in board.url else '?'}page={page}"
+        webscraper_driver_get(driver, page_url)
+        # Parse the page
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+
+        # Extract job postings
+        job_posts = soup.find_all("div", class_="css-cq05mv")
+        if not job_posts:
+            flag = False
+        for job in job_posts:
+            # Extract job title and relative URL
+            title_tag = job.find("a", class_="css-zepamx-Anchor")
+            if not title_tag:
+                continue
+            job_title = title_tag.text.strip()
+            job_relative_url = title_tag['href']
+            job_url = urljoin(board.url, job_relative_url)
+
+            # Extract job ID from URL (UUID format)
+            job_id = job_relative_url.rstrip("/").split("/")[-1]
+
+            # Multiple Locations: Find all <span data-icon="LOCATION_OUTLINE"> and next <p>
+            locations = []
+            for loc_icon in job.find_all("span", {"data-icon": "LOCATION_OUTLINE"}):
+                p_tag = loc_icon.find_next("p")
+                if p_tag:
+                    locations.append(p_tag.text.strip())
+            job_location = "; ".join(locations) if locations else "Not specified"
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        page += 1
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
 # Specific Webscraper Functions
 def otterai(board=None):
     job_list = cmn_scraper1(board)
