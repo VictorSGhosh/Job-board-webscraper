@@ -858,6 +858,7 @@ def cmn_scraper12(board=None):
 def cmn_scraper13(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
+    time.sleep(1)
 
     jobs_list = []
     company = board.company
@@ -1072,6 +1073,19 @@ def moloco(board=None):
     print_jobs(job_list)
     return job_list
 
+def trmlabs(board=None):
+    job_list = cmn_scraper2(board)
+    for job in job_list:
+        job.url = f"https://job-boards.greenhouse.io/embed/job_app?for={board.func}&token={job.id}"
+    print_jobs(job_list)
+    return job_list
+
+def coalition(board=None):
+    job_list = cmn_scraper2(board)
+    for job in job_list:
+        job.url = job.url.replace("gh_j", "")
+    print_jobs(job_list)
+    return job_list
 
 def vectra(board=None):
     driver = webscraper_driver_init()
