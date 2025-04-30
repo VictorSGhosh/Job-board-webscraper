@@ -2,13 +2,14 @@
 # Define a Job class to store job details
 
 class Board:
-    def __init__(self, company, func, url, location_qualifiers, job_title_qualifiers, job_title_disqualifiers):
+    def __init__(self, company, func, url, location_qualifiers, job_title_qualifiers, job_title_disqualifiers, visited_ids):
         self.company = company
         self.func = func
         self.url = url
         self.location_qualifiers = location_qualifiers
         self.job_title_qualifiers = job_title_qualifiers
         self.job_title_disqualifiers = job_title_disqualifiers
+        self.visited_ids = visited_ids
 
 class Job:
     def __init__(self, company, job_id, title, location, url, content=None, published_at=None):
