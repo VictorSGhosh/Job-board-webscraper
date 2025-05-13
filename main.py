@@ -84,14 +84,15 @@ if __name__ == "__main__":
         else:
             print(f"Function {func_name} not found in function_map. Skipping {source['name']}.")
 
-    efficiency = 90   # For peak performance, do not use all cpus
+    efficiency = 50   # For peak performance, do not use all cpus
     cpu_cores = int(cpu_count() * (efficiency/100))
     with Pool(processes=min(cpu_cores, len(tasks))) as pool:
         results = pool.starmap(scrape_source, tasks)
 
     for source_name, jobs in results:
-        all_jobs.extend(jobs)
-        filed_data[source_name].extend([job.id for job in jobs])
+        if jobs:
+            all_jobs.extend(jobs)
+            filed_data[source_name].extend([job.id for job in jobs])
 
     # Save to CSV
     csv_filename = "job_listings.csv"
