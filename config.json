@@ -2130,6 +2130,46 @@
     "job_disqualifiers": ["Principal", "Director", "Scientist", "Manager", "Staff"]
   },
   {
+    "name": "Modern Health",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "modernhealth",
+    "url": "https://job-boards.greenhouse.io/modernhealth",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Staff"]
+  },
+  {
+    "name": "Workato",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "workato",
+    "url": "https://job-boards.greenhouse.io/workato?offices%5B%5D=4038996002",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager"]
+  },
+  {
+    "name": "Venture Global LNG",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "ventureglobal",
+    "url": "https://job-boards.greenhouse.io/venturegloballng?departments%5B%5D=4012548002",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Security", "Scientist", "Plant Systems"]
+  },
+  {
+    "name": "ClassDojo",
+    "type": "Education",
+    "module": "scraper_functions",
+    "function": "classdojo",
+    "url": "https://job-boards.greenhouse.io/classdojo",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["iOS", "Staff", "Manager", "Sourcer"]
+  },
+  {
     "name": "DevRev",
     "type": "Computer Software",
     "module": "scraper_functions",
@@ -3948,6 +3988,16 @@
     "location_qualifiers": ["Pennsylvania", "Ohio", "Kansas", "New York", "Texas", "Virginia", "Michigan", "Maine", "Florida", "United States", "Utah", "Colorado", "Louisiana", "Arkansas","Locations"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Intern", "Collector", "Security", "Network", "DFIR", "Manager", "Principal", "Support"]
+  },
+  {
+    "name": "Evolus",
+    "type": "Merchandisers and Supply Chains",
+    "module": "scraper_functions",
+    "function": "evolus",
+    "url": "https://jobs.jobvite.com/evolus",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
   },
   {
     "name": "Plaid",
@@ -8320,6 +8370,26 @@
     "job_disqualifiers": ["Field Application", "Hardware"]
   },
   {
+    "name": "Wiley",
+    "type": "Education",
+    "module": "scraper_functions",
+    "function": "wiley",
+    "url": "https://wiley.wd1.myworkdayjobs.com/wiley_careers?locationCountry=bc33aa3152ec42d4995f4791a106ed09",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "The Cigna Group",
+    "type": "BioTech",
+    "module": "scraper_functions",
+    "function": "cigna",
+    "url": "https://cigna.wd5.myworkdayjobs.com/cignacareers?Job_Application_ID=JOB_APPLICATION-3-7899779&Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=b7947bbbfff20176f0ee1016390c8d16&jobFamilyGroup=b7947bbbfff201d41a750216390c8516",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Governance", "Manager"]
+  },
+  {
     "name": "Walmart (SmartRecruiter Job Board)",
     "type": "Merchandiser",
     "module": "scraper_functions",
@@ -9528,5 +9598,75 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Frontend", "Staff", "CTO", "Relations"]
+  },
+  {
+    "name": "Data-Core Systems",
+    "type": "Consulting",
+    "module": "scraper_functions",
+    "function": "datacoresystems",
+    "url": "https://datacoresystems.bamboohr.com/careers",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "SAP ", "CRM", "Cybersecurity"]
+  },
+  {
+    "name": "Wellcom Worldwide",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "wellcom",
+    "url": "https://thelabnyc.bamboohr.com/careers",
+    "location_qualifiers": ["New York"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager"]
+  },
+  {
+    "name": "Nextworld, LLC",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "nextworld",
+    "url": "https://recruiting.paylocity.com/recruiting/jobs/All/7ab100fa-e329-4de6-8ce0-2d77177b666a/Nextworld-LLC",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions"]
+  },
+  {
+    "name": "TerraCycle",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "terracycle",
+    "url": "https://recruiting.paylocity.com/recruiting/jobs/All/0e6f52c3-18b3-4884-ab4d-e1d9947cbe07/TerraCycle",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "MaxCyte",
+    "type": "BioTech",
+    "module": "scraper_functions",
+    "function": "maxcyte",
+    "url": "https://recruiting.paylocity.com/recruiting/jobs/All/8c1f0d5d-0c65-49d1-accb-48c74a409d50/Join-Our-Team",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Middleby-Marshall Inc.",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "middleby",
+    "url": "https://recruiting.paylocity.com/recruiting/jobs/All/0b2408ff-5a47-40aa-a588-bac53cfe4aca/Middleby-Marshall-Inc",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Internship"]
+  },
+  {
+    "name": "Paylocity",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "paylocity",
+    "url": "https://2000recruiting.paylocity.com/Recruiting/Jobs/All/e2bcef5a-b6e5-4c5a-8fdd-c4da179dd98c",
+    "location_qualifiers": [", US"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Sales", "Director", "Front End", "Principal", "Network"]
   }
 ]

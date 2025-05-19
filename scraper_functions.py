@@ -93,7 +93,8 @@ def function_init():
         "onetrust": cmn_scraper2,       "xai": cmn_scraper2,        "komodo": cmn_scraper2,         "axle": cmn_scraper2,           "newsbreak": cmn_scraper2,  "taketwo": cmn_scraper2,
         "tebra": cmn_scraper2,          "five9": cmn_scraper2,      "virtu": cmn_scraper2,          "personalis": cmn_scraper2,     "shift4": cmn_scraper2,     "officehours": cmn_scraper2,
         "enigma": cmn_scraper2,         "plotly": cmn_scraper2,     "nih-ncbi": cmn_scraper2,       "cribl": cmn_scraper2,          "onx": cmn_scraper2,        "branch": cmn_scraper2,
-        "ascertain": cmn_scraper2,      "peregrine": cmn_scraper2,  "delfina": cmn_scraper2,        "cohere": cmn_scraper2,
+        "ascertain": cmn_scraper2,      "peregrine": cmn_scraper2,  "delfina": cmn_scraper2,        "cohere": cmn_scraper2,         "workato": cmn_scraper2,    "modernhealth": cmn_scraper2,
+        "ventureglobal": cmn_scraper2,  "classdojo": cmn_scraper2,
 
         # Ashby HQ Career Pages
         "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
@@ -107,7 +108,7 @@ def function_init():
         # Jobvite Career Pages
         "confluent": cmn_scraper4,      "splunk": cmn_scraper4,     "barracuda": cmn_scraper4,      "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,    "asus": cmn_scraper4,
         "gei": cmn_scraper4,            "funko": cmn_scraper4,      "amerisave": cmn_scraper4,      "edelman": cmn_scraper4,        "cupertino": cmn_scraper4,  "webmd": cmn_scraper4,
-        "ziff_davis": cmn_scraper4,     "tylertech": cmn_scraper4,
+        "ziff_davis": cmn_scraper4,     "tylertech": cmn_scraper4,  "evolus": cmn_scraper4,
 
         "payscale": cmn_scraper4_1,     "total_wine": cmn_scraper4_1,
 
@@ -172,7 +173,7 @@ def function_init():
         "assetmark": cmn_scraper6,      "strategic": cmn_scraper6,  "mcafee": cmn_scraper6,         "kbr": cmn_scraper6,            "manulife": cmn_scraper6,   "socure": cmn_scraper6,
         "iron_mountain": cmn_scraper6,  "neurocrine": cmn_scraper6, "amfam": cmn_scraper6,          "fti": cmn_scraper6,            "e*": cmn_scraper6,         "medline": cmn_scraper6,
         "dxc": cmn_scraper6,            "sunrun": cmn_scraper6,     "reputation": cmn_scraper6,     "boeing": cmn_scraper6,         "gen": cmn_scraper6,        "alsac": cmn_scraper6,
-        "voya": cmn_scraper6,           "zelle": cmn_scraper6,      "avnet": cmn_scraper6,
+        "voya": cmn_scraper6,           "zelle": cmn_scraper6,      "avnet": cmn_scraper6,          "wiley": cmn_scraper6,          "cigna": cmn_scraper6,
 
         "7-11": cmn_scraper7,           "corewell": cmn_scraper7,   "raymond_james": cmn_scraper7,
 
@@ -232,6 +233,12 @@ def function_init():
         "portal_ai": cmn_scraper17,     "linktree": cmn_scraper17,  "apartment-list": cmn_scraper17,"signoz": cmn_scraper17,        "roe_ai": cmn_scraper17,    "heavy-construction-systems": cmn_scraper17,
         "letter-ai": cmn_scraper17,     "converge": cmn_scraper17,  "boring-company": cmn_scraper17,"bluesky": cmn_scraper17,       "dragonfly": cmn_scraper17, "stack-auth-com": cmn_scraper17,
         "cloudraft": cmn_scraper17,     "gem": cmn_scraper17,       "silkline": cmn_scraper17,
+
+        # BambooHR Career Pages
+        "wellcom": cmn_scraper18,       "datacoresystems": cmn_scraper18,
+
+        # Paylocity Career Pages
+        "nextworld": cmn_scraper19,     "maxcyte": cmn_scraper19,   "terracycle": cmn_scraper19,    "middleby": cmn_scraper19,     "paylocity": cmn_scraper19,
     }
     return function_map
 
@@ -461,6 +468,7 @@ def cmn_scraper2_1(board=None):
         print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
+
 
 def cmn_scraper3(board=None):
     driver = webscraper_driver_init()
@@ -1259,6 +1267,7 @@ def cmn_scraper16(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
 def cmn_scraper17(board=None):
     # API Endpoint
     jobs_list = []
@@ -1328,6 +1337,91 @@ def cmn_scraper17(board=None):
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
     return jobs_list
+
+
+def cmn_scraper18(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Parse the page
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+
+    # Extract job postings
+    job_posts = soup.find_all("li")
+
+    for job in job_posts:
+        # Extract anchor tag
+        job_id = ""
+        job_title = ""
+        job_url = ""
+        a_tag = job.find('a', class_='jss-g13')
+        if a_tag:
+            relative_url = a_tag['href']
+            job_url = urljoin(board.url, relative_url)
+            job_id = relative_url.strip('/').split('/')[-1]
+            job_title = a_tag.get_text(strip=True)
+
+        # Extract location (assumes the 2nd <p> under .jss-g18 with class .jss-g17 contains location)
+        job_location = ""
+        location_p_tags = job.find_all('div', class_='jss-g18')
+        for div in location_p_tags:
+            paragraphs = div.find_all('p', class_='jss-g17')
+            for p in paragraphs:
+                text = p.get_text(strip=True)
+                if '(' in text or ',' in text:  # Heuristic for location
+                    job_location = text
+                    break
+            if job_location:
+                break
+
+        if job_id and job_location and job_title and is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
+
+def cmn_scraper19(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Parse the page
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+
+    # Extract job postings
+    job_posts = soup.find_all("div", class_="row job-listing-job-item")
+
+    for job in job_posts:
+        title_tag = job.find("a", class_="no-underline custom-link-color")
+        job_title = title_tag.get_text(strip=True)
+        job_date = job.find_all("span")[1].get_text(strip=True)  # This is the third <span>, containing the date
+        job_location = ", ".join(location.get_text(strip=True) for location in job.find("div", class_="location-column").find_all("span"))
+
+        relative_url = title_tag["href"]
+        job_url = urljoin(board.url, relative_url)
+
+        job_id = relative_url.split("/")[-1]
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url, published_at=job_date))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
 
 # Specific Webscraper Functions
 def otterai(board=None):
