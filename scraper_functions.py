@@ -30,7 +30,7 @@ def function_init():
     # Dictionary to map function names to actual functions
     function_map = {
         "otterai": otterai,             "moloco": moloco,           "nationwide": nationwide,       "gm": gm,                       "arista": arista,          "vectra": vectra,
-        "enverus": enverus,             "magnite": magnite,         "trmlabs": trmlabs,             "coalition": coalition,
+        "enverus": enverus,             "trmlabs": trmlabs, "coalition": coalition,
 
         # Greenhouse Embed Career Pages
         "credit_karma": cmn_scraper1,   "block": cmn_scraper1,      "coinbase": cmn_scraper1,       "robinhood": cmn_scraper1,      "stripe": cmn_scraper1,     "ripple": cmn_scraper1,
@@ -58,7 +58,7 @@ def function_init():
         "plume": cmn_scraper1,          "ionq": cmn_scraper1,       "impact": cmn_scraper1,         "material_bank": cmn_scraper1,  "guild": cmn_scraper1,      "aura_frames": cmn_scraper1,
         "aura": cmn_scraper1,           "dremio": cmn_scraper1,     "inizio_evoke": cmn_scraper1,   "cockroach": cmn_scraper1,      "revolution": cmn_scraper1, "circleci": cmn_scraper1,
         "sonic": cmn_scraper1,          "gemini": cmn_scraper1,     "relavity_space": cmn_scraper1, "esri": cmn_scraper1,           "capvision": cmn_scraper1,  "conviva": cmn_scraper1,
-        "foxglove": cmn_scraper1,       "abnormal": cmn_scraper1,   "coveo": cmn_scraper1,          "realtor.com": cmn_scraper1,
+        "foxglove": cmn_scraper1,       "abnormal": cmn_scraper1,   "coveo": cmn_scraper1,          "realtor.com": cmn_scraper1,    "ipc_systems": cmn_scraper1,
 
         "billtrust": cmn_scraper1_1,    "fanduel": cmn_scraper1_1,
 
@@ -94,7 +94,8 @@ def function_init():
         "tebra": cmn_scraper2,          "five9": cmn_scraper2,      "virtu": cmn_scraper2,          "personalis": cmn_scraper2,     "shift4": cmn_scraper2,     "officehours": cmn_scraper2,
         "enigma": cmn_scraper2,         "plotly": cmn_scraper2,     "nih-ncbi": cmn_scraper2,       "cribl": cmn_scraper2,          "onx": cmn_scraper2,        "branch": cmn_scraper2,
         "ascertain": cmn_scraper2,      "peregrine": cmn_scraper2,  "delfina": cmn_scraper2,        "cohere": cmn_scraper2,         "workato": cmn_scraper2,    "modernhealth": cmn_scraper2,
-        "ventureglobal": cmn_scraper2,  "classdojo": cmn_scraper2,
+        "ventureglobal": cmn_scraper2,  "classdojo": cmn_scraper2,  "perfectserve": cmn_scraper2,   "nyiso": cmn_scraper2,          "tegna": cmn_scraper2,      "netbrain": cmn_scraper2,
+        "designit": cmn_scraper2,
 
         # Ashby HQ Career Pages
         "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
@@ -108,7 +109,7 @@ def function_init():
         # Jobvite Career Pages
         "confluent": cmn_scraper4,      "splunk": cmn_scraper4,     "barracuda": cmn_scraper4,      "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,    "asus": cmn_scraper4,
         "gei": cmn_scraper4,            "funko": cmn_scraper4,      "amerisave": cmn_scraper4,      "edelman": cmn_scraper4,        "cupertino": cmn_scraper4,  "webmd": cmn_scraper4,
-        "ziff_davis": cmn_scraper4,     "tylertech": cmn_scraper4,  "evolus": cmn_scraper4,
+        "ziff_davis": cmn_scraper4,     "tylertech": cmn_scraper4,  "evolus": cmn_scraper4,         "saama": cmn_scraper4,
 
         "payscale": cmn_scraper4_1,     "total_wine": cmn_scraper4_1,
 
@@ -169,11 +170,15 @@ def function_init():
         "lseg": cmn_scraper6,           "entrust": cmn_scraper6,    "scholastic": cmn_scraper6,     "schweitzer": cmn_scraper6,     "elsevier": cmn_scraper6,   "cloud_software": cmn_scraper6,
         "stride": cmn_scraper6,         "keybank": cmn_scraper6,    "anheuser-busch": cmn_scraper6, "capital_group": cmn_scraper6,  "newrez": cmn_scraper6,     "openlane": cmn_scraper6,
         "edwards": cmn_scraper6,        "videojet": cmn_scraper6,   "pimco": cmn_scraper6,          "hhmi": cmn_scraper6,           "cme_group": cmn_scraper6,  "kyriba": cmn_scraper6,
-        "exeter": cmn_scraper6,         "pjt": cmn_scraper6,        "donaldson": cmn_scraper6,      "uniphore": cmn_scraper6,       "dataminr": cmn_scraper6,   "clarivate": cmn_scraper6,
+        "exeter": cmn_scraper6,         "donaldson": cmn_scraper6,      "uniphore": cmn_scraper6,       "dataminr": cmn_scraper6,   "clarivate": cmn_scraper6,
         "assetmark": cmn_scraper6,      "strategic": cmn_scraper6,  "mcafee": cmn_scraper6,         "kbr": cmn_scraper6,            "manulife": cmn_scraper6,   "socure": cmn_scraper6,
         "iron_mountain": cmn_scraper6,  "neurocrine": cmn_scraper6, "amfam": cmn_scraper6,          "fti": cmn_scraper6,            "e*": cmn_scraper6,         "medline": cmn_scraper6,
         "dxc": cmn_scraper6,            "sunrun": cmn_scraper6,     "reputation": cmn_scraper6,     "boeing": cmn_scraper6,         "gen": cmn_scraper6,        "alsac": cmn_scraper6,
-        "voya": cmn_scraper6,           "zelle": cmn_scraper6,      "avnet": cmn_scraper6,          "wiley": cmn_scraper6,          "cigna": cmn_scraper6,
+        "voya": cmn_scraper6,           "zelle": cmn_scraper6,      "avnet": cmn_scraper6,          "wiley": cmn_scraper6,          "cigna": cmn_scraper6,      "global_payments": cmn_scraper6,
+        "amex": cmn_scraper6,           "csaa": cmn_scraper6,       "genmab": cmn_scraper6,         "mars": cmn_scraper6,           "manhattan": cmn_scraper6,  "amadeus": cmn_scraper6,
+        "realreal": cmn_scraper6,       "highmark": cmn_scraper6,
+
+        "magnite": cmn_scraper6_1,      "pjt": cmn_scraper6_1,
 
         "7-11": cmn_scraper7,           "corewell": cmn_scraper7,   "raymond_james": cmn_scraper7,
 
@@ -195,6 +200,7 @@ def function_init():
         "s&c": cmn_scraper11,           "verint": cmn_scraper11,    "hexaware": cmn_scraper11,      "staples": cmn_scraper11,       "envision": cmn_scraper11,  "reiter": cmn_scraper11,
         "dtcc": cmn_scraper11,          "nov": cmn_scraper11,       "computershare": cmn_scraper11, "delta_dental": cmn_scraper11,  "intelsat": cmn_scraper11,  "american_eagle": cmn_scraper11,
         "myriad": cmn_scraper11,        "adt": cmn_scraper11,       "navy_federal": cmn_scraper11,  "newmark": cmn_scraper11,       "verisk": cmn_scraper11,    "gm_financial": cmn_scraper11,
+        "southern": cmn_scraper11,      "fujitsu": cmn_scraper11,
 
         # Workable Career Pages
         "tplink": cmn_scraper12,        "mindex": cmn_scraper12,    "therapynotes": cmn_scraper12,  "prepass": cmn_scraper12,       "datavisor": cmn_scraper12, "tiger_analytics": cmn_scraper12,
@@ -206,7 +212,7 @@ def function_init():
         "dish": cmn_scraper13,          "sheetz": cmn_scraper13,    "city_national": cmn_scraper13, "hinge_health": cmn_scraper13,  "ice": cmn_scraper13,       "republic_finance": cmn_scraper13,
         "selective": cmn_scraper13,     "incyte": cmn_scraper13,    "paychex": cmn_scraper13,       "medallia": cmn_scraper13,      "garmin": cmn_scraper13,    "konica_minolta": cmn_scraper13,
         "ulta": cmn_scraper13,          "novant": cmn_scraper13,    "osi_systems": cmn_scraper13,   "mcgraw_hill": cmn_scraper13,   "docusign": cmn_scraper13,  "publicis_groupe": cmn_scraper13,
-        "jcpenny": cmn_scraper13,       "tufts": cmn_scraper13,     "blackline": cmn_scraper13,
+        "jcpenny": cmn_scraper13,       "tufts": cmn_scraper13,     "blackline": cmn_scraper13,     "bowman": cmn_scraper13,
 
         # iCiMS iFrame Career Pages
         "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "lord_abbett": cmn_scraper14,   "sas": cmn_scraper14,       "liberty_mutual": cmn_scraper14,
@@ -214,7 +220,7 @@ def function_init():
         "fujifilm": cmn_scraper14,      "riverbed": cmn_scraper14,  "lynker": cmn_scraper14,        "vista_equity": cmn_scraper14,  "quest": cmn_scraper14,     "quest_diagnostics": cmn_scraper14,
         "lennox": cmn_scraper14,        "tds": cmn_scraper14,       "carecentrix": cmn_scraper14,   "mercury": cmn_scraper14,       "seismic": cmn_scraper14,   "east-west-bank": cmn_scraper14,
         "rs&h": cmn_scraper14,          "corgan": cmn_scraper14,    "fisher": cmn_scraper14,        "joby_aviation": cmn_scraper14, "woolpert": cmn_scraper14,  "constructconnect": cmn_scraper14,
-        "cacu": cmn_scraper14,
+        "cacu": cmn_scraper14,          "exponent": cmn_scraper14,
 
         # Ultipro Career Pages
         "redsail": cmn_scraper15,       "vertex2": cmn_scraper15,   "convergint": cmn_scraper15,    "access": cmn_scraper15,        "ovative": cmn_scraper15,   "hensel_phelps": cmn_scraper15,
@@ -677,6 +683,79 @@ def cmn_scraper6(board):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+def cmn_scraper6_1(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+    time.sleep(1)
+    wait = WebDriverWait(driver, 5)
+
+    jobs_list = []
+    company = board.company
+
+    while True:
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+
+        # Find all job listings
+        job_posts = soup.find_all("li", class_="css-1q2dra3")
+
+        for job in job_posts:
+            job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
+            job_location_elem = job.find("div", {"data-automation-id": "locations"})  # Location
+            job_id_elem = job.find("li", class_="css-h2nt8k")  # Job ID
+
+            # Extract job location from <dd> inside the location <div>
+            job_location = "Not specified"
+            if job_location_elem:
+                location_dd = job_location_elem.find("dd", class_="css-129m7dg")
+                if location_dd:
+                    job_location = location_dd.text.strip()
+
+            if job_title_elem:
+                job_url = urljoin(board.url, job_title_elem["href"])
+                job_title = job_title_elem.text.strip()
+                job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
+
+                if is_valid(job_id, job_location, job_title, board):
+                    # Visit the job URL to extract the job ID
+                    try:
+                        webscraper_driver_get(driver, job_url)
+                        time.sleep(1)
+                        job_soup = BeautifulSoup(driver.page_source, "html.parser")
+
+                        # Try to locate the job ID element on the detail page
+                        job_id_elem = job_soup.find("div", {"data-automation-id": "requisitionId"})
+                        job_id = "N/A"
+                        if job_id_elem:
+                            job_id_dd = job_id_elem.find("dd", class_="css-129m7dg")
+                            if job_id_dd:
+                                job_id = job_id_dd.text.strip()
+                    except Exception as e:
+                        print(f"Error visiting job URL: {job_url} — {str(e)}")
+                        job_id = "N/A"
+
+                    # Return to the listings page before continuing
+                    webscraper_driver_get(driver, board.url)
+                    time.sleep(1)
+                    if job_id != "N/A" and not is_id_visited(job_id, board.visited_ids):
+                        jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        # Try to click the "Next" button if it exists
+        try:
+            # Locate the Next button using 'data-uxi-element-id'
+            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
+            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
+            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
+            print("Navigating to next page...")
+            time.sleep(1)
+        except:
+            print("No more pages to navigate.")
+            break  # Exit loop if no "Next" button is found
+
+    caller = inspect.stack()[1]  # Get caller's frame
+    caller_module = inspect.getmodule(caller[0])  # Get caller's module
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
 
 def cmn_scraper7(board):
     driver = webscraper_driver_init()
@@ -750,7 +829,7 @@ def cmn_scraper8(board):
                 job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
                 job_id = job_id_list[1].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
 
-                if is_valid(job_id, job_location, job_title, board):
+                if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
         # Try to click the "Next" button if it exists
@@ -1680,76 +1759,4 @@ def enverus(board=None):
     return jobs_list
 
 
-def magnite(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-    time.sleep(1)
-    wait = WebDriverWait(driver, 5)
 
-    jobs_list = []
-    company = board.company
-
-    while True:
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-
-        # Find all job listings
-        job_posts = soup.find_all("li", class_="css-1q2dra3")
-
-        for job in job_posts:
-            job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_location_elem = job.find("div", {"data-automation-id": "locations"})  # Location
-            job_id_elem = job.find("li", class_="css-h2nt8k")  # Job ID
-
-            # Extract job location from <dd> inside the location <div>
-            job_location = "Not specified"
-            if job_location_elem:
-                location_dd = job_location_elem.find("dd", class_="css-129m7dg")
-                if location_dd:
-                    job_location = location_dd.text.strip()
-
-            if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
-                job_title = job_title_elem.text.strip()
-                job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
-
-                if is_valid(job_id, job_location, job_title, board):
-                    # Visit the job URL to extract the job ID
-                    try:
-                        webscraper_driver_get(driver, job_url)
-                        time.sleep(1)
-                        job_soup = BeautifulSoup(driver.page_source, "html.parser")
-
-                        # Try to locate the job ID element on the detail page
-                        job_id_elem = job_soup.find("div", {"data-automation-id": "requisitionId"})
-                        job_id = "N/A"
-                        if job_id_elem:
-                            job_id_dd = job_id_elem.find("dd", class_="css-129m7dg")
-                            if job_id_dd:
-                                job_id = job_id_dd.text.strip()
-                    except Exception as e:
-                        print(f"Error visiting job URL: {job_url} — {str(e)}")
-                        job_id = "N/A"
-
-                    # Return to the listings page before continuing
-                    webscraper_driver_get(driver, board.url)
-                    time.sleep(1)
-                    if job_id != "N/A" and not is_id_visited(job_id, board.visited_ids):
-                        jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        # Try to click the "Next" button if it exists
-        try:
-            # Locate the Next button using 'data-uxi-element-id'
-            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
-            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
-            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
-            print("Navigating to next page...")
-            time.sleep(1)
-        except:
-            print("No more pages to navigate.")
-            break  # Exit loop if no "Next" button is found
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
