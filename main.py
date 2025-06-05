@@ -114,9 +114,9 @@ if __name__ == "__main__":
     print(f"Scraping complete. Data saved to {csv_filename}.")
     os.startfile(csv_filename)
 
-    # with open(filed_filename, "w", encoding="utf-8") as f:
-    #     json.dump(filed_data, f, indent=4)
-    # print(f"Job IDs saved to {filed_filename}.")
+    with open(filed_filename, "w", encoding="utf-8") as f:
+        json.dump(filed_data, f, indent=4)
+    print(f"Job IDs saved to {filed_filename}.")
 
     end_time = time.time()
     elapsed_seconds = end_time - start_time
