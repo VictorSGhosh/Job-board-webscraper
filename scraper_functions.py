@@ -58,7 +58,7 @@ def function_init():
         "plume": cmn_scraper1,          "ionq": cmn_scraper1,       "impact": cmn_scraper1,         "material_bank": cmn_scraper1,  "guild": cmn_scraper1,      "aura_frames": cmn_scraper1,
         "aura": cmn_scraper1,           "dremio": cmn_scraper1,     "inizio_evoke": cmn_scraper1,   "cockroach": cmn_scraper1,      "revolution": cmn_scraper1, "circleci": cmn_scraper1,
         "sonic": cmn_scraper1,          "gemini": cmn_scraper1,     "relavity_space": cmn_scraper1, "esri": cmn_scraper1,           "capvision": cmn_scraper1,  "conviva": cmn_scraper1,
-        "coveo": cmn_scraper1,          "udemy": cmn_scraper1,      "integral_ad": cmn_scraper1,    "ipc_systems": cmn_scraper1,    "realtor.com": cmn_scraper1,
+        "coveo": cmn_scraper1,          "udemy": cmn_scraper1,      "integral_ad": cmn_scraper1,    "ipc_systems": cmn_scraper1,    "kaseya": cmn_scraper1,     "realtor.com": cmn_scraper1,
 
         "billtrust": cmn_scraper1_1,    "fanduel": cmn_scraper1_1,
 
@@ -95,7 +95,7 @@ def function_init():
         "enigma": cmn_scraper2,         "plotly": cmn_scraper2,     "nih-ncbi": cmn_scraper2,       "cribl": cmn_scraper2,          "onx": cmn_scraper2,        "branch": cmn_scraper2,
         "ascertain": cmn_scraper2,      "peregrine": cmn_scraper2,  "delfina": cmn_scraper2,        "cohere": cmn_scraper2,         "workato": cmn_scraper2,    "modernhealth": cmn_scraper2,
         "ventureglobal": cmn_scraper2,  "classdojo": cmn_scraper2,  "perfectserve": cmn_scraper2,   "nyiso": cmn_scraper2,          "tegna": cmn_scraper2,      "netbrain": cmn_scraper2,
-        "designit": cmn_scraper2,       "azurity": cmn_scraper2,    "formationbio": cmn_scraper2,
+        "designit": cmn_scraper2,       "azurity": cmn_scraper2,    "formationbio": cmn_scraper2,   "capitalrx": cmn_scraper2,      "veracode": cmn_scraper2,
 
         # Ashby HQ Career Pages
         "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
@@ -111,7 +111,7 @@ def function_init():
         "gei": cmn_scraper4,            "funko": cmn_scraper4,      "amerisave": cmn_scraper4,      "edelman": cmn_scraper4,        "cupertino": cmn_scraper4,  "webmd": cmn_scraper4,
         "ziff_davis": cmn_scraper4,     "tylertech": cmn_scraper4,  "evolus": cmn_scraper4,         "saama": cmn_scraper4,
 
-        "payscale": cmn_scraper4_1,     "total_wine": cmn_scraper4_1,
+        "payscale": cmn_scraper4_1,
 
         # Job Lever Career Pages
         "plaid": cmn_scraper5,          "wolverine": cmn_scraper5,  "point": cmn_scraper5,          "lendbuzz": cmn_scraper5,       "protective": cmn_scraper5, "prosper": cmn_scraper5,
@@ -176,7 +176,8 @@ def function_init():
         "dxc": cmn_scraper6,            "sunrun": cmn_scraper6,     "reputation": cmn_scraper6,     "boeing": cmn_scraper6,         "gen": cmn_scraper6,        "alsac": cmn_scraper6,
         "voya": cmn_scraper6,           "zelle": cmn_scraper6,      "avnet": cmn_scraper6,          "wiley": cmn_scraper6,          "cigna": cmn_scraper6,      "highmark": cmn_scraper6,
         "amex": cmn_scraper6,           "csaa": cmn_scraper6,       "genmab": cmn_scraper6,         "mars": cmn_scraper6,           "manhattan": cmn_scraper6,  "amadeus": cmn_scraper6,
-        "realreal": cmn_scraper6,       "mizuho": cmn_scraper6,     "inotivco": cmn_scraper6,       "danaher": cmn_scraper6,        "resolution_life": cmn_scraper6,
+        "realreal": cmn_scraper6,       "mizuho": cmn_scraper6,     "inotivco": cmn_scraper6,       "danaher": cmn_scraper6,        "takeda": cmn_scraper6,     "resolution_life": cmn_scraper6,
+        "total_wine": cmn_scraper6,     "choice_hotels": cmn_scraper6,
 
         "magnite": cmn_scraper6_1,      "pjt": cmn_scraper6_1,
 
@@ -756,6 +757,7 @@ def cmn_scraper6_1(board=None):
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
+    return jobs_list
 
 def cmn_scraper7(board):
     driver = webscraper_driver_init()
@@ -1056,7 +1058,7 @@ def list_style_job_posts(driver, board=None):
         try:
             job_title = job.find_element(By.CLASS_NAME, "job-tile__title").text  # Extract job title
             job_url = job.find_element(By.CLASS_NAME, "job-list-item__link").get_attribute("href")  # Extract job URL
-            job_id = re.search(r'/job/(\d+)/', job_url).group(1)
+            job_id = re.search(r'/job/([a-zA-Z0-9]+)/', job_url).group(1)
             job_location = job.find_element(By.CLASS_NAME, "job-list-item__job-info-value").text  # Extract location
 
             if is_valid(job_id, job_location, job_title, board):
@@ -1445,16 +1447,10 @@ def cmn_scraper18(board=None):
 
         # Extract location (assumes the 2nd <p> under .jss-g18 with class .jss-g17 contains location)
         job_location = ""
-        location_p_tags = job.find_all('div', class_='jss-g18')
-        for div in location_p_tags:
-            paragraphs = div.find_all('p', class_='jss-g17')
-            for p in paragraphs:
-                text = p.get_text(strip=True)
-                if '(' in text or ',' in text:  # Heuristic for location
-                    job_location = text
-                    break
-            if job_location:
-                break
+        location_div = job.find('div', class_='jss-g18')
+        paragraphs = location_div.find_all('p')
+        location_text = [p.get_text(strip=True) for p in paragraphs]
+        job_location = "; ".join(location_text)
 
         if job_id and job_location and job_title and is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
