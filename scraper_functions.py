@@ -59,6 +59,7 @@ def function_init():
         "aura": cmn_scraper1,           "dremio": cmn_scraper1,     "inizio_evoke": cmn_scraper1,   "cockroach": cmn_scraper1,      "revolution": cmn_scraper1, "circleci": cmn_scraper1,
         "sonic": cmn_scraper1,          "gemini": cmn_scraper1,     "relavity_space": cmn_scraper1, "esri": cmn_scraper1,           "capvision": cmn_scraper1,  "conviva": cmn_scraper1,
         "coveo": cmn_scraper1,          "udemy": cmn_scraper1,      "integral_ad": cmn_scraper1,    "ipc_systems": cmn_scraper1,    "kaseya": cmn_scraper1,     "realtor.com": cmn_scraper1,
+        "justworks": cmn_scraper1,
 
         "billtrust": cmn_scraper1_1,    "fanduel": cmn_scraper1_1,
 
@@ -95,7 +96,8 @@ def function_init():
         "enigma": cmn_scraper2,         "plotly": cmn_scraper2,     "nih-ncbi": cmn_scraper2,       "cribl": cmn_scraper2,          "onx": cmn_scraper2,        "branch": cmn_scraper2,
         "ascertain": cmn_scraper2,      "peregrine": cmn_scraper2,  "delfina": cmn_scraper2,        "cohere": cmn_scraper2,         "workato": cmn_scraper2,    "modernhealth": cmn_scraper2,
         "ventureglobal": cmn_scraper2,  "classdojo": cmn_scraper2,  "perfectserve": cmn_scraper2,   "nyiso": cmn_scraper2,          "tegna": cmn_scraper2,      "netbrain": cmn_scraper2,
-        "designit": cmn_scraper2,       "azurity": cmn_scraper2,    "formationbio": cmn_scraper2,   "capitalrx": cmn_scraper2,      "veracode": cmn_scraper2,
+        "designit": cmn_scraper2,       "azurity": cmn_scraper2,    "formationbio": cmn_scraper2,   "capitalrx": cmn_scraper2,      "veracode": cmn_scraper2,   "roofstock": cmn_scraper2,
+        "stockx": cmn_scraper2,         "domo": cmn_scraper2,
 
         # Ashby HQ Career Pages
         "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
@@ -109,7 +111,7 @@ def function_init():
         # Jobvite Career Pages
         "confluent": cmn_scraper4,      "splunk": cmn_scraper4,     "barracuda": cmn_scraper4,      "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,    "asus": cmn_scraper4,
         "gei": cmn_scraper4,            "funko": cmn_scraper4,      "amerisave": cmn_scraper4,      "edelman": cmn_scraper4,        "cupertino": cmn_scraper4,  "webmd": cmn_scraper4,
-        "ziff_davis": cmn_scraper4,     "tylertech": cmn_scraper4,  "evolus": cmn_scraper4,         "saama": cmn_scraper4,
+        "ziff_davis": cmn_scraper4,     "tylertech": cmn_scraper4,  "evolus": cmn_scraper4,         "saama": cmn_scraper4,          "uplight": cmn_scraper4,
 
         "payscale": cmn_scraper4_1,
 
@@ -125,7 +127,7 @@ def function_init():
         "varo": cmn_scraper5,           "granicus": cmn_scraper5,   "dronedeploy": cmn_scraper5,    "brillio": cmn_scraper5,        "gopuff": cmn_scraper5,     "system1": cmn_scraper5,
         "nium": cmn_scraper5,           "whoop": cmn_scraper5,      "porter": cmn_scraper5,         "cyngn": cmn_scraper5,          "aircall": cmn_scraper5,    "woven-by-toyota": cmn_scraper5,
         "xero": cmn_scraper5,           "clari": cmn_scraper5,      "shippo": cmn_scraper5,         "watchguard": cmn_scraper5,     "kyruus": cmn_scraper5,     "basis": cmn_scraper5,
-        "better": cmn_scraper5,         "insightm": cmn_scraper5,   "adora": cmn_scraper5,          "entrata": cmn_scraper5,
+        "better": cmn_scraper5,         "insightm": cmn_scraper5,   "adora": cmn_scraper5,          "entrata": cmn_scraper5,        "grail": cmn_scraper5,
 
         # Workday Career Pages
         "bank_of_america": cmn_scraper6,"citi": cmn_scraper6,       "wells_fargo": cmn_scraper6,    "us_bank": cmn_scraper6,        "truist": cmn_scraper6,     "pnc": cmn_scraper6,
@@ -177,7 +179,7 @@ def function_init():
         "voya": cmn_scraper6,           "zelle": cmn_scraper6,      "avnet": cmn_scraper6,          "wiley": cmn_scraper6,          "cigna": cmn_scraper6,      "highmark": cmn_scraper6,
         "amex": cmn_scraper6,           "csaa": cmn_scraper6,       "genmab": cmn_scraper6,         "mars": cmn_scraper6,           "manhattan": cmn_scraper6,  "amadeus": cmn_scraper6,
         "realreal": cmn_scraper6,       "mizuho": cmn_scraper6,     "inotivco": cmn_scraper6,       "danaher": cmn_scraper6,        "takeda": cmn_scraper6,     "resolution_life": cmn_scraper6,
-        "total_wine": cmn_scraper6,     "choice_hotels": cmn_scraper6,
+        "total_wine": cmn_scraper6,     "echo": cmn_scraper6,       "american_tire": cmn_scraper6,  "choice_hotels": cmn_scraper6,
 
         "magnite": cmn_scraper6_1,      "pjt": cmn_scraper6_1,
 
@@ -188,7 +190,7 @@ def function_init():
         # Smart Recruiters Career Pages
         "walmart2": cmn_scraper9,       "servicenow": cmn_scraper9, "visa": cmn_scraper9,           "experian": cmn_scraper9,       "intuitive": cmn_scraper9,  "western_digital": cmn_scraper9,
         "nbc": cmn_scraper9,            "balsam": cmn_scraper9,     "linkedin": cmn_scraper9,       "nagarro": cmn_scraper9,        "canva": cmn_scraper9,      "wise": cmn_scraper9,
-        "nielseniq": cmn_scraper9,      "freshworks": cmn_scraper9, "guardianhealth": cmn_scraper9, "fortune": cmn_scraper9,        "sandisk": cmn_scraper9,
+        "nielseniq": cmn_scraper9,      "freshworks": cmn_scraper9, "guardianhealth": cmn_scraper9, "fortune": cmn_scraper9,        "sandisk": cmn_scraper9,    "vitol": cmn_scraper9,
 
         "abbvie": cmn_scraper10,        "pa": cmn_scraper10,        "mcdonalds": cmn_scraper10,     "procore": cmn_scraper10,       "wellmark": cmn_scraper10,
 
@@ -213,7 +215,7 @@ def function_init():
         "dish": cmn_scraper13,          "sheetz": cmn_scraper13,    "city_national": cmn_scraper13, "hinge_health": cmn_scraper13,  "ice": cmn_scraper13,       "republic_finance": cmn_scraper13,
         "selective": cmn_scraper13,     "incyte": cmn_scraper13,    "paychex": cmn_scraper13,       "medallia": cmn_scraper13,      "garmin": cmn_scraper13,    "konica_minolta": cmn_scraper13,
         "ulta": cmn_scraper13,          "novant": cmn_scraper13,    "osi_systems": cmn_scraper13,   "mcgraw_hill": cmn_scraper13,   "docusign": cmn_scraper13,  "publicis_groupe": cmn_scraper13,
-        "jcpenny": cmn_scraper13,       "tufts": cmn_scraper13,     "blackline": cmn_scraper13,     "bowman": cmn_scraper13,
+        "jcpenny": cmn_scraper13,       "tufts": cmn_scraper13,     "blackline": cmn_scraper13,     "bowman": cmn_scraper13,        "spirit_airlines": cmn_scraper13,
 
         # iCiMS iFrame Career Pages
         "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "lord_abbett": cmn_scraper14,   "sas": cmn_scraper14,       "liberty_mutual": cmn_scraper14,
@@ -221,7 +223,7 @@ def function_init():
         "fujifilm": cmn_scraper14,      "riverbed": cmn_scraper14,  "lynker": cmn_scraper14,        "vista_equity": cmn_scraper14,  "quest": cmn_scraper14,     "quest_diagnostics": cmn_scraper14,
         "lennox": cmn_scraper14,        "tds": cmn_scraper14,       "carecentrix": cmn_scraper14,   "mercury": cmn_scraper14,       "seismic": cmn_scraper14,   "east-west-bank": cmn_scraper14,
         "rs&h": cmn_scraper14,          "corgan": cmn_scraper14,    "fisher": cmn_scraper14,        "joby_aviation": cmn_scraper14, "woolpert": cmn_scraper14,  "constructconnect": cmn_scraper14,
-        "cacu": cmn_scraper14,          "exponent": cmn_scraper14,
+        "cacu": cmn_scraper14,          "exponent": cmn_scraper14,  "berkeley": cmn_scraper14,
 
         # Ultipro Career Pages
         "redsail": cmn_scraper15,       "vertex2": cmn_scraper15,   "convergint": cmn_scraper15,    "access": cmn_scraper15,        "ovative": cmn_scraper15,   "hensel_phelps": cmn_scraper15,
