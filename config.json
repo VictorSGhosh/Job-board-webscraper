@@ -107,7 +107,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=Stripe",
     "location_qualifiers": ["San Francisco", "New York", "Seattle", "Chicago", "US", "NYC", "SFO"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Manager", "Security", "Android", "iOS", "Solution", "Scientist", "PhD", "Lead", "Sales", "Partner", "Design", "Broadcast", "Support", "Frontend", "Risk Strategist"]
+    "job_disqualifiers": ["Staff", "Manager", "Security", "Android", "iOS", "Solution", "Scientist", "PhD", "Lead", "Sales", "Partner", "Design", "Broadcast", "Support", "Frontend", "Risk Strategist", "Training", "Curriculum"]
   },
   {
     "name": "Ripple",
@@ -307,7 +307,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=okta",
     "location_qualifiers": ["San Francisco", "Bellevue", "Chicago", "Washington", "Seattle"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Social Lead", "Staff", "Support", "Solutions", "QA ", "Advocate", "AV Operations", "Sales", "Director", "VP", "Governance"]
+    "job_disqualifiers": ["Manager", "Social Lead", "Staff", "Support", "Solutions", "QA ", "Advocate", "AV Operations", "Sales", "Director", "VP", "Governance", "AV Engineer"]
   },
   {
     "name": "Anthropic",
@@ -327,7 +327,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=brex",
     "location_qualifiers": ["San Francisco", "New York", "Salt Lake"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Frontend", "Security", "Scientist"]
+    "job_disqualifiers": ["Manager", "Frontend", "Security", "Scientist", "Salesforce"]
   },
   {
     "name": "Upstart",
@@ -407,7 +407,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=nasuni",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Simulation", "Design", "Emulation", "Silicon", "Director", "Staff", "Manufacturing", "Quality", "Network", "Principal", "Manager", "Support", "Solutions"]
+    "job_disqualifiers": ["Simulation", "Design", "Emulation", "Silicon", "Director", "Staff", "Manufacturing", "Quality", "Network", "Principal", "Manager", "Support", "Solutions", "Security"]
   },
   {
     "name": "Next Insurance",
@@ -437,7 +437,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=appliedintuition",
     "location_qualifiers": ["United States", "Locations", "Hybrid"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Embedded", "PhD", "Research", "Electrical", "Safety", "Systems", "Android", "3D ", "Scenario", "Controls", "Perception", "Prediction", "Vehicle", "Validation", "Sales", "Customer", "Camera", "Quality", "Modeling", "Frontend", "Web", "Test ", "ATR", "Head of", "Defense", "Human", "Localization", "Planning", "Hardware", "Verification", "Simulation", "5G", "GNC", "Security", "Staff", "Autonomy", "Navigation", "Wire Harness", "Principal", "Chief", "IT Operations", "IT Infrastructure"]
+    "job_disqualifiers": ["Solutions", "Manager", "Embedded", "PhD", "Research", "Electrical", "Safety", "Systems", "Android", "3D ", "Scenario", "Controls", "Perception", "Prediction", "Vehicle", "Validation", "Sales", "Customer", "Camera", "Quality", "Modeling", "Frontend", "Web", "Test ", "ATR", "Head of", "Defense", "Human", "Localization", "Planning", "Hardware", "Verification", "Simulation", "5G", "GNC", "Security", "Staff", "Autonomy", "Navigation", "Wire Harness", "Principal", "Chief", "IT Operations", "IT Infrastructure", "Solution"]
   },
   {
     "name": "Altruist",
@@ -548,7 +548,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=fanduel",
     "location_qualifiers": ["Atlanta", "Jersey", "Los Angeles", "New York", "Orlando", "Remote"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Desktop Support", "Director", "Vice President", "Network", "Security", "Support", "Quality"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Desktop Support", "Director", "Vice President", "Network", "Security", "Support", "Quality", "365"]
   },
   {
     "name": "SentinelOne",
@@ -558,7 +558,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=sentinellabs",
     "location_qualifiers": ["United States", "California", "Georgia", "New Jersey", "Illinois"],
     "job_qualifiers": ["Data", "Engineer", "Developer", "Software"],
-    "job_disqualifiers": ["Scientist", "Staff", "Sales", "Solutions", "Security", "Manager", "Director"]
+    "job_disqualifiers": ["Scientist", "Staff", "Sales", "Solutions", "Security", "Manager", "Director", "Support"]
   },
   {
     "name": "Navan",
@@ -808,7 +808,7 @@
     "url": "https://job-boards.greenhouse.io/dbtlabsinc",
     "location_qualifiers": ["US -"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Curriculum"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Curriculum", "Network"]
   },
   {
     "name": "Groupon",
@@ -898,7 +898,7 @@
     "url": "https://job-boards.greenhouse.io/simplisafe",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Mechanical", "Principal", "Electrical", "Staff", "Quality", "Security"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Mechanical", "Principal", "Electrical", "Staff", "Quality", "Security", "Embedded", "Imaging"]
   },
   {
     "name": "EverQuote",
@@ -998,7 +998,7 @@
     "url": "https://job-boards.greenhouse.io/altentechnologyusa",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "CATIA V6", "Material", "Cost Planning", "Controls", "Field", "HVAC", "Manufacturing", "Optical", "Mechanical", "Packaging", "Vehicle Dynamics", "Principal", "Embedded", "Studio", "Systems", "Validation", "Network", "Quality", "Mechatronics", "Plastics", "Design and Release", "Electrical", "Design", "Instrument", "Security", "Industrial", "Simulation", "Supply Chain", "Google Workspace", "Commissioning", "Apriso", "Airbags", "Compliance", "Process", "Lab Test", "Suspension", "Certification", "Propulsion", "Robotics", "Test Engineer", "Verification", "Calibration"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "CATIA V6", "Material", "Cost Planning", "Controls", "Field", "HVAC", "Manufacturing", "Optical", "Mechanical", "Packaging", "Vehicle Dynamics", "Principal", "Embedded", "Studio", "Systems", "Validation", "Network", "Quality", "Mechatronics", "Plastics", "Design and Release", "Electrical", "Design", "Instrument", "Security", "Industrial", "Simulation", "Supply Chain", "Google Workspace", "Commissioning", "Apriso", "Airbags", "Compliance", "Process", "Lab Test", "Suspension", "Certification", "Propulsion", "Robotics", "Test Engineer", "Verification", "Calibration", "Brake Performance", "Wire Harness", "Staff"]
   },
   {
     "name": "OfferUp",
@@ -1218,7 +1218,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=pinterest",
     "location_qualifiers": ["San Francisco", "Seattle", "Chicago", "Los Angeles", "New York", "Palo Alto", "US"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Manager", "Director", "Intern", "iOS", "Scientist", "Principal", "Android", "IAM", "SalesForce", "Head of", "Distinguished", "Vision"]
+    "job_disqualifiers": ["Staff", "Manager", "Director", "Intern", "iOS", "Scientist", "Principal", "Android", "IAM", "SalesForce", "Head of", "Distinguished", "Vision", "Data Analyst"]
   },
   {
     "name": "Roku",
@@ -1268,7 +1268,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=lyft",
     "location_qualifiers": ["New York", "San Francisco", "Boston", "Seattle", "Nashville", "Portland", "Cincinnati", "Pasadena", "San Diego", "Monrovia", "Washington"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Manager", "iOS", "Scientist", "Android", "Firmware", "Security", "Frontend", "Head of", "Oracle EPM", "Storyteller", "Workday", "Program Lead"]
+    "job_disqualifiers": ["Staff", "Manager", "iOS", "Scientist", "Android", "Firmware", "Security", "Frontend", "Head of", "Oracle EPM", "Storyteller", "Workday", "Program Lead", "Systems Engineer"]
   },
   {
     "name": "ZipRecruiter",
@@ -1278,7 +1278,7 @@
     "url": "https://job-boards.greenhouse.io/ziprecruiter/?offices%5B%5D=17044&offices%5B%5D=17043&offices%5B%5D=17058&departments%5B%5D=70843",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager"]
+    "job_disqualifiers": ["Manager", "Scientist"]
   },
   {
     "name": "Coupang",
@@ -1498,7 +1498,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=revolutionmedicines",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Director", "Head of", "Intern", "Network", "Integration"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Director", "Head of", "Intern", "Network", "Integration", "Process"]
   },
   {
     "name": "SONIC",
@@ -1518,7 +1518,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=Relativity",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Avionics", "Power", "RF ", "Instrument", "Manufacturing", "Components", "Propulsion", "Valve", "Control Systems", "Mechanical", "Structur", "Robotics", "Staff", "Weld", "Aerothermal", "GNC", "Dynamics", "Thermal", "Navigation", "Launch", "Civil", "Construction", "NDE", "Materials", "Engine Systems", "Turbomachinery", "Vehicle Systems", "Ground Systems", "Fluid", "Quality", "Industrial", "Manager", "Mission Reliability", "Mass Properties", "Mechanisms", "Embedded", "Design", "Test ", "Operations", "Controls", "Process", "Environmental", "Moonshot", "CNC"]
+    "job_disqualifiers": ["Avionics", "Power", "RF ", "Instrument", "Manufacturing", "Components", "Propulsion", "Valve", "Control Systems", "Mechanical", "Structur", "Robotics", "Staff", "Weld", "Aerothermal", "GNC", "Dynamics", "Thermal", "Navigation", "Launch", "Civil", "Construction", "NDE", "Materials", "Engine Systems", "Turbomachinery", "Vehicle Systems", "Ground Systems", "Fluid", "Quality", "Industrial", "Manager", "Mission Reliability", "Mass Properties", "Mechanisms", "Embedded", "Design", "Test ", "Operations", "Controls", "Process", "Environmental", "Moonshot", "CNC", "Director", "Electrical"]
   },
   {
     "name": "Esri (Environmental Systems Research Institute)",
@@ -1571,6 +1571,26 @@
     "job_disqualifiers": ["Manager", "Security"]
   },
   {
+    "name": "Care.com",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "care.com",
+    "url": "https://boards.greenhouse.io/embed/job_board?for=carecom",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Vice President", "Manager", "Frontend", "Android", "QA "]
+  },
+  {
+    "name": "Plotly",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "plotly",
+    "url": "https://job-boards.greenhouse.io/plotly",
+    "location_qualifiers": ["USA"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
     "name": "Kaseya",
     "type": "Securities",
     "module": "scraper_functions",
@@ -1578,7 +1598,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=kaseya",
     "location_qualifiers": ["United States"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Salesforce", "QA ", "Director", "Help Desk", "Staff"]
+    "job_disqualifiers": ["Salesforce", "QA ", "Director", "Help Desk", "Staff", "Manager", "Pentest"]
   },
   {
     "name": "Udemy",
@@ -1718,7 +1738,7 @@
     "url": "https://job-boards.greenhouse.io/embed/job_board?for=uberfreight&field_4796913008%5B%5D=9243991008",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Frontend", "Security"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Frontend", "Security", "Logistics Engineer"]
   },
   {
     "name": "West Monroe",
@@ -1738,7 +1758,7 @@
     "url": "https://job-boards.greenhouse.io/embed/job_board?for=cargurus&offices%5B%5D=209037&offices%5B%5D=88272&offices%5B%5D=209036&offices%5B%5D=49085&offices%5B%5D=65228&offices%5B%5D=9980",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Principal", "Sales", "Governance"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Principal", "Sales", "Governance", "Data Analyst"]
   },
   {
     "name": "AlphaSense",
@@ -1788,7 +1808,7 @@
     "url": "https://job-boards.greenhouse.io/embed/job_board?for=trmlabs",
     "location_qualifiers": ["United States", "Washington", "Odenton", "New York", "Boston", "Charlotte", "San Francisco"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Head of", "Staff", "Security", "Compliance"]
+    "job_disqualifiers": ["Manager", "Head of", "Staff", "Security", "Compliance", "Recruiter"]
   },
   {
     "name": "Capco Technology Delivery Center",
@@ -1818,7 +1838,7 @@
     "url": "https://job-boards.greenhouse.io/embed/job_board?for=hitachidigitalservices&offices%5B%5D=4059218002",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["ServiceNow"]
   },
   {
     "name": "Amplitude",
@@ -2228,7 +2248,7 @@
     "url": "https://job-boards.greenhouse.io/venturegloballng?departments%5B%5D=4012548002",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Security", "Scientist", "Plant Systems"]
+    "job_disqualifiers": ["Security", "Scientist", "Plant Systems", "Desktop"]
   },
   {
     "name": "ClassDojo",
@@ -2238,7 +2258,7 @@
     "url": "https://job-boards.greenhouse.io/classdojo",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["iOS", "Staff", "Manager", "Sourcer"]
+    "job_disqualifiers": ["iOS", "Staff", "Manager", "Sourcer", "Engineering Lead"]
   },
   {
     "name": "PerfectServe",
@@ -2318,7 +2338,7 @@
     "url": "https://job-boards.greenhouse.io/embed/job_board?for=veracode&offices%5B%5D=4046819002",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["Principal"]
   },
   {
     "name": "Roofstock",
@@ -2349,6 +2369,106 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Adoption"]
+  },
+  {
+    "name": "CLEAR Secure",
+    "type": "Securities",
+    "module": "scraper_functions",
+    "function": "clear",
+    "url": "https://job-boards.greenhouse.io/clear",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Android", "Manager", "Principal", "Security", "Federal", "Field", "Staff", "Director"]
+  },
+  {
+    "name": "Perpay",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "perpay",
+    "url": "https://job-boards.greenhouse.io/perpay",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Frontend"]
+  },
+  {
+    "name": "Obsidian Security",
+    "type": "Securities",
+    "module": "scraper_functions",
+    "function": "obsidian",
+    "url": "https://job-boards.greenhouse.io/obsidiansecurity",
+    "location_qualifiers": ["Palo Alto", "Newport", "East Coast", "USA", "Remote"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal", "Staff", "Sales"]
+  },
+  {
+    "name": "Ceribell, Inc",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "ceribell",
+    "url": "https://job-boards.greenhouse.io/ceribell",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Embedded", "Firmware", "Manager", "Quality"]
+  },
+  {
+    "name": "Arcadia",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "arcadia",
+    "url": "https://job-boards.greenhouse.io/arcadiacareers?offices%5B%5D=4045420002",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Starburst",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "starburst",
+    "url": "https://job-boards.greenhouse.io/starburst?offices%5B%5D=4023680008",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Customer Support", "Manager", "Staff"]
+  },
+  {
+    "name": "Life360",
+    "type": "Internet Services",
+    "module": "scraper_functions",
+    "function": "life360",
+    "url": "https://job-boards.greenhouse.io/life360",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Android", "Director", "iOS", "Staff"]
+  },
+  {
+    "name": "SharkNinja, Inc",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "sharkninja",
+    "url": "https://job-boards.greenhouse.io/sharkninjaoperatingllc?offices%5B%5D=4005623006",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Mechanical", "Electrical", "Network", "Design Engineer", "Manager", "Quality", "Product Developer", "Compliance", "Content Developer", "Salesforce", "Embedded"]
+  },
+  {
+    "name": "Spire",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "spire",
+    "url": "https://job-boards.greenhouse.io/embed/job_board?for=spire",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Sales", "Manufacturing", "Head of", "Security", "Network"]
+  },
+  {
+    "name": "Runway AI, Inc.",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "runway",
+    "url": "https://job-boards.greenhouse.io/runwayml",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Director", "Manager"]
   },
   {
     "name": "Azurity Pharmaceuticals",
@@ -2408,7 +2528,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=skydio",
     "location_qualifiers": ["United States"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Embedded", "Deploy", "Electrical", "Hardware", "Design", "Frontend", "Technician", "Wireless", "Director", "Manufacturing"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Embedded", "Deploy", "Electrical", "Hardware", "Design", "Frontend", "Technician", "Wireless", "Director", "Manufacturing", "Writer"]
   },
   {
     "name": "Hunter Douglas",
@@ -2488,7 +2608,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=ionq",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Chief", "Mechanical", "Project", "Staff", "Security", "Optics", "Manufacturing", "Network", "Packaging", "Physicist", "Detection", "Calibration"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Chief", "Mechanical", "Project", "Staff", "Security", "Optics", "Manufacturing", "Network", "Packaging", "Physicist", "Detection", "Calibration", "Director"]
   },
   {
     "name": "Impact.com",
@@ -2538,7 +2658,7 @@
     "url": "https://job-boards.greenhouse.io/twilio?offices%5B%5D=74918&offices%5B%5D=1245",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solution", "Director", "Staff", "Principal"]
+    "job_disqualifiers": ["Solution", "Director", "Staff", "Principal", "Support"]
   },
   {
     "name": "PureStorage",
@@ -2578,7 +2698,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=cloudflare",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Escalation", "Security", "Manager", "Director", "Support", "Systems", "Frontend", "Network", "Trust", "HR", "Workday", "Solution", "Intern", "Operations Associate", "Scientist", "Incident Response", "Data Center", "Principal"]
+    "job_disqualifiers": ["Escalation", "Security", "Manager", "Director", "Support", "Systems", "Frontend", "Network", "Trust", "HR", "Workday", "Solution", "Intern", "Operations Associate", "Scientist", "Incident Response", "Data Center", "Principal", "Design Engineer", "Front End"]
   },
   {
     "name": "Zuora",
@@ -2618,7 +2738,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=godaddy",
     "location_qualifiers": ["United States"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Ceph", "Principal", "Vice President"]
+    "job_disqualifiers": ["Staff", "Ceph", "Principal", "Vice President", "Workday"]
   },
   {
     "name": "MagicLeap",
@@ -2718,7 +2838,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=c3iot",
     "location_qualifiers": ["Redwood", "Tysons", "Chicago", "Houston", "Minneapolis"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Director", "Solution", "Scientist", "Manager", "Lead", "Intern", "QA", "Website", "Front End", "Unity"]
+    "job_disqualifiers": ["Director", "Solution", "Scientist", "Manager", "Lead", "Intern", "QA", "Website", "Front End", "Unity", "Forward Deployed"]
   },
   {
     "name": "Hashicorp",
@@ -2998,7 +3118,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=moloco",
     "location_qualifiers": ["Redwood", "San Francisco", "New York", "Seattle"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Scientist", "Lead", "Executive"]
+    "job_disqualifiers": ["Scientist", "Lead", "Executive", "iOS"]
   },
   {
     "name": "DoubleVerify",
@@ -3268,7 +3388,7 @@
     "url": "https://boards.greenhouse.io/embed/job_board?for=unity3d",
     "location_qualifiers": ["New York", "San Francisco", "Bellevue"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Principal", "Staff", "Manager"]
+    "job_disqualifiers": ["Principal", "Staff", "Manager", "Android"]
   },
   {
     "name": "Rockstar Games",
@@ -3448,7 +3568,7 @@
     "url": "https://job-boards.greenhouse.io/natera",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Principal", "Manager", "Scientist", "Staff", "Quality", "Validation", "Mgr", "Architect", "Sales", "CQV", "Director", "Support", "Supervisor", "President", "Service", "Security", "Planning"]
+    "job_disqualifiers": ["Principal", "Manager", "Scientist", "Staff", "Quality", "Validation", "Mgr", "Architect", "Sales", "CQV", "Director", "Support", "Supervisor", "President", "Service", "Security", "Planning", "Data Entry"]
   },
   {
     "name": "Bridgewater Associates",
@@ -3598,7 +3718,7 @@
     "url": "https://job-boards.greenhouse.io/pitchbookdata",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Sales", "Compliance"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Sales", "Compliance", "Data Analyst"]
   },
   {
     "name": "ConnectWise",
@@ -3608,7 +3728,7 @@
     "url": "https://job-boards.greenhouse.io/connectwise?offices%5B%5D=4004634005",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Princip"]
+    "job_disqualifiers": ["Solutions", "Manager", "Princip", "Sales"]
   },
   {
     "name": "Podium",
@@ -3638,7 +3758,7 @@
     "url": "https://jobs.ashbyhq.com/snowflake",
     "location_qualifiers": ["US-"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "SalesForce", "Sales", "Solution", "Principal", "Manager", "Design", "HR", "Architect", "Scientist", "Deep Learning", "Frontend", "Security", "Productivity", "Trust", "Identity", "Governance", "Public Sector", "Executive", "Director", "Auditor", "Counsel", "Intern", "Curriculum", "Content"]
+    "job_disqualifiers": ["Staff", "SalesForce", "Sales", "Solution", "Principal", "Manager", "Design", "HR", "Architect", "Scientist", "Deep Learning", "Frontend", "Security", "Productivity", "Trust", "Identity", "Governance", "Public Sector", "Executive", "Director", "Auditor", "Counsel", "Intern", "Curriculum", "Content", "Advocate"]
   },
   {
     "name": "Quora",
@@ -3808,7 +3928,7 @@
     "url": "https://jobs.ashbyhq.com/zip",
     "location_qualifiers": ["Dallas", "San Francisco", "New York", "Remote"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Recruit", "Solution", "Frontend", "Sourcer"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Recruit", "Solution", "Frontend", "Sourcer", "Technical Support"]
   },
   {
     "name": "PAR Technology",
@@ -3828,7 +3948,7 @@
     "url": "https://jobs.ashbyhq.com/kin",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Front-End"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Front-End", "Principal"]
   },
   {
     "name": "Writer",
@@ -3938,7 +4058,7 @@
     "url": "https://jobs.ashbyhq.com/airwallex?departmentId=48f8c1db-899a-4759-9738-1a902c224eed&jr_id=680f0bfcb5d6cfcfcb3de1c0",
     "location_qualifiers": ["US -"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Staff", "Director", "Mobile", "Frontend", "Security"]
+    "job_disqualifiers": ["Manager", "Staff", "Director", "Mobile", "Frontend", "Security", "Scientist"]
   },
   {
     "name": "Lightdash",
@@ -3988,7 +4108,7 @@
     "url": "https://jobs.ashbyhq.com/zefr",
     "location_qualifiers": ["Chicago", "New York", "Marina del Rey"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Scientist"]
+    "job_disqualifiers": ["Staff", "Scientist", "Annotation Specialist"]
   },
   {
     "name": "Spara",
@@ -4028,7 +4148,7 @@
     "url": "https://jobs.ashbyhq.com/scribd",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Principal", "Director", "Security", "Frontend"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Principal", "Director", "Security", "Frontend", "Technician", "React Native"]
   },
   {
     "name": "Patreon",
@@ -4038,7 +4158,17 @@
     "url": "https://jobs.ashbyhq.com/patreon",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Security", "Frontend", "Manager", "Scientist", "Staff", "Director"]
+    "job_disqualifiers": ["Security", "Frontend", "Manager", "Scientist", "Staff", "Director", "iOS"]
+  },
+  {
+    "name": "Machinify",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "machinify",
+    "url": "https://jobs.ashbyhq.com/machinify",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Director", "Scientist", "Quality", "Staff", "Frontend"]
   },
   {
     "name": "Confluent",
@@ -4218,7 +4348,7 @@
     "url": "https://jobs.jobvite.com/uplight",
     "location_qualifiers": ["United States", "Locations"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["Manager"]
   },
   {
     "name": "Plaid",
@@ -4438,7 +4568,7 @@
     "url": "https://jobs.lever.co/matchgroup/",
     "location_qualifiers": ["Dallas", "Los Angeles", "New York", "Palo ALto", "San Francisco", "California"],
     "job_qualifiers": ["Data", "Engineer", "Developer", "Software"],
-    "job_disqualifiers": ["Scientist", "Director", "iOS", "Android", "Staff"]
+    "job_disqualifiers": ["Scientist", "Director", "iOS", "Android", "Staff", "Manager"]
   },
   {
     "name": "Bitwise",
@@ -4478,7 +4608,7 @@
     "url": "https://jobs.lever.co/veeva",
     "location_qualifiers": ["California", "San Francisco", "Los Angeles", "Atlanta", "Chicago", "Indiana", "Maine", "Portland", "Boston", "Kansas", "New Jersey", "New York", "Raleigh", "Ohio", "Oregon", "Pennsylvania", "Texas", "Utah", "Seattle", "Madison"],
     "job_qualifiers": ["Data", "Engineer", "Developer", "Software"],
-    "job_disqualifiers": ["Manager", "Principal", "Scientist", "Solutions", "Staff", "Director", "Performance", "Front End", "Web", "Product Expert", "Consultant", "Validation", "QA", "Quality", "Curriculum", "in Test", "Supervisor", "Architect", "Sales", "Support", "Mobile", "Terminologist", "Security"]
+    "job_disqualifiers": ["Manager", "Principal", "Scientist", "Solutions", "Staff", "Director", "Performance", "Front End", "Web", "Product Expert", "Consultant", "Validation", "QA", "Quality", "Curriculum", "in Test", "Supervisor", "Architect", "Sales", "Support", "Mobile", "Terminologist", "Security", "iOS"]
   },
   {
     "name": "Aledade",
@@ -4708,7 +4838,7 @@
     "url": "https://jobs.lever.co/varomoney",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Principal", "Staff"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Principal", "Staff", "Data Analyst"]
   },
   {
     "name": "Granicus",
@@ -4738,7 +4868,7 @@
     "url": "https://jobs.lever.co/brillio-2",
     "location_qualifiers": ["United States"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Quality", "Network", "Flutter", "Security"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Quality", "Network", "Flutter", "Security", "Principal"]
   },
   {
     "name": "GoPuff",
@@ -4748,7 +4878,7 @@
     "url": "https://jobs.lever.co/gopuff",
     "location_qualifiers": ["United States", "Philadelphia", "Miami", "California", "Concord", "Aventura"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Mobile"]
   },
   {
     "name": "System1",
@@ -4928,7 +5058,27 @@
     "url": "https://jobs.lever.co/grailbio",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Staff", "Director", "VMware"]
+    "job_disqualifiers": ["Manager", "Staff", "Director", "VMware", "Process Engineer"]
+  },
+  {
+    "name": "Findigs",
+    "type": "Real Estate",
+    "module": "scraper_functions",
+    "function": "findigs",
+    "url": "https://jobs.lever.co/findigs",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions"]
+  },
+  {
+    "name": "FiscalNote",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "fiscalnote",
+    "url": "https://jobs.lever.co/fiscalnote",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal", "Coordinator"]
   },
   {
     "name": "Tiger Analytics",
@@ -5178,7 +5328,7 @@
     "url": "https://jobs.dish.com/jobs?page=1&categories=Engineering%7CInformation%20Technology&limit=100&locations=Cheyenne,Wyoming,United%20States%7CChristiansburg,Virginia,United%20States%7CDenver,Colorado,United%20States%7CEnglewood,Colorado,United%20States%7CFoster%20City,California,United%20States%7CGilbert,Arizona,United%20States%7CLittleton,Colorado,United%20States%7CMonee,Illinois,United%20States%7CPlano,Texas,United%20States%7CRoseland,New%20Jersey,United%20States",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Support", "Network", "Staff", "Principal", "Wi-Fi", "Adobe", "IAM ", "Security", "RF ", "UX/UI", "Android", "Identity", "QA ", "ServiceNow", "Fault Isolation"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Support", "Network", "Staff", "Principal", "Wi-Fi", "Adobe", "IAM ", "Security", "RF ", "UX/UI", "Android", "Identity", "QA ", "ServiceNow", "Fault Isolation", "Oracle ERP"]
   },
   {
     "name": "Sheetz",
@@ -5198,7 +5348,7 @@
     "url": "https://careers.cnb.com/jobs?page=1&sortBy=posted_date&descending=true&limit=100&categories=Information%20Technology",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Quality"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Quality", "Principal"]
   },
   {
     "name": "Hinge Health",
@@ -5208,7 +5358,7 @@
     "url": "https://careers.hingehealth.com/jobs?locations=San%20Francisco,California,United%20States%7C,,United%20States&page=1&limit=100",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Security", "Staff", "Mobile"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Security", "Staff", "Mobile", "Frontend", "React Native"]
   },
   {
     "name": "Intercontinental Exchange(ICE)",
@@ -5228,7 +5378,7 @@
     "url": "https://jobs.republicfinance.com/jobs?categories=Information%20Technology",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Director"]
   },
   {
     "name": "Selective Insurance",
@@ -5298,7 +5448,7 @@
     "url": "https://career-schwab.icims.com/jobs/search?ss=1&searchCategory=26107&in_iframe=1",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Network", "Architect", "Security", "Android", "Director", "QA ", "Contact Center", "Control M", "IAM ", "Frontend", "Mainframe", "Governance", ".NET"]
+    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Network", "Architect", "Security", "Android", "Director", "QA ", "Contact Center", "Control M", "IAM ", "Frontend", "Mainframe", "Governance", ".NET", "DLP"]
   },
   {
     "name": "FujiFilm",
@@ -5378,7 +5528,7 @@
     "url": "https://globalcareers-sas.icims.com/jobs/search?searchLocation=12781--&in_iframe=1",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Network", "Architect", "Director", "Intern", "Technical Support", "Unreal Engine"]
+    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Network", "Architect", "Director", "Intern", "Technical Support", "Unreal Engine", "Facilities"]
   },
   {
     "name": "Liberty Mutual Insurance",
@@ -5388,7 +5538,7 @@
     "url": "https://careers-libertymutual.icims.com/jobs/search?ss=1&searchCategory=87300&in_iframe=1",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Network", "Architect", "Director", "Intern", "Principal", "Cybersecurity", "Solutions", "Account", "Android", "Construction Risk"]
+    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Network", "Architect", "Director", "Intern", "Principal", "Cybersecurity", "Solutions", "Account", "Android", "Construction Risk", "Leader"]
   },
   {
     "name": "Lord Abbett",
@@ -5448,7 +5598,7 @@
     "url": "https://careers-ddn.icims.com/jobs/search?ss=1&in_iframe=1",
     "location_qualifiers": ["US-"],
     "job_qualifiers": ["Data", "Engineer", "Developer", "Software"],
-    "job_disqualifiers": ["Scientist", "Staff", "Manager", "Director", "Technician", "Firmware", "QA ", "Support", "Federal", "Data Center", "Principal"]
+    "job_disqualifiers": ["Scientist", "Staff", "Manager", "Director", "Technician", "Firmware", "QA ", "Support", "Federal", "Data Center", "Principal", "VP"]
   },
   {
     "name": "Vista Equity Partners",
@@ -5468,7 +5618,7 @@
     "url": "https://uscareers-lennox.icims.com/jobs/search?ss=1&in_iframe=1",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Quality", "Mechanical", "Industrial", "SAP ", "Refrigeration", "Embedded", "Manufacturing", "Mobile", "Co-Op", "Controls", "Tool & Die", "Sales", "Staff", "Electrical", "Safety", "Network", "Support", "Android"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Quality", "Mechanical", "Industrial", "SAP ", "Refrigeration", "Embedded", "Manufacturing", "Mobile", "Co-Op", "Controls", "Tool & Die", "Sales", "Staff", "Electrical", "Safety", "Network", "Support", "Android", "Principal"]
   },
   {
     "name": "CareCentrix",
@@ -5498,7 +5648,7 @@
     "url": "https://careers-jobyaviation.icims.com/jobs/search?ss=1&in_iframe=1",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Repairs", "Airframe", "Certification", "Manufacturing", "Mechanical", "Improvement", "Quality", "Electrical", "Embedded", "Fleet", "Test", "Fuel Cell", "Energy Storage", "Intern", "Design", "Research", "Verification", "Staff", "Liquid Hydrogen", "Communications", "Industrialization", "Materials"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Repairs", "Airframe", "Certification", "Manufacturing", "Mechanical", "Improvement", "Quality", "Electrical", "Embedded", "Fleet", "Test", "Fuel Cell", "Energy Storage", "Intern", "Design", "Research", "Verification", "Staff", "Liquid Hydrogen", "Communications", "Industrialization", "Materials", "Performance Engineer"]
   },
   {
     "name": "Ulta Beauty",
@@ -5598,7 +5748,7 @@
     "url": "https://www.osi-systems.jobs/careers-home/jobs?page=1&sortBy=posted_date&descending=true&limit=100&tags1=Engineering%7CSoftware%20Engineering%7CInformation%20Technology%7CResearch%20%26%20Development&tags3=North%20America",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Network", "Security", "Hardware", "FPGA", "RF ", "Embedded", "Mechanical", "Electrical", "Director", "Manufacturing", "VP"]
+    "job_disqualifiers": ["Network", "Security", "Hardware", "FPGA", "RF ", "Embedded", "Mechanical", "Electrical", "Director", "Manufacturing", "VP", "Vice President"]
   },
   {
     "name": "Novant Health",
@@ -5618,7 +5768,17 @@
     "url": "https://careers.konicaminoltaus.com/careers-home/jobs?limit=100&page=1&categories=Information%20Technology",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Security"]
+    "job_disqualifiers": ["Security", "Endpoint"]
+  },
+  {
+    "name": "Emmes Group",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "emmes",
+    "url": "https://careers.emmes.com/jobs?locations=Rockville,Maryland,United%20States%7CSan%20Diego,California,United%20States%7CRockville,,United%20States&page=1&limit=100",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Director"]
   },
   {
     "name": "Mercury Insurance",
@@ -5718,7 +5878,7 @@
     "url": "https://careers-exponent.icims.com/jobs/search?ss=1&searchRelation=keyword_all&in_iframe=1",
     "location_qualifiers": ["US-"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Electrical", "Mechanical", "Energy", "Structural", "Manager", "Managing", "Thermal", "Civil", "Environmental", "Principal", "Geotechnical", "Technician", "Security", "Metallurgical", "Protection", "Vehicle", "Power", "Marine", "Industrial", "Electronics", "Battery", "Embedded"]
+    "job_disqualifiers": ["Electrical", "Mechanical", "Energy", "Structural", "Manager", "Managing", "Thermal", "Civil", "Environmental", "Principal", "Geotechnical", "Technician", "Security", "Metallurgical", "Protection", "Vehicle", "Power", "Marine", "Industrial", "Electronics", "Battery", "Embedded", "Scientist"]
   },
   {
     "name": "Berkeley Technology Services",
@@ -5729,6 +5889,16 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Network", "Head of", "Staff", "Quality", "Manager", "Security", "Systems", "Principal"]
+  },
+  {
+    "name": "Memorial Sloan Kettering Cancer Center",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "mskcc",
+    "url": "https://externaltalent-mskcc.icims.com/jobs/search?ss=1&in_iframe=1",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal"]
   },
   {
     "name": "Bank of America",
@@ -5748,7 +5918,7 @@
     "url": "https://citi.wd5.myworkdayjobs.com/en-US/2?Country_and_Jurisdiction=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=e32326e1708d01575bddff0c120102c1",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Engineer", "Developer", "Software", "Programmer"],
-    "job_disqualifiers": ["Solution", "Staff", "Principal", "Manager", "Endpoint", "Team Lead", "Angular", "Network", "Security", "DLT", "Front- End", "UI ", "Messaging", "Project Management", "Authentications Support", "Head of", "ServiceNow", "AEM", "User Interface", "Mainframe", "Business Analyst", "Data Analyst", "Scientist", "Active Directory", "Front End", "Quality", "iOS", "Ab Initio", "DLP", "Tableau", "Director"]
+    "job_disqualifiers": ["Solution", "Staff", "Principal", "Manager", "Endpoint", "Team Lead", "Angular", "Network", "Security", "DLT", "Front- End", "UI ", "Messaging", "Project Management", "Authentications Support", "Head of", "ServiceNow", "AEM", "User Interface", "Mainframe", "Business Analyst", "Data Analyst", "Scientist", "Active Directory", "Front End", "Quality", "iOS", "Ab Initio", "DLP", "Tableau", "Director", "Pega", "SVP"]
   },
   {
     "name": "Wells Fargo",
@@ -5818,7 +5988,7 @@
     "url": "https://statestreet.wd1.myworkdayjobs.com/Global?Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=56250981e7cb01b9a0c0c6893041490c",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Engineer", "Developer", "Software"],
-    "job_disqualifiers": ["QA", "IAM", "Manager", "Principal", "Process", "Solution", "Director", "Active Directory", "Head of", "Staff", "Quality", "Mainframe", "Network", "Vulnerability", "Security", "Cryptographic", "Governance", "EPM", "Frontend", "Identity"]
+    "job_disqualifiers": ["QA", "IAM", "Manager", "Principal", "Process", "Solution", "Director", "Active Directory", "Head of", "Staff", "Quality", "Mainframe", "Network", "Vulnerability", "Security", "Cryptographic", "Governance", "EPM", "Frontend", "Identity", "Product Owner", "UI Engineer"]
   },
   {
     "name": "Fifth Third Bank",
@@ -5838,7 +6008,7 @@
     "url": "https://barclays.wd3.myworkdayjobs.com/en-US/External_Career_Site_Barclays/?locations=1ab48a98eb7c100163420fb9ead80000&locations=112c054282011001637d0c1c86860000&locations=112c0542820110016376ceac78ad0000&locations=112c054282011001637790a7a5310000&locations=1ab48a98eb7c10016340ac23e4860000&locations=1ab48a98eb7c10016346632ee73f0000&jobFamilyGroup=1ab48a98eb7c1001e8e0bdc7d4a10000&jobFamilyGroup=112c054282011001e9162cfccdc10000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Engineer", "Developer", "Software"],
-    "job_disqualifiers": ["QA", "Manager", "Support", "VP", "Adobe", "Android", "Workday", "UI/UX", "Mobile", "iOS", "Compliance", "Security", "Active Directory", "Salesforce"]
+    "job_disqualifiers": ["QA", "Manager", "Support", "VP", "Adobe", "Android", "Workday", "UI/UX", "Mobile", "iOS", "Compliance", "Security", "Active Directory", "Salesforce", "Scientist"]
   },
   {
     "name": "Northern Trust Banks",
@@ -5898,7 +6068,7 @@
     "url": "https://db.wd3.myworkdayjobs.com/en-US/DBWebsite/?Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=645e861bc53a0168c673f8fe073b20a8",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Engineer", "Developer", "Software"],
-    "job_disqualifiers": ["Akamai", "SAP ", "Director", "RFT", "Sybase", "Network", "UI/UX", "Tandem"]
+    "job_disqualifiers": ["Akamai", "SAP ", "Director", "RFT", "Sybase", "Network", "UI/UX", "Tandem", "Chief"]
   },
   {
     "name": "Federal Reserve Bank",
@@ -5928,7 +6098,7 @@
     "url": "https://mastercard.wd1.myworkdayjobs.com/en-US/CorporateCareers?jobFamilyGroup=79159e74ef6f01a1ba398ea19325020c&jobFamilyGroup=866c0ed135ff106f00587685e7483440&locations=8eab563831bf10acb517b24d5c46cf77&locations=1dd27d3a4a54445d92e2f8eeec814baa&locations=8eab563831bf10acbd2183c3090f1a20&locations=efacbd97fd67011dbc0f236fbb007b75&locations=1a84f3e1633f010a0676f276c51c7a5b&locations=a973e7cb5edf4c629de8fb48e2c1d880&locations=8eab563831bf10acbbdb817a833d0fa6&locations=b1082fd277c7409a8a7da54c0efdc80e&locations=8eab563831bf10acbba0ec70e0f00d06&locations=c9c1221064f54d28ae6ab893b99923cf&locations=85482cdd21931001b922354af3a90000&locations=a52da795b81f100109d635958d730000&locations=8eab563831bf10acb54f0f21651ed219",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Reliability", "VP", "Front End", "Director", "Quality", "FrontEnd", "Mainframe", "Collaboration"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Reliability", "VP", "Front End", "Director", "Quality", "FrontEnd", "Mainframe", "Collaboration", "Akamai", "Security", "President"]
   },
   {
     "name": "Paypal",
@@ -6008,7 +6178,7 @@
     "url": "https://q2ebanking.wd5.myworkdayjobs.com/Q2?locations=0d0d8a9b3c7a0144b362d8e09e01beb1&locations=82fcaed97d3d015125ea30cc0661ff46&locations=98e3bb3a6a380160cd6ad61aed01bfe9&locations=0d0d8a9b3c7a010d82176ffeb70174c8&locations=98e3bb3a6a3801e15845f537ed01d6e9&locations=98e3bb3a6a38011752e7b1e9ec019fe9&locations=98e3bb3a6a380145948405d5ec0182e9&locations=0da4bb96663010308829a8dfd4e91994&jobFamilies=54838d87026b0142d4a0dd78070250f5&jobFamilies=8b86f00a4a2a01e03cacfbdc0288b96a&jobFamilies=8b86f00a4a2a0161c8f6dbdc0288ab6a",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Front End"]
   },
   {
     "name": "Verily",
@@ -6048,7 +6218,7 @@
     "url": "https://blackrock.wd1.myworkdayjobs.com/en-US/BlackRock_Professional?locations=37e19281f5b71001121d78f9735b0000&locations=131d7f8fcf9f014a3127ae56f7509ccc&locations=131d7f8fcf9f0139bfe20857f75005cd&locations=131d7f8fcf9f01c686272557f75028cd&locations=131d7f8fcf9f01c7ffcef756f750f1cc&locations=1b2a81e64d850131866fa0e4705e7379&locations=131d7f8fcf9f01332580df57f750ffcd&jobFamilyGroup=7c29ce3598461001f7505cfee2240000&jobFamilyGroup=131d7f8fcf9f01d4eb1540d863509421",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Front End", "Windows", "Director", "Steward"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Front End", "Windows", "Director", "Steward", "Cyber Operations"]
   },
   {
     "name": "Arrowstreet Capital",
@@ -6078,7 +6248,7 @@
     "url": "https://lplfinancial.wd1.myworkdayjobs.com/External?jobFamilyGroup=375b1bb08e561002044f55223dc20000&jobFamilyGroup=c5bc593cdde810020300fdf749a10000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Technical Lead", "Head of", "Director", "Product Analyst", "IAM", "Chief", "Vulnerability", "Security", "Distinguished", "Leader", "Varicent", "Alteryx", "Quality", "Threat"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Technical Lead", "Head of", "Director", "Product Analyst", "IAM", "Chief", "Vulnerability", "Security", "Distinguished", "Leader", "Varicent", "Alteryx", "Quality", "Threat", "Governance", "Mgr"]
   },
   {
     "name": "Blackstone",
@@ -6098,7 +6268,7 @@
     "url": "https://ffive.wd5.myworkdayjobs.com/f5jobs?locationCountry=bc33aa3152ec42d4995f4791a106ed09&CF_-_Job_Posting_Category_Extended=ebc0867ff0da10015d4881e40be60000&CF_-_Job_Posting_Category_Extended=ebc0867ff0da10015d48827e65f80001",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Technical Lead", "Head of", "Rust", "Test ", "Director"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Technical Lead", "Head of", "Rust", "Test ", "Director", "Mgr", "Security"]
   },
   {
     "name": "Target",
@@ -6108,7 +6278,7 @@
     "url": "https://target.wd5.myworkdayjobs.com/en-US/targetcareers?Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=daccab9f1d2501682445c5363457210e&jobFamilyGroup=daccab9f1d25018677ebcc363457460e",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "IAM", "SAP ", "Technician"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "IAM", "SAP ", "Technician", "Security"]
   },
   {
     "name": "BJ's Wholesale Club",
@@ -6128,7 +6298,7 @@
     "url": "https://my7elevenhr.wd12.myworkdayjobs.com/en-US/Careers?jobFamilyGroup=9181cfb60f9c1000ad83aac09d350000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "iOS"]
   },
   {
     "name": "Raymond James",
@@ -6148,7 +6318,7 @@
     "url": "https://homedepot.wd5.myworkdayjobs.com/en-US/CareerDepot/?q=Software",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Process", "Logistics", "Intern", "Data Center", "Product Engineer", "Distinguished", "Quality", "Security"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Process", "Logistics", "Intern", "Data Center", "Product Engineer", "Distinguished", "Quality", "Security", "Director"]
   },
   {
     "name": "Dick's Sporting Goods",
@@ -6248,7 +6418,7 @@
     "url": "https://ebay.wd5.myworkdayjobs.com/en-US/apply?Job_Application_ID=JOB_APPLICATION-3-3103251&jobFamilyGroup=faedd7c80dd5102a1e369f8dcda9ca60&jobFamilyGroup=faedd7c80dd5102a1e3685d24992ca28&jobFamilyGroup=faedd7c80dd5102a1e369c622421ca5d&Location_Country=bc33aa3152ec42d4995f4791a106ed09",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "Director", "Front End", "Flutter", "Incident"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "Director", "Front End", "Flutter", "Incident", "Frontend"]
   },
   {
     "name": "Twitter (now X)",
@@ -6298,7 +6468,7 @@
     "url": "https://wd1.myworkdaysite.com/en-US/recruiting/snapchat/snap?jobFamily=8d73f0a7971d102b9d459841e16ae3a5&locations=d6bc0f25c18601ac60ecf0a80d02124d&locations=b6d8d8a3809d10016c27d22429420000&locations=c52c83bb81a21000cf303bd607c00000&locations=efe1a865073101ddec60ef19020afc36&locations=137dd6cbab601000bf830bdee83d0000&locations=efe1a8650731016c130aaddd010aed36&locations=b9cf6982655e1001a9ff7ae350d10000&locations=7a68e5b6d6b51001a9de39167c5f0000&locations=256f279d5e741082c567c24fca236272&locations=efe1a865073101b9db6c8da7020a6037&locations=16f9d2b5501e1001b601bc0872be0000&locations=efe1a865073101e5380680f9020a7437&locations=2b0a835c9646011d58da08236e4f6726&locations=efe1a86507310187e01ef207030a7937&locations=95d6b3b2e7d91001614ca11093850000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "Design", "Embedded", "Optical", "Quality", "Mechanical", "RF ", "Optomechanical", "Tooling", "DFT", "Nanophotonics", "Hardware", "Solutions", "Hardware", "Electrical", "Metrology", "Verification"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "Design", "Embedded", "Optical", "Quality", "Mechanical", "RF ", "Optomechanical", "Tooling", "DFT", "Nanophotonics", "Hardware", "Solutions", "Hardware", "Electrical", "Metrology", "Verification", "Manufacturing"]
   },
   {
     "name": "Zillow",
@@ -6378,7 +6548,7 @@
     "url": "https://asml.wd3.myworkdayjobs.com/en-US/ASMLEXT1/?locations=4f25bf82e8451000f11e0b8942900000&locations=9d31b5b978021000f11edea15c370000&locations=4f25bf82e8451000f11cdae88c860000&jobFamilyGroup=719a7319274f01014848718f5b8e0000&jobFamilyGroup=719a7319274f01014848718f5b8e0002",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "DNS/DHCP", "Modeling", "Robotics", "Metrology", "Mechatronics", "Mechanical", "Manufacturing", "Design", "Optical", "Quality", "Controls", "Optics", "Electrical", "Leader", "Test Engineer"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "DNS/DHCP", "Modeling", "Robotics", "Metrology", "Mechatronics", "Mechanical", "Manufacturing", "Design", "Optical", "Quality", "Controls", "Optics", "Electrical", "Leader", "Test Engineer", "Partner"]
   },
   {
     "name": "Intel",
@@ -6388,7 +6558,7 @@
     "url": "https://intel.wd1.myworkdayjobs.com/en-US/External?jobFamilyGroup=ace7a3d23b7e01a0544279031a0ec85c&locations=1e4a4eb3adf101fa2a777d76bf8116cf&locations=1e4a4eb3adf1019877cb6176bf81fdce&locations=9225dd5a24931001586f2d984f1e0000&locations=1e4a4eb3adf10146fd5c5276bf81eece&locations=1e4a4eb3adf101cc4e292078bf8199d0&locations=1e4a4eb3adf1016541777876bf8111cf&locations=1e4a4eb3adf1011246675c76bf81f8ce&locations=1e4a4eb3adf101d4e5a61779bf8159d1&locations=1e4a4eb3adf101989587fd77bf8176d0&locations=1e4a4eb3adf10118b1dfe877bf8162d0&locations=1e4a4eb3adf1018c4bf78f77bf8112d0&locations=1e4a4eb3adf101b8aec18a77bf810dd0",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "Salesforce", "Hardware", "Support", "Quality", "SAP ", "User Interface", "EDA Tools", "Modeling", "Robotics", "DNS/DHCP", "Solutions", "MDM", "Design", "QA", "System Power", "Firmware", "Packaging"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Network", "Security", "ServiceNow", "iOS", "Salesforce", "Hardware", "Support", "Quality", "SAP ", "User Interface", "EDA Tools", "Modeling", "Robotics", "DNS/DHCP", "Solutions", "MDM", "Design", "QA", "System Power", "Firmware", "Packaging", "Virtualization", "Windows"]
   },
   {
     "name": "Red Hat",
@@ -6438,7 +6608,7 @@
     "url": "https://nationwide.wd1.myworkdayjobs.com/Nationwide_Career?jobFamilyGroup=3eb794f2234901a1ead22609558af817&jobFamilyGroup=010fc97c79ef01958999113ce9018de3",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Solution", "Mainframe", "Quality", "Salesforce", "Guidewire", "Director"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Solution", "Mainframe", "Quality", "Salesforce", "Guidewire", "Director", "SAP "]
   },
   {
     "name": "MassMutual",
@@ -6478,7 +6648,7 @@
     "url": "https://northwesternmutual.wd5.myworkdayjobs.com/en-US/CORPORATE-CAREERS/?jobFamilyGroup=f6247997e8c101d2ebf6fdc6c900be17&jobFamilyGroup=34567ace1eaf01328b88a312fb12013c&jobFamilyGroup=f6247997e8c10103d5d6d8c6c900a217",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "IAM", "Assistant", "Pega", "Analyst"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "IAM", "Assistant", "Pega", "Analyst", "Mgr"]
   },
   {
     "name": "Guardian",
@@ -6498,7 +6668,7 @@
     "url": "https://unum.wd1.myworkdayjobs.com/en-US/External/?Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=354e63972b4510a7bdc606632131c9c9&jobFamilyGroup=bfa4dddf6da7012bb9fab2ac0c4d0a6c",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Pega", "Network", "Test ", "Mainframe"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Pega", "Network", "Test ", "Mainframe", "CyberArk"]
   },
   {
     "name": "Fidelity",
@@ -6518,7 +6688,7 @@
     "url": "https://pru.wd5.myworkdayjobs.com/en-US/Careers/?locationCountry=bc33aa3152ec42d4995f4791a106ed09&CF-EEB-Job_classification_ID_Extended=85d85ed78e3e1036118fd403466d0000&CF-EEB-Job_classification_Description_Extended=85d85ed78e3e1036118f4395bf9f0000&CF-EEB-Job_classification_Description_Extended=85d85ed78e3e1036118f42fac3ec0001",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Director", "AEM", "Quality", "Vice President", "Salesforce"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Director", "AEM", "Quality", "Vice President", "Salesforce", "Power Platform"]
   },
   {
     "name": "OneMain Financial",
@@ -6538,7 +6708,7 @@
     "url": "https://frostbank.wd5.myworkdayjobs.com/en-US/External/?jobFamily=3a9cae9f1324015f492308c79dc96d35",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Network", "Voice"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Network", "Voice", "Quality"]
   },
   {
     "name": "Starr Insurance",
@@ -6578,7 +6748,7 @@
     "url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site?CF_-_REC_-_LRV_-_Job_Posting_Anchor_-_Country_from_Job_Posting_Location_Extended=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=14fa3452ec7c1011f90cf661a7c80000&jobFamilyGroup=14fa3452ec7c1011f90d0002a2100000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Architect", "PMTS", "Principal", "VP", "Director", "iOS", "MuleSoft"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Architect", "PMTS", "Principal", "VP", "Director", "iOS", "MuleSoft", "Advocate"]
   },
   {
     "name": "Adobe",
@@ -6588,7 +6758,7 @@
     "url": "https://adobe.wd5.myworkdayjobs.com/external_experienced?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=591af8b812fa10737af39db3d96eed9f",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Director", "Customer", "Research", "Frontend", "iOS", "Quality", "Team Lead", "Technical Lead", "Architect", "Designer", "Front-End", "Solutions", "Mgr"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Director", "Customer", "Research", "Frontend", "iOS", "Quality", "Team Lead", "Technical Lead", "Architect", "Designer", "Front-End", "Solutions", "Mgr", "Front End"]
   },
   {
     "name": "AutoDesk",
@@ -6658,7 +6828,7 @@
     "url": "https://cadence.wd1.myworkdayjobs.com/External_Careers?Location_Country=bc33aa3152ec42d4995f4791a106ed09",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Intern", "Hardware", "Architect", "Design", "Modeling", "Field", "Simulation", "Signal", "Safety", "Product", "C++", "Front-End"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Intern", "Hardware", "Architect", "Design", "Modeling", "Field", "Simulation", "Signal", "Safety", "Product", "C++", "Front-End", "Sales"]
   },
   {
     "name": "Trimble",
@@ -6708,7 +6878,7 @@
     "url": "https://comcast.wd5.myworkdayjobs.com/en-US/Comcast_Careers?source=Comcast_Website_AT&jobFamilyGroup=285386867dd9012db7e3ddc57d0b4e15&jobFamilyGroup=285386867dd9010665c0d2c57d0b4c15&jobFamilyGroup=285386867dd901a0ab5627c67d0b5815&locations=38d640cf23a80123d0470a517e27cc0d&locations=38d640cf23a801b6152d83b87e270a27&locations=38d640cf23a80193b980cd3e8227b964&locations=38d640cf23a801b2c939858d7e270220&locations=38d640cf23a801a611a6a12882279d63&locations=38d640cf23a801e1bb97e1fd81276661&locations=38d640cf23a80107f9a870747f27af39&locations=38d640cf23a801137ec9cf5c7f27c037&locations=e11faec32347010cd533e61f2b032a5d&locations=38d640cf23a801a77a4147937e271f21&locations=38d640cf23a801fad3c622927e27e320&locations=38d640cf23a801d4533f38927e27e820&locations=38d640cf23a80145969b66927e27f220&locations=38d640cf23a801a9fa7835db8127635f&locations=38d640cf23a801028980b9bc81279a5d&locations=38d640cf23a80120d162304d7e27290b&locations=38d640cf23a8017b14a48d217f278932&locations=e7683f489502100153e55cca40500000&locations=38d640cf23a8012107fb2a058127c653&locations=38d640cf23a8014edd0b42517e27ef0d&locations=38d640cf23a801fa21a90c707e277019&locations=38d640cf23a8014c35694aaf7f27223e&locations=38d640cf23a8012b501713757f27be39&locations=38d640cf23a801d0ebefda6f7e276619&locations=38d640cf23a801cea29b6c697e27b317&locations=247bad0b5244013e714617da39329502&locations=38d640cf23a801fc32ec724a7e27d608&locations=38d640cf23a8010f4fd1947e7f27773a&locations=38d640cf23a801a1f2ccdf6b7f270039&locations=38d640cf23a8018e1b28496e7f273239&locations=38d640cf23a8012968217b5d7e270214&locations=38d640cf23a801eb9c2d57707e278419&locations=38d640cf23a801f336c2f7697e27db17&locations=38d640cf23a801dee8e69eb87e271427",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Front End","Network", "Design", "QA", "SIP/VoIP", "Workday", "Server", "Solutions", "Broadcast", "Director", "Embedded", "Voice", "Quality", "Administrator", "Observability", "Chief"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Front End","Network", "Design", "QA", "SIP/VoIP", "Workday", "Server", "Solutions", "Broadcast", "Director", "Embedded", "Voice", "Quality", "Administrator", "Observability", "Chief", "Audio Visual", "Support"]
   },
   {
     "name": "AT&T",
@@ -6788,7 +6958,7 @@
     "url": "https://cardinalhealth.wd1.myworkdayjobs.com/en-US/EXT?Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=18e1778e3dfc455b8d4ba4566ded3c06&jobFamilyGroup=d60818d48fb20100f9947f752b3d0000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "SAP ", "IAM", "Compliance"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "SAP ", "IAM", "Compliance", "Data Analyst"]
   },
   {
     "name": "Medtronic",
@@ -6798,7 +6968,7 @@
     "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers?q=Software&locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=2fe8588f35e84eb98ef535f4d738f243",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Design", "Human Factors", "Scrum Master", "Verification", "Embedded", "Distinguished", "Electrical", "Signal Processing", "Plastics", "Quality", "Process", "Manufacturing", "Sensor", "QA ", "CRM", "Frontend", "Sustaining", "Biomedical", "Product", "Mechanical", "Test Engineer", "Supervisor", "R&D Engineer"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Design", "Human Factors", "Scrum Master", "Verification", "Embedded", "Distinguished", "Electrical", "Signal Processing", "Plastics", "Quality", "Process", "Manufacturing", "Sensor", "QA ", "CRM", "Frontend", "Sustaining", "Biomedical", "Product", "Mechanical", "Test Engineer", "Supervisor", "R&D Engineer", "Hardware", "Director"]
   },
   {
     "name": "Sanofi",
@@ -6818,7 +6988,7 @@
     "url": "https://bristolmyerssquibb.wd5.myworkdayjobs.com/en-US/BMS?clientRequestID=5d9755317ae6428a924f7f9dde0b5388&jobFamilyGroup=149748d319111024cd21c66e420c40ae&locationHierarchy2=7b0045a3289810548a4113a9c0db9053&jobFamilies=c5657969374601ab8cf61035f54835d4&jobFamilies=149748d319111024ccd46953093c3cdc&jobFamilies=9d6affb5143910013ca0ce3ff2af0000&jobFamilies=149748d319111024ccdd3ae7f4044023",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Frontend", "Solutions"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Frontend", "Solutions", "Director"]
   },
   {
     "name": "Dexcom",
@@ -6878,7 +7048,7 @@
     "url": "https://geico.wd1.myworkdayjobs.com/External?jobFamilyGroup=da128ce5a1dc103e7c09aaa3fe312266",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Network", "Architect", "Director", "Intern", "Principal", "Cybersecurity", "Solutions", "Front End", "Distinguished", "Workday", "MarTech", "Conference", "Microsoft 365"]
+    "job_disqualifiers": ["Staff", "Quality", "Salesforce", "Manager", "iOS", "Scientist", "Mobile", "Network", "Architect", "Director", "Intern", "Principal", "Cybersecurity", "Solutions", "Front End", "Distinguished", "Workday", "MarTech", "Conference", "Microsoft", "365", "Exchange Email"]
   },
   {
     "name": "Blue Cross Blue Shield of North Carolina",
@@ -6898,7 +7068,7 @@
     "url": "https://cox.wd1.myworkdayjobs.com/Cox_External_Career_Site_1?jobFamilyGroup=9e1da4ea331e01073f36e88147680000&jobFamilyGroup=9e1da4ea331e01073f36e14599f90000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Research", "VP", "Scientist", "Director", "Cybersecurity", "Manager", "Security", "Detection", "Data Center"]
+    "job_disqualifiers": ["Research", "VP", "Scientist", "Director", "Cybersecurity", "Manager", "Identity", "Security", "Detection", "Data Center", "Identity"]
   },
   {
     "name": "BD",
@@ -6908,7 +7078,7 @@
     "url": "https://bdx.wd1.myworkdayjobs.com/en-US/EXTERNAL_CAREER_SITE_USA?q=Software",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Field", "Intern", "Quality", "Packaging", "Intern", "Mechanical", "Process", "Threat Detection", "GIE EPI", "Compliance", "R&D", "Support", "Embedded", "Director", "Validation", "Project", "Human Factors", "Electrical", "Systems", "Optics"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Field", "Intern", "Quality", "Packaging", "Intern", "Mechanical", "Process", "Threat Detection", "GIE EPI", "Compliance", "R&D", "Support", "Embedded", "Director", "Validation", "Project", "Human Factors", "Electrical", "Systems", "Optics", "Technician"]
   },
   {
     "name": "Vertex",
@@ -6918,7 +7088,7 @@
     "url": "https://vrtx.wd5.myworkdayjobs.com/vertex_careers?jobFamilyGroup=5f1bd40945de01cb430d58bd082d9d26&jobFamilyGroup=5f1bd40945de01e0b3bf5cbd082d9f26&locationCountry=bc33aa3152ec42d4995f4791a106ed09",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Director", "Design"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Director", "Design", "Chief"]
   },
   {
     "name": "Merck",
@@ -6948,7 +7118,7 @@
     "url": "https://cvshealth.wd1.myworkdayjobs.com/CVS_Health_Careers?jobFamilyGroup=e65dbadf6a50100168ed7f2a693c0001&jobFamilyGroup=e65dbadf6a50100168ed86fe4cf50001",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Director", "Quality", "Apptio", "Cobol", "IAM", "Exec Dir", "UI/UX", "Front End", "Mainframe", "Control-M", "z/OS", "Technician", "iOS", "Distinguished", "Mgr", "Governance", "Network", "Steward"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "Manager", "Principal", "Security", "Sales", "Front-End", "Director", "Quality", "Apptio", "Cobol", "IAM", "Exec Dir", "UI/UX", "Front End", "Mainframe", "Control-M", "z/OS", "Technician", "iOS", "Distinguished", "Mgr", "Governance", "Network", "Steward", "QA ", "Test Engineer"]
   },
   {
     "name": "General Motors",
@@ -6958,7 +7128,7 @@
     "url": "https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM?redirect=/Careers_GM/job/Roswell-Georgia-United-States-of-America/Software-Developer_JR-202417886/apply&Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilies=81219c9120850116c34e56729c1b88a0&jobFamilies=81219c912085016a2ee374729c1b17a1&jobFamilies=81219c91208501dac15453729c1b76a0&jobFamilies=81219c912085018437336c729c1bdca0&jobFamilies=81219c91208501e5ed5b52729c1b6ea0&jobFamilies=9a7db3783a6501542c31d6869026e187&jobFamilies=51884505018d1001e72ac80395d50000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Embedded", "Manager", "Security", "Sales", "Front-End", "Director", "Quality", "Principal", "SAP ", "3D", "Controls", "High Voltage", "Safety"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Embedded", "Manager", "Security", "Sales", "Front-End", "Director", "Quality", "Principal", "SAP ", "3D", "Controls", "High Voltage", "Safety", "Frontend"]
   },
   {
     "name": "O'Reilly Auto Parts",
@@ -6968,7 +7138,7 @@
     "url": "https://oreillyauto.wd1.myworkdayjobs.com/en-US/oreilly/?jobFamilyGroup=6da9088d407d1027b64d612169670000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", ",Security", "Sales", "Front-End", "Director", "Quality", "Principal"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", ",Security", "Sales", "Front-End", "Director", "Quality", "Principal", "Administrator"]
   },
   {
     "name": "BorgWarner",
@@ -6978,7 +7148,7 @@
     "url": "https://borgwarner.wd5.myworkdayjobs.com/BorgWarner_Careers/?locations=1d342682b15401af26f76bada90169a1&locations=73e11043225a1056e30c40595e97e1ce&locations=3117636ae6e44916acd0f78bbdd37733&jobFamilyGroup=00c658a56c671000c833e7c723760000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Director", "Quality", "Mechanical", "Dynamometer", "Component Release", "CAE ", "Hardware", "Controls", "Process", "Governance"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Director", "Quality", "Mechanical", "Dynamometer", "Component Release", "CAE ", "Hardware", "Controls", "Process", "Governance", "Project Engineer"]
   },
   {
     "name": "Sony Global",
@@ -7078,7 +7248,7 @@
     "url": "https://synechron.wd1.myworkdayjobs.com/en-US/SynechronCareers?jobFamilyGroup=b1511063925e1000a71e29c048600000&locationCountry=bc33aa3152ec42d4995f4791a106ed09",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Quality", "Network", "Fenergo", "Tableau"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Quality", "Network", "Fenergo", "Tableau", "365"]
   },
   {
     "name": "NTT Data",
@@ -7098,7 +7268,7 @@
     "url": "https://sonos.wd1.myworkdayjobs.com/en-US/Sonos?locations=58852068b6ad01081fffbd149d1d4e75&locations=f4abac2e193c01956a412d847c1b3483&locations=58852068b6ad01aeac0b13159d1d6b76&locations=9dfb6d60222001983b6b5c2fa601276c&locations=58852068b6ad013fb8e403159d1d4376",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Quality", "Mechanical", "Electrical", "Tooling"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Quality", "Mechanical", "Electrical", "Tooling", "Radio Systems"]
   },
   {
     "name": "Philips",
@@ -7118,7 +7288,7 @@
     "url": "https://broadcom.wd1.myworkdayjobs.com/External_Career/?jobFamilyGroup=7430f1a1df52470a87028736ca41b235&locations=bc19fd96cebf1069285cfef83d445107&locations=092b5fae35ea103935df5e4c2e637d4f&locations=877d747df71910021361d95ffda70000&locations=877d747df719100213623cd467ed0000&locations=877d747df719100213626ffcfae00000&locations=877d747df71910021363291521ae0000&locations=877d747df719100213635c7f40d30000&locations=2a204116f85f013c9e832787796b52c8&locations=f1900192220f010e8b06cc0dfeb6f74e&locations=2a204116f85f0193baeeb7e2796b85c8&locations=ac281c4e5ca401ac22de4737f50155b5&locations=3d9f1a0214ac01439ca04708d2465801&locations=b8b934041f1710a36c7d5f74cb2b8324&locations=092b5fae35ea103937177f80adeb7f1f&locations=092b5fae35ea1039363a0cdcb5837e8b&locations=df820e04c9924c84b5214f4d68b50fa9&locations=036f545a07811067ed3afb5b6f6ca09f&locations=0dd627624e2e0140aadb9fd9dcd9780c&locations=3fe9c5fb131001012dd089fc94a00000&locations=036f545a07811067f0a87f246cdca66f&locations=bd4ebe5e7bc0100208f427aec9c20000&locations=877d747df7191002136629d4bc1f0000&locations=092b5fae35ea103936b2cf96c8937ee4&locations=877d747df719100213665b4fa1470000&locations=877d747df71910021366662e2df00000&locations=036f545a07811067fe3102fad18abe98&locations=036f545a07811067fe54543fbf78bf0b&locations=877d747df719100213668b996bb60000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Quality", "Design", "Emulation", "Principal", "DCIM", "Optoelectronics", "ASIC ", "Support", "DFT", "Signal Integrity", "ESX", "Equipment", "Process", "Network", "HBM", "Firmware", "Signal", "DSP", "Validation", "Director", "Hardware", "Verification", "Compliance", "Cluster Management", "Wafer Fab"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Quality", "Design", "Emulation", "Principal", "DCIM", "Optoelectronics", "ASIC ", "Support", "DFT", "Signal Integrity", "ESX", "Equipment", "Process", "Network", "HBM", "Firmware", "Signal", "DSP", "Validation", "Director", "Hardware", "Verification", "Compliance", "Cluster Management", "Wafer Fab", "Test Engineer", "Distinguished"]
   },
   {
     "name": "Options Clearing Corporation (OCC)",
@@ -7228,7 +7398,7 @@
     "url": "https://polaris.wd5.myworkdayjobs.com/PolarisJobs?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=6236a7dc0277102c566a1bfae804d31f&jobFamilyGroup=6236a7dc0277102c566a293d2d9cd325",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Security", "Dynamics", "Control Systems", "Electrical", "Quality", "Safety", "Design", "Mechanic", "Test Driver", "Program Leader", "Technician", "Test Engineer"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Security", "Dynamics", "Control Systems", "Electrical", "Quality", "Safety", "Design", "Mechanic", "Test Driver", "Program Leader", "Technician", "Test Engineer", "Validation", "Staff"]
   },
   {
     "name": "FactSet",
@@ -7248,7 +7418,7 @@
     "url": "https://bmo.wd3.myworkdayjobs.com/en-US/External?Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=c3170091f3cd01a93a216b6ad000d820&jobFamilyGroup=c3170091f3cd01924064646ad000c620",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Detection", "Security", "Risk Reporting", "Power BI", "Head of", "Internship"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Detection", "Security", "Risk Reporting", "Power BI", "Head of", "Internship", "Steward"]
   },
   {
     "name": "Credit Acceptance",
@@ -7288,7 +7458,7 @@
     "url": "https://onehealthineers.wd3.myworkdayjobs.com/SHSJB?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=cb600b5386d81001b6f1039307ef0000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Electrical", "Catheter", "Staff", "Mechanical", "Clinical", "Robotic", "Design", "Manager", "Systems"]
+    "job_disqualifiers": ["Electrical", "Catheter", "Staff", "Mechanical", "Clinical", "Robotic", "Design", "Manager", "Systems", "Simulation"]
   },
   {
     "name": "Toyota",
@@ -7298,7 +7468,7 @@
     "url": "https://toyota.wd5.myworkdayjobs.com/en-US/TMNA/",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["iOS", "Quality", "Integrated Vehicle Systems", "Protection", "Principal", "Director", "Safety", "Cybersecurity", "Evaluation", "Manager", "Design", "Staff", "Packaging", "Frontend", "Machining", "Powertrain", "Assembly", "Identity", "Network", "Controls", "Manufacturing", "SAP Hana", "SAP ABAP"]
+    "job_disqualifiers": ["iOS", "Quality", "Integrated Vehicle Systems", "Protection", "Principal", "Director", "Safety", "Cybersecurity", "Evaluation", "Manager", "Design", "Staff", "Packaging", "Frontend", "Machining", "Powertrain", "Assembly", "Identity", "Network", "Controls", "Manufacturing", "SAP Hana", "SAP ABAP", "IAM ", "Power Platform", "Security"]
   },
   {
     "name": "Goosehead Insurance",
@@ -7328,7 +7498,7 @@
     "url": "https://ms.wd5.myworkdayjobs.com/External/?Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=c775545e643010014d1946c1c35e0000&jobFamilyGroup=e38d1cf2ff5a10014d19aa66ad230000 ",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Android", "IAM ", "Governance", "Front End"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Android", "IAM ", "Governance", "Front End", "Front-End"]
   },
   {
     "name": "E* Trade from Morgan Stanley",
@@ -7418,7 +7588,7 @@
     "url": "https://jci.wd5.myworkdayjobs.com/JCI_Confidential?locations=15695db1dccc01001509c793d7b30000&locations=5d89c910febd010014eb523d21060000&locations=5d89c910febd010014eb4289eeaa0000&locations=f91288864d0c0101f72491e5487b0000&locations=d88b8274a28d010015246c597bcc0000&locations=8a6647241218010014f543967e190000&locations=59c45107aefd010014f77e788a160000&locations=15695db1dccc010014da2d3d57320000&locations=d88b8274a28d010014f6c78b3ef70000&locations=15695db1dccc010014dadd007b8e0000&locations=59c45107aefd0100151696ddeb310000&locations=d88b8274a28d01001507c4ca34990000&locations=15695db1dccc010014d8cd62ae9a0000&locations=59c45107aefd010015343e7ea49e0000&locations=1daf0a5cdb4a10831830107f9025cbdc",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "VP ", "Sales", "Principal", "Electrical", "SAP ", "Mechanical"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "VP ", "Sales", "Principal", "Electrical", "SAP ", "Mechanical", "Network", "Compliance"]
   },
   {
     "name": "Wolverine Worldwide",
@@ -7478,7 +7648,7 @@
     "url": "https://cat.wd5.myworkdayjobs.com/CaterpillarCareers?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamily=6599c4a5b161100047ac2c6ca2df0000&jobFamily=e1ea3238dd28100047a9d21828480000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Validation", "Autonomy", "Team Leader", "Design", "Aftertreatment", "Electronic", "Control", "Embedded", "Design", "Security", "Simulation", "Heat Treat", "Electrical", "Cost", "Machine", "Metallurg", "Mechanical", "Perf/Sim", "Electri", "Compliance", "Engine Performance", "Steward"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Validation", "Autonomy", "Team Leader", "Design", "Aftertreatment", "Electronic", "Control", "Embedded", "Design", "Security", "Simulation", "Heat Treat", "Electrical", "Cost", "Machine", "Metallurg", "Mechanical", "Perf/Sim", "Electri", "Compliance", "Engine Performance", "Steward", "Team Lead", "Performance Engineer", "Support", "BIQ"]
   },
   {
     "name": "Revvity",
@@ -7538,7 +7708,7 @@
     "url": "https://warnerbros.wd5.myworkdayjobs.com/global?q=Software&locationCountry=bc33aa3152ec42d4995f4791a106ed09&timeType=d3a1c2776673102daec2168a1602bd5a&workerSubType=d3a1c2776673102e49fadaa3273addc5",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Scientist", "Principal", "Manager", "Staff", "Intern", "Systems", "Director", "Field"]
+    "job_disqualifiers": ["Scientist", "Principal", "Manager", "Staff", "Intern", "Systems", "Director", "Field", "Broadcast", "Project Engineer"]
   },
   {
     "name": "Disney",
@@ -7578,7 +7748,7 @@
     "url": "https://3m.wd1.myworkdayjobs.com/en-US/Search?Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=e937e224196b1066cb4685a5cb279e9e&jobFamilyGroup=5ddf75e181aa101455314b07eb170000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Director", "Quality", "Mechanical", "Support", "Research", "Principal", "Technical Leader", "Electrical", "Process", "Product Development"]
+    "job_disqualifiers": ["Staff", "Mobile", "Android", "Scientist", "iOS", "Manager", "Embedded", "Security", "Sales", "Front-End", "Director", "Quality", "Mechanical", "Support", "Research", "Principal", "Technical Leader", "Electrical", "Process", "Product Development", "Product Developer"]
   },
   {
     "name": "Applied Materials",
@@ -7598,7 +7768,7 @@
     "url": "https://crowdstrike.wd5.myworkdayjobs.com/en-US/crowdstrikecareers/?locationCountry=bc33aa3152ec42d4995f4791a106ed09&Job_Family=1408861ee6e20197f95adbf6b000d20b&Job_Family=1408861ee6e201641be2c2f6b000c00b",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Research", "Sensor", "Collaboration", "Strategist", "Hardware", "Reverse", "Salesforce", "Director", "Data Center", "Network", "Detection", "Scientist"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Research", "Sensor", "Collaboration", "Strategist", "Hardware", "Reverse", "Salesforce", "Director", "Data Center", "Network", "Detection", "Scientist", "Identity"]
   },
   {
     "name": "Marvell",
@@ -7678,7 +7848,7 @@
     "url": "https://epiqsystems.wd5.myworkdayjobs.com/en-US/Epiq_Careers?Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=150fc6014bce018f762b51d5ce00f5b3&jobFamilyGroup=88ae840e405b1065d8886b86b0e8afef",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Power Platform"]
   },
   {
     "name": "Neuberger Berman",
@@ -7698,7 +7868,7 @@
     "url": "https://zoom.wd5.myworkdayjobs.com/Zoom?locationCountry=bc33aa3152ec42d4995f4791a106ed09",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Project", "Frontend", "Solutions", "IAM ", "Solution", "Advocate", "Mac OS"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Project", "Frontend", "Solutions", "IAM ", "Solution", "Advocate", "Mac OS", "QA ", "Network"]
   },
   {
     "name": "US Foods",
@@ -7728,7 +7898,7 @@
     "url": "https://cnx.wd1.myworkdayjobs.com/en-US/external_global?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=0227dc387a09016bad567901ec6584db&jobFamilyGroup=0227dc387a0901953338594ceb6523d4",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "iOS", "Akamai", "SAP ", "AEM", "Support", "Heroku", "Mainframe", "Android", "Typescript", "Interactive Voice Response", "Cold Fusion", "QA ", "Security", "Quality", "365", "Frontend"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "iOS", "Akamai", "SAP ", "AEM", "Support", "Heroku", "Mainframe", "Android", "Typescript", "Interactive Voice Response", "Cold Fusion", "QA ", "Security", "Quality", "365", "Frontend", "Microsoft", "Active Directory"]
   },
   {
     "name": "United Postal Services (UPS)",
@@ -7788,7 +7958,7 @@
     "url": "https://deluxe.wd5.myworkdayjobs.com/USA_CAN?jobFamilyGroup=9d4945bba90a015056d7bf173812aaaa",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Architect", "Staff"]
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Architect", "Staff", "Design Engineer"]
   },
   {
     "name": "Sysco",
@@ -7798,7 +7968,7 @@
     "url": "https://sysco.wd5.myworkdayjobs.com/en-US/syscocareers/?jobFamilyGroup=b014cc62fe6601e773d7027cc9289027&jobFamilyGroup=b014cc62fe66017bab291d7cc9289827",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Salesforce", "Architect"]
+    "job_disqualifiers": ["Staff", "Principal", "Director", "Manager", "Salesforce", "Architect", "Android"]
   },
   {
     "name": "RedFin Corporation",
@@ -7818,7 +7988,7 @@
     "url": "https://stryker.wd1.myworkdayjobs.com/StrykerCareers?Location_Country=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=3156b848d19b018aa3e46a6d61121519&jobFamilyGroup=3156b848d19b01fc399c836d61121f19",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Intern", "Quality", "Process", "Biocompatibility", "Principal", "Safety", "Electrical", "Manufacturing", "Mechanical", "Technician", "PLM", "Design", "Sales", "Packaging"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Intern", "Quality", "Process", "Biocompatibility", "Principal", "Safety", "Electrical", "Manufacturing", "Mechanical", "Technician", "PLM", "Design", "Sales", "Packaging", "Firmware"]
   },
   {
     "name": "eHealth Insurance",
@@ -7968,7 +8138,7 @@
     "url": "https://wgu.wd5.myworkdayjobs.com/External/?jobFamilyGroup=a2b036a642d1015bcf9b7347ef00e234&locations=baa4ce8a59ec01200808ea835b30bf71&locations=baa4ce8a59ec0127441b40335b30106e&locations=73bd760037a510011648430818590000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Frontend", "Staff", "Security", "Principal"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Frontend", "Staff", "Security", "Principal", "Mobile"]
   },
   {
     "name": "TransPerfect",
@@ -8038,7 +8208,7 @@
     "url": "https://priceline.wd1.myworkdayjobs.com/Priceline?locationHierarchy1=e9242d95319e01018c301a339aa00000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Android", "iOS"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Android", "iOS", "Principal"]
   },
   {
     "name": "Cincinnati Children's Hospital Medical Center",
@@ -8058,7 +8228,7 @@
     "url": "https://ercot.wd1.myworkdayjobs.com/ercot_careers",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Power", "Planning", "Workday", "Market Operations", "Interconnection", "Economic"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Power", "Planning", "Workday", "Market Operations", "Interconnection", "Economic", "Endpoint", "Network"]
   },
   {
     "name": "MorningStar",
@@ -8128,7 +8298,7 @@
     "url": "https://jj.wd5.myworkdayjobs.com/en-US/JJ?jobFamilyGroup=604dc786859810010c31edc949e30000&jobFamilyGroup=604dc786859810010c32cb26337f0000&jobFamilyGroup=604dc786859810010c32d302146a0000&locations=83c5c57cda9d1001cb1df81099800000&locations=f440ffa1a74d1001aead3deb34e10000&locations=b7639e7f1ee81001ea96bfc5f75c0000&locations=def69d69bafd10175d92377f79031312&locations=ffb943cb77a549d5946451dc37319a6c&locations=4df93b69692f42d6b529b9f8fdf5d166&locations=110dba61ce924324845870a3d82acfd6&locations=74b120acbaca49a4914e9f751fd3ec6f&locations=5a63395fe56c4328aa84d4f31b934305&locations=4c81fd1c72d142efbbbceb358366e691&locations=8675db688b3a4600a603e260f24f3223&locations=385f2db984b61001cb11c6bacb660000&locations=1358a15980c11001cb0f87f60e0c0000&locations=b7ec5694ba561001cb18276cccf40000&locations=1e521e0fea0a1001cb06423917700000&locations=132d8fde26ac1001ca69fca8451b0000&locations=e75da616e8751001cb0fcffe37420000&locations=de2274e8874e1001cc135878a4300000&locations=83c5c57cda9d1001cb1e2a9087c60000&locations=3f2a08fac1611001ccb8f50e4fce0000&locations=4a6c44a463ba1001cb117553ebb50000&locations=4b4e8ca78d381001cb1800c56bf50000&locations=3f2a08fac1611001cb10219fdfa40000&locations=de2274e8874e1001ca6888d9d6080000&locations=83c5c57cda9d1001cb0997a7f6df0000&locations=e75da616e8751001cb270cf09d370000&locations=1e521e0fea0a1001cb068fa4f0ac0000&locations=1e521e0fea0a1001cb12bd4d316d0000&locations=248d949319841001cb160a1a42680000&locations=f5caa3aaa1931001cb0f510be9910000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Director", "Principal", "Network"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Director", "Principal", "Network", "Security"]
   },
   {
     "name": "Labcorp",
@@ -8138,7 +8308,7 @@
     "url": "https://labcorp.wd1.myworkdayjobs.com/External?jobFamilyGroup=4a6c2a97581e01007f4f65d6fab20000&locations=4a6c2a97581e0100c7ba27d2d6800000&locations=4a6c2a97581e0100c7c37ef9c02e0000&locations=4a6c2a97581e0100c7d3745579730000&locations=4a6c2a97581e0100c78d8d0459450000&locations=4a6c2a97581e0100c79596aacd800000&locations=4a6c2a97581e0100c79c4202c8ca0000&locations=4a6c2a97581e0100c7bb30f3db330000&locations=4a6c2a97581e0100c7a00a50a8940000&locations=4a6c2a97581e0100c7b22b88f6450000&locations=4a6c2a97581e0100c7b763f07fc90000&locations=4a6c2a97581e0100c7b2cd5dfdfd0000&locations=4a6c2a97581e0100c7d37925c2590000&locations=45344b79114f1000b18585f657530000",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Network", "MDM", "Intern", "QA "]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Network", "MDM", "Intern", "QA ", "Director"]
   },
   {
     "name": "Ameriprise Financial, Inc",
@@ -8148,7 +8318,7 @@
     "url": "https://ameriprise.wd5.myworkdayjobs.com/Ameriprise?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=8b69735a219101dafdec4a75d6162821",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Cisco", "Director", "ServiceNow"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Cisco", "Director", "ServiceNow", "Design Engineer"]
   },
   {
     "name": "Chamberlain Group",
@@ -8158,7 +8328,7 @@
     "url": "https://chamberlain.wd1.myworkdayjobs.com/Chamberlain_Group?jobFamilyGroup=03185f1ff38a0186a72297b4a001ed23&jobFamilyGroup=03185f1ff38a0117d58978679f01e823&jobFamilyGroup=03185f1ff38a01cb584524009d01a423",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Quality", "Mechanical", "Electrical"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Staff", "Quality", "Mechanical", "Electrical", "SAP "]
   },
   {
     "name": "Safelite Group",
@@ -8198,7 +8368,7 @@
     "url": "https://entrust.wd1.myworkdayjobs.com/EntrustCareers?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=94f2a69b2507011c7bbbfc6f78076b26&jobFamilyGroup=94f2a69b250701b15001da7078077e26",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Mfg", "Principal", "Network", "Manufacturing", "Endpoint", "QA "]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Mfg", "Principal", "Network", "Manufacturing", "Endpoint", "QA ", "Firmware"]
   },
   {
     "name": "Scholastic",
@@ -8218,7 +8388,7 @@
     "url": "https://selinc.wd1.myworkdayjobs.com/SEL?jobFamilyGroup=df72ee3ddefc1018ed604d5aa06e52c7&locations=df72ee3ddefc1018ebedeba5a0a74c2d&locations=df72ee3ddefc1018ebedfa30903b4c3c&locations=df72ee3ddefc1018ebedff859c7e4c41&locations=df72ee3ddefc1018ebecc1670f5b4b1a&locations=313194454c5d1001abf2467ba3cf0000&locations=df72ee3ddefc1018ebee30b1f72d4c6f&locations=df72ee3ddefc1018ebee526c79e84c8d&locations=df72ee3ddefc1018ebee5de946894c97&locations=3c3d26db455c01020c66ab45cdd30000&locations=df72ee3ddefc1018ebee6edc7f1c4ca6&locations=abbc9b1bc46b016135c664180ec1a2a4&locations=05ff48c9c8500101a86cf1f028690000&locations=df72ee3ddefc1018ebeeb1f54c7f4ce2&locations=11c92e6f75cc10015295d93b1bfb0000&locations=df72ee3ddefc1018ebeee4149cff4d0f&locations=c320ae4585b81000c9f6683de5e20000&locations=d4fbdacc5de8017cd2372136ad8be41b&locations=df72ee3ddefc1018ebef3bf1d5484d5a&locations=df72ee3ddefc1018ebef4667e6f74d64&locations=df72ee3ddefc1018ebef61932bf94d7d&locations=df72ee3ddefc1018ebef7d00c2ff4d96&locations=df72ee3ddefc1018ebef87563ccf4da0&locations=df72ee3ddefc1018ebefe6290ff24df0&locations=df72ee3ddefc1018ebeff6e9eb9f4dff&locations=df72ee3ddefc1018ebf01de718624e22&locations=df72ee3ddefc1018ebf0290046554e2c",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Hardware", "Support", "Mechanical", "Power", "Manager", "Project", "Process", "Transmission", "Electrical", "Manufacturing", "Embedded", "Civil", "Firmware", "Design", "Compliance", "Regulatory", "Chemical", "Electronics"]
+    "job_disqualifiers": ["Hardware", "Support", "Mechanical", "Power", "Manager", "Project", "Process", "Transmission", "Electrical", "Manufacturing", "Embedded", "Civil", "Firmware", "Design", "Compliance", "Regulatory", "Chemical", "Electronics", "Quality"]
   },
   {
     "name": "Cloud Software Group",
@@ -8248,7 +8418,7 @@
     "url": "https://kiongroup.wd3.myworkdayjobs.com/KION_SCS?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=e1577d0fdc110185c48f1ee175095d56&jobFamilyGroup=e1577d0fdc11012ef04611e175094156",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Controls", "Quality", "Commissioning", "Mechanical", "Robotic", "Project", "Principal", "Solutions", "Manager"]
+    "job_disqualifiers": ["Controls", "Quality", "Commissioning", "Mechanical", "Robotic", "Project", "Principal", "Solutions", "Manager", "Technical Support", "Director"]
   },
   {
     "name": "Stride, Inc. (formerly K12 Inc)",
@@ -8278,7 +8448,7 @@
     "url": "https://keybank.wd5.myworkdayjobs.com/external_career_site?jobFamilyGroup=001793df81f21030a9688a3596ab4a1f",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Quality", "Security", "Product Owner", "Desktop"]
+    "job_disqualifiers": ["Manager", "Quality", "Security", "Product Owner", "Desktop", "Mainframe"]
   },
   {
     "name": "NewRez",
@@ -8298,7 +8468,7 @@
     "url": "https://kar.wd1.myworkdayjobs.com/en-US/OPENLANE_Careers?jobFamilyGroup=1feabb51d74b0122d6b8a81cb700682d",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Salesforce", "IAM ", "Team Lead", "Android", "Scientist"]
+    "job_disqualifiers": ["Salesforce", "IAM ", "Team Lead", "Android", "Scientist", "Front-End"]
   },
   {
     "name": "Edwards Lifesciences",
@@ -8348,7 +8518,7 @@
     "url": "https://hhmi.wd1.myworkdayjobs.com/en-US/External?jobFamily=d48b8f09725a105a3c973445c620cd7c&jobFamily=d48b8f09725a105a3c972646c00ecd6e&jobFamily=d48b8f09725a105a3c972420ba1fcd6c",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": []
+    "job_disqualifiers": ["Windows"]
   },
   {
     "name": "Kyriba",
@@ -8578,7 +8748,7 @@
     "url": "https://boeing.wd1.myworkdayjobs.com/EXTERNAL_CAREERS?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=8b618a30e00f01e1ce8d69e8143f7325&jobFamilyGroup=8b618a30e00f01e0101a6be8143f7725&jobFamilyGroup=8b618a30e00f01c7277572e8143f8b25&jobFamilyGroup=8b618a30e00f0117c89a81e8143fad25",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Workday", "Systems", "Embedded", "Security", "Compiler", "Verification", "Network", "Chief", "Scientist", "Virtualization", "Audio visual", "Audiovisual", "Simulation", "Certification", "iOS"]
+    "job_disqualifiers": ["Manager", "Workday", "Systems", "Embedded", "Security", "Compiler", "Verification", "Network", "Chief", "Scientist", "Virtualization", "Audio visual", "Audiovisual", "Simulation", "Certification", "iOS", "Governance"]
   },
   {
     "name": "Gen",
@@ -8665,7 +8835,7 @@
     "type": "FinTech",
     "module": "scraper_functions",
     "function": "global_payments",
-    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS?locations=41b35850c3ff013707fc77b916014df1&locations=428666af93b910f878be8e3dc1a73661&locations=41b35850c3ff018ad03144b91601a8f0&locations=41b35850c3ff01567edd60b91601fdf0&locations=41b35850c3ff01fb13854bb51601d4e6&locations=41b35850c3ff0178e8f94cb51601d9e6&locations=41b35850c3ff01b1f17795b91601b1f1&locations=41b35850c3ff0192a8da52b51601ede6&locations=41b35850c3ff01bbdcad39b81601c9ed&locations=f52d846c18f51002046436629c2d0000&locations=428666af93b910f878c0c7ac3e9238e9&locations=41b35850c3ff017dc15005b91601efef&locations=428666af93b910f878be338b03c53602&locations=41b35850c3ff01828ca706ba1601b5f2&locations=41b35850c3ff01dd9eea5db5160110e7&locations=428666af93b910f878bff95a4b3437e9&locations=41b35850c3ff01e42041f2b41601e4e5&locations=41b35850c3ff017616e109b91601feef&locations=41b35850c3ff01d35fb163b5160124e7&locations=41b35850c3ff0129eceb6eb5160147e7&locations=428666af93b910f878be775cbd5b3648&locations=41b35850c3ff01b4bd5581b916016bf1&locations=428666af93b910f878bf8643e54c3765&locations=41b35850c3ff018dcd704bb716013aeb&locations=41b35850c3ff01f789827fb61601f6e8&locations=41b35850c3ff01a134f0d7b61601ffe9&locations=41b35850c3ff0149db7319bb160153f5&locations=41b35850c3ff014bf3577ab516016ae7&locations=41b35850c3ff01a170c57bb516016fe7&locations=41b35850c3ff01b7fc2086b81601b4ee&locations=428666af93b910f878bfc88ea6ae37b0&locations=428666af93b910f878bea56e71fc367a&locations=4319e7b48e80013245da391d23b0eecb&locations=41b35850c3ff012711cd8bb51601a1e7&locations=428666af93b910f878bfe716668a37d3&locations=428666af93b910f878be60032aa9362f&locations=41b35850c3ff011de3598db51601a7e7&locations=428666af93b910f878bf7946bae93756&jobFamilyGroup=428666af93b910f8601d490ff2056756",
+    "url": "https://tsys.wd1.myworkdayjobs.com/TSYS?locations=41b35850c3ff013707fc77b916014df1&locations=428666af93b910f878be8e3dc1a73661&locations=41b35850c3ff018ad03144b91601a8f0&locations=41b35850c3ff01567edd60b91601fdf0&locations=41b35850c3ff01fb13854bb51601d4e6&locations=41b35850c3ff0178e8f94cb51601d9e6&locations=41b35850c3ff01b1f17795b91601b1f1&locations=41b35850c3ff0192a8da52b51601ede6&locations=41b35850c3ff01bbdcad39b81601c9ed&locations=f52d846c18f51002046436629c2d0000&locations=428666af93b910f878c0c7ac3e9238e9&locations=41b35850c3ff017dc15005b91601efef&locations=428666af93b910f878be338b03c53602&locations=41b35850c3ff01828ca706ba1601b5f2&locations=41b35850c3ff01dd9eea5db5160110e7&locations=428666af93b910f878bff95a4b3437e9&locations=41b35850c3ff01e42041f2b41601e4e5&locations=41b35850c3ff017616e109b91601feef&locations=41b35850c3ff01d35fb163b5160124e7&locations=41b35850c3ff0129eceb6eb5160147e7&locations=428666af93b910f878be775cbd5b3648&locations=41b35850c3ff01b4bd5581b916016bf1&locations=428666af93b910f878bf8643e54c3765&locations=41b35850c3ff018dcd704bb716013aeb&locations=41b35850c3ff01f789827fb61601f6e8&locations=41b35850c3ff01a134f0d7b61601ffe9&locations=41b35850c3ff0149db7319bb160153f5&locations=41b35850c3ff014bf3577ab516016ae7&locations=41b35850c3ff01a170c57bb516016fe7&locations=41b35850c3ff01b7fc2086b81601b4ee&locations=428666af93b910f878bfc88ea6ae37b0&locations=428666af93b910f878bea56e71fc367a&locations=4319e7b48e80013245da391d23b0eecb&locations=41b35850c3ff012711cd8bb51601a1e7&locations=428666af93b910f878bfe716668a37d3&locations=428666af93b910f878be60032aa9362f&locations=41b35850c3ff011de3598db51601a7e7&locations=428666af93b910f878bf7946bae93756&jobFamilyGroup=428666af93b910f8601d404651376752&jobFamilyGroup=428666af93b910f8601d490ff2056756",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Mainframe", "Manager", "Principal"]
@@ -8708,7 +8878,7 @@
     "url": "https://manh.wd5.myworkdayjobs.com/en-US/External?jobFamilyGroup=ba9cd6cb4b2310c77289b0d8ffb3a192&jobFamilyGroup=ba9cd6cb4b2310c771a26f5517cb879e&locations=ba9cd6cb4b2310c69664e3f730d3e456",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Quality", "Principal", "Scientist", "Network"]
+    "job_disqualifiers": ["Quality", "Principal", "Scientist", "Network", "Manager"]
   },
   {
     "name": "Amadeus",
@@ -8738,7 +8908,7 @@
     "url": "https://highmarkhealth.wd1.myworkdayjobs.com/highmark?jobFamilyGroup=1a08264f4d6a10d2ee5e2b75fc74f3d9&jobFamilyGroup=053c776fd4bb012bb44142e1c21f27d2&jobFamilyGroup=053c776fd4bb01fb310c58c7c21fd6d1",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Governance", "Security", "Adobe", "Salesforce", "Scientist", "Manager", "Director"]
+    "job_disqualifiers": ["Governance", "Security", "Adobe", "Salesforce", "Scientist", "Manager", "Director", "Product Owner", "Network", "Test Engineer"]
   },
   {
     "name": "Inotiv Inc.",
@@ -8808,7 +8978,7 @@
     "url": "https://choicehotels.wd5.myworkdayjobs.com/External?jobFamilyGroup=313e698c1d65100f34974e0f6cfa6f38",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Director", "Principal"]
+    "job_disqualifiers": ["Manager", "Director", "Principal", "Salesforce"]
   },
   {
     "name": "American Tire Distributors",
@@ -8831,6 +9001,106 @@
     "job_disqualifiers": ["Manager"]
   },
   {
+    "name": "Calix, Inc.",
+    "type": "Telecommunications",
+    "module": "scraper_functions",
+    "function": "calix",
+    "url": "https://calix.wd1.myworkdayjobs.com/External?locations=967782fa579b4e2280fc2f97a926f958&locations=266bc3ce73514f988a8d76fff55bda6f&locations=a62cde27f83b01d9f9e92e545501f348&locations=a62cde27f83b01a7a1e2c42a5501c948&locations=a62cde27f83b0175b02d26165501b048&locations=d1798709a63401010dcb9550b7880000&locations=a62cde27f83b0183d55647415501d548&jobFamilyGroup=134a67b824824ea186896744944e2eea",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Hardware", "Distinguished", "Staff"]
+  },
+  {
+    "name": "Synchrony Financial",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "synchrony",
+    "url": "https://synchronyfinancial.wd5.myworkdayjobs.com/careers?jobFamilyGroup=8bc859bd8bb6106ae6ae45fe40601a04&jobFamilyGroup=0a738aad62d31001624db0b876390000&locations=8bc859bd8bb6106afb892377a1fc1d4b&locations=8bc859bd8bb6106afb894625afce1d73&locations=6f710322556d01ec4b42b78a1e13489d&locations=8adf574360c01067c4f55578e201b5da&locations=d75e8e895fe3107e2bb1fa4cea7b6d58&locations=c414765146ad0114a1d7cdd20d10a2e3&locations=8bc859bd8bb6106afb89152c83111d3c&locations=00ea8442d8b5012324c3009c86192f18&locations=58448dd7cceb0140073c2204e41d7499&locations=8bc859bd8bb6106afb89075d4d4e1d2d&locations=a97b9b33c80c100141c0866e89200000&locations=58448dd7cceb01c4b9b01265e41daa9b&locations=0aed7686e738100ab89b13168f89c059&locations=8bc859bd8bb6106afb8902e714731d28&locations=c414765146ad01c305d4ee0913106302&locations=536fe33003330101f8f7bebbe7bb0000&locations=8bc859bd8bb6106afb88fdd6e20d1d23&locations=58448dd7cceb0167733736a5e41dc99c&locations=8bc859bd8bb6106afb88f472d8891d19&locations=c414765146ad0174a49216a11210c9fe&locations=8bc859bd8bb6106afb88f8ddfa341d1e&locations=6f710322556d012e2cb8a5901e13539d&locations=58448dd7cceb01eefa38caebe41d7e9d&locations=749b57dd4dab010df174eaf614107d04&locations=0aed7686e738100ab84b9c73802dbe9f&locations=6f710322556d01c4bc23f3691e13c69c&locations=8bc859bd8bb6106afb89362090b01d5f&locations=749b57dd4dab01eeb452c1cc15108a08&locations=8bc859bd8bb6106afb891a1199511d41&locations=c414765146ad01308215a30014101307&locations=6f710322556d0121708d3cb51e137f9e&locations=8bc859bd8bb6106afb881dcfd7361c10",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal"]
+  },
+  {
+    "name": "Bread Financial",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "bread",
+    "url": "https://alliancedata.wd5.myworkdayjobs.com/breadfinancial_US",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal", "QA "]
+  },
+  {
+    "name": "PEAK6 Investments LLC",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "peak6",
+    "url": "https://peak6group.wd1.myworkdayjobs.com/CapMan?locations=9319b7dfa5ee10212cfaa4dea32c0000&locations=9319b7dfa5ee10212cfb10f62aff0000",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "ABB Group",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "abb",
+    "url": "https://abb.wd3.myworkdayjobs.com/External_Career_Page?locationCountry=bc33aa3152ec42d4995f4791a106ed09&jobFamilyGroup=094a0cd6eed71000b6e4c43fdb520000",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Simulation"]
+  },
+  {
+    "name": "DTN",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "dtn",
+    "url": "https://dtn.wd1.myworkdayjobs.com/DTN_Careers?locations=02a86d2dcffd01143fa74164f20f0c0e&locations=06014ef25493100111e68782d8e30000&locations=02a86d2dcffd01025f6c4e64f20f250e&locations=3f6e03227473100169224fab628a0000&locations=9f1eaf05b2a41000fc6222105b680000&locations=8067cad4f31c100104270875d80f0000&jobFamilyGroup=ecd7c91e03c1011f780a14d2f1004d1f",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Cardlytics",
+    "type": "Advertising and Marketing",
+    "module": "scraper_functions",
+    "function": "cardlytics",
+    "url": "https://cardlytics.wd5.myworkdayjobs.com/CardlyticsExternalCareerSite?locations=c2d4ad020153101306010407f40e0000&locations=c2d4ad020153101306010b45f39d0000&locations=22953bd1444d100165f52263e3e70000&locations=c2d4ad020153101306010daf34dc0000&locations=c2d4ad0201531013060110190a620000&jobFamilyGroup=769f66ea6d291002127920a9716c0000",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Administrator"]
+  },
+  {
+    "name": "Fair Isaac Corporation (FICO)",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "fico",
+    "url": "https://fico.wd1.myworkdayjobs.com/External/?locations=680ba5c8ca2501b19fadb2b46601c73d&locations=a46e175d937b106cf81d31f8ea94fa25&locations=a46e175d937b106cf81d2e16a996fa1e&jobFamilyGroup=a46e175d937b106cdb2f901ef52e94e9",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["President", "Front End", "C++ Engineer"]
+  },
+  {
+    "name": "iRhythm Technologies, Inc.",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "irhythmtech",
+    "url": "https://irhythmtech.wd5.myworkdayjobs.com/iRhythm?jobFamilyGroup=6250cc0809e910005fd969ce735b0000&jobFamilyGroup=6250cc0809e910005fd94cf7d2b50000&locations=25b446b04d1d1001f1fe2ae27c220000&locations=25b446b04d1d1001f1fe4bf652d20000&locations=25b446b04d1d1001f1fe9988a6a60000",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Quality", "Mechanical", "Firmware", "Salesforce", "Staff"]
+  },
+  {
+    "name": "U-Haul",
+    "type": "Internet Services",
+    "module": "scraper_functions",
+    "function": "uhaul",
+    "url": "https://uhaul.wd1.myworkdayjobs.com/uhauljobs?jobFamilyGroup=81586da719a0012db7c8e8630633bf1f",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Salesforce"]
+  },
+  {
     "name": "Walmart (SmartRecruiter Job Board)",
     "type": "Merchandiser",
     "module": "scraper_functions",
@@ -8848,7 +9118,7 @@
     "url": "https://careers.smartrecruiters.com/ServiceNow/",
     "location_qualifiers": ["Texas", "Georgia", "Chicago", "Kirkland", "Milwaukee", "Wisconsin", "Florida", "California", "Carolina", "San Diego", "Massachusetts"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Mgr", "Federal", "Front End", "Front-End", "Director", "Mobile", "VP", "Frontend", "Hardware"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Mgr", "Federal", "Front End", "Front-End", "Director", "Mobile", "VP", "Frontend", "Hardware", "Data Center"]
   },
   {
     "name": "Visa",
@@ -8878,7 +9148,7 @@
     "url": "https://careers.smartrecruiters.com/PaloAltoNetworks2",
     "location_qualifiers": ["Plano", "Santa Clara", "San Francisco", "Philadelphia", "Dallas", "Raleigh", "Boston", "Atlanta", "New York", "Austin"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Channel Systems", "Customer Success", "ASIC ", "Distinguished", "Validation", "Hardware", "inside Systems", "Marketing", "Principle", "Sales", "Solutions"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Channel Systems", "Customer Success", "ASIC ", "Distinguished", "Validation", "Hardware", "inside Systems", "Marketing", "Principle", "Sales", "Solutions", "Director", "Scientist"]
   },
   {
     "name": "Western Digital",
@@ -8898,7 +9168,7 @@
     "url": "https://careers.smartrecruiters.com/Intuitive/",
     "location_qualifiers": ["Anchorage", "Blacksburg", "Fargo", "Peachtree Corners", "Salt Lake City", "Southaven", "Sunnyvale", "Tulsa"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Director", "Security", "Principal", "ServiceNow", "Field", "Optical", "Intern", "Manufacturing", "Workplace", "Scientist", "Human Factors", "Embedded", "Industrial", "Catheters", "Process", "Signal", "Robotic", "Mechanical", "Hardware", "Design", "FPGA", "Supplier", "Research", "Clinical Development", "Electrical", "Simulation", "Human Factors", "Salesforce", "Technician", "Packaging", "Reliability", "Clinical", "QA ", "Frontend"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Director", "Security", "Principal", "ServiceNow", "Field", "Optical", "Intern", "Manufacturing", "Workplace", "Scientist", "Human Factors", "Embedded", "Industrial", "Catheters", "Process", "Signal", "Robotic", "Mechanical", "Hardware", "Design", "FPGA", "Supplier", "Research", "Clinical Development", "Electrical", "Simulation", "Human Factors", "Salesforce", "Technician", "Packaging", "Reliability", "Clinical", "QA ", "Frontend", "Governance", "Failure Analysis"]
   },
   {
     "name": "NBC Universal",
@@ -8918,7 +9188,7 @@
     "url": "https://careers.smartrecruiters.com/BalsamBrands/",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "ServiceNow", "Email"]
   },
   {
     "name": "Arista Networks",
@@ -8968,7 +9238,7 @@
     "url": "https://careers.smartrecruiters.com/talan",
     "location_qualifiers": ["New York", "United States", "Dallas"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Governance", "Murex"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Governance", "Murex", "Frontend"]
   },
   {
     "name": "Abbvie",
@@ -9068,7 +9338,7 @@
     "url": "https://careers.smartrecruiters.com/FortuneBrands",
     "location_qualifiers": ["Anaheim", "Atlanta", "TX", "Badin", "Boston", "Brookings", "Butler", "Casa Grande", "Charlotte", "Chicago", "California", "Florida", "Deerfield", "Denver", "Greenville", "Hartford", "Irvine", "Jacksonville", "Vegas", "Long Beach", "Los Angeles", "Meridian", "Mocksville", "Mooresville", "New Bern", "New London", "Newark", "Orlando", "Pasadena", "Philadelphia", "Phoenix", "Pittsburgh", "Portland", "Raleigh", "Sacramento", "Salt Lake City", "San Antonio", "San Diego", "San Francisco", "Sanford", "Seattle", "Syracuse", "Tucson"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Android", "Compliance", "Firmware", "Manufacturing", "Process", "Controls", "Network", "Field", "Security", "Design", "Quality", "Power Platform"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Android", "Compliance", "Firmware", "Manufacturing", "Process", "Controls", "Network", "Field", "Security", "Design", "Quality", "Power Platform", "Microsoft"]
   },
   {
     "name": "Sandisk",
@@ -9098,7 +9368,7 @@
     "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1002/requisitions?lastSelectedFacet=CATEGORIES&location=United+States&locationId=300000000289738&locationLevel=country&mode=location&selectedCategoriesFacet=300000086152753",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Front End", "Frontend", "Mobile", "iOS", "Mainframe", "Front-end", "SAP ABAP", "IBM", "QA ", "UI/UX"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Front End", "Frontend", "Mobile", "iOS", "Mainframe", "Front-end", "SAP ABAP", "IBM", "QA ", "UI/UX", "Salesforce", "ServiceNow"]
   },
   {
     "name": "GM Financial",
@@ -9108,7 +9378,7 @@
     "url": "https://fa-exvu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?categories=Analytics+%2F+Data+Science+%2F+Economics%7CDigital%7CTechnology&country=United+States&lastSelectedFacet=CATEGORIES&limit=100&page=1&selectedCategoriesFacet=300000008745229%3B300000008745193",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Salesforce", "Adobe", "Quality", "IAM ", "VP ", "Principal"]
+    "job_disqualifiers": ["Manager", "Salesforce", "Adobe", "Quality", "IAM ", "VP ", "Principal", "ServiceNow"]
   },
   {
     "name": "The Bank of New York Mellon",
@@ -9148,7 +9418,7 @@
     "url": "https://careers.oracle.com/jobs/#en/sites/jobsearch/requisitions?lastSelectedFacet=CATEGORIES&location=United+States&locationId=300000000149325&selectedCategoriesFacet=300000001917356&selectedFlexFieldsFacets=%22AttributeChar29%7CIndividual+Contributor%7C%7CAttributeChar6%7C3+to+5%2B+years%22&selectedLocationsFacet=300000000149325",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Mainframe", "Scientist", "Network", "Frontend"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Mainframe", "Scientist", "Network", "Frontend", "Design Engineer"]
   },
   {
     "name": "Fortinet",
@@ -9188,7 +9458,7 @@
     "url": "https://ebwh.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?lastSelectedFacet=CATEGORIES&selectedCategoriesFacet=300000365287230",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Scientist"]
   },
   {
     "name": "Pearson",
@@ -9308,7 +9578,7 @@
     "url": "https://efds.fa.em5.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions?lastSelectedFacet=CATEGORIES&selectedCategoriesFacet=300002487990164&selectedLocationsFacet=300000000425727",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Design", "Solutions", "Front-end", "Scientist", "Front End", "Network"]
+    "job_disqualifiers": ["Staff", "Support", "Quality", "Manager", "Security", "Principal", "Lead", "Director", "Android", "Design", "Solutions", "Front-end", "Scientist", "Front End", "Network", "iOS"]
   },
   {
     "name": "Kroger's Co",
@@ -9348,7 +9618,7 @@
     "url": "https://fa-etqo-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?lastSelectedFacet=LOCATIONS&mode=location&selectedLocationsFacet=300000000446660",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Principal", "Front end", "Appian", "DC ", "ServiceNow", "Mainframe", "Security"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Principal", "Front end", "Appian", "DC ", "ServiceNow", "Mainframe", "Security", "Network"]
   },
   {
     "name": "Depository Trust & Clearing Corporation (DTCC)",
@@ -9358,7 +9628,7 @@
     "url": "https://ebxr.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?lastSelectedFacet=CATEGORIES&selectedCategoriesFacet=300000002081607&selectedLocationsFacet=300000000300470",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Performance", "UI UX", "Director", "Principal", "Director", "Support", "Security"]
+    "job_disqualifiers": ["Performance", "UI UX", "Director", "Principal", "Director", "Support", "Security", "Capacity Planning"]
   },
   {
     "name": "National Oilwell Varco (NOV)",
@@ -9368,7 +9638,7 @@
     "url": "https://egay.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_4001/jobs?keyword=Software&lastSelectedFacet=LOCATIONS&mode=location&selectedLocationsFacet=300000000229164",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Sales", "Manufacturing", "Design", "Director", "Controls", "Drafter", "Mechanical", "Front-end", "Network", "Control Systems"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Sales", "Manufacturing", "Design", "Director", "Controls", "Drafter", "Mechanical", "Front-end", "Network", "Control Systems", "QA "]
   },
   {
     "name": "ComputerShare",
@@ -9448,8 +9718,7 @@
     "url": "https://emje.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?lastSelectedFacet=CATEGORIES&selectedCategoriesFacet=300004178005052",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Stability", "Evaluation", "Maintenance", "Renewable", "Startup", "Reactor", "Protection", "Generator", "Transmission", "Controls", "Power", "Principal", "Electrical", "Planning", "Federal", "Supervisor", "Manager"]
-  },
+    "job_disqualifiers": ["Stability", "Evaluation", "Maintenance", "Renewable", "Startup", "Reactor", "Protection", "Generator", "Transmission", "Controls", "Power", "Principal", "Electrical", "Planning", "Federal", "Supervisor", "Manager", "Civil", "Team Leader", "Technician", "Support", "Mechanical", "Designer", "Nuclear", "Manufacturing"]  },
   {
     "name": "Fujitsu North America",
     "type": "Computers and Hardware",
@@ -9458,7 +9727,7 @@
     "url": "https://edzt.fa.em4.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?lastSelectedFacet=LOCATIONS&mode=location&selectedLocationsFacet=300000000361862",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Salesforce", "Desktop", "SAP "]
+    "job_disqualifiers": ["Salesforce", "Desktop", "SAP ", "Test Engineer", "MuleSoft"]
   },
   {
     "name": "DNV (Det Norske Veritas)",
@@ -9471,6 +9740,26 @@
     "job_disqualifiers": ["Customer Support"]
   },
   {
+    "name": "Staples",
+    "type": "Merchandising and Supply Chain",
+    "module": "scraper_functions",
+    "function": "staples1",
+    "url": "https://fa-exhh-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2003/jobs?lastSelectedFacet=CATEGORIES&selectedCategoriesFacet=300000005257038",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Akamai Technologies, Inc",
+    "type": "Securities",
+    "module": "scraper_functions",
+    "function": "akamai",
+    "url": "https://jobs.akamai.com/en/sites/CX_1/jobs?lastSelectedFacet=LOCATIONS&mode=location&searchable=%5B%5D&section=aka_ext&selectedLocationsFacet=300000000469666",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "Security", "Principal", "Director", "Solutions", "Kernel", "Network"]
+  },
+  {
     "name": "Honeywell",
     "type": "Engineering and Manufacturing",
     "module": "scraper_functions",
@@ -9478,7 +9767,7 @@
     "url": "https://careers.honeywell.com/en/sites/Honeywell/jobs?lastSelectedFacet=TITLES&mode=location&selectedLocationsFacet=300000000469866&selectedTitlesFacet=124",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Embedded", "Controls", "Sensors", "Principal", "Manager", "Director"]
+    "job_disqualifiers": ["Embedded", "Controls", "Sensors", "Principal", "Manager", "Director", "Supervisor"]
   },
   {
     "name": "RedSail Technologies",
@@ -9508,7 +9797,7 @@
     "url": "https://recruiting2.ultipro.com/VER1018VALLC/JobBoard/ea4d56d0-a413-48c6-87f7-32d00fd2eef4/?q=&o=postedDateDesc",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Avionics", "Intern", "Quality", "Principal", "Hardware", "RF ", "Port ", "Life Cycle", "Cybersecurity", "Mechanical", "Electrical", "Field", "Program", "Systems", "Project", "Manufacturing", "Senior Lead", "Multi -Discipline", "Design", "Multi-Discipline", "Staff"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Avionics", "Intern", "Quality", "Principal", "Hardware", "RF ", "Port ", "Life Cycle", "Cybersecurity", "Mechanical", "Electrical", "Field", "Program", "Systems", "Project", "Manufacturing", "Senior Lead", "Multi -Discipline", "Design", "Multi-Discipline", "Staff", "Chief"]
   },
   {
     "name": "Convergint",
@@ -9588,7 +9877,7 @@
     "url": "https://recruiting2.ultipro.com/MIL1017/JobBoard/f54234e9-dfde-b183-fd20-4fbdb19cba7a/?q=&o=postedDateDesc&f5=WOPO5QgU602gRWziBqjtTA",
     "location_qualifiers": ["USA"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Director", "Staff", "Identity", "Head of"]
+    "job_disqualifiers": ["Solutions", "Manager", "Scientist", "Salesforce", "Director", "Staff", "Identity", "Head of", "QA "]
   },
   {
     "name": "ODW Logistics",
@@ -9627,8 +9916,8 @@
     "function": "usp",
     "url": "https://recruiting.ultipro.com/UNI1066/JobBoard/7edcf3b7-2288-c99a-0ece-44b0a1e5cfe9/?q=&o=postedDateDesc&f4=-VunSeRI11yBIGaCPmd_Sg+OsvEAAQon0CLXaS7YyGzVA+PXq8h_pojlWE6nDNX1YGzA+rg0EHqwjt1uwEog74Qn9qQ&f5=EiRoqWMyS0uY0LDaW-2Ebw",
     "location_qualifiers": [],
-    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["M365", "Manager"]
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer", "Scientist"],
+    "job_disqualifiers": ["M365", "Manager", "Scientist"]
   },
   {
     "name": "Ambry Genetics",
@@ -9748,7 +10037,7 @@
     "url": "https://ats.rippling.com/galileo/jobs?country=US",
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Staff", "Head of", "Customer Success", "Frontend", "Sales"]
+    "job_disqualifiers": ["Staff", "Head of", "Customer Success", "Frontend", "Sales", "Manager"]
   },
   {
     "name": "SchoolAI",
@@ -10131,6 +10420,16 @@
     "job_disqualifiers": ["Manager"]
   },
   {
+    "name": "GovPilot",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "govpilot",
+    "url": "https://govpilot.bamboohr.com/careers",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Staff"]
+  },
+  {
     "name": "Nextworld, LLC",
     "type": "Computer Software",
     "module": "scraper_functions",
@@ -10178,6 +10477,6 @@
     "url": "https://2000recruiting.paylocity.com/Recruiting/Jobs/All/e2bcef5a-b6e5-4c5a-8fdd-c4da179dd98c",
     "location_qualifiers": [", US"],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
-    "job_disqualifiers": ["Manager", "Sales", "Director", "Front End", "Principal", "Network", "Windows"]
+    "job_disqualifiers": ["Manager", "Sales", "Director", "Front End", "Principal", "Network", "Windows", "Virtualization"]
   }
 ]
