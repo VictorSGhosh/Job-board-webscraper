@@ -28,7 +28,7 @@ qualifiers = None
 def function_init():
     function_map = {
         "otterai": otterai,             "moloco": moloco,           "nationwide": nationwide,       "gm": gm,                       "arista": arista,          "vectra": vectra,
-        "enverus": enverus,             "trmlabs": trmlabs, "coalition": coalition,
+        "enverus": enverus,             "trmlabs": trmlabs,         "coalition": coalition,         "stitch_fix": stitch_fix,       "elastic": stitch_fix,
 
         # Greenhouse Embed Career Pages
         "credit_karma": cmn_scraper1,   "block": cmn_scraper1,      "coinbase": cmn_scraper1,       "robinhood": cmn_scraper1,      "stripe": cmn_scraper1,     "ripple": cmn_scraper1,
@@ -37,7 +37,7 @@ def function_init():
         "paxos": cmn_scraper1,          "digicert": cmn_scraper1,   "wayfair": cmn_scraper1,        "faire": cmn_scraper1,          "doordash": cmn_scraper1,   "pendo": cmn_scraper1,
         "pinterest": cmn_scraper1,      "roku": cmn_scraper1,       "airbnb": cmn_scraper1,         "lyft": cmn_scraper1,           "coupang": cmn_scraper1,    "worldquant": cmn_scraper1,
         "lendingtree": cmn_scraper1,    "figma": cmn_scraper1,      "squarespace": cmn_scraper1,    "nextdoor": cmn_scraper1,       "duolingo": cmn_scraper1,   "handshake": cmn_scraper1,
-        "digitalocean": cmn_scraper1,   "mongodb": cmn_scraper1,    "purestorage": cmn_scraper1,    "hubspot": cmn_scraper1,        "elastic": cmn_scraper1,    "moveworks": cmn_scraper1,
+        "digitalocean": cmn_scraper1,   "mongodb": cmn_scraper1,    "purestorage": cmn_scraper1,    "hubspot": cmn_scraper1,        "moveworks": cmn_scraper1,
         "voltron": cmn_scraper1,        "c3ai": cmn_scraper1,       "hashicorp": cmn_scraper1,      "dfinity": cmn_scraper1,        "latentai": cmn_scraper1,   "salesloft": cmn_scraper1,
         "databricks": cmn_scraper1,     "asana": cmn_scraper1,      "datadog": cmn_scraper1,        "redis": cmn_scraper1,          "cohesity": cmn_scraper1,   "dropbox": cmn_scraper1,
         "sentry": cmn_scraper1,         "braze": cmn_scraper1,      "collibra": cmn_scraper1,       "optiver": cmn_scraper1,        "rapp": cmn_scraper1,       "applovin": cmn_scraper1,
@@ -48,16 +48,16 @@ def function_init():
         "cloudflare": cmn_scraper1,     "bitgo": cmn_scraper1,      "okta": cmn_scraper1,           "anthropic": cmn_scraper1,      "brex": cmn_scraper1,       "upstart": cmn_scraper1,
         "ixl": cmn_scraper1,            "zuora": cmn_scraper1,      "tempus": cmn_scraper1,         "inovalon": cmn_scraper1,       "godaddy": cmn_scraper1,    "magicleap": cmn_scraper1,
         "tower_research": cmn_scraper1, "flagship": cmn_scraper1,   "definitive": cmn_scraper1,     "coinbase2": cmn_scraper1,      "nasuni": cmn_scraper1,     "beyondtrust": cmn_scraper1,
-        "next": cmn_scraper1,           "foursquare": cmn_scraper1, "altruist": cmn_scraper1,       "current": cmn_scraper1,        "wing": cmn_scraper1,       "flexport": cmn_scraper1,
-        "zeta_global": cmn_scraper1,    "seatgeek": cmn_scraper1,   "chewy": cmn_scraper1,          "taskrabbit": cmn_scraper1,     "6sense": cmn_scraper1,     "sentinelone": cmn_scraper1,
-        "navan": cmn_scraper1,          "blend": cmn_scraper1,      "nexxen": cmn_scraper1,         "berkadia": cmn_scraper1,       "flock": cmn_scraper1,      "cerebras": cmn_scraper1,
+        "next": cmn_scraper1,           "altruist": cmn_scraper1,   "current": cmn_scraper1,        "wing": cmn_scraper1,           "flexport": cmn_scraper1,   "zeta_global": cmn_scraper1,
+        "seatgeek": cmn_scraper1,       "chewy": cmn_scraper1,      "taskrabbit": cmn_scraper1,     "6sense": cmn_scraper1,         "navan": cmn_scraper1,      "sentinelone": cmn_scraper1,
+        "blend": cmn_scraper1,          "nexxen": cmn_scraper1,     "berkadia": cmn_scraper1,       "flock": cmn_scraper1,          "cerebras": cmn_scraper1,   "justworks": cmn_scraper1,
         "impact.com": cmn_scraper1,     "glean": cmn_scraper1,      "updater": cmn_scraper1,        "orion": cmn_scraper1,          "skydio": cmn_scraper1,     "hunter_douglas": cmn_scraper1,
         "equipmentshare": cmn_scraper1, "exiger": cmn_scraper1,     "skillz": cmn_scraper1,         "modmed": cmn_scraper1,         "toast": cmn_scraper1,      "honor": cmn_scraper1,
         "plume": cmn_scraper1,          "ionq": cmn_scraper1,       "impact": cmn_scraper1,         "material_bank": cmn_scraper1,  "guild": cmn_scraper1,      "aura_frames": cmn_scraper1,
         "aura": cmn_scraper1,           "dremio": cmn_scraper1,     "inizio_evoke": cmn_scraper1,   "cockroach": cmn_scraper1,      "revolution": cmn_scraper1, "circleci": cmn_scraper1,
-        "sonic": cmn_scraper1,          "gemini": cmn_scraper1,     "relavity_space": cmn_scraper1, "esri": cmn_scraper1,           "capvision": cmn_scraper1,  "conviva": cmn_scraper1,
+        "sonic": cmn_scraper1,          "gemini": cmn_scraper1,     "relavity_space": cmn_scraper1, "esri": cmn_scraper1,           "capvision": cmn_scraper1,  "drivewealth": cmn_scraper1,
         "coveo": cmn_scraper1,          "udemy": cmn_scraper1,      "integral_ad": cmn_scraper1,    "ipc_systems": cmn_scraper1,    "kaseya": cmn_scraper1,     "realtor.com": cmn_scraper1,
-        "justworks": cmn_scraper1,      "care.com": cmn_scraper1,   "imply": cmn_scraper1,          "domino": cmn_scraper1,         "marketaxess": cmn_scraper1,
+        "care.com": cmn_scraper1,       "imply": cmn_scraper1,      "domino": cmn_scraper1,         "chime": cmn_scraper1,          "conviva": cmn_scraper1,    "marketaxess": cmn_scraper1,
 
         "billtrust": cmn_scraper1_1,    "fanduel": cmn_scraper1_1,
 
@@ -104,8 +104,11 @@ def function_init():
         "arizeai": cmn_scraper2,        "weavegrid": cmn_scraper2,  "sps": cmn_scraper2,            "good_inside": cmn_scraper2,    "arlo": cmn_scraper2,       "system": cmn_scraper2,
         "patterndata": cmn_scraper2,    "zora": cmn_scraper2,       "aclu": cmn_scraper2,           "smarterdx": cmn_scraper2,      "vannevar": cmn_scraper2,   "rent_the_runway": cmn_scraper2,
         "daylight": cmn_scraper2,       "meshy": cmn_scraper2,      "tailorcare": cmn_scraper2,     "kalepa": cmn_scraper2,         "ripplcare": cmn_scraper2,  "metropolis": cmn_scraper2,
-        "suvoda": cmn_scraper2,         "sandboxaq": cmn_scraper2,  "wikimedia": cmn_scraper2,      "partnerize": cmn_scraper2,
-
+        "suvoda": cmn_scraper2,         "sandboxaq": cmn_scraper2,  "wikimedia": cmn_scraper2,      "partnerize": cmn_scraper2,     "schonfeld": cmn_scraper2,  "foursquare": cmn_scraper2,
+        "dv01": cmn_scraper2,           "imagen": cmn_scraper2,     "bluecore": cmn_scraper2,       "mission_lane": cmn_scraper2,   "afresh": cmn_scraper2,     "zipco": cmn_scraper2,
+        "cresta": cmn_scraper2,         "garner": cmn_scraper2,     "gitlab": cmn_scraper2,         "webflow": cmn_scraper2,        "clover": cmn_scraper2,     "datagrail": cmn_scraper2,
+        "valon": cmn_scraper2,          "retool": cmn_scraper2,     "betterment": cmn_scraper2,     "upgrade": cmn_scraper2,        "mutiny": cmn_scraper2,     "opendoor": cmn_scraper2,
+        "zocdoc": cmn_scraper2,         "mixpanel": cmn_scraper2,   "compass": cmn_scraper2,        "grata": cmn_scraper2,          "casechek": cmn_scraper2,   "smartasset": cmn_scraper2,
 
         # Ashby HQ Career Pages
         "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
@@ -121,13 +124,15 @@ def function_init():
         "modernfi": cmn_scraper3,       "safety": cmn_scraper3,     "gamechanger": cmn_scraper3,    "inngest": cmn_scraper3,        "gptzero": cmn_scraper3,    "candid_health": cmn_scraper3,
         "maybern": cmn_scraper3,        "lorikeet": cmn_scraper3,   "voltage_park": cmn_scraper3,   "allium": cmn_scraper3,         "dclimate": cmn_scraper3,   "reality_defender": cmn_scraper3,
         "triedge": cmn_scraper3,        "catio": cmn_scraper3,      "articul8": cmn_scraper3,       "reka": cmn_scraper3,           "linear": cmn_scraper3,     "voyant_photonics": cmn_scraper3,
+        "chronosphere": cmn_scraper3,   "sardine": cmn_scraper3,    "tectron": cmn_scraper3,        "method": cmn_scraper3,         "lilt": cmn_scraper3,       "empower": cmn_scraper3,
+        "brigit": cmn_scraper3,         "parabola": cmn_scraper3,   "tonal": cmn_scraper3,
 
         # Jobvite Career Pages
         "tylertech": cmn_scraper4,      "splunk": cmn_scraper4,     "barracuda": cmn_scraper4,      "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,    "asus": cmn_scraper4,
         "gei": cmn_scraper4,            "funko": cmn_scraper4,      "amerisave": cmn_scraper4,      "edelman": cmn_scraper4,        "cupertino": cmn_scraper4,  "webmd": cmn_scraper4,
         "ziff_davis": cmn_scraper4,     "evolus": cmn_scraper4,     "saama": cmn_scraper4,          "uplight": cmn_scraper4,        "versa": cmn_scraper4,
 
-        "payscale": cmn_scraper4_1,
+        "payscale": cmn_scraper4_1,     "pulsepoint": cmn_scraper4_1,
 
         # Job Lever Career Pages
         "plaid": cmn_scraper5,          "wolverine": cmn_scraper5,  "point": cmn_scraper5,          "lendbuzz": cmn_scraper5,       "protective": cmn_scraper5, "prosper": cmn_scraper5,
@@ -143,7 +148,7 @@ def function_init():
         "xero": cmn_scraper5,           "clari": cmn_scraper5,      "shippo": cmn_scraper5,         "watchguard": cmn_scraper5,     "kyruus": cmn_scraper5,     "basis": cmn_scraper5,
         "better": cmn_scraper5,         "insightm": cmn_scraper5,   "adora": cmn_scraper5,          "entrata": cmn_scraper5,        "grail": cmn_scraper5,      "findigs": cmn_scraper5,
         "fiscalnote": cmn_scraper5,     "jamcity": cmn_scraper5,    "qloo": cmn_scraper5,           "arbital": cmn_scraper5,        "valence": cmn_scraper5,    "playonsports": cmn_scraper5,
-        "skyward": cmn_scraper5,        "ryz": cmn_scraper5,
+        "skyward": cmn_scraper5,        "ryz": cmn_scraper5,        "owner": cmn_scraper5,          "kontakt": cmn_scraper5,        "minted": cmn_scraper5,     "kiddom": cmn_scraper5,
 
         # Workday Career Pages
         "bank_of_america": cmn_scraper6,"citi": cmn_scraper6,       "wells_fargo": cmn_scraper6,    "us_bank": cmn_scraper6,        "truist": cmn_scraper6,     "pnc": cmn_scraper6,
@@ -199,7 +204,8 @@ def function_init():
         "bread": cmn_scraper6,          "peak6": cmn_scraper6,      "abb": cmn_scraper6,            "dtn": cmn_scraper6,            "cardlytics": cmn_scraper6, "fico": cmn_scraper6,
         "irhythmtech": cmn_scraper6,    "uhaul": cmn_scraper6,      "aep": cmn_scraper6,            "livenation": cmn_scraper6,     "premera": cmn_scraper6,    "amplify": cmn_scraper6,
         "bbh": cmn_scraper6,            "blue_owl": cmn_scraper6,   "tiaa": cmn_scraper6,           "liveramp": cmn_scraper6,       "jazz": cmn_scraper6,       "crowe": cmn_scraper6,
-        "regeneron": cmn_scraper6,      "netflix": cmn_scraper6,    "petco": cmn_scraper6,          "firstquality": cmn_scraper6,   "horizonmedia": cmn_scraper6,
+        "regeneron": cmn_scraper6,      "netflix": cmn_scraper6,    "petco": cmn_scraper6,          "firstquality": cmn_scraper6,   "fmc": cmn_scraper6,        "horizonmedia": cmn_scraper6,
+        "huron": cmn_scraper6,          "autonation": cmn_scraper6,
 
         "magnite": cmn_scraper6_1,      "pjt": cmn_scraper6_1,
 
@@ -231,7 +237,7 @@ def function_init():
         "tplink": cmn_scraper12,        "mindex": cmn_scraper12,    "therapynotes": cmn_scraper12,  "prepass": cmn_scraper12,       "datavisor": cmn_scraper12, "tiger_analytics": cmn_scraper12,
         "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,       "ag_consulting": cmn_scraper12, "byrider": cmn_scraper12,   "resource_innovation": cmn_scraper12,
         "futuresight": cmn_scraper12,   "jobgether": cmn_scraper12, "wavestrong": cmn_scraper12,    "alabama": cmn_scraper12,       "neo-tax": cmn_scraper12,   "prime_robotics": cmn_scraper12,
-        "bits": cmn_scraper12,          "activate": cmn_scraper12,
+        "bits": cmn_scraper12,          "activate": cmn_scraper12,  "ascendis": cmn_scraper12,
 
         # iCiMS Career Pages
         "github": cmn_scraper13,        "statefarm": cmn_scraper13, "constellation": cmn_scraper13, "gallagher": cmn_scraper13,     "sirius": cmn_scraper13,    "dollar_general": cmn_scraper13,
@@ -247,7 +253,7 @@ def function_init():
         "fujifilm": cmn_scraper14,      "riverbed": cmn_scraper14,  "lynker": cmn_scraper14,        "vista_equity": cmn_scraper14,  "quest": cmn_scraper14,     "quest_diagnostics": cmn_scraper14,
         "lennox": cmn_scraper14,        "tds": cmn_scraper14,       "carecentrix": cmn_scraper14,   "mercury": cmn_scraper14,       "seismic": cmn_scraper14,   "east-west-bank": cmn_scraper14,
         "rs&h": cmn_scraper14,          "corgan": cmn_scraper14,    "fisher": cmn_scraper14,        "joby_aviation": cmn_scraper14, "woolpert": cmn_scraper14,  "constructconnect": cmn_scraper14,
-        "cacu": cmn_scraper14,          "exponent": cmn_scraper14,  "berkeley": cmn_scraper14,      "mskcc": cmn_scraper14,         "menarini": cmn_scraper14,
+        "cacu": cmn_scraper14,          "exponent": cmn_scraper14,  "berkeley": cmn_scraper14,      "mskcc": cmn_scraper14,         "menarini": cmn_scraper14,  "powerschool": cmn_scraper14,
 
         # Ultipro Career Pages
         "redsail": cmn_scraper15,       "vertex2": cmn_scraper15,   "convergint": cmn_scraper15,    "access": cmn_scraper15,        "ovative": cmn_scraper15,   "hensel_phelps": cmn_scraper15,
@@ -274,6 +280,10 @@ def function_init():
 
         # Paylocity Career Pages
         "nextworld": cmn_scraper19,     "maxcyte": cmn_scraper19,   "terracycle": cmn_scraper19,    "middleby": cmn_scraper19,     "paylocity": cmn_scraper19,  "kigo": cmn_scraper19,
+
+        # JazzHR Career Pages
+        "zealogics": cmn_scraper20,     "va_group": cmn_scraper20,  "bluevoyant": cmn_scraper20,    "flexcar": cmn_scraper20,       "sequel": cmn_scraper20,    "bold_business": cmn_scraper20,
+        "sportsrecruits": cmn_scraper20,
     }
     # Setup function_map here
     # Dictionary to map function names to actual functions
@@ -1067,6 +1077,7 @@ def grid_style_job_posts(driver, board=None):
     for job_tile in job_posts:
         # Job URL and ID from <a> tag
         a_tag = job_tile.find('a', class_='job-grid-item__link')
+        job_id, job_url = None, None
         if a_tag and 'href' in a_tag.attrs:
             job_url = a_tag['href']
             job_id = job_url.split('/job/')[-1].split('/')[0]
@@ -1378,6 +1389,7 @@ def cmn_scraper15(board=None):
 #     webscraper_driver_cleanup(driver)
 #     return jobs_list
 
+
 # Rippling WebScraper Function using API calls [Faster]
 def cmn_scraper16(board=None):
     driver = webscraper_driver_init()
@@ -1568,6 +1580,43 @@ def cmn_scraper19(board=None):
     return jobs_list
 
 
+def cmn_scraper20(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+
+    jobs_list = []
+    company = board.company
+
+    # Parse the page
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+
+    # Extract job postings
+    job_elements = soup.find_all('li', class_='list-group-item')
+    for job_elem in job_elements:
+        # Extract job name
+        title_tag = job_elem.find('a')
+        job_title = title_tag.get_text(strip=True) if title_tag else None
+
+        # Extract job URL
+        job_url = title_tag['href'] if title_tag and title_tag.has_attr('href') else None
+
+        # Extract job ID from URL (e.g., "IpitwCMaP6" in the example)
+        job_id = job_url.split('/')[-2] if job_url else None
+
+        # Extract job location
+        location_tag = job_elem.find('ul').find('li')
+        job_location = location_tag.get_text(strip=True) if location_tag else None
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
 # Specific Webscraper Functions
 def otterai(board=None):
     job_list = cmn_scraper1(board)
@@ -1597,6 +1646,21 @@ def coalition(board=None):
         job.url = job.url.replace("gh_j", "")
     print_jobs(job_list)
     return job_list
+
+def stitch_fix(board=None):
+    job_list = cmn_scraper1(board)
+
+    def clean_url_simple(url):
+        if '?' in url:
+            base, query = url.split('?', 1)
+            return f"{base}?{query.split('?')[0]}"
+        return url
+
+    for job in job_list:
+        job.url = clean_url_simple(job.url)
+    print_jobs(job_list)
+    return job_list
+
 
 def vectra(board=None):
     driver = webscraper_driver_init()
@@ -1719,7 +1783,7 @@ def gm(board=None):
             if job_title_elem:
                 job_url = urljoin(board.url, job_title_elem["href"])
                 job_title = job_title_elem.text.strip()
-                job_id = job_id_list[1].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
+                job_id = job_id_list[0].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
                 job_location = job_location_elem[1].text.strip() if job_location_elem and len(job_location_elem) > 1 else "Not specified"
 
                 if is_valid(job_id, job_location, job_title, board):
