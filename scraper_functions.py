@@ -28,7 +28,7 @@ qualifiers = None
 def function_init():
     function_map = {
         "otterai": otterai,             "moloco": moloco,           "nationwide": nationwide,       "gm": gm,                       "arista": arista,          "vectra": vectra,
-        "enverus": enverus,             "trmlabs": trmlabs,         "coalition": coalition,         "stitch_fix": stitch_fix,       "elastic": stitch_fix,
+        "enverus": enverus,             "trmlabs": trmlabs,         "coalition": coalition,
 
         # Greenhouse Embed Career Pages
         "credit_karma": cmn_scraper1,   "block": cmn_scraper1,      "coinbase": cmn_scraper1,       "robinhood": cmn_scraper1,      "stripe": cmn_scraper1,     "ripple": cmn_scraper1,
@@ -60,6 +60,8 @@ def function_init():
         "care.com": cmn_scraper1,       "imply": cmn_scraper1,      "domino": cmn_scraper1,         "chime": cmn_scraper1,          "conviva": cmn_scraper1,    "marketaxess": cmn_scraper1,
 
         "billtrust": cmn_scraper1_1,    "fanduel": cmn_scraper1_1,
+
+        "stitch_fix": cmn_scraper1_2,   "elastic": cmn_scraper1_2,
 
         # Greenhouse Career Pages
         "point72": cmn_scraper2,        "spotter": cmn_scraper2,    "human_interest": cmn_scraper2, "carta": cmn_scraper2,          "propel": cmn_scraper2,     "arcesium": cmn_scraper2,
@@ -284,6 +286,10 @@ def function_init():
         # JazzHR Career Pages
         "zealogics": cmn_scraper20,     "va_group": cmn_scraper20,  "bluevoyant": cmn_scraper20,    "flexcar": cmn_scraper20,       "sequel": cmn_scraper20,    "bold_business": cmn_scraper20,
         "sportsrecruits": cmn_scraper20,
+
+        # ADP Career Pages
+        "comerica": cmn_scraper21,      "inspira": cmn_scraper21,   "ucare": cmn_scraper21,         "scoular": cmn_scraper21,       "caseys": cmn_scraper21,    "wwt": cmn_scraper21,
+        "lrs": cmn_scraper21,           "kay": cmn_scraper21,       "revecore": cmn_scraper21,
     }
     # Setup function_map here
     # Dictionary to map function names to actual functions
@@ -410,6 +416,19 @@ def cmn_scraper1_1(board=None):
     print_jobs(job_list)
     return job_list
 
+def cmn_scraper1_2(board=None):
+    job_list = cmn_scraper1(board)
+
+    def clean_url_simple(url):
+        if '?' in url:
+            base, query = url.split('?', 1)
+            return f"{base}?{query.split('?')[0]}"
+        return url
+
+    for job in job_list:
+        job.url = clean_url_simple(job.url)
+    print_jobs(job_list)
+    return job_list
 
 def cmn_scraper2(board=None):
     driver = webscraper_driver_init()
@@ -1617,6 +1636,57 @@ def cmn_scraper20(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
+def click_all_show_more_buttons(driver):
+    """Keep clicking 'Show 10 More' until it's no longer visible."""
+    while True:
+        try:
+            show_more_button = WebDriverWait(driver, 5).until(
+                EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'show-more-label')]/a"))
+            )
+            show_more_button.click()
+            print("Clicked 'Show 10 More'")
+            time.sleep(2)
+        except (NoSuchElementException, ElementClickInterceptedException, Exception):
+            print("'Show 10 More' button not found")
+            break
+
+def cmn_scraper21(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+
+    click_all_show_more_buttons(driver)
+
+    jobs_list = []
+    company = board.company
+
+    # Parse the page
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+
+    # Extract job postings
+    job_elements = soup.select("div.flex-container.reqs-list.list-view-content")
+    for job_div in job_elements:
+        try:
+            job_title = job_div.select_one("h2.cx-job-title").get_text(strip=True)
+            job_location = job_div.select_one("span.reqLocation").get_text(strip=True)
+            job_id_raw = job_div.select_one("span.reqId").get_text(strip=True)
+            job_id = job_id_raw.replace("|", "").strip().lstrip("#")
+            job_url = board.url
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        except Exception as e:
+            print("Error extracting a job:", e)
+
+    caller = inspect.stack()[1]
+    caller_module = inspect.getmodule(caller[0])
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
+
 # Specific Webscraper Functions
 def otterai(board=None):
     job_list = cmn_scraper1(board)
@@ -1647,19 +1717,7 @@ def coalition(board=None):
     print_jobs(job_list)
     return job_list
 
-def stitch_fix(board=None):
-    job_list = cmn_scraper1(board)
 
-    def clean_url_simple(url):
-        if '?' in url:
-            base, query = url.split('?', 1)
-            return f"{base}?{query.split('?')[0]}"
-        return url
-
-    for job in job_list:
-        job.url = clean_url_simple(job.url)
-    print_jobs(job_list)
-    return job_list
 
 
 def vectra(board=None):

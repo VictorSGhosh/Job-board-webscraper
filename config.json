@@ -12299,5 +12299,95 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": []
+  },
+  {
+    "name": "Comerica Bank",
+    "type": "Banks",
+    "module": "scraper_functions",
+    "function": "comerica",
+    "url": "https://myjobs.adp.com/comericajobs/cx/job-listing?FIELD3=Technology",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Principal", "Staff", "Manager", "Process", "Director", "Archer"]
+  },
+  {
+    "name": "Inspira Financial",
+    "type": "FinTech",
+    "module": "scraper_functions",
+    "function": "inspira",
+    "url": "https://myjobs.adp.com/inspiracareers/cx/job-listing?FIELD3=Technology&FIELD3=Technology-First%20Dollar",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "UCare",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "ucare",
+    "url": "https://myjobs.adp.com/ucarecareers/cx/job-listing?FIELD3=IT",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Scoular",
+    "type": "Retailers and Supply Chains",
+    "module": "scraper_functions",
+    "function": "scoular",
+    "url": "https://myjobs.adp.com/scoularcareers/cx/job-listing?FIELD3=Information%20Technology",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Casey's",
+    "type": "Retailers and Supply Chains",
+    "module": "scraper_functions",
+    "function": "caseys",
+    "url": "https://myjobs.adp.com/caseysstoresupportcenter/cx/job-listing?FIELD3=Information%20Technology",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "World Wide Technology",
+    "type": "Internet Services",
+    "module": "scraper_functions",
+    "function": "wwt",
+    "url": "https://myjobs.adp.com/wwtexternalcareersite/cx/job-listing?FIELD1=United%20States&FIELD4=Information%20Technology",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["ServiceNow", "Security", "Manager"]
+  },
+  {
+    "name": "Lakeshore Recycling Systems (LRS)",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "lrs",
+    "url": "https://myjobs.adp.com/lrsrecycles/cx/job-listing?FIELD3=IT",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Desktop Support"]
+  },
+  {
+    "name": "Kay and Associates Inc.",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "kay",
+    "url": "https://myjobs.adp.com/kayandassociates/cx/job-listing",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
+  },
+  {
+    "name": "Revecore",
+    "type": "Healthcare and Pharmaceuticals",
+    "module": "scraper_functions",
+    "function": "revecore",
+    "url": "https://myjobs.adp.com/revecorecareers/cx/job-listing?FIELD3=Information%20Technology",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager", "FHIR"]
   }
 ]
