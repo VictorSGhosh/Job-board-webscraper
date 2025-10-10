@@ -5601,6 +5601,16 @@
     "job_disqualifiers": ["Power Engineer", "Hardware", "Electrical", "QA", "Manufacturing", "Embedded", "Manager", "Verification", "Safety", "Director", "Robotics"]
   },
   {
+    "name": "Camunda",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "camunda",
+    "url": "https://jobs.ashbyhq.com/camunda?departmentId=8e787eab-20b2-4465-909f-d4d448550ddd",
+    "location_qualifiers": ["United States"],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Director", "Manager"]
+  },
+  {
     "name": "Confluent",
     "type": "Computer Software",
     "module": "scraper_functions",
@@ -6701,6 +6711,16 @@
     "job_disqualifiers": ["Data Analyst", "Scientist", "QA", "Test Engineer", "UI Engineer", "UI Developer", "Support Engineer", "Windows", "Network", "Manager"]
   },
   {
+    "name": "Revinate",
+    "type": "Computer Software",
+    "module": "scraper_functions",
+    "function": "revinate",
+    "url": "https://jobs.lever.co/revinate/?department=Engineering",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Manager"]
+  },
+  {
     "name": "Tiger Analytics",
     "type": "FinTech",
     "module": "scraper_functions",
@@ -7451,6 +7471,16 @@
     "job_disqualifiers": ["Data Analyst"]
   },
   {
+    "name": "Kastle Systems",
+    "type": "Securities",
+    "module": "scraper_functions",
+    "function": "kastle",
+    "url": "https://careers.kastle.com/jobs?page=1&limit=100&categories=Information%20Technology%20%26%20Software%20Development",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Solutions", "Quality", "Principal", "Manager"]
+  },
+  {
     "name": "Docusign",
     "type": "Computer Software",
     "module": "scraper_functions",
@@ -7659,6 +7689,16 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Manager", "Data Collection", "Governance"]
+  },
+  {
+    "name": "EBSCO Information Services",
+    "type": "Internet Services",
+    "module": "scraper_functions",
+    "function": "ebsco",
+    "url": "https://careers-ebscoind.icims.com/jobs/search?ss=1&in_iframe=1",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Front-End"]
   },
   {
     "name": "Bank of America",
@@ -11149,6 +11189,26 @@
     "location_qualifiers": [],
     "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
     "job_disqualifiers": ["Solutions", "Support Engineer", "Solution Engineer", "Principal"]
+  },
+  {
+    "name": "TransUrban Group",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "transurban",
+    "url": "https://transurban.wd3.myworkdayjobs.com/en-US/TU_US",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": ["Network"]
+  },
+  {
+    "name": "Global Foundries",
+    "type": "Engineering and Manufacturing",
+    "module": "scraper_functions",
+    "function": "global_foundries",
+    "url": "https://globalfoundries.wd1.myworkdayjobs.com/External?jobFamilyGroup=51f993b53bda01056673a60d24870000&locationCountry=bc33aa3152ec42d4995f4791a106ed09",
+    "location_qualifiers": [],
+    "job_qualifiers": ["Data", "Software", "Developer", "Engineer"],
+    "job_disqualifiers": []
   },
   {
     "name": "Walmart (SmartRecruiter Job Board)",
