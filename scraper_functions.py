@@ -1,4 +1,3 @@
-import urllib
 from collections import defaultdict
 
 from typing import List
