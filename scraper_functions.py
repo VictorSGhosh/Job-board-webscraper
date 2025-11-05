@@ -26,135 +26,81 @@ qualifiers = None
 
 def function_init():
     function_map = {
-        "otterai": otterai,             "moloco": moloco,           "nationwide": nationwide,       "gm": gm,                       "arista": arista,          "vectra": vectra,
-        "enverus": enverus,             "trmlabs": trmlabs,         "coalition": coalition,         "encora": encora,
+        "nationwide": nationwide,       "gm": gm,                  "arista": arista,                "vectra": vectra,              "enverus": enverus,         "cloudflare": cloudflare,
 
         # Greenhouse Embed Career Pages
-        "credit_karma": cmn_scraper1,   "block": cmn_scraper1,      "coinbase": cmn_scraper1,       "robinhood": cmn_scraper1,      "stripe": cmn_scraper1,     "ripple": cmn_scraper1,
-        "sofi": cmn_scraper1,           "drw": cmn_scraper1,        "nerdwallet": cmn_scraper1,     "akuna_capital": cmn_scraper1,  "vatic_labs": cmn_scraper1, "hudson_river_trading": cmn_scraper1,
-        "pdt": cmn_scraper1,            "aqr": cmn_scraper1,        "enfusion": cmn_scraper1,       "zscaler": cmn_scraper1,        "rubrik": cmn_scraper1,     "recorded_future": cmn_scraper1,
-        "paxos": cmn_scraper1,          "digicert": cmn_scraper1,   "wayfair": cmn_scraper1,        "faire": cmn_scraper1,          "doordash": cmn_scraper1,   "pendo": cmn_scraper1,
-        "pinterest": cmn_scraper1,      "roku": cmn_scraper1,       "airbnb": cmn_scraper1,         "lyft": cmn_scraper1,           "coupang": cmn_scraper1,    "worldquant": cmn_scraper1,
-        "lendingtree": cmn_scraper1,    "figma": cmn_scraper1,      "squarespace": cmn_scraper1,    "nextdoor": cmn_scraper1,       "duolingo": cmn_scraper1,   "handshake": cmn_scraper1,
-        "digitalocean": cmn_scraper1,   "mongodb": cmn_scraper1,    "purestorage": cmn_scraper1,    "hubspot": cmn_scraper1,        "moveworks": cmn_scraper1,
-        "voltron": cmn_scraper1,        "c3ai": cmn_scraper1,       "hashicorp": cmn_scraper1,      "dfinity": cmn_scraper1,        "latentai": cmn_scraper1,   "salesloft": cmn_scraper1,
-        "databricks": cmn_scraper1,     "asana": cmn_scraper1,      "datadog": cmn_scraper1,        "redis": cmn_scraper1,          "cohesity": cmn_scraper1,   "dropbox": cmn_scraper1,
-        "sentry": cmn_scraper1,         "braze": cmn_scraper1,      "collibra": cmn_scraper1,       "optiver": cmn_scraper1,        "rapp": cmn_scraper1,       "applovin": cmn_scraper1,
-        "cedar": cmn_scraper1,          "peloton": cmn_scraper1,    "kalderos": cmn_scraper1,       "picnichealth": cmn_scraper1,   "aurora": cmn_scraper1,     "myfitnesspal": cmn_scraper1,
-        "rightway": cmn_scraper1,       "doximity": cmn_scraper1,   "thumbtack": cmn_scraper1,      "videoamp": cmn_scraper1,       "buildops": cmn_scraper1,   "applied_intuition": cmn_scraper1,
-        "waymo": cmn_scraper1,          "recroom": cmn_scraper1,    "unity": cmn_scraper1,          "roblox": cmn_scraper1,         "riot_games": cmn_scraper1, "mastercontrol": cmn_scraper1,
-        "equal_experts": cmn_scraper1,  "energyhub": cmn_scraper1,  "axon": cmn_scraper1,           "neuralink": cmn_scraper1,      "nuro": cmn_scraper1,       "samsung_research": cmn_scraper1,
-        "cloudflare": cmn_scraper1,     "bitgo": cmn_scraper1,      "okta": cmn_scraper1,           "anthropic": cmn_scraper1,      "brex": cmn_scraper1,       "upstart": cmn_scraper1,
-        "ixl": cmn_scraper1,            "zuora": cmn_scraper1,      "tempus": cmn_scraper1,         "inovalon": cmn_scraper1,       "godaddy": cmn_scraper1,    "magicleap": cmn_scraper1,
-        "tower_research": cmn_scraper1, "flagship": cmn_scraper1,   "definitive": cmn_scraper1,     "coinbase2": cmn_scraper1,      "nasuni": cmn_scraper1,     "beyondtrust": cmn_scraper1,
-        "next": cmn_scraper1,           "altruist": cmn_scraper1,   "current": cmn_scraper1,        "wing": cmn_scraper1,           "flexport": cmn_scraper1,   "zeta_global": cmn_scraper1,
-        "seatgeek": cmn_scraper1,       "chewy": cmn_scraper1,      "taskrabbit": cmn_scraper1,     "6sense": cmn_scraper1,         "navan": cmn_scraper1,      "sentinelone": cmn_scraper1,
-        "blend": cmn_scraper1,          "nexxen": cmn_scraper1,     "berkadia": cmn_scraper1,       "flock": cmn_scraper1,          "cerebras": cmn_scraper1,   "justworks": cmn_scraper1,
-        "impact.com": cmn_scraper1,     "glean": cmn_scraper1,      "updater": cmn_scraper1,        "orion": cmn_scraper1,          "skydio": cmn_scraper1,     "hunter_douglas": cmn_scraper1,
-        "equipmentshare": cmn_scraper1, "exiger": cmn_scraper1,     "skillz": cmn_scraper1,         "modmed": cmn_scraper1,         "toast": cmn_scraper1,      "honor": cmn_scraper1,
-        "plume": cmn_scraper1,          "ionq": cmn_scraper1,       "impact": cmn_scraper1,         "material_bank": cmn_scraper1,  "guild": cmn_scraper1,      "aura_frames": cmn_scraper1,
-        "aura": cmn_scraper1,           "dremio": cmn_scraper1,     "inizio_evoke": cmn_scraper1,   "cockroach": cmn_scraper1,      "revolution": cmn_scraper1, "circleci": cmn_scraper1,
-        "sonic": cmn_scraper1,          "gemini": cmn_scraper1,     "relavity_space": cmn_scraper1, "esri": cmn_scraper1,           "capvision": cmn_scraper1,  "drivewealth": cmn_scraper1,
-        "coveo": cmn_scraper1,          "udemy": cmn_scraper1,      "integral_ad": cmn_scraper1,    "ipc_systems": cmn_scraper1,    "kaseya": cmn_scraper1,     "realtor.com": cmn_scraper1,
-        "care.com": cmn_scraper1,       "imply": cmn_scraper1,      "domino": cmn_scraper1,         "chime": cmn_scraper1,          "conviva": cmn_scraper1,    "marketaxess": cmn_scraper1,
-        "liftoff": cmn_scraper1,        "sagesure": cmn_scraper1,   "path_ai": cmn_scraper1,        "cross_river": cmn_scraper1,    "pubnub": cmn_scraper1,     "klaviyo": cmn_scraper1,
+        "block": cmn_scraper1,          "coinbase": cmn_scraper1,   "robinhood": cmn_scraper1,      "stripe": cmn_scraper1,         "ripple": cmn_scraper1,     "hudson_river_trading": cmn_scraper1,
+        "aqr": cmn_scraper1,            "rubrik": cmn_scraper1,     "digicert": cmn_scraper1,       "pinterest": cmn_scraper1,      "inovalon": cmn_scraper1,   "hunter_douglas": cmn_scraper1,
+        "airbnb": cmn_scraper1,         "coupang": cmn_scraper1,    "squarespace": cmn_scraper1,    "figma": cmn_scraper1,          "okta": cmn_scraper1,       "digitalocean": cmn_scraper1,
+        "duolingo": cmn_scraper1,       "mongodb": cmn_scraper1,    "roku": cmn_scraper1,           "nasuni": cmn_scraper1,         "godaddy": cmn_scraper1,    "tower_research": cmn_scraper1,
+        "hubspot": cmn_scraper1,        "moveworks": cmn_scraper1,  "c3ai": cmn_scraper1,           "salesloft": cmn_scraper1,      "databricks": cmn_scraper1, "applied_intuition": cmn_scraper1,
+        "asana": cmn_scraper1,          "datadog": cmn_scraper1,    "redis": cmn_scraper1,          "dropbox": cmn_scraper1,        "braze": cmn_scraper1,      "inizio_evoke": cmn_scraper1,
+        "optiver": cmn_scraper1,        "applovin": cmn_scraper1,   "peloton": cmn_scraper1,        "energyhub": cmn_scraper1,      "collibra": cmn_scraper1,   "mastercontrol": cmn_scraper1,
+        "waymo": cmn_scraper1,          "unity": cmn_scraper1,      "roblox": cmn_scraper1,         "riot_games": cmn_scraper1,     "flexport": cmn_scraper1,   "zeta_global": cmn_scraper1,
+        "ixl": cmn_scraper1,            "zuora": cmn_scraper1,      "wing": cmn_scraper1,           "6sense": cmn_scraper1,         "navan": cmn_scraper1,      "sentinelone": cmn_scraper1,
+        "berkadia": cmn_scraper1,       "plume": cmn_scraper1,      "ionq": cmn_scraper1,           "cross_river": cmn_scraper1,    "exiger": cmn_scraper1,     "skillz": cmn_scraper1,
+        "dremio": cmn_scraper1,         "cockroach": cmn_scraper1,  "circleci": cmn_scraper1,       "gemini": cmn_scraper1,         "esri": cmn_scraper1,       "drivewealth": cmn_scraper1,
+        "coveo": cmn_scraper1,          "udemy": cmn_scraper1,      "integral_ad": cmn_scraper1,    "ipc_systems": cmn_scraper1,    "kaseya": cmn_scraper1,     "marketaxess": cmn_scraper1,
+        "imply": cmn_scraper1,          "domino": cmn_scraper1,     "conviva": cmn_scraper1,        "liftoff": cmn_scraper1,        "klaviyo": cmn_scraper1,    "toast": cmn_scraper1,
+        "moloco": cmn_scraper1,         "encora": cmn_scraper1,     "elastic": cmn_scraper1,        "trmlabs": cmn_scraper1,        "orion": cmn_scraper1,          "skydio": cmn_scraper1,
 
-        "billtrust": cmn_scraper1_1,    "fanduel": cmn_scraper1_1,
-
-        "stitch_fix": cmn_scraper1_2,   "elastic": cmn_scraper1_2,
+        "fanduel": cmn_scraper1_1,
 
         # Greenhouse Career Pages
-        "point72": cmn_scraper2,        "spotter": cmn_scraper2,    "human_interest": cmn_scraper2, "carta": cmn_scraper2,          "propel": cmn_scraper2,     "arcesium": cmn_scraper2,
-        "bolt": cmn_scraper2,           "aquatic": cmn_scraper2,    "engineers_gate": cmn_scraper2, "sentilink": cmn_scraper2,      "semgrep": cmn_scraper2,    "okx": cmn_scraper2,
-        "nightfall": cmn_scraper2,      "ping": cmn_scraper2,       "twitch": cmn_scraper2,         "sumo_logic": cmn_scraper2,     "qualia": cmn_scraper2,     "ziprecruiter": cmn_scraper2,
-        "box": cmn_scraper2,            "yext": cmn_scraper2,       "upwork": cmn_scraper2,         "discord": cmn_scraper2,        "airtable": cmn_scraper2,   "render": cmn_scraper2,
-        "coreweave": cmn_scraper2,      "twilio": cmn_scraper2,     "notion": cmn_scraper2,         "perplexity": cmn_scraper2,     "temporal": cmn_scraper2,   "twist_bioscience": cmn_scraper2,
-        "smartsheet": cmn_scraper2,     "stackline": cmn_scraper2,  "admarketplace": cmn_scraper2,  "pmg": cmn_scraper2,            "edo": cmn_scraper2,        "doubleverify": cmn_scraper2,
-        "trade_desk": cmn_scraper2,     "heartflow": cmn_scraper2,  "omada_health": cmn_scraper2,   "launchdarkly": cmn_scraper2,   "headway": cmn_scraper2,    "schrodinger": cmn_scraper2,
-        "strava": cmn_scraper2,         "heygen": cmn_scraper2,     "latitude": cmn_scraper2,       "sony_music": cmn_scraper2,     "npr": cmn_scraper2,        "rockstar_games": cmn_scraper2,
-        "zynga": cmn_scraper2,          "otter": cmn_scraper2,      "varda_space": cmn_scraper2,    "city_storage": cmn_scraper2,   "dialpad": cmn_scraper2,    "samsung_semiconductor": cmn_scraper2,
-        "tripadvisor": cmn_scraper2,    "monzo": cmn_scraper2,      "postman": cmn_scraper2,        "oportun": cmn_scraper2,        "adyen": cmn_scraper2,      "stubhub": cmn_scraper2,
-        "reddit": cmn_scraper2,         "affirm": cmn_scraper2,     "scaleai": cmn_scraper2,        "lucid_motors": cmn_scraper2,   "ipg": cmn_scraper2,        "playstation": cmn_scraper2,
-        "cloudkitchen": cmn_scraper2,   "niantic": cmn_scraper2,    "natera": cmn_scraper2,         "bridgewater": cmn_scraper2,    "airbyte": cmn_scraper2,    "appian": cmn_scraper2,
-        "flex": cmn_scraper2,           "bilt": cmn_scraper2,       "vercel": cmn_scraper2,         "interactive": cmn_scraper2,    "labelbox": cmn_scraper2,   "farmers_dog": cmn_scraper2,
-        "maven": cmn_scraper2,          "canonical": cmn_scraper2,  "noyo": cmn_scraper2,           "ethos": cmn_scraper2,          "pitchbook": cmn_scraper2,  "prove": cmn_scraper2,
-        "connectwise": cmn_scraper2,    "podium": cmn_scraper2,     "accuweather": cmn_scraper2,    "signify_health": cmn_scraper2, "guideline": cmn_scraper2,  "id.me": cmn_scraper2,
-        "grammarly": cmn_scraper2,      "bill": cmn_scraper2,       "thousandeyes": cmn_scraper2,   "eliseai": cmn_scraper2,        "amount": cmn_scraper2,     "lightspeed": cmn_scraper2,
-        "eventbrite": cmn_scraper2,     "verkada": cmn_scraper2,    "vivid_seats": cmn_scraper2,    "mozilla": cmn_scraper2,        "luminar": cmn_scraper2,    "avidxchange": cmn_scraper2,
-        "asm": cmn_scraper2,            "gusto": cmn_scraper2,      "truveta": cmn_scraper2,        "fetch": cmn_scraper2,          "angi": cmn_scraper2,       "chatham_financial": cmn_scraper2,
-        "dbt": cmn_scraper2,            "groupon": cmn_scraper2,    "oppfi": cmn_scraper2,          "whatnot": cmn_scraper2,        "via": cmn_scraper2,        "headspace": cmn_scraper2,
-        "2k": cmn_scraper2,             "pubmatic": cmn_scraper2,   "instabase": cmn_scraper2,      "simplisafe": cmn_scraper2,     "recharge": cmn_scraper2,   "addepar": cmn_scraper2,
-        "vimeo": cmn_scraper2,          "galileo": cmn_scraper2,    "alten": cmn_scraper2,          "offerup": cmn_scraper2,        "motive": cmn_scraper2,     "warby_parker": cmn_scraper2,
-        "tenable": cmn_scraper2,        "prime_ai": cmn_scraper2,   "flow_traders": cmn_scraper2,   "counterpart": cmn_scraper2,    "trumid": cmn_scraper2,     "uber_freight": cmn_scraper2,
-        "boomi": cmn_scraper2,          "everquote": cmn_scraper2,  "zoro": cmn_scraper2,           "west_monroe": cmn_scraper2,    "cargurus": cmn_scraper2,   "alphasense": cmn_scraper2,
-        "bandwidth": cmn_scraper2,      "bamboohr": cmn_scraper2,   "kkr": cmn_scraper2,            "capco": cmn_scraper2,          "hitachi": cmn_scraper2,    "amplitude": cmn_scraper2,
-        "benchling": cmn_scraper2,      "moneylion": cmn_scraper2,  "weather": cmn_scraper2,        "globality": cmn_scraper2,      "seekwell": cmn_scraper2,   "blink": cmn_scraper2,
-        "tanium": cmn_scraper2,         "unite_us": cmn_scraper2,   "acrisure": cmn_scraper2,       "harrys": cmn_scraper2,         "workhelix": cmn_scraper2,  "nymbus": cmn_scraper2,
-        "devrev": cmn_scraper2,         "checkr": cmn_scraper2,     "intercom": cmn_scraper2,       "dataiku": cmn_scraper2,        "lattice": cmn_scraper2,    "sigma_computing": cmn_scraper2,
-        "onetrust": cmn_scraper2,       "xai": cmn_scraper2,        "komodo": cmn_scraper2,         "axle": cmn_scraper2,           "newsbreak": cmn_scraper2,  "taketwo": cmn_scraper2,
-        "tebra": cmn_scraper2,          "five9": cmn_scraper2,      "virtu": cmn_scraper2,          "personalis": cmn_scraper2,     "shift4": cmn_scraper2,     "officehours": cmn_scraper2,
-        "enigma": cmn_scraper2,         "plotly": cmn_scraper2,     "nih-ncbi": cmn_scraper2,       "cribl": cmn_scraper2,          "onx": cmn_scraper2,        "branch": cmn_scraper2,
-        "ascertain": cmn_scraper2,      "peregrine": cmn_scraper2,  "delfina": cmn_scraper2,        "cohere": cmn_scraper2,         "workato": cmn_scraper2,    "modernhealth": cmn_scraper2,
-        "ventureglobal": cmn_scraper2,  "classdojo": cmn_scraper2,  "perfectserve": cmn_scraper2,   "nyiso": cmn_scraper2,          "tegna": cmn_scraper2,      "netbrain": cmn_scraper2,
-        "designit": cmn_scraper2,       "azurity": cmn_scraper2,    "formationbio": cmn_scraper2,   "capitalrx": cmn_scraper2,      "veracode": cmn_scraper2,   "roofstock": cmn_scraper2,
-        "stockx": cmn_scraper2,         "domo": cmn_scraper2,       "clear": cmn_scraper2,          "perpay": cmn_scraper2,         "obsidian": cmn_scraper2,   "ceribell": cmn_scraper2,
-        "arcadia": cmn_scraper2,        "starburst": cmn_scraper2,  "life360": cmn_scraper2,        "sharkninja": cmn_scraper2,     "spire": cmn_scraper2,      "runway": cmn_scraper2,
-        "sprout_social": cmn_scraper2,  "galaxy": cmn_scraper2,     "veza": cmn_scraper2,           "forethought": cmn_scraper2,    "grafana": cmn_scraper2,    "anaplan": cmn_scraper2,
-        "knowbe4": cmn_scraper2,        "kbra": cmn_scraper2,       "vestwell": cmn_scraper2,       "planetlabs": cmn_scraper2,     "armis": cmn_scraper2,      "compoundeye": cmn_scraper2,
-        "tenstorrent": cmn_scraper2,    "later": cmn_scraper2,      "keebo": cmn_scraper2,          "skusafe": cmn_scraper2,        "haize": cmn_scraper2,      "sift_healthcare": cmn_scraper2,
-        "runpod": cmn_scraper2,         "analyst1": cmn_scraper2,   "clever": cmn_scraper2,         "kasa": cmn_scraper2,           "mntn": cmn_scraper2,       "honeycomb.io": cmn_scraper2,
-        "arizeai": cmn_scraper2,        "weavegrid": cmn_scraper2,  "sps": cmn_scraper2,            "good_inside": cmn_scraper2,    "arlo": cmn_scraper2,       "system": cmn_scraper2,
-        "patterndata": cmn_scraper2,    "zora": cmn_scraper2,       "aclu": cmn_scraper2,           "smarterdx": cmn_scraper2,      "vannevar": cmn_scraper2,   "rent_the_runway": cmn_scraper2,
-        "daylight": cmn_scraper2,       "meshy": cmn_scraper2,      "tailorcare": cmn_scraper2,     "kalepa": cmn_scraper2,         "ripplcare": cmn_scraper2,  "metropolis": cmn_scraper2,
-        "suvoda": cmn_scraper2,         "sandboxaq": cmn_scraper2,  "wikimedia": cmn_scraper2,      "partnerize": cmn_scraper2,     "schonfeld": cmn_scraper2,  "foursquare": cmn_scraper2,
-        "dv01": cmn_scraper2,           "imagen": cmn_scraper2,     "bluecore": cmn_scraper2,       "mission_lane": cmn_scraper2,   "afresh": cmn_scraper2,     "zipco": cmn_scraper2,
-        "cresta": cmn_scraper2,         "garner": cmn_scraper2,     "gitlab": cmn_scraper2,         "webflow": cmn_scraper2,        "clover": cmn_scraper2,     "datagrail": cmn_scraper2,
-        "valon": cmn_scraper2,          "retool": cmn_scraper2,     "betterment": cmn_scraper2,     "upgrade": cmn_scraper2,        "mutiny": cmn_scraper2,     "opendoor": cmn_scraper2,
-        "zocdoc": cmn_scraper2,         "mixpanel": cmn_scraper2,   "compass": cmn_scraper2,        "grata": cmn_scraper2,          "casechek": cmn_scraper2,   "smartasset": cmn_scraper2,
-        "smartrent": cmn_scraper2,      "nextiva": cmn_scraper2,    "motional": cmn_scraper2,       "coursera": cmn_scraper2,       "liaison": cmn_scraper2,    "forward_networks": cmn_scraper2,
-        "buyers_edge": cmn_scraper2,    "pax8": cmn_scraper2,       "clear_street": cmn_scraper2,   "cookunity": cmn_scraper2,      "cirkul": cmn_scraper2,     "platform_science": cmn_scraper2,
-        "visual_concepts": cmn_scraper2,
+        "drw": cmn_scraper2,            "worldquant": cmn_scraper2, "anthropic": cmn_scraper2,      "doordash_IN": cmn_scraper2,    "pdt": cmn_scraper2,        "doordash_UK": cmn_scraper2,
+        "arcesium": cmn_scraper2,       "bolt": cmn_scraper2,       "aquatic": cmn_scraper2,        "semgrep": cmn_scraper2,        "okx": cmn_scraper2,        "forward_networks": cmn_scraper2,
+        "nightfall": cmn_scraper2,      "ping": cmn_scraper2,       "sumo_logic": cmn_scraper2,     "launchdarkly": cmn_scraper2,   "box": cmn_scraper2,        "schrodinger": cmn_scraper2,
+        "yext": cmn_scraper2,           "upwork": cmn_scraper2,     "discord": cmn_scraper2,        "airtable": cmn_scraper2,       "coreweave": cmn_scraper2,  "twilio": cmn_scraper2,
+        "perplexity": cmn_scraper2,     "temporal": cmn_scraper2,   "smartsheet": cmn_scraper2,     "stackline": cmn_scraper2,      "trade_desk": cmn_scraper2, "twist_bioscience": cmn_scraper2,
+        "strava": cmn_scraper2,         "zynga": cmn_scraper2,      "rockstar_games": cmn_scraper2, "doubleverify": cmn_scraper2,   "dialpad": cmn_scraper2,    "city_storage": cmn_scraper2,
+        "tripadvisor": cmn_scraper2,    "monzo": cmn_scraper2,      "postman": cmn_scraper2,        "oportun": cmn_scraper2,        "adyen": cmn_scraper2,      "reddit": cmn_scraper2,
+        "affirm": cmn_scraper2,         "grammarly": cmn_scraper2,  "thousandeyes": cmn_scraper2,   "eventbrite": cmn_scraper2,     "verkada": cmn_scraper2,    "simplisafe": cmn_scraper2,
+        "lucid_motors": cmn_scraper2,   "ipg": cmn_scraper2,        "playstation": cmn_scraper2,    "cloudkitchen": cmn_scraper2,   "niantic": cmn_scraper2,    "appian": cmn_scraper2,
+        "vercel": cmn_scraper2,         "canonical": cmn_scraper2,  "interactive": cmn_scraper2,    "ethos": cmn_scraper2,          "pitchbook": cmn_scraper2,  "connectwise": cmn_scraper2,
+        "mozilla": cmn_scraper2,        "luminar": cmn_scraper2,    "asm": cmn_scraper2,            "dbt": cmn_scraper2,            "groupon": cmn_scraper2,    "chatham_financial": cmn_scraper2,
+        "via": cmn_scraper2,            "2k": cmn_scraper2,         "instabase": cmn_scraper2,      "recharge": cmn_scraper2,       "addepar": cmn_scraper2,    "vimeo": cmn_scraper2,
+        "motive": cmn_scraper2,         "tenable": cmn_scraper2,    "flow_traders": cmn_scraper2,   "uber_freight": cmn_scraper2,   "boomi": cmn_scraper2,      "sigma_computing": cmn_scraper2,
+        "west_monroe": cmn_scraper2,    "cargurus": cmn_scraper2,   "alphasense": cmn_scraper2,     "bandwidth": cmn_scraper2,      "kkr": cmn_scraper2,        "intercom": cmn_scraper2,
+        "capco": cmn_scraper2,          "hitachi": cmn_scraper2,    "amplitude": cmn_scraper2,      "benchling": cmn_scraper2,      "blink": cmn_scraper2,      "tanium": cmn_scraper2,
+        "harrys": cmn_scraper2,         "devrev": cmn_scraper2,     "dataiku": cmn_scraper2,        "onetrust": cmn_scraper2,       "xai": cmn_scraper2,        "komodo": cmn_scraper2,
+        "lightspeed": cmn_scraper2,     "scaleai": cmn_scraper2,    "taketwo": cmn_scraper2,        "five9": cmn_scraper2,          "virtu": cmn_scraper2,      "honeycomb.io": cmn_scraper2,
+        "officehours": cmn_scraper2,    "cribl": cmn_scraper2,      "cohere": cmn_scraper2,         "workato": cmn_scraper2,        "netbrain": cmn_scraper2,   "veracode": cmn_scraper2,
+        "stockx": cmn_scraper2,         "obsidian": cmn_scraper2,   "arcadia": cmn_scraper2,        "starburst": cmn_scraper2,      "life360": cmn_scraper2,    "sharkninja": cmn_scraper2,
+        "sprout_social": cmn_scraper2,  "galaxy": cmn_scraper2,     "veza": cmn_scraper2,           "grafana": cmn_scraper2,        "anaplan": cmn_scraper2,    "rent_the_runway": cmn_scraper2,
+        "knowbe4": cmn_scraper2,        "kbra": cmn_scraper2,       "planetlabs": cmn_scraper2,     "armis": cmn_scraper2,          "shift4": cmn_scraper2,     "tenstorrent": cmn_scraper2,
+        "kalepa": cmn_scraper2,         "metropolis": cmn_scraper2, "suvoda": cmn_scraper2,         "sandboxaq": cmn_scraper2,      "schonfeld": cmn_scraper2,  "clear_street": cmn_scraper2,
+        "bluecore": cmn_scraper2,       "cresta": cmn_scraper2,     "gitlab": cmn_scraper2,         "webflow": cmn_scraper2,        "retool": cmn_scraper2,     "coursera": cmn_scraper2,
+        "opendoor": cmn_scraper2,       "zocdoc": cmn_scraper2,     "mixpanel": cmn_scraper2,       "smartrent": cmn_scraper2,      "nextiva": cmn_scraper2,    "platform_science": cmn_scraper2,
+        "glean": cmn_scraper2,          "impact": cmn_scraper2,     "modmed": cmn_scraper2,         "purestorage": cmn_scraper2,    "zscaler": cmn_scraper2,    "recorded_future": cmn_scraper2,
+        "pendo": cmn_scraper2,          "rapp": cmn_scraper2,       "axon": cmn_scraper2,           "dfinity": cmn_scraper2,        "bitgo": cmn_scraper2,      "equal_experts": cmn_scraper2,
+        "beyondtrust": cmn_scraper2,    "nexxen": cmn_scraper2,     "taskrabbit": cmn_scraper2,     "cerebras": cmn_scraper2,       "impact.com": cmn_scraper2,
+
 
         # Ashby HQ Career Pages
         "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
-        "academia": cmn_scraper3,       "nash": cmn_scraper3,       "phil": cmn_scraper3,           "commure": cmn_scraper3,        "vouch": cmn_scraper3,      "acorns": cmn_scraper3,
-        "dave": cmn_scraper3,           "crusoe": cmn_scraper3,     "sift": cmn_scraper3,           "lambda": cmn_scraper3,         "suzy": cmn_scraper3,       "par": cmn_scraper3,
-        "zip": cmn_scraper3,            "kin": cmn_scraper3,        "writer": cmn_scraper3,         "virta": cmn_scraper3,          "uipath": cmn_scraper3,     "permitflow": cmn_scraper3,
-        "distyl": cmn_scraper3,         "arcade": cmn_scraper3,     "comity": cmn_scraper3,         "livekit": cmn_scraper3,        "squint.ai": cmn_scraper3,  "stainless": cmn_scraper3,
-        "airwallex": cmn_scraper3,      "lightdash": cmn_scraper3,  "railway": cmn_scraper3,        "chroma": cmn_scraper3,         "count": cmn_scraper3,      "pear": cmn_scraper3,
-        "zefr": cmn_scraper3,           "spara": cmn_scraper3,      "sobek-ai": cmn_scraper3,       "vanta": cmn_scraper3,          "scribd": cmn_scraper3,     "patreon": cmn_scraper3,
-        "machinify": cmn_scraper3,      "adaptive": cmn_scraper3,   "confluent": cmn_scraper3,      "astronomer": cmn_scraper3,     "influxdata": cmn_scraper3, "ataraxis-ai": cmn_scraper3,
-        "conduit": cmn_scraper3,        "poolside": cmn_scraper3,   "langchain": cmn_scraper3,      "nabla": cmn_scraper3,          "posthog": cmn_scraper3,    "doowii": cmn_scraper3,
-        "sleeper": cmn_scraper3,        "mimica": cmn_scraper3,     "crux": cmn_scraper3,           "assured": cmn_scraper3,        "noetica": cmn_scraper3,    "reflection": cmn_scraper3,
-        "modernfi": cmn_scraper3,       "safety": cmn_scraper3,     "gamechanger": cmn_scraper3,    "inngest": cmn_scraper3,        "gptzero": cmn_scraper3,    "candid_health": cmn_scraper3,
-        "maybern": cmn_scraper3,        "lorikeet": cmn_scraper3,   "voltage_park": cmn_scraper3,   "allium": cmn_scraper3,         "dclimate": cmn_scraper3,   "reality_defender": cmn_scraper3,
-        "triedge": cmn_scraper3,        "catio": cmn_scraper3,      "articul8": cmn_scraper3,       "reka": cmn_scraper3,           "linear": cmn_scraper3,     "voyant_photonics": cmn_scraper3,
-        "chronosphere": cmn_scraper3,   "sardine": cmn_scraper3,    "tectron": cmn_scraper3,        "method": cmn_scraper3,         "lilt": cmn_scraper3,       "empower": cmn_scraper3,
-        "brigit": cmn_scraper3,         "parabola": cmn_scraper3,   "tonal": cmn_scraper3,          "serve_robotics": cmn_scraper3, "camunda": cmn_scraper3,    "juniper_square": cmn_scraper3,
+        "academia": cmn_scraper3,       "nash": cmn_scraper3,       "commure": cmn_scraper3,        "crusoe": cmn_scraper3,         "sift": cmn_scraper3,       "lambda": cmn_scraper3,
+        "par": cmn_scraper3,            "zip": cmn_scraper3,        "writer": cmn_scraper3,         "uipath": cmn_scraper3,         "livekit": cmn_scraper3,    "langchain": cmn_scraper3,
+        "airwallex": cmn_scraper3,      "lightdash": cmn_scraper3,  "railway": cmn_scraper3,        "count": cmn_scraper3,          "pear": cmn_scraper3,       "reality_defender": cmn_scraper3,
+        "zefr": cmn_scraper3,           "vanta": cmn_scraper3,      "patreon": cmn_scraper3,        "confluent": cmn_scraper3,      "astronomer": cmn_scraper3, "influxdata": cmn_scraper3,
+        "poolside": cmn_scraper3,       "nabla": cmn_scraper3,      "posthog": cmn_scraper3,        "mimica": cmn_scraper3,         "reflection": cmn_scraper3, "modernfi": cmn_scraper3,
+        "articul8": cmn_scraper3,       "reka": cmn_scraper3,       "linear": cmn_scraper3,         "sardine": cmn_scraper3,        "tectron": cmn_scraper3,    "voyant_photonics": cmn_scraper3,
+        "chronosphere": cmn_scraper3,   "lilt": cmn_scraper3,       "camunda": cmn_scraper3,        "juniper_square": cmn_scraper3,
 
         # Jobvite Career Pages
-        "tylertech": cmn_scraper4,      "splunk": cmn_scraper4,     "barracuda": cmn_scraper4,      "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,    "asus": cmn_scraper4,
-        "gei": cmn_scraper4,            "funko": cmn_scraper4,      "amerisave": cmn_scraper4,      "edelman": cmn_scraper4,        "cupertino": cmn_scraper4,  "webmd": cmn_scraper4,
-        "ziff_davis": cmn_scraper4,     "evolus": cmn_scraper4,     "saama": cmn_scraper4,          "uplight": cmn_scraper4,        "versa": cmn_scraper4,
+        "splunk": cmn_scraper4,         "barracuda": cmn_scraper4,  "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,        "funko": cmn_scraper4,      "edelman": cmn_scraper4,
+        "webmd": cmn_scraper4,          "ziff_davis": cmn_scraper4, "evolus": cmn_scraper4,         "saama": cmn_scraper4,          "uplight": cmn_scraper4,
 
-        "payscale": cmn_scraper4_1,     "varonis": cmn_scraper4_1,  "pulsepoint": cmn_scraper4_1,
+        "varonis": cmn_scraper4_1,      "pulsepoint": cmn_scraper4_1,
 
         # Job Lever Career Pages
-        "plaid": cmn_scraper5,          "wolverine": cmn_scraper5,  "point": cmn_scraper5,          "lendbuzz": cmn_scraper5,       "protective": cmn_scraper5, "prosper": cmn_scraper5,
-        "wealthfront": cmn_scraper5,    "spotify": cmn_scraper5,    "quizlet": cmn_scraper5,        "houzz": cmn_scraper5,          "pipedrive": cmn_scraper5,  "dun&bradstreet": cmn_scraper5,
-        "outreach": cmn_scraper5,       "opengov": cmn_scraper5,    "palantir": cmn_scraper5,       "sysdig": cmn_scraper5,         "lamini": cmn_scraper5,     "digital_turbine": cmn_scraper5,
-        "savinynt": cmn_scraper5,       "bounteous": cmn_scraper5,  "veeva": cmn_scraper5,          "sonar": cmn_scraper5,          "aledade": cmn_scraper5,    "included_health": cmn_scraper5,
-        "mercedes": cmn_scraper5,       "zoox": cmn_scraper5,       "egen": cmn_scraper5,           "kodiak": cmn_scraper5,         "match": cmn_scraper5,      "bitwise": cmn_scraper5,
-        "regrello": cmn_scraper5,       "penumbra": cmn_scraper5,   "coupa": cmn_scraper5,          "clear_capital": cmn_scraper5,  "cellares": cmn_scraper5,   "meridianlink": cmn_scraper5,
-        "plusai": cmn_scraper5,         "lightcast": cmn_scraper5,  "kandji": cmn_scraper5,         "activecampaign": cmn_scraper5, "greenlight": cmn_scraper5, "spreetail": cmn_scraper5,
-        "attentive": cmn_scraper5,      "viant": cmn_scraper5,      "pointclickcare": cmn_scraper5, "thrive": cmn_scraper5,         "lyra": cmn_scraper5,       "ci&t": cmn_scraper5,
-        "varo": cmn_scraper5,           "granicus": cmn_scraper5,   "dronedeploy": cmn_scraper5,    "brillio": cmn_scraper5,        "gopuff": cmn_scraper5,     "system1": cmn_scraper5,
-        "nium": cmn_scraper5,           "whoop": cmn_scraper5,      "porter": cmn_scraper5,         "cyngn": cmn_scraper5,          "aircall": cmn_scraper5,    "woven-by-toyota": cmn_scraper5,
-        "xero": cmn_scraper5,           "clari": cmn_scraper5,      "shippo": cmn_scraper5,         "watchguard": cmn_scraper5,     "kyruus": cmn_scraper5,     "basis": cmn_scraper5,
-        "better": cmn_scraper5,         "insightm": cmn_scraper5,   "adora": cmn_scraper5,          "entrata": cmn_scraper5,        "grail": cmn_scraper5,      "findigs": cmn_scraper5,
-        "fiscalnote": cmn_scraper5,     "jamcity": cmn_scraper5,    "qloo": cmn_scraper5,           "arbital": cmn_scraper5,        "valence": cmn_scraper5,    "playonsports": cmn_scraper5,
-        "skyward": cmn_scraper5,        "ryz": cmn_scraper5,        "owner": cmn_scraper5,          "kontakt": cmn_scraper5,        "minted": cmn_scraper5,     "kiddom": cmn_scraper5,
-        "nomi": cmn_scraper5,           "shield_ai": cmn_scraper5,  "openx": cmn_scraper5,          "ion": cmn_scraper5,            "revinate": cmn_scraper5,   "extreme_networks": cmn_scraper5,
+        "plaid": cmn_scraper5,          "wolverine": cmn_scraper5,  "spotify": cmn_scraper5,        "quizlet": cmn_scraper5,        "pipedrive": cmn_scraper5,  "dun&bradstreet": cmn_scraper5,
+        "outreach": cmn_scraper5,       "palantir": cmn_scraper5,   "sysdig": cmn_scraper5,         "savinynt": cmn_scraper5,       "bounteous": cmn_scraper5,  "sonar": cmn_scraper5,
+        "egen": cmn_scraper5,           "match": cmn_scraper5,      "regrello": cmn_scraper5,       "penumbra": cmn_scraper5,       "coupa": cmn_scraper5,      "activecampaign": cmn_scraper5,
+        "lightcast": cmn_scraper5,      "kandji": cmn_scraper5,     "greenlight": cmn_scraper5,     "spreetail": cmn_scraper5,      "attentive": cmn_scraper5,  "woven-by-toyota": cmn_scraper5,
+        "lyra": cmn_scraper5,           "ci&t": cmn_scraper5,       "dronedeploy": cmn_scraper5,    "brillio": cmn_scraper5,        "gopuff": cmn_scraper5,     "extreme_networks": cmn_scraper5,
+        "nium": cmn_scraper5,           "whoop": cmn_scraper5,      "aircall": cmn_scraper5,        "xero": cmn_scraper5,           "clari": cmn_scraper5,      "watchguard": cmn_scraper5,
+        "better": cmn_scraper5,         "entrata": cmn_scraper5,    "fiscalnote": cmn_scraper5,     "valence": cmn_scraper5,        "ryz": cmn_scraper5,        "kontakt": cmn_scraper5,
+        "shield_ai": cmn_scraper5,      "openx": cmn_scraper5,      "ion": cmn_scraper5,            "revinate": cmn_scraper5,
 
         # Workday Career Pages
         "bank_of_america": cmn_scraper6,"citi": cmn_scraper6,       "wells_fargo": cmn_scraper6,    "us_bank": cmn_scraper6,        "truist": cmn_scraper6,     "pnc": cmn_scraper6,
@@ -368,12 +314,12 @@ def is_valid(job_id, job_location, job_title, board):
 
     loc_q = is_valid_location(job_location, location_qualifiers)
     title_q = is_valid_title(job_title, job_title_qualifiers, job_title_disqualifiers)
-    visit_q = is_id_visited(job_id, visited_ids)
+    visit_q = is_id_visited(str(job_id), visited_ids)
     return loc_q and title_q and not visit_q
 
 
 ### Helper Fns
-def get_full_url_and_id(parsed_url: ParseResult) -> (str, str):
+def get_full_url_and_id(parsed_url: ParseResult):
     prefix = "https://boards.greenhouse.io" if not parsed_url.scheme and not parsed_url.netloc else ""
     url = (prefix + parsed_url.path) if prefix else f"{urlunparse(parsed_url)}"
     id = id if (id := parsed_url.path.split('/')[-1]).isdigit() else parsed_url.query.split('=')[-1]
@@ -387,35 +333,62 @@ def print_jobs(job_list: List[Job]):
 
 
 ## Common WebScrapers
+# GreenHouse Webscraper using API calls [Faster]
 def cmn_scraper1(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-    job_posts = driver.find_elements(By.CLASS_NAME, "opening")
-    jobs_list = []
+    func = board.url.split("for=")[-1]
+    resp = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{func}/jobs")
+    resp.raise_for_status()  # throw error if request failed
 
+    job_posts = resp.json().get("jobs", [])
+
+    jobs_list = []
     company = board.company
     for job in job_posts:
-        outer_html = job.get_attribute("outerHTML")
-        soup = BeautifulSoup(outer_html, "html.parser")
+        job_id = job.get("id")
+        job_title = job.get("title")
+        job_url = job.get("absolute_url")
+        job_location = job.get("location").get("name")
 
-        job_link = soup.find("a")
-        job_location = soup.find("span", class_="location")
-
-        if job_link:
-            parsed_url = urlparse(job_link["href"])
-            job_url, job_id = get_full_url_and_id(parsed_url)  # Creating full URL
-            job_title = job_link.text.strip()
-            job_location = job_location.text.strip() if job_location else "Not specified"
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
     caller = inspect.stack()[1]  # Get caller's frame
     caller_module = inspect.getmodule(caller[0])  # Get caller's module
     if caller_module is None or caller_module.__name__ != __name__:
         print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
+
     return jobs_list
+
+## Web Scraper using BeautifulSoup to scrape info from webpage
+# def cmn_scraper1(board=None):
+#     driver = webscraper_driver_init()
+#     webscraper_driver_get(driver, board.url)
+#     job_posts = driver.find_elements(By.CLASS_NAME, "opening")
+#     jobs_list = []
+#
+#     company = board.company
+#     for job in job_posts:
+#         outer_html = job.get_attribute("outerHTML")
+#         soup = BeautifulSoup(outer_html, "html.parser")
+#
+#         job_link = soup.find("a")
+#         job_location = soup.find("span", class_="location")
+#
+#         if job_link:
+#             parsed_url = urlparse(job_link["href"])
+#             job_url, job_id = get_full_url_and_id(parsed_url)  # Creating full URL
+#             job_title = job_link.text.strip()
+#             job_location = job_location.text.strip() if job_location else "Not specified"
+#
+#             if is_valid(job_id, job_location, job_title, board):
+#                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+#
+#     caller = inspect.stack()[1]  # Get caller's frame
+#     caller_module = inspect.getmodule(caller[0])  # Get caller's module
+#     if caller_module is None or caller_module.__name__ != __name__:
+#         print_jobs(jobs_list)
+#     webscraper_driver_cleanup(driver)
+#     return jobs_list
 
 
 def cmn_scraper1_1(board=None):
@@ -1459,59 +1432,6 @@ def cmn_scraper15(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-# Rippling WebScraper Function using BeautifulSoup
-# def cmn_scraper16(board=None):
-#     driver = webscraper_driver_init()
-#
-#     jobs_list = []
-#     company = board.company
-#     page = 0
-#
-#     flag = True
-#     while flag:
-#         # Smart pagination URL construction
-#         page_url = f"{board.url}{'&' if '?' in board.url else '?'}page={page}"
-#         webscraper_driver_get(driver, page_url)
-#         # Parse the page
-#         soup = BeautifulSoup(driver.page_source, "html.parser")
-#
-#         # Extract job postings
-#         job_posts = soup.find_all("div", class_="css-aapqz6")
-#         if not job_posts:
-#             flag = False
-#         for job in job_posts:
-#             # Extract job title and relative URL
-#             title_tag = job.find("a", class_="css-1f5v3ib-Anchor")
-#             if not title_tag:
-#                 continue
-#             job_title = title_tag.text.strip()
-#             job_relative_url = title_tag['href']
-#             job_url = urljoin(board.url, job_relative_url)
-#
-#             # Extract job ID from URL (UUID format)
-#             job_id = job_relative_url.rstrip("/").split("/")[-1]
-#
-#             # Multiple Locations: Find all <span data-icon="LOCATION_OUTLINE"> and next <p>
-#             locations = []
-#             for loc_icon in job.find_all("span", {"data-icon": "LOCATION_OUTLINE"}):
-#                 p_tag = loc_icon.find_next("p")
-#                 if p_tag:
-#                     locations.append(p_tag.text.strip())
-#             job_location = "; ".join(locations) if locations else "Not specified"
-#
-#             if is_valid(job_id, job_location, job_title, board):
-#                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-#
-#         page += 1
-#
-#     caller = inspect.stack()[1]
-#     caller_module = inspect.getmodule(caller[0])
-#     if caller_module is None or caller_module.__name__ != __name__:
-#         print_jobs(jobs_list)
-#     webscraper_driver_cleanup(driver)
-#     return jobs_list
-
-
 # Rippling WebScraper Function using API calls [Faster]
 def cmn_scraper16(board=None):
     driver = webscraper_driver_init()
@@ -1791,21 +1711,12 @@ def cmn_scraper21(board=None):
 
 
 # Specific Webscraper Functions
-def otterai(board=None):
-    job_list = cmn_scraper1(board)
-    for job in job_list:
-        job.url = job.url.replace("careers", "job-detail")
-    print_jobs(job_list)
-    return job_list
-
-
 def encora(board=None):
     job_list = cmn_scraper1(board)
     for job in job_list:
         job.url = job.url.replace("?gh", "&gh")
     print_jobs(job_list)
     return job_list
-
 
 def moloco(board=None):
     job_list = cmn_scraper1(board)
@@ -1821,15 +1732,69 @@ def trmlabs(board=None):
     print_jobs(job_list)
     return job_list
 
-def coalition(board=None):
-    job_list = cmn_scraper2(board)
-    for job in job_list:
-        job.url = job.url.replace("gh_j", "")
-    print_jobs(job_list)
-    return job_list
+def elastic(board=None):
+    func = board.url.split("for=")[-1]
+    resp = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{func}/jobs")
+    resp.raise_for_status()  # throw error if request failed
 
+    job_posts = resp.json().get("jobs", [])
 
+    def get_posting_location(job):
+        # Greenhouse stores the real city/country info inside metadata under the key 'Job Posting Location'.
+        job_locations = [job.get("location").get("name")]
+        for m in job.get("metadata", []):
+            if m.get("name") == "Target Remote Countries / States Locations [For Job Wrapping]":
+                job_locations.extend(m.get("value") if isinstance(m.get("value"), list) else [m.get("value")])
+        return "; ".join(job_locations) if isinstance(job_locations, list) else job_locations
 
+    jobs_list = []
+    company = board.company
+    for job in job_posts:
+        job_id = job.get("id")
+        job_title = job.get("title")
+        job_url = job.get("absolute_url")
+        job_location = get_posting_location(job)
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]  # Get caller's frame
+    caller_module = inspect.getmodule(caller[0])  # Get caller's module
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+
+    return jobs_list
+
+def cloudflare(board=None):
+    resp = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{board.func}/jobs")
+    resp.raise_for_status()  # throw error if request failed
+
+    data = resp.json()
+    job_posts = data.get("jobs", [])
+
+    def get_posting_location(job):
+        # Greenhouse stores the real city/country info inside metadata under the key 'Job Posting Location'.
+        v = next((m["value"] for m in job.get("metadata", []) if m.get("name") == "Job Posting Location"), "N/A")
+        return "; ".join(v) if isinstance(v, list) else v
+
+    jobs_list = []
+
+    company = board.company
+    for job in job_posts:
+        job_id = job.get("id")
+        job_title = job.get("title")
+        job_url = job.get("absolute_url")
+        job_location = get_posting_location(job)
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    caller = inspect.stack()[1]  # Get caller's frame
+    caller_module = inspect.getmodule(caller[0])  # Get caller's module
+    if caller_module is None or caller_module.__name__ != __name__:
+        print_jobs(jobs_list)
+
+    return jobs_list
 
 def vectra(board=None):
     driver = webscraper_driver_init()
