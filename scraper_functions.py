@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from typing import List
+from typing import List, Callable, Any, Optional
 
 import requests
 from selenium import webdriver
@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, parse_qs, ParseResult, urlunparse, urljoin
+from urllib.parse import urlparse, parse_qs, ParseResult, urlunparse, urljoin, quote
 
 import time
 import json
@@ -26,230 +26,39 @@ qualifiers = None
 
 def function_init():
     function_map = {
-        "nationwide": nationwide,       "gm": gm,                  "arista": arista,                "vectra": vectra,              "enverus": enverus,         "cloudflare": cloudflare,
+        "beyondtrust": beyondtrust,     "cloudflare": cloudflare,   "enverus": enverus,             "fidelity": fidelity,           "adp":adp,
 
-        # Greenhouse Embed Career Pages
-        "block": cmn_scraper1,          "coinbase": cmn_scraper1,   "robinhood": cmn_scraper1,      "stripe": cmn_scraper1,         "ripple": cmn_scraper1,     "hudson_river_trading": cmn_scraper1,
-        "aqr": cmn_scraper1,            "rubrik": cmn_scraper1,     "digicert": cmn_scraper1,       "pinterest": cmn_scraper1,      "inovalon": cmn_scraper1,   "hunter_douglas": cmn_scraper1,
-        "airbnb": cmn_scraper1,         "coupang": cmn_scraper1,    "squarespace": cmn_scraper1,    "figma": cmn_scraper1,          "okta": cmn_scraper1,       "digitalocean": cmn_scraper1,
-        "duolingo": cmn_scraper1,       "mongodb": cmn_scraper1,    "roku": cmn_scraper1,           "nasuni": cmn_scraper1,         "godaddy": cmn_scraper1,    "tower_research": cmn_scraper1,
-        "hubspot": cmn_scraper1,        "moveworks": cmn_scraper1,  "c3ai": cmn_scraper1,           "salesloft": cmn_scraper1,      "databricks": cmn_scraper1, "applied_intuition": cmn_scraper1,
-        "asana": cmn_scraper1,          "datadog": cmn_scraper1,    "redis": cmn_scraper1,          "dropbox": cmn_scraper1,        "braze": cmn_scraper1,      "inizio_evoke": cmn_scraper1,
-        "optiver": cmn_scraper1,        "applovin": cmn_scraper1,   "peloton": cmn_scraper1,        "energyhub": cmn_scraper1,      "collibra": cmn_scraper1,   "mastercontrol": cmn_scraper1,
-        "waymo": cmn_scraper1,          "unity": cmn_scraper1,      "roblox": cmn_scraper1,         "riot_games": cmn_scraper1,     "flexport": cmn_scraper1,   "zeta_global": cmn_scraper1,
-        "ixl": cmn_scraper1,            "zuora": cmn_scraper1,      "wing": cmn_scraper1,           "6sense": cmn_scraper1,         "navan": cmn_scraper1,      "sentinelone": cmn_scraper1,
-        "berkadia": cmn_scraper1,       "plume": cmn_scraper1,      "ionq": cmn_scraper1,           "cross_river": cmn_scraper1,    "exiger": cmn_scraper1,     "skillz": cmn_scraper1,
-        "dremio": cmn_scraper1,         "cockroach": cmn_scraper1,  "circleci": cmn_scraper1,       "gemini": cmn_scraper1,         "esri": cmn_scraper1,       "drivewealth": cmn_scraper1,
-        "coveo": cmn_scraper1,          "udemy": cmn_scraper1,      "integral_ad": cmn_scraper1,    "ipc_systems": cmn_scraper1,    "kaseya": cmn_scraper1,     "marketaxess": cmn_scraper1,
-        "imply": cmn_scraper1,          "domino": cmn_scraper1,     "conviva": cmn_scraper1,        "liftoff": cmn_scraper1,        "klaviyo": cmn_scraper1,    "toast": cmn_scraper1,
-        "moloco": cmn_scraper1,         "encora": cmn_scraper1,     "elastic": cmn_scraper1,        "trmlabs": cmn_scraper1,        "orion": cmn_scraper1,          "skydio": cmn_scraper1,
+        "fanduel": cmn_scraper1_1,      "sprout_social": cmn_scraper1_2,
 
-        "fanduel": cmn_scraper1_1,
+        "magnite": cmn_scraper10_1,     "pjt": cmn_scraper10_1,     "motorola": cmn_scraper10_2,    "lego": cmn_scraper10_2,        "pernod_richard": cmn_scraper10_2,
+        "sony": cmn_scraper10_3,        "kion": cmn_scraper10_3,    "f5": cmn_scraper10_4,          "accenture": cmn_scraper10_5,
 
-        # Greenhouse Career Pages
-        "drw": cmn_scraper2,            "worldquant": cmn_scraper2, "anthropic": cmn_scraper2,      "doordash_IN": cmn_scraper2,    "pdt": cmn_scraper2,        "doordash_UK": cmn_scraper2,
-        "arcesium": cmn_scraper2,       "bolt": cmn_scraper2,       "aquatic": cmn_scraper2,        "semgrep": cmn_scraper2,        "okx": cmn_scraper2,        "forward_networks": cmn_scraper2,
-        "nightfall": cmn_scraper2,      "ping": cmn_scraper2,       "sumo_logic": cmn_scraper2,     "launchdarkly": cmn_scraper2,   "box": cmn_scraper2,        "schrodinger": cmn_scraper2,
-        "yext": cmn_scraper2,           "upwork": cmn_scraper2,     "discord": cmn_scraper2,        "airtable": cmn_scraper2,       "coreweave": cmn_scraper2,  "twilio": cmn_scraper2,
-        "perplexity": cmn_scraper2,     "temporal": cmn_scraper2,   "smartsheet": cmn_scraper2,     "stackline": cmn_scraper2,      "trade_desk": cmn_scraper2, "twist_bioscience": cmn_scraper2,
-        "strava": cmn_scraper2,         "zynga": cmn_scraper2,      "rockstar_games": cmn_scraper2, "doubleverify": cmn_scraper2,   "dialpad": cmn_scraper2,    "city_storage": cmn_scraper2,
-        "tripadvisor": cmn_scraper2,    "monzo": cmn_scraper2,      "postman": cmn_scraper2,        "oportun": cmn_scraper2,        "adyen": cmn_scraper2,      "reddit": cmn_scraper2,
-        "affirm": cmn_scraper2,         "grammarly": cmn_scraper2,  "thousandeyes": cmn_scraper2,   "eventbrite": cmn_scraper2,     "verkada": cmn_scraper2,    "simplisafe": cmn_scraper2,
-        "lucid_motors": cmn_scraper2,   "ipg": cmn_scraper2,        "playstation": cmn_scraper2,    "cloudkitchen": cmn_scraper2,   "niantic": cmn_scraper2,    "appian": cmn_scraper2,
-        "vercel": cmn_scraper2,         "canonical": cmn_scraper2,  "interactive": cmn_scraper2,    "ethos": cmn_scraper2,          "pitchbook": cmn_scraper2,  "connectwise": cmn_scraper2,
-        "mozilla": cmn_scraper2,        "luminar": cmn_scraper2,    "asm": cmn_scraper2,            "dbt": cmn_scraper2,            "groupon": cmn_scraper2,    "chatham_financial": cmn_scraper2,
-        "via": cmn_scraper2,            "2k": cmn_scraper2,         "instabase": cmn_scraper2,      "recharge": cmn_scraper2,       "addepar": cmn_scraper2,    "vimeo": cmn_scraper2,
-        "motive": cmn_scraper2,         "tenable": cmn_scraper2,    "flow_traders": cmn_scraper2,   "uber_freight": cmn_scraper2,   "boomi": cmn_scraper2,      "sigma_computing": cmn_scraper2,
-        "west_monroe": cmn_scraper2,    "cargurus": cmn_scraper2,   "alphasense": cmn_scraper2,     "bandwidth": cmn_scraper2,      "kkr": cmn_scraper2,        "intercom": cmn_scraper2,
-        "capco": cmn_scraper2,          "hitachi": cmn_scraper2,    "amplitude": cmn_scraper2,      "benchling": cmn_scraper2,      "blink": cmn_scraper2,      "tanium": cmn_scraper2,
-        "harrys": cmn_scraper2,         "devrev": cmn_scraper2,     "dataiku": cmn_scraper2,        "onetrust": cmn_scraper2,       "xai": cmn_scraper2,        "komodo": cmn_scraper2,
-        "lightspeed": cmn_scraper2,     "scaleai": cmn_scraper2,    "taketwo": cmn_scraper2,        "five9": cmn_scraper2,          "virtu": cmn_scraper2,      "honeycomb.io": cmn_scraper2,
-        "officehours": cmn_scraper2,    "cribl": cmn_scraper2,      "cohere": cmn_scraper2,         "workato": cmn_scraper2,        "netbrain": cmn_scraper2,   "veracode": cmn_scraper2,
-        "stockx": cmn_scraper2,         "obsidian": cmn_scraper2,   "arcadia": cmn_scraper2,        "starburst": cmn_scraper2,      "life360": cmn_scraper2,    "sharkninja": cmn_scraper2,
-        "sprout_social": cmn_scraper2,  "galaxy": cmn_scraper2,     "veza": cmn_scraper2,           "grafana": cmn_scraper2,        "anaplan": cmn_scraper2,    "rent_the_runway": cmn_scraper2,
-        "knowbe4": cmn_scraper2,        "kbra": cmn_scraper2,       "planetlabs": cmn_scraper2,     "armis": cmn_scraper2,          "shift4": cmn_scraper2,     "tenstorrent": cmn_scraper2,
-        "kalepa": cmn_scraper2,         "metropolis": cmn_scraper2, "suvoda": cmn_scraper2,         "sandboxaq": cmn_scraper2,      "schonfeld": cmn_scraper2,  "clear_street": cmn_scraper2,
-        "bluecore": cmn_scraper2,       "cresta": cmn_scraper2,     "gitlab": cmn_scraper2,         "webflow": cmn_scraper2,        "retool": cmn_scraper2,     "coursera": cmn_scraper2,
-        "opendoor": cmn_scraper2,       "zocdoc": cmn_scraper2,     "mixpanel": cmn_scraper2,       "smartrent": cmn_scraper2,      "nextiva": cmn_scraper2,    "platform_science": cmn_scraper2,
-        "glean": cmn_scraper2,          "impact": cmn_scraper2,     "modmed": cmn_scraper2,         "purestorage": cmn_scraper2,    "zscaler": cmn_scraper2,    "recorded_future": cmn_scraper2,
-        "pendo": cmn_scraper2,          "rapp": cmn_scraper2,       "axon": cmn_scraper2,           "dfinity": cmn_scraper2,        "bitgo": cmn_scraper2,      "equal_experts": cmn_scraper2,
-        "beyondtrust": cmn_scraper2,    "nexxen": cmn_scraper2,     "taskrabbit": cmn_scraper2,     "cerebras": cmn_scraper2,       "impact.com": cmn_scraper2,
+        "oracle": cmn_scraper11,        "akamai": cmn_scraper11,    "honeywell": cmn_scraper11,
 
-
-        # Ashby HQ Career Pages
-        "snowflake": cmn_scraper3,      "quora": cmn_scraper3,      "mapbox": cmn_scraper3,         "openai": cmn_scraper3,         "n8n": cmn_scraper3,        "harvey": cmn_scraper3,
-        "academia": cmn_scraper3,       "nash": cmn_scraper3,       "commure": cmn_scraper3,        "crusoe": cmn_scraper3,         "sift": cmn_scraper3,       "lambda": cmn_scraper3,
-        "par": cmn_scraper3,            "zip": cmn_scraper3,        "writer": cmn_scraper3,         "uipath": cmn_scraper3,         "livekit": cmn_scraper3,    "langchain": cmn_scraper3,
-        "airwallex": cmn_scraper3,      "lightdash": cmn_scraper3,  "railway": cmn_scraper3,        "count": cmn_scraper3,          "pear": cmn_scraper3,       "reality_defender": cmn_scraper3,
-        "zefr": cmn_scraper3,           "vanta": cmn_scraper3,      "patreon": cmn_scraper3,        "confluent": cmn_scraper3,      "astronomer": cmn_scraper3, "influxdata": cmn_scraper3,
-        "poolside": cmn_scraper3,       "nabla": cmn_scraper3,      "posthog": cmn_scraper3,        "mimica": cmn_scraper3,         "reflection": cmn_scraper3, "modernfi": cmn_scraper3,
-        "articul8": cmn_scraper3,       "reka": cmn_scraper3,       "linear": cmn_scraper3,         "sardine": cmn_scraper3,        "tectron": cmn_scraper3,    "voyant_photonics": cmn_scraper3,
-        "chronosphere": cmn_scraper3,   "lilt": cmn_scraper3,       "camunda": cmn_scraper3,        "juniper_square": cmn_scraper3,
-
-        # Jobvite Career Pages
-        "splunk": cmn_scraper4,         "barracuda": cmn_scraper4,  "qlik": cmn_scraper4,           "nutanix": cmn_scraper4,        "funko": cmn_scraper4,      "edelman": cmn_scraper4,
-        "webmd": cmn_scraper4,          "ziff_davis": cmn_scraper4, "evolus": cmn_scraper4,         "saama": cmn_scraper4,          "uplight": cmn_scraper4,
-
-        "varonis": cmn_scraper4_1,      "pulsepoint": cmn_scraper4_1,
-
-        # Job Lever Career Pages
-        "plaid": cmn_scraper5,          "wolverine": cmn_scraper5,  "spotify": cmn_scraper5,        "quizlet": cmn_scraper5,        "pipedrive": cmn_scraper5,  "dun&bradstreet": cmn_scraper5,
-        "outreach": cmn_scraper5,       "palantir": cmn_scraper5,   "sysdig": cmn_scraper5,         "savinynt": cmn_scraper5,       "bounteous": cmn_scraper5,  "sonar": cmn_scraper5,
-        "egen": cmn_scraper5,           "match": cmn_scraper5,      "regrello": cmn_scraper5,       "penumbra": cmn_scraper5,       "coupa": cmn_scraper5,      "activecampaign": cmn_scraper5,
-        "lightcast": cmn_scraper5,      "kandji": cmn_scraper5,     "greenlight": cmn_scraper5,     "spreetail": cmn_scraper5,      "attentive": cmn_scraper5,  "woven-by-toyota": cmn_scraper5,
-        "lyra": cmn_scraper5,           "ci&t": cmn_scraper5,       "dronedeploy": cmn_scraper5,    "brillio": cmn_scraper5,        "gopuff": cmn_scraper5,     "extreme_networks": cmn_scraper5,
-        "nium": cmn_scraper5,           "whoop": cmn_scraper5,      "aircall": cmn_scraper5,        "xero": cmn_scraper5,           "clari": cmn_scraper5,      "watchguard": cmn_scraper5,
-        "better": cmn_scraper5,         "entrata": cmn_scraper5,    "fiscalnote": cmn_scraper5,     "valence": cmn_scraper5,        "ryz": cmn_scraper5,        "kontakt": cmn_scraper5,
-        "shield_ai": cmn_scraper5,      "openx": cmn_scraper5,      "ion": cmn_scraper5,            "revinate": cmn_scraper5,
-
-        # Workday Career Pages
-        "bank_of_america": cmn_scraper6,"citi": cmn_scraper6,       "wells_fargo": cmn_scraper6,    "us_bank": cmn_scraper6,        "truist": cmn_scraper6,     "pnc": cmn_scraper6,
-        "discover": cmn_scraper6,       "m&t": cmn_scraper6,        "state_street": cmn_scraper6,   "53rd": cmn_scraper6,           "barclays": cmn_scraper6,   "nt": cmn_scraper6,
-        "huntington": cmn_scraper6,     "regions": cmn_scraper6,    "td": cmn_scraper6,             "mufg": cmn_scraper6,           "deutsche": cmn_scraper6,   "federal_reserve": cmn_scraper6,
-        "rbc": cmn_scraper6,            "mastercard": cmn_scraper6, "paypal": cmn_scraper6,         "equifax": cmn_scraper6,        "avant": cmn_scraper6,      "transunion": cmn_scraper6,
-        "fiserv": cmn_scraper6,         "remitly": cmn_scraper6,    "fractal": cmn_scraper6,        "q2": cmn_scraper6,             "verily": cmn_scraper6,     "s&p": cmn_scraper6,
-        "rocket": cmn_scraper6,         "blackrock": cmn_scraper6,  "arrowstreet": cmn_scraper6,    "vanguard": cmn_scraper6,       "lpl": cmn_scraper6,        "blackstone": cmn_scraper6,
-        "target": cmn_scraper6,         "bjs": cmn_scraper6,        "home_depot": cmn_scraper6,     "dicks": cmn_scraper6,          "meijer": cmn_scraper6,     "qurate": cmn_scraper6,
-        "puma": cmn_scraper6,           "nordstrom": cmn_scraper6,  "kohls": cmn_scraper6,          "walmart": cmn_scraper6,        "expedia": cmn_scraper6,    "ebay": cmn_scraper6,
-        "twitter": cmn_scraper6,        "cloudera": cmn_scraper6,   "yahoo": cmn_scraper6,          "grubhub": cmn_scraper6,        "snapchat": cmn_scraper6,   "zillow": cmn_scraper6,
-        "pluralsight": cmn_scraper6,    "chegg": cmn_scraper6,      "hp": cmn_scraper6,             "hp_enterprise": cmn_scraper6,  "nvidia": cmn_scraper6,     "dell": cmn_scraper6,
-        "asml": cmn_scraper6,           "intel": cmn_scraper6,      "allstate": cmn_scraper6,       "guidewire": cmn_scraper6,      "massmutual": cmn_scraper6, "usaa": cmn_scraper6,
-        "guardian": cmn_scraper6,       "unum": cmn_scraper6,       "fidelity": cmn_scraper6,       "prudential": cmn_scraper6,     "onemain": cmn_scraper6,    "northwestern_mutual": cmn_scraper6,
-        "frost": cmn_scraper6,          "starr": cmn_scraper6,      "radian": cmn_scraper6,         "salesforce": cmn_scraper6,     "adobe": cmn_scraper6,      "alliancebernstein": cmn_scraper6,
-        "autodesk": cmn_scraper6,       "slack": cmn_scraper6,      "quantiphi": cmn_scraper6,      "commvault": cmn_scraper6,      "blueyonder": cmn_scraper6, "alteryx": cmn_scraper6,
-        "cadence": cmn_scraper6,        "trimble": cmn_scraper6,    "workiva": cmn_scraper6,        "zendesk": cmn_scraper6,        "comcast": cmn_scraper6,    "verizon": cmn_scraper6,
-        "tmobile": cmn_scraper6,        "syniverse": cmn_scraper6,  "dentsu": cmn_scraper6,         "davita": cmn_scraper6,         "centene": cmn_scraper6,    "cardinal": cmn_scraper6,
-        "medtronic": cmn_scraper6,      "sanofi": cmn_scraper6,     "bms": cmn_scraper6,            "dexcom": cmn_scraper6,         "amgen": cmn_scraper6,      "gsk": cmn_scraper6,
-        "hermann": cmn_scraper6,        "bcbsa": cmn_scraper6,      "bd": cmn_scraper6,             "merck": cmn_scraper6,      "chg": cmn_scraper6,
-        "cvs": cmn_scraper6,            "oreilly": cmn_scraper6,    "borgwarner": cmn_scraper6,     "sony_pictures": cmn_scraper6,  "draftkings": cmn_scraper6, "thomson_reuters": cmn_scraper6,
-        "pixar": cmn_scraper6,          "pbs": cmn_scraper6,        "wolters_kluwer": cmn_scraper6, "pernod_richard": cmn_scraper6, "ncr": cmn_scraper6,        "synechron": cmn_scraper6,
-        "ntt": cmn_scraper6,            "sonos": cmn_scraper6,      "philips": cmn_scraper6,        "broadcom": cmn_scraper6,       "occ": cmn_scraper6,        "peter_millar": cmn_scraper6,
-        "nxp": cmn_scraper6,            "sysco": cmn_scraper6,      "pennstate": cmn_scraper6,      "utaustin": cmn_scraper6,       "kla": cmn_scraper6,        "thermofisher": cmn_scraper6,
-        "ancestry": cmn_scraper6,       "circlek": cmn_scraper6,    "relx": cmn_scraper6,           "resmed": cmn_scraper6,         "broadridge": cmn_scraper6,
-        "warner_bros": cmn_scraper6,    "disney": cmn_scraper6,     "lilly": cmn_scraper6,          "elevance": cmn_scraper6,       "3m": cmn_scraper6,         "morgan_stanley": cmn_scraper6,
-        "crowdstrike": cmn_scraper6,    "marvell": cmn_scraper6,    "blizzard": cmn_scraper6,       "athena": cmn_scraper6,         "lowes": cmn_scraper6,      "applied_materials": cmn_scraper6,
-        "magellan": cmn_scraper6,       "saif": cmn_scraper6,       "uline": cmn_scraper6,          "wex": cmn_scraper6,            "epiq": cmn_scraper6,       "neuberger_berman": cmn_scraper6,
-        "zoom": cmn_scraper6,           "us_foods": cmn_scraper6,   "pacbio": cmn_scraper6,         "concentrix": cmn_scraper6,     "ups": cmn_scraper6,        "ss&c": cmn_scraper6,
-        "univ_chicago": cmn_scraper6,   "genesys": cmn_scraper6,    "deluxe": cmn_scraper6,         "geico": cmn_scraper6,          "bcbsnc": cmn_scraper6,     "cox": cmn_scraper6,
-        "lexisnexis": cmn_scraper6,     "pros": cmn_scraper6,       "evolent": cmn_scraper6,        "johnson": cmn_scraper6,        "redwood": cmn_scraper6,    "wolverine_worldwide": cmn_scraper6,
-        "western_union": cmn_scraper6,  "shipt": cmn_scraper6,      "nike": cmn_scraper6,           "cat": cmn_scraper6,            "revvity": cmn_scraper6,    "jbhunt": cmn_scraper6,
-        "proofpoint": cmn_scraper6,     "redfin": cmn_scraper6,     "stryker": cmn_scraper6,        "ehealth": cmn_scraper6,        "arch": cmn_scraper6,       "first_national": cmn_scraper6,
-        "ascensus": cmn_scraper6,       "poshmark": cmn_scraper6,   "clearwater": cmn_scraper6,     "etsy": cmn_scraper6,           "sailpoint": cmn_scraper6,  "washington_post": cmn_scraper6,
-        "gordon": cmn_scraper6,         "insulet": cmn_scraper6,    "gap": cmn_scraper6,            "reliaquest": cmn_scraper6,     "cleveland": cmn_scraper6,  "globus_medical": cmn_scraper6,
-        "brookhaven": cmn_scraper6,     "carrier": cmn_scraper6,    "wgu": cmn_scraper6,            "transperfect": cmn_scraper6,   "pra": cmn_scraper6,        "world_kinect": cmn_scraper6,
-        "samsung": cmn_scraper6,        "redhat": cmn_scraper6,     "travellers": cmn_scraper6,     "workday": cmn_scraper6,        "at&t": cmn_scraper6,       "cincinnati_childrens": cmn_scraper6,
-        "rakuten": cmn_scraper6,        "polaris": cmn_scraper6,    "factset": cmn_scraper6,        "bmo": cmn_scraper6,            "gartner": cmn_scraper6,    "credit_acceptance": cmn_scraper6,
-        "kyndryl": cmn_scraper6,        "toyota": cmn_scraper6,     "goosehead": cmn_scraper6,      "priceline": cmn_scraper6,      "ercot": cmn_scraper6,      "siemens_healthineers": cmn_scraper6,
-        "jll": cmn_scraper6,            "aig": cmn_scraper6,        "morningstar": cmn_scraper6,    "vetsource": cmn_scraper6,      "dimensional": cmn_scraper6,"veterans_united": cmn_scraper6,
-        "itron": cmn_scraper6,          "j&j": cmn_scraper6,        "labcorp": cmn_scraper6,        "ameriprise": cmn_scraper6,     "safelite": cmn_scraper6,   "chamberlain": cmn_scraper6,
-        "lseg": cmn_scraper6,           "entrust": cmn_scraper6,    "scholastic": cmn_scraper6,     "schweitzer": cmn_scraper6,     "elsevier": cmn_scraper6,   "cloud_software": cmn_scraper6,
-        "stride": cmn_scraper6,         "keybank": cmn_scraper6,    "anheuser-busch": cmn_scraper6, "capital_group": cmn_scraper6,  "newrez": cmn_scraper6,     "openlane": cmn_scraper6,
-        "edwards": cmn_scraper6,        "videojet": cmn_scraper6,   "pimco": cmn_scraper6,          "hhmi": cmn_scraper6,           "cme_group": cmn_scraper6,  "kyriba": cmn_scraper6,
-        "exeter": cmn_scraper6,         "donaldson": cmn_scraper6,  "uniphore": cmn_scraper6,       "dataminr": cmn_scraper6,       "clarivate": cmn_scraper6,  "assetmark": cmn_scraper6,
-        "strategic": cmn_scraper6,      "mcafee": cmn_scraper6,     "kbr": cmn_scraper6,            "manulife": cmn_scraper6,       "socure": cmn_scraper6,     "global_payments": cmn_scraper6,
-        "iron_mountain": cmn_scraper6,  "neurocrine": cmn_scraper6, "amfam": cmn_scraper6,          "fti": cmn_scraper6,            "e*": cmn_scraper6,         "medline": cmn_scraper6,
-        "dxc": cmn_scraper6,            "sunrun": cmn_scraper6,     "reputation": cmn_scraper6,     "boeing": cmn_scraper6,         "gen": cmn_scraper6,        "alsac": cmn_scraper6,
-        "voya": cmn_scraper6,           "zelle": cmn_scraper6,      "avnet": cmn_scraper6,          "wiley": cmn_scraper6,          "cigna": cmn_scraper6,      "highmark": cmn_scraper6,
-        "amex": cmn_scraper6,           "csaa": cmn_scraper6,       "genmab": cmn_scraper6,         "mars": cmn_scraper6,           "manhattan": cmn_scraper6,  "amadeus": cmn_scraper6,
-        "realreal": cmn_scraper6,       "mizuho": cmn_scraper6,     "inotivco": cmn_scraper6,       "danaher": cmn_scraper6,        "takeda": cmn_scraper6,     "resolution_life": cmn_scraper6,
-        "total_wine": cmn_scraper6,     "echo": cmn_scraper6,       "american_tire": cmn_scraper6,  "choice_hotels": cmn_scraper6,  "calix": cmn_scraper6,      "synchrony": cmn_scraper6,
-        "bread": cmn_scraper6,          "peak6": cmn_scraper6,      "abb": cmn_scraper6,            "dtn": cmn_scraper6,            "cardlytics": cmn_scraper6, "fico": cmn_scraper6,
-        "irhythmtech": cmn_scraper6,    "uhaul": cmn_scraper6,      "aep": cmn_scraper6,            "livenation": cmn_scraper6,     "premera": cmn_scraper6,    "amplify": cmn_scraper6,
-        "bbh": cmn_scraper6,            "blue_owl": cmn_scraper6,   "tiaa": cmn_scraper6,           "liveramp": cmn_scraper6,       "jazz": cmn_scraper6,       "crowe": cmn_scraper6,
-        "regeneron": cmn_scraper6,      "netflix": cmn_scraper6,    "petco": cmn_scraper6,          "firstquality": cmn_scraper6,   "fmc": cmn_scraper6,        "horizonmedia": cmn_scraper6,
-        "huron": cmn_scraper6,          "autonation": cmn_scraper6, "ferguson": cmn_scraper6,       "progleasing": cmn_scraper6,    "iqvia": cmn_scraper6,      "capital_one": cmn_scraper6,
-        "nasdaq": cmn_scraper6,         "agilent": cmn_scraper6,    "ciena": cmn_scraper6,          "symbotic": cmn_scraper6,       "first_am": cmn_scraper6,
-        "jefferson": cmn_scraper6,      "ptc": cmn_scraper6,        "transurban": cmn_scraper6,     "global_foundries": cmn_scraper6,
-
-        "magnite": cmn_scraper6_1,      "pjt": cmn_scraper6_1,
-
-        "7-11": cmn_scraper7,           "corewell": cmn_scraper7,   "motorola": cmn_scraper7,       "lego": cmn_scraper7,           "raymond_james": cmn_scraper7,
-
-        "sony": cmn_scraper8_1,         "carmax": cmn_scraper8_1,   "kion": cmn_scraper8_1,         "f5": cmn_scraper8_2,           "waystar": cmn_scraper8_3,
-
-        # Smart Recruiters Career Pages
-        "walmart2": cmn_scraper9,       "servicenow": cmn_scraper9, "visa": cmn_scraper9,           "experian": cmn_scraper9,       "intuitive": cmn_scraper9,  "western_digital": cmn_scraper9,
-        "nbc": cmn_scraper9,            "balsam": cmn_scraper9,     "linkedin": cmn_scraper9,       "nagarro": cmn_scraper9,        "canva": cmn_scraper9,      "wise": cmn_scraper9,
-        "nielseniq": cmn_scraper9,      "freshworks": cmn_scraper9, "guardianhealth": cmn_scraper9, "fortune": cmn_scraper9,        "sandisk": cmn_scraper9,    "vitol": cmn_scraper9,
-        "phillytech": cmn_scraper9,     "uncommon": cmn_scraper9,
-
-        "abbvie": cmn_scraper10,        "pa": cmn_scraper10,        "mcdonalds": cmn_scraper10,     "procore": cmn_scraper10,       "wellmark": cmn_scraper10,
-
-        "palo_alto": cmn_scraper9_5,    "talan": cmn_scraper9_5,    "cip": cmn_scraper9_5,
-
-        # Oracle Cloud Career Pages
-        "jpmc": cmn_scraper11,          "bny": cmn_scraper11,       "fortinet": cmn_scraper11,      "oracle": cmn_scraper11,        "citizen": cmn_scraper11,   "macys": cmn_scraper11,
-        "pearson": cmn_scraper11,       "nokia": cmn_scraper11,     "ford": cmn_scraper11,          "mount_sinai": cmn_scraper11,   "fanatics": cmn_scraper11,  "goldman_sachs": cmn_scraper11,
-        "hackett": cmn_scraper11,       "cummins": cmn_scraper11,   "jefferies": cmn_scraper11,     "perficient": cmn_scraper11,    "kroger": cmn_scraper11,    "unitedlex": cmn_scraper11,
-        "s&c": cmn_scraper11,           "verint": cmn_scraper11,    "hexaware": cmn_scraper11,      "staples": cmn_scraper11,       "envision": cmn_scraper11,  "reiter": cmn_scraper11,
-        "dtcc": cmn_scraper11,          "nov": cmn_scraper11,       "computershare": cmn_scraper11, "delta_dental": cmn_scraper11,  "intelsat": cmn_scraper11,  "american_eagle": cmn_scraper11,
-        "myriad": cmn_scraper11,        "adt": cmn_scraper11,       "navy_federal": cmn_scraper11,  "newmark": cmn_scraper11,       "verisk": cmn_scraper11,    "gm_financial": cmn_scraper11,
-        "southern": cmn_scraper11,      "fujitsu": cmn_scraper11,   "honeywell": cmn_scraper11,     "dnv": cmn_scraper11,           "akamai": cmn_scraper11,    "staples1": cmn_scraper11,
-        "omnicell": cmn_scraper11,      "photon": cmn_scraper11,    "tradeweb": cmn_scraper11,      "northwell": cmn_scraper11,     "cedar_sinai": cmn_scraper11,
-
-        # Workable Career Pages
-        "tplink": cmn_scraper12,        "mindex": cmn_scraper12,    "therapynotes": cmn_scraper12,  "prepass": cmn_scraper12,       "datavisor": cmn_scraper12, "tiger_analytics": cmn_scraper12,
-        "corcentric": cmn_scraper12,    "rokt": cmn_scraper12,      "proarch": cmn_scraper12,       "ag_consulting": cmn_scraper12, "byrider": cmn_scraper12,   "resource_innovation": cmn_scraper12,
-        "futuresight": cmn_scraper12,   "jobgether": cmn_scraper12, "wavestrong": cmn_scraper12,    "alabama": cmn_scraper12,       "neo-tax": cmn_scraper12,   "prime_robotics": cmn_scraper12,
-        "bits": cmn_scraper12,          "activate": cmn_scraper12,  "ascendis": cmn_scraper12,
+        "varonis": cmn_scraper12_1,     "pulsepoint": cmn_scraper12_1,
 
         # iCiMS Career Pages
-        "github": cmn_scraper13,        "statefarm": cmn_scraper13, "constellation": cmn_scraper13, "gallagher": cmn_scraper13,     "sirius": cmn_scraper13,    "dollar_general": cmn_scraper13,
-        "principal": cmn_scraper13,     "rivian": cmn_scraper13,    "amd": cmn_scraper13,           "pds_health": cmn_scraper13,    "booking": cmn_scraper13,   "first_citizens": cmn_scraper13,
-        "dish": cmn_scraper13,          "sheetz": cmn_scraper13,    "city_national": cmn_scraper13, "hinge_health": cmn_scraper13,  "ice": cmn_scraper13,       "republic_finance": cmn_scraper13,
-        "selective": cmn_scraper13,     "incyte": cmn_scraper13,    "paychex": cmn_scraper13,       "medallia": cmn_scraper13,      "garmin": cmn_scraper13,    "konica_minolta": cmn_scraper13,
-        "ulta": cmn_scraper13,          "novant": cmn_scraper13,    "osi_systems": cmn_scraper13,   "mcgraw_hill": cmn_scraper13,   "docusign": cmn_scraper13,  "publicis_groupe": cmn_scraper13,
-        "jcpenny": cmn_scraper13,       "tufts": cmn_scraper13,     "blackline": cmn_scraper13,     "bowman": cmn_scraper13,        "emmes": cmn_scraper13,     "spirit_airlines": cmn_scraper13,
-        "echostar": cmn_scraper13,      "kastle": cmn_scraper13,    "vns_health": cmn_scraper13,
+        "github": cmn_scraper13,        "sirius": cmn_scraper13,    "rivian": cmn_scraper13,        "amd": cmn_scraper13,           "booking": cmn_scraper13,   "hinge_health": cmn_scraper13,
+        "ice": cmn_scraper13,           "incyte": cmn_scraper13,    "paychex": cmn_scraper13,       "mcgraw_hill": cmn_scraper13,   "medallia": cmn_scraper13,  "osi_systems": cmn_scraper13,
+        "blackline": cmn_scraper13,     "emmes": cmn_scraper13,     "docusign": cmn_scraper13,      "echostar": cmn_scraper13,      "sita": cmn_scraper13,      "publicis_groupe": cmn_scraper13,
+        "mouser": cmn_scraper13,        "medpace": cmn_scraper13,
 
-        # iCiMS iFrame Career Pages
-        "healthequity": cmn_scraper14,  "pepsico": cmn_scraper14,   "cotiviti": cmn_scraper14,      "lord_abbett": cmn_scraper14,   "sas": cmn_scraper14,       "liberty_mutual": cmn_scraper14,
-        "blackhawk": cmn_scraper14,     "msci": cmn_scraper14,      "ddn": cmn_scraper14,           "healthedge": cmn_scraper14,    "biorad": cmn_scraper14,    "charles_schwab": cmn_scraper14,
-        "fujifilm": cmn_scraper14,      "riverbed": cmn_scraper14,  "lynker": cmn_scraper14,        "vista_equity": cmn_scraper14,  "quest": cmn_scraper14,     "quest_diagnostics": cmn_scraper14,
-        "lennox": cmn_scraper14,        "tds": cmn_scraper14,       "carecentrix": cmn_scraper14,   "mercury": cmn_scraper14,       "seismic": cmn_scraper14,   "east-west-bank": cmn_scraper14,
-        "rs&h": cmn_scraper14,          "corgan": cmn_scraper14,    "fisher": cmn_scraper14,        "joby_aviation": cmn_scraper14, "woolpert": cmn_scraper14,  "constructconnect": cmn_scraper14,
-        "cacu": cmn_scraper14,          "exponent": cmn_scraper14,  "berkeley": cmn_scraper14,      "mskcc": cmn_scraper14,         "menarini": cmn_scraper14,  "powerschool": cmn_scraper14,
-        "sidley": cmn_scraper14,        "ebsco": cmn_scraper14,
-
-        # Ultipro Career Pages
-        "redsail": cmn_scraper15,       "vertex": cmn_scraper15,   "convergint": cmn_scraper15,    "access": cmn_scraper15,        "ovative": cmn_scraper15,   "hensel_phelps": cmn_scraper15,
-        "frontier": cmn_scraper15,      "tandem": cmn_scraper15,    "realpage": cmn_scraper15,      "discovery": cmn_scraper15,     "milliman": cmn_scraper15,  "odw": cmn_scraper15,
-        "aventiv": cmn_scraper15,       "usp": cmn_scraper15,       "crown_castle": cmn_scraper15,  "ambry": cmn_scraper15,         "microport": cmn_scraper15, "hme": cmn_scraper15,
-        "grocery": cmn_scraper15,       "answernet": cmn_scraper15,
-
-        # Rippling Career Pages
-        "bamboo": cmn_scraper16,        "sheerid": cmn_scraper16,   "transcend": cmn_scraper16,     "rightcrowd": cmn_scraper16,    "cozey": cmn_scraper16,     "socket_telecom": cmn_scraper16,
-        "thrive_global": cmn_scraper16, "galileo2": cmn_scraper16,  "schoolai": cmn_scraper16,      "partner.co": cmn_scraper16,    "serviceup": cmn_scraper16, "forterra": cmn_scraper16,
-        "webull": cmn_scraper16,        "tixr": cmn_scraper16,      "odyssey": cmn_scraper16,       "infinitus": cmn_scraper16,     "cbts": cmn_scraper16,      "create_music": cmn_scraper16,
-        "intelliguard": cmn_scraper16,  "primerx": cmn_scraper16,   "closinglock": cmn_scraper16,   "piedmont": cmn_scraper16,      "alertwest": cmn_scraper16, "adelaide": cmn_scraper16,
-        "bizzycar": cmn_scraper16,      "charlie": cmn_scraper16,   "fountane": cmn_scraper16,      "owlet": cmn_scraper16,         "rentspree": cmn_scraper16, "harbor_compliance": cmn_scraper16,
-        "anaconda": cmn_scraper16,
-
-        # Gem Career Pages
-        "portal_ai": cmn_scraper17,     "linktree": cmn_scraper17,  "apartment-list": cmn_scraper17,"signoz": cmn_scraper17,        "roe_ai": cmn_scraper17,    "heavy-construction-systems": cmn_scraper17,
-        "letter-ai": cmn_scraper17,     "converge": cmn_scraper17,  "boring-company": cmn_scraper17,"bluesky": cmn_scraper17,       "dragonfly": cmn_scraper17, "stack-auth-com": cmn_scraper17,
-        "cloudraft": cmn_scraper17,     "gem": cmn_scraper17,       "silkline": cmn_scraper17,
-
-        # BambooHR Career Pages
-        "wellcom": cmn_scraper18,       "proscia": cmn_scraper18,   "govpilot": cmn_scraper18,      "convr": cmn_scraper18,         "simetrik": cmn_scraper18,  "datacoresystems": cmn_scraper18,
-        "myitcrew": cmn_scraper18,
-
-        # Paylocity Career Pages
-        "nextworld": cmn_scraper19,     "maxcyte": cmn_scraper19,   "terracycle": cmn_scraper19,    "middleby": cmn_scraper19,     "paylocity": cmn_scraper19,  "kigo": cmn_scraper19,
-        "udc": cmn_scraper19,
-
-        # JazzHR Career Pages
-        "zealogics": cmn_scraper20,     "va_group": cmn_scraper20,  "bluevoyant": cmn_scraper20,    "flexcar": cmn_scraper20,       "sequel": cmn_scraper20,    "bold_business": cmn_scraper20,
-        "fusemachines": cmn_scraper20,  "sportsrecruits": cmn_scraper20,
-
-        # ADP Career Pages
-        "comerica": cmn_scraper21,      "inspira": cmn_scraper21,   "ucare": cmn_scraper21,         "scoular": cmn_scraper21,       "caseys": cmn_scraper21,    "wwt": cmn_scraper21,
-        "lrs": cmn_scraper21,           "kay": cmn_scraper21,       "revecore": cmn_scraper21,
+        "hme": cmn_scraper15,
     }
-    # Setup function_map here
     # Dictionary to map function names to actual functions
     return function_map
 
+
+def infer_scraper_from_url(url: str) -> Optional[Callable[[Any], List[Any]]]:
+    url_lower = url.lower()
+    url_rules = [
+        (".greenhouse.", cmn_scraper1), (".lever.co", cmn_scraper2), ("ashbyhq", cmn_scraper3), ("workable", cmn_scraper4), ("smartrecruiters", cmn_scraper5), ("rippling", cmn_scraper6), ("bamboohr", cmn_scraper7), (".adp.", cmn_scraper8), (".gem.", cmn_scraper9), # API Functions
+        ("myworkdayjobs", cmn_scraper10),  ("myworkdaysite", cmn_scraper10), ("oraclecloud", cmn_scraper11), ("jobvite", cmn_scraper12), (".icims.", cmn_scraper14), ("ultipro", cmn_scraper15), (".paylocity.", cmn_scraper16), ("applytojob", cmn_scraper17),   # Web Scaper Functions
+    ]
+    for pattern, scraper_func in url_rules:
+        if pattern in url_lower:
+            return scraper_func
+    return None
 
 
 # Setup Selenium WebDriver (in headless mode)
@@ -295,21 +104,18 @@ def webscraper_driver_cleanup(driver):
 def is_valid_location(location, location_qualifiers):
     return any(location_qualifier.lower() in location.lower() for location_qualifier in location_qualifiers) if location_qualifiers else True
 
-
 def is_valid_title(job_title, title_qualifiers, title_disqualifiers):
     return ((any(title_qualifier.lower() in job_title.lower() for title_qualifier in title_qualifiers) if title_qualifiers else True) and
             (not any(title_disqualifier.lower() in job_title.lower() for title_disqualifier in title_disqualifiers) if title_disqualifiers else True))
 
-
 def is_id_visited(job_id, visited_ids):
-    return job_id in visited_ids
-
+    return str(job_id) in visited_ids
 
 def is_valid(job_id, job_location, job_title, board):
     location_qualifiers = board.location_qualifiers
     job_title_qualifiers = board.job_title_qualifiers
     job_title_disqualifiers = board.job_title_disqualifiers
-    # company_func = board.func
+
     visited_ids = board.visited_ids
 
     loc_q = is_valid_location(job_location, location_qualifiers)
@@ -325,8 +131,7 @@ def get_full_url_and_id(parsed_url: ParseResult):
     id = id if (id := parsed_url.path.split('/')[-1]).isdigit() else parsed_url.query.split('=')[-1]
     return url, id
 
-
-def print_jobs(job_list: List[Job]):
+def print_jobs(job_list: List[Job]) -> None:
     # Print jobs
     for job in job_list:
         print(job)
@@ -335,8 +140,8 @@ def print_jobs(job_list: List[Job]):
 ## Common WebScrapers
 # GreenHouse Webscraper using API calls [Faster]
 def cmn_scraper1(board=None):
-    func = board.url.split("for=")[-1]
-    resp = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{func}/jobs")
+    api_func = board.url.split("for=")[-1].split("&")[0] if "for=" in board.url else urlparse(board.url).path.lstrip("/")
+    resp = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{api_func}/jobs")
     resp.raise_for_status()  # throw error if request failed
 
     job_posts = resp.json().get("jobs", [])
@@ -347,334 +152,365 @@ def cmn_scraper1(board=None):
         job_id = job.get("id")
         job_title = job.get("title")
         job_url = job.get("absolute_url")
-        job_location = job.get("location").get("name")
+        job_location = job.get("location").get("name") or "None"
 
         if is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-
     return jobs_list
-
-## Web Scraper using BeautifulSoup to scrape info from webpage
-# def cmn_scraper1(board=None):
-#     driver = webscraper_driver_init()
-#     webscraper_driver_get(driver, board.url)
-#     job_posts = driver.find_elements(By.CLASS_NAME, "opening")
-#     jobs_list = []
-#
-#     company = board.company
-#     for job in job_posts:
-#         outer_html = job.get_attribute("outerHTML")
-#         soup = BeautifulSoup(outer_html, "html.parser")
-#
-#         job_link = soup.find("a")
-#         job_location = soup.find("span", class_="location")
-#
-#         if job_link:
-#             parsed_url = urlparse(job_link["href"])
-#             job_url, job_id = get_full_url_and_id(parsed_url)  # Creating full URL
-#             job_title = job_link.text.strip()
-#             job_location = job_location.text.strip() if job_location else "Not specified"
-#
-#             if is_valid(job_id, job_location, job_title, board):
-#                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-#
-#     caller = inspect.stack()[1]  # Get caller's frame
-#     caller_module = inspect.getmodule(caller[0])  # Get caller's module
-#     if caller_module is None or caller_module.__name__ != __name__:
-#         print_jobs(jobs_list)
-#     webscraper_driver_cleanup(driver)
-#     return jobs_list
-
 
 def cmn_scraper1_1(board=None):
     job_list = cmn_scraper1(board)
     for job in job_list:
         job.url = f"https://boards.greenhouse.io/embed/job_app?for={board.func}&token={job.id}"
-    print_jobs(job_list)
     return job_list
 
 def cmn_scraper1_2(board=None):
     job_list = cmn_scraper1(board)
 
-    def clean_url_simple(url):
-        if '?' in url:
-            base, query = url.split('?', 1)
-            return f"{base}?{query.split('?')[0]}"
-        return url
+    def clean_url(url):
+        parsed = urlparse(url)
+
+        # Remove query and fragment
+        clean_path = parsed.path.rstrip('/')  # remove trailing slash
+        return urlunparse((parsed.scheme, parsed.netloc, clean_path, '', '', ''))  # remove params, query, fragment
 
     for job in job_list:
-        job.url = clean_url_simple(job.url)
-    print_jobs(job_list)
+        job.url = clean_url(job.url)
     return job_list
 
-def cmn_scraper2(board=None):
-    driver = webscraper_driver_init()
+# Using Lever API to scrape lever job postings
+def cmn_scraper2(board):
+    api_func = urlparse(board.url).path.lstrip("/")
+    resp = requests.get(f"https://api.lever.co/v0/postings/{api_func}?mode=json")
+    resp.raise_for_status()  # throw error if request failed
 
-    page_num = 1
+    job_posts = resp.json()
+
     jobs_list = []
     company = board.company
+    for job in job_posts:
+        job_id = job.get("id")
+        job_title = job.get("text")
+        job_url = job.get("hostedUrl")
+        job_location = "; ".join(job.get("categories", {}).get("allLocations", []))
 
-    sep = "&" if urlparse(board.url).query else "?"
-    while True:  # Pagination loop
-        page_url = f"{board.url}{sep}page={page_num}"
-        webscraper_driver_get(driver, page_url)  # Load the current page
-        time.sleep(2)  # Allow time for elements to load
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-        job_posts = driver.find_elements(By.CLASS_NAME, "job-post")
-        if not job_posts:
-            break  # Stop if no more job listings are found
-
-        for job in job_posts:
-            outer_html = job.get_attribute("outerHTML")
-            soup = BeautifulSoup(outer_html, "html.parser")
-
-            job_link = soup.find("a")
-            job_title_elem = soup.find("p", class_="body body--medium")
-
-            # Extract the span text if it exists
-            new_post_label = job_title_elem.find("span")
-            new_label = new_post_label.get_text(strip=True) if new_post_label else ""
-
-            job_location_elem = soup.find("p", class_="body body__secondary body--metadata")
-
-            if job_link and job_title_elem:
-                job_url = urljoin(board.url, job_link["href"])  # Convert relative URL to absolute
-                parsed_url = urlparse(job_url)
-                job_id = id if (id := parsed_url.path.split('/')[-1]).isdigit() else parsed_url.query.split('=')[-1]
-                # Remove the span text manually (alternative method)
-                for span in job_title_elem.find_all("span"):
-                    span.extract()  # Removes all span elements
-                job_title = job_title_elem.get_text(strip=True)
-
-                job_location = job_location_elem.get_text(strip=True) if job_location_elem else "Not specified"
-
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url, published_at=new_label))
-        page_num += 1  # Move to the next page
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
     return jobs_list
-
-
-def cmn_scraper2_1(board=None):
-    driver = webscraper_driver_init()
-
-    page_num = 1
-    jobs_list = []
-    company = board.company
-
-    while True:  # Pagination loop
-        sep = "&" if urlparse(board.url).query else "?"
-        page_url = f"{board.url}{sep}page={page_num}"
-        webscraper_driver_get(driver, page_url)  # Load the current page
-        time.sleep(2)  # Allow time for elements to load
-
-        job_posts = driver.find_elements(By.CLASS_NAME, "job-post")
-        if not job_posts:
-            break  # Stop if no more job listings are found
-
-        for job in job_posts:
-            outer_html = job.get_attribute("outerHTML")
-            soup = BeautifulSoup(outer_html, "html.parser")
-
-            job_link = soup.find("a")
-            job_title_elem = soup.find("p", class_="body body--medium")
-
-            # Extract the span text if it exists
-            new_post_label = job_title_elem.find("span")
-            new_label = new_post_label.get_text(strip=True) if new_post_label else ""
-
-            job_location_elem = soup.find("p", class_="body body__secondary body--metadata")
-
-            if job_link and job_title_elem:
-                job_url = urljoin(board.url, job_link["href"])  # Convert relative URL to absolute
-                job_id = job_url.split("=")[-1]
-                # job_title = job_title_elem.get_text(" ", strip=True)
-                # Remove the span text manually (alternative method)
-                for span in job_title_elem.find_all("span"):
-                    span.extract()  # Removes all span elements
-                job_title = job_title_elem.get_text(strip=True)
-
-                job_location = job_location_elem.get_text(strip=True) if job_location_elem else "Not specified"
-
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url, published_at=new_label))
-
-        page_num += 1  # Move to the next page
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
 
 def cmn_scraper3(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
+    api_func =  urlparse(board.url).path.lstrip("/")
+    resp = requests.get(f"https://api.ashbyhq.com/posting-api/job-board/{api_func}")
+    resp.raise_for_status()  # throw error if request failed
 
-    job_posts = driver.find_elements(By.CLASS_NAME, "_container_j2da7_1")
+    job_posts = resp.json().get("jobs", [])
+
     jobs_list = []
-
     company = board.company
     for job in job_posts:
-        outer_html = job.get_attribute("outerHTML")
-        soup = BeautifulSoup(outer_html, "html.parser")
+        job_id = job.get("id")
+        job_title = job.get("title")
+        job_url = job.get("jobUrl")
+        job_location = job.get("location")
 
-        job_link = soup.find("a")
-        job_title_elem = soup.find("h3", class_="_title_12ylk_383")
-        job_location_elem = soup.find("div", class_="_details_12ylk_389")
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-        if job_link and job_title_elem:
-            job_url = urlparse(job_link["href"])
-            job_id = job_url.path.split("/")[-1]
-            job_url = f"https://jobs.ashbyhq.com{job_url.path}" if not job_url.scheme and not job_url.netloc else urlunparse(job_url)
-            job_title = job_title_elem.get_text(strip=True)
-            job_location = job_location_elem.get_text(strip=True).split("•")[1] if job_location_elem else "Not specified"
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
     return jobs_list
-
 
 def cmn_scraper4(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
     jobs_list = []
     company = board.company
 
-    while True:  # Pagination loop
-        time.sleep(2)  # Allow time for elements to load
-        job_posts = driver.find_elements(By.XPATH, "//tr[td[@class='jv-job-list-name']]")
+    api_func =  urlparse(board.url).path.strip("/")
+    api_url = f"https://apply.workable.com/api/v3/accounts/{api_func}/jobs"
 
-        for job in job_posts:
-            outer_html = job.get_attribute("outerHTML")
-            soup = BeautifulSoup(outer_html, "html.parser")
+    response = requests.post(api_url)
+    response.raise_for_status()
+    data = response.json()
 
-            job_title_elem = soup.find("td", class_="jv-job-list-name").find("a")
-            job_location_elem = soup.find("td", class_="jv-job-list-location")
+    jobs_posts = data.get("results", [])
+    for job in jobs_posts:
+        job_id, job_title = job.get("id"), job.get("title")
+        location = job.get("location") or {}
+        job_location = ", ".join(
+            filter(None, [
+                location.get("city"),
+                location.get("region"),
+                location.get("country")
+            ])
+        )
+        shortcode = job.get("shortcode")
+        job_url = f"https://apply.workable.com/{api_func}/j/{shortcode}/"
 
-            if job_location_elem and job_title_elem:
-                job_id = job_title_elem["href"].split("/")[-1]  # Extract job ID
-                job_title = job_title_elem.text.strip()  # Extract job title
-                job_url = f"https://jobs.jobvite.com{job_title_elem['href']}"  # Construct full job URL
-                job_location = "".join(job_location_elem.text.replace("\n", "").split("  "))  # Clean location text
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        # Check if "Next" button exists
-        try:
-            next_button = driver.find_element(By.XPATH, "//a[contains(@class, 'jv-pagination-next')]")
-            if "disabled" in next_button.get_attribute("class"):  # Check if the button is disabled
-                break  # Stop pagination if no more pages
-            next_button.click()  # Click to load next page
-            time.sleep(2)  # Wait for the next page to load
-        except (NoSuchElementException, ElementClickInterceptedException):
-            break  # Stop pagination if button is missing
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper4_1(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
+
+def cmn_scraper5(board=None):
+    offset = 0
+    LIMIT = 100
+
     jobs_list = []
     company = board.company
+    api_func = urlparse(board.url).path.lstrip("/")
+    base_url = f"https://api.smartrecruiters.com/v1/companies/{api_func}/postings"
 
-    while True:  # Pagination loop
-        time.sleep(2)  # Allow time for elements to load
-        job_posts = driver.find_elements(By.XPATH, "//li[@class='row']")
+    while offset <= 1000:
+        params = {
+            "limit": LIMIT,
+            "offset": offset
+        }
+
+        response = requests.get(base_url, params=params, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+
+        job_posts = data.get("content", [])
+        if not job_posts:
+            break
 
         for job in job_posts:
-            outer_html = job.get_attribute("outerHTML")
-            soup = BeautifulSoup(outer_html, "html.parser")
-
-            job_title_elem = soup.find("div", class_="jv-job-list-name")
-            job_url_elem = soup.find("a")
-            job_location_elem = soup.find("div", class_="jv-job-list-location")
-
-            if job_location_elem and job_title_elem:
-                job_id = urlparse(job_url_elem["href"]).path.split("/")[-1]  # Extract job ID
-                job_title = job_title_elem.text.strip()  # Extract job title
-                job_url = f"https://jobs.jobvite.com{job_url_elem['href']}"  # Construct full job URL
-                job_location = " ".join(job_location_elem.text.replace("\n", "").strip().split())  # Clean location text
-
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        # Check if "Next" button exists
-        try:
-            next_button = driver.find_element(By.XPATH, "//a[contains(@class, 'jv-pagination-next')]")
-            if "disabled" in next_button.get_attribute("class"):  # Check if the button is disabled
-                break  # Stop pagination if no more pages
-            next_button.click()  # Click to load next page
-            time.sleep(2)  # Wait for the next page to load
-        except (NoSuchElementException, ElementClickInterceptedException):
-            break  # Stop pagination if button is missing
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-def cmn_scraper5(board):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-    job_posts = driver.find_elements(By.CLASS_NAME, "posting-title")
-    jobs_list = []
-
-    company = board.company
-    for job in job_posts:
-        outer_html = job.get_attribute("outerHTML")
-        soup = BeautifulSoup(outer_html, "html.parser")
-
-        job_link_elem = soup.find("a", class_="posting-title")
-        job_title_elem = soup.find("h5", {"data-qa": "posting-name"})
-        job_location_elem = soup.find("span", class_="sort-by-location")
-
-        if job_link_elem and job_title_elem:
-            job_url = job_link_elem["href"]
-            job_id = urlparse(job_url).path.split("/")[-1]  # Extract job ID from URL
-            job_title = job_title_elem.text.strip()
-            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
+            job_id = job.get("id")
+            job_title = job.get("name")
+            job_url = job.get("ref")
+            location = job.get("location", {})
+            job_location = location.get("fullLocation").replace(", ,", ",") or ", ".join(
+                filter(None, [
+                    location.get("city"),
+                    location.get("region"),
+                    location.get("country")
+                ])
+            )
 
             if is_valid(job_id, job_location, job_title, board):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
+        offset += LIMIT
+        if offset >= data.get("totalFound", 0):
+            break
+
+    for job in jobs_list:
+        job_id = job.id
+        detail_url = f"https://api.smartrecruiters.com/v1/companies/{api_func}/postings/{job_id}"
+        detail_response = requests.get(detail_url, timeout=30)
+        detail_response.raise_for_status()
+        detail_data = detail_response.json()
+        job.url =  detail_data.get("postingUrl")
+
+    return jobs_list
+
+# Rippling WebScraper Function using API calls [Faster]
+def cmn_scraper6(board=None):
+    jobs_list = []
+    company = board.company
+
+    company_key = urlparse(board.url).path.split("/")[-2]
+    country = parse_qs(urlparse(board.url).query).get("country", [""])[0]
+
+    url = f"https://api.rippling.com/platform/api/ats/v2/board/{company_key}/jobs?country={country}"
+
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        jobs = response.json().get("items", [])
+
+        for job in jobs:
+            job_id = job.get("id") or job.get("uuid")
+            job_title = job.get("name", "").strip()
+            job_url = job.get("url", "").strip()
+
+            # Join all location names from the 'locations' list
+            locations = job.get("locations", [])
+            job_location = "; ".join(loc.get("name", "") for loc in locations)
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    except requests.exceptions.RequestException as e:
+        print(f"Company {board.company} API request failed: {e}")
+        return []
+
     return jobs_list
 
 
-def cmn_scraper6(board):
+def cmn_scraper7(board=None):
+    jobs_list = []
+    company = board.company
+
+    api_url = f"{board.url}/list"
+    response = requests.get(api_url, timeout=30)
+    response.raise_for_status()
+    data = response.json()
+    job_posts = data.get("result", [])
+
+    # Convert a BambooHR location object into a readable string.
+    def format_location(location: dict) -> str | None:
+        if not location:
+            return None
+
+        parts = [
+            location.get("city"),
+            location.get("state"),
+            location.get("province"),
+            location.get("country"),
+        ]
+
+        # Remove None / empty values
+        parts = [p for p in parts if p]
+        return ", ".join(parts) if parts else None
+
+    for job in job_posts:
+        job_id = job.get("id")
+        job_title = job.get("jobOpeningName")
+        job_location = format_location(job.get("location")) or format_location(job.get("atsLocation")) or "Not Specified"
+        job_url = f"{board.url}/{job_id}"
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    return jobs_list
+
+
+def extract_adp_func(url: str) -> str:
+    pattern = r"https://myjobs\.adp\.com/(?P<api_func>[^/]+)/cx/"
+    match = re.search(pattern, url)
+    if not match:
+        raise ValueError("Could not extract ADP site id")
+    return match.group("api_func")
+
+def encode_filter_expression(url: str):
+    params = parse_qs(urlparse(url).query)
+    raw_filter = " && ".join(
+        f"{field} eq '{value}'"
+        for field, values in params.items()
+        for value in values
+    )
+    return quote(raw_filter, safe="")
+
+def fetch_jobs_token(api_func: str) -> str:
+    api_url = f"https://myjobs.adp.com/public/staffing/v1/career-site/{api_func}"
+    response = requests.get(api_url)
+    response.raise_for_status()
+    return response.json().get("myJobsToken", None)
+
+def fetch_adp_jobs(token, filter_expr):
+    job_list_url = f"https://my.adp.com/myadp_prefix/mycareer/public/staffing/v1/job-requisitions/apply-custom-filters?$select=reqId,jobTitle,jobDescription,clientRequisitionID,requisitionLocations&$filter={filter_expr}&$top=100"
+    headers = {
+        "Accept": "application/json",
+        "User-Agent": "Mozilla/5.0",
+        "Myjobstoken": token,
+    }
+    resp = requests.get(job_list_url, headers=headers, timeout=30)
+    resp.raise_for_status()
+    return resp.json().get("jobRequisitions", [])
+
+def fetch_adp_job_details(job, api_func: str) -> tuple:
+    job_id = job.get("clientRequisitionID")
+    job_reqID = job.get("reqId")
+    job_title = job.get("jobTitle")
+    job_description = job.get("jobDescription")
+
+    job_url = f"https://myjobs.adp.com/{api_func}/cx/job-details?reqId={job_reqID}"
+    locations = []
+    for loc in job.get("requisitionLocations", []):
+        addr = loc.get("address", {})
+        city = addr.get("cityName")
+        country = addr.get("country", {}).get("longName")
+        if city and country:
+            locations.append(f"{city}, {country}")
+        elif country:
+            locations.append(country)
+    job_location = "; ".join(locations) or "Unknown"
+    return job_id, job_title, job_location, job_url, job_description
+
+def cmn_scraper8(board=None):
+    jobs_list = []
+
+    api_func = extract_adp_func(board.url)
+    encoded_filter = encode_filter_expression(board.url)
+    my_jobs_token = fetch_jobs_token(api_func)
+
+    job_posts = fetch_adp_jobs(my_jobs_token, encoded_filter)
+    for job in job_posts:
+        job_id, job_title, job_location, job_url, _ = fetch_adp_job_details(job, api_func)
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(board.company, job_id, job_title, job_location, job_url))
+
+    return jobs_list
+
+
+def cmn_scraper9(board=None):
+    # API Endpoint
+    jobs_list = []
+    company = board.company
+    board_id = urlparse(board.url).path.split("/")[-1]
+
+    gem_url = "https://jobs.gem.com/api/public/graphql/batch"
+    payload = [
+        {
+            "operationName": "JobBoardList",
+            "variables": {"boardId": board_id},
+            "query": """
+                query JobBoardList($boardId: String!) {
+                    oatsExternalJobPostings(boardId: $boardId) {
+                        jobPostings {
+                            id
+                            extId
+                            title
+                            descriptionHtml
+                            locations {
+                                name
+                                city
+                                isoCountry
+                                isRemote
+                            }
+                        }
+                    }
+                }
+            """
+        }
+    ]
+
+    # Headers
+    headers = {
+        "accept": "*/*",
+        "content-type": "application/json"
+    }
+
+    # Send POST request
+    response = requests.post(gem_url, headers=headers, data=json.dumps(payload))
+
+    # Parse JSON response
+    data = response.json()
+
+    # Navigate to job postings
+    jobs = data[0]['data']['oatsExternalJobPostings']['jobPostings']
+
+    # Print each job title + location
+    for job in jobs:
+        job_id = job['id'][-8:].strip('=')  # Extract last 8 characters of ID
+        job_title = job['title']
+        locations = job['locations']
+        ext_id = job['extId']
+        job_url = f"{board.url}/{ext_id}"
+        job_location = ", ".join([loc['name'] for loc in locations]) if locations else "N/A"
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    return jobs_list
+
+
+def cmn_scraper10(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
-    time.sleep(1)
+    time.sleep(3)
     wait = WebDriverWait(driver, 5)
 
     jobs_list = []
@@ -699,7 +535,7 @@ def cmn_scraper6(board):
                     job_location = location_dd.text.strip()
 
             if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
+                job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
                 job_title = job_title_elem.text.strip()
                 job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
 
@@ -718,14 +554,10 @@ def cmn_scraper6(board):
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper6_1(board=None):
+def cmn_scraper10_1(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     time.sleep(1)
@@ -753,7 +585,7 @@ def cmn_scraper6_1(board=None):
                     job_location = location_dd.text.strip()
 
             if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
+                job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
                 job_title = job_title_elem.text.strip()
                 job_id = job_id_elem.text.strip() if job_id_elem else "N/A"
 
@@ -793,14 +625,10 @@ def cmn_scraper6_1(board=None):
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper7(board):
+def cmn_scraper10_2(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     time.sleep(1)
@@ -820,7 +648,7 @@ def cmn_scraper7(board):
             job_id_elem_list = job.find_all("li", class_="css-h2nt8k")
 
             if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
+                job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
                 job_title = job_title_elem.text.strip()
                 job_location, job_id  = [elem.text.strip() for elem in job_id_elem_list][:2] if job_id_elem_list else ["N/A", "N/A"]
 
@@ -839,16 +667,13 @@ def cmn_scraper7(board):
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper8_1(board):
+def cmn_scraper10_3(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
+    time.sleep(1)
     wait = WebDriverWait(driver, 5)
 
     jobs_list = []
@@ -866,7 +691,7 @@ def cmn_scraper8_1(board):
             job_id_list = job.find_all("li", class_="css-h2nt8k")
 
             if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
+                job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
                 job_title = job_title_elem.text.strip()
                 job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
                 job_id = job_id_list[0].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
@@ -886,15 +711,11 @@ def cmn_scraper8_1(board):
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
 
-def cmn_scraper8_2(board):
+def cmn_scraper10_4(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     wait = WebDriverWait(driver, 5)
@@ -914,7 +735,7 @@ def cmn_scraper8_2(board):
             job_id_list = job.find_all("li", class_="css-h2nt8k")
 
             if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
+                job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
                 job_title = job_title_elem.text.strip()
                 job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
                 job_id = job_id_list[1].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
@@ -934,17 +755,14 @@ def cmn_scraper8_2(board):
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper8_3(board):
+def cmn_scraper10_5(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
-    wait = WebDriverWait(driver, 5)
+    time.sleep(1)
+    wait = WebDriverWait(driver, 10)
 
     jobs_list = []
     company = board.company
@@ -957,16 +775,14 @@ def cmn_scraper8_3(board):
 
         for job in job_posts:
             job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_location_elem = job.find("dd", class_="css-129m7dg")  # Location
-            job_id_list = job.find_all("li", class_="css-h2nt8k")
+            job_id_elem_list = job.find_all("li", class_="css-h2nt8k")
 
             if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
+                job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
                 job_title = job_title_elem.text.strip()
-                job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
-                job_id = job_id_list[2].text.strip() if job_id_list and len(job_id_list) > 2 else "N/A"
+                job_id, job_location   = [elem.text.strip() for elem in job_id_elem_list][:2] if job_id_elem_list else ["N/A", "N/A"]
 
-                if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
+                if is_valid(job_id, job_location, job_title, board) and not job_id.startswith("ATC"):
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
         # Try to click the "Next" button if it exists
@@ -981,13 +797,53 @@ def cmn_scraper8_3(board):
             print("No more pages to navigate.")
             break  # Exit loop if no "Next" button is found
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
+def cmn_scraper10_6(board):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+    time.sleep(1)
+    wait = WebDriverWait(driver, 10)
+
+    jobs_list = []
+    company = board.company
+
+    while True:
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+
+        # Find all job listings
+        job_posts = soup.find_all("li", class_="css-1q2dra3")
+
+        for job in job_posts:
+            job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
+            job_id_elem_list = job.find_all("li", class_="css-h2nt8k")
+
+            if job_title_elem:
+                job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
+                job_title = job_title_elem.text.strip()
+                subtext = [elem.text.strip() for elem in job_id_elem_list]
+                job_id = subtext[-1] if len(subtext) > 0 else "N/A"
+                job_location = "; ".join(subtext[:-1]) if len(subtext) > 1 else "N/A"
+
+                if is_valid(job_id, job_location, job_title, board):
+                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        # Try to click the "Next" button if it exists
+        try:
+            # Locate the Next button using 'data-uxi-element-id'
+            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
+            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
+            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
+            print("Navigating to next page...")
+            time.sleep(1)
+        except:
+            print("No more pages to navigate.")
+            break  # Exit loop if no "Next" button is found
+
+    webscraper_driver_cleanup(driver)
+    return jobs_list
 
 def scroll_to_load_jobs(driver):
     last_height = driver.execute_script("return document.body.scrollHeight")
@@ -1000,151 +856,6 @@ def scroll_to_load_jobs(driver):
             print("Reached the end of the page.")
             break
         last_height = new_height  # No button available, continue scrolling
-
-
-def click_button_to_show_more_jobs(driver):
-    wait = WebDriverWait(driver, 5)
-    clicks = 20
-    while clicks >= 0:
-        # Get the page source after it's fully loaded
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-
-        # Find all "Show more jobs" buttons using BeautifulSoup
-        show_more_btns = soup.find_all("a", class_="js-more")
-
-        if not show_more_btns:  # If no buttons are found, break out of the loop
-            print("No more jobs to load.")
-            break
-
-        # Loop through all found buttons
-        for show_more_btn in show_more_btns:
-            try:
-                # Find the button element using Selenium
-                button = driver.find_element(By.CSS_SELECTOR, f"a.js-more[href='{show_more_btn['href']}']")
-
-                # Wait for the button to be clickable
-                wait.until(EC.element_to_be_clickable(button))
-                driver.execute_script("arguments[0].scrollIntoView();", button)  # Scroll to button
-                driver.execute_script("window.scrollBy(0, -300);")  # Scroll a bit further down
-                time.sleep(1)  # Wait for the button to be fully in view
-                print("Clicking on \"Show More Jobs\" Button...")
-                button.click()  # Click the button
-                clicks -= 1
-                if clicks <= 0:
-                    break
-
-            except Exception as e:
-                print(f"Error or button not clickable: {e}")
-                break  # Exit loop if an error occurs or no buttons are found
-
-
-def cmn_scraper9(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-
-    jobs_list = []
-    company = board.company
-
-    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs(driver)
-    click_button_to_show_more_jobs(driver)
-
-    # Parse the page after all jobs are loaded
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    job_posts = soup.find_all("li", class_="opening-job")
-
-    for job in job_posts:
-        job_link_elem = job.find("a", class_="link--block details")
-        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
-        job_location_elem = job.find_previous("h3", class_="opening-title")
-
-        if job_link_elem and job_title_elem:
-            job_url = job_link_elem["href"]
-            job_title = job_title_elem.text.strip()
-            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
-            job_id = (job_url.split("/")[-1]).split("-")[0]
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-def cmn_scraper9_5(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-
-    jobs_list = []
-    company = board.company
-
-    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs(driver)
-    click_button_to_show_more_jobs(driver)
-
-    # Parse the page after all jobs are loaded
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    job_posts = soup.find_all("li", class_="opening-job")
-
-    for job in job_posts:
-        job_link_elem = job.find("a", class_="link--block details")
-        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
-        job_location_elem = job.find("p", class_="job-desc")
-
-        if job_link_elem and job_title_elem:
-            job_url = job_link_elem["href"]
-            job_title = job_title_elem.text.strip()
-            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
-            job_id = (job_url.split("/")[-1]).split("-")[0]
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-
-def cmn_scraper10(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-
-    jobs_list = []
-    company = board.company
-
-    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs(driver)
-
-    # Parse the page after all jobs are loaded
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    job_posts = soup.find_all("li", class_="opening-job")
-
-    for job in job_posts:
-        job_link_elem = job.find("a", class_="link--block details")
-        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
-        job_location_elem = job.find("li", class_="job-desc")
-
-        if job_link_elem and job_title_elem:
-            job_url = job_link_elem["href"]
-            job_title = job_title_elem.text.strip()
-            job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
-            job_id = (job_url.split("/")[-1]).split("-")[0]
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
 
 
 def click_show_more(driver):
@@ -1174,7 +885,7 @@ def grid_style_job_posts(driver, board=None):
         a_tag = job_tile.find('a', class_='job-grid-item__link')
         job_id, job_url = None, None
         if a_tag and 'href' in a_tag.attrs:
-            job_url = a_tag['href']
+            job_url = a_tag['href'].split("?")[0]
             job_id = job_url.split('/job/')[-1].split('/')[0]
 
         job_title = job_tile.find("span", class_="job-tile__title").text.strip() if job_tile.find("span", class_="job-tile__title") else None
@@ -1193,7 +904,7 @@ def list_style_job_posts(driver, board=None):
     for job in job_posts:
         try:
             job_title = job.find_element(By.CLASS_NAME, "job-tile__title").text  # Extract job title
-            job_url = job.find_element(By.CLASS_NAME, "job-list-item__link").get_attribute("href")  # Extract job URL
+            job_url = job.find_element(By.CLASS_NAME, "job-list-item__link").get_attribute("href").split("?")[0]  # Extract job URL
             job_id = re.search(r'/job/([a-zA-Z0-9]+)/', job_url).group(1)
             job_location = job.find_element(By.CLASS_NAME, "job-list-item__job-info-value").text  # Extract location
             job_location = job_location.replace('\n', ' ')
@@ -1217,68 +928,86 @@ def cmn_scraper11(board=None):
     job_posts = soup.find_all("div", class_="job-tile job-grid-item search-results job-grid-item--all-actions-visible") or soup.find_all("div", class_="job-tile job-grid-item search-results job-grid-item--layout1 job-grid-item--all-actions-visible")
     jobs_list = grid_style_job_posts(driver, board) if job_posts else list_style_job_posts(driver, board)
 
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
-
-
-def handle_cookie_popup(driver):
-    wait = WebDriverWait(driver, 5)
-    # Handle cookie popup if present
-    try:
-        cookie_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Decline') or contains(text(), 'Disagree')]")))
-        cookie_button.click()
-        print("Declined cookies.")
-        time.sleep(1)  # Wait a bit for changes to apply
-    except Exception:
-        print("No cookie popup found or already declined.")
 
 
 def cmn_scraper12(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
-
     jobs_list = []
     company = board.company
 
-    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    handle_cookie_popup(driver)
-    click_show_more(driver)
+    while True:  # Pagination loop
+        time.sleep(2)  # Allow time for elements to load
+        job_posts = driver.find_elements(By.XPATH, "//tr[td[@class='jv-job-list-name']]")
 
-    soup = BeautifulSoup(driver.page_source, "html.parser")
+        for job in job_posts:
+            outer_html = job.get_attribute("outerHTML")
+            soup = BeautifulSoup(outer_html, "html.parser")
 
-    # Find all job elements
-    job_posts = soup.find_all("li", {"role": "listitem"})
-    for job in job_posts:
-        # Extract job ID from the <a> tag's href attribute
-        if not (job_link := job.find("a")):
-            continue
+            job_title_elem = soup.find("td", class_="jv-job-list-name").find("a")
+            job_location_elem = soup.find("td", class_="jv-job-list-location")
 
-        job_href = job_link["href"]
-        job_id = job_href.split("/")[-2]  # Extract job ID from URL
+            if job_location_elem and job_title_elem:
+                job_id = job_title_elem["href"].split("/")[-1]  # Extract job ID
+                job_title = job_title_elem.text.strip()  # Extract job title
+                job_url = f"https://jobs.jobvite.com{job_title_elem['href']}"  # Construct full job URL
+                job_location = "".join(job_location_elem.text.replace("\n", "").split("  "))  # Clean location text
 
-        # Extract job title
-        job_title_element = job.find("h3", attrs={"data-id": "job-item"}) or job.find("h3", attrs={"data-ui": "job-title"})
-        job_title = job_title_element.text.strip() if job_title_element else "N/A"
+                if is_valid(job_id, job_location, job_title, board):
+                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-        # Extract job URL
-        job_url = urljoin(board.url, job_href)
+        # Check if "Next" button exists
+        try:
+            next_button = driver.find_element(By.XPATH, "//a[contains(@class, 'jv-pagination-next')]")
+            if "disabled" in next_button.get_attribute("class"):  # Check if the button is disabled
+                break  # Stop pagination if no more pages
+            next_button.click()  # Click to load next page
+            time.sleep(2)  # Wait for the next page to load
+        except (NoSuchElementException, ElementClickInterceptedException):
+            break  # Stop pagination if button is missing
 
-        # Extract job location(s)
-        location_elements = job.find_all("div", {"data-ui": "job-location-tooltip"})
-        locations = [" ".join([span.text.strip() for span in loc.find_all("span", attrs={"class": "styles--2TdGW"})]) for loc in location_elements]
-        job_location = "; ".join(locations)
+    webscraper_driver_cleanup(driver)
+    return jobs_list
 
-        if is_valid(job_id, job_location, job_title, board):
-            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+def cmn_scraper12_1(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+    jobs_list = []
+    company = board.company
 
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
+    while True:  # Pagination loop
+        time.sleep(2)  # Allow time for elements to load
+        job_posts = driver.find_elements(By.XPATH, "//li[@class='row']")
+
+        for job in job_posts:
+            outer_html = job.get_attribute("outerHTML")
+            soup = BeautifulSoup(outer_html, "html.parser")
+
+            job_title_elem = soup.find("div", class_="jv-job-list-name")
+            job_url_elem = soup.find("a")
+            job_location_elem = soup.find("div", class_="jv-job-list-location")
+
+            if job_location_elem and job_title_elem:
+                job_id = urlparse(job_url_elem["href"]).path.split("/")[-1]  # Extract job ID
+                job_title = job_title_elem.text.strip()  # Extract job title
+                job_url = f"https://jobs.jobvite.com{job_url_elem['href']}"  # Construct full job URL
+                job_location = " ".join(job_location_elem.text.replace("\n", "").strip().split())  # Clean location text
+
+                if is_valid(job_id, job_location, job_title, board):
+                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        # Check if "Next" button exists
+        try:
+            next_button = driver.find_element(By.XPATH, "//a[contains(@class, 'jv-pagination-next')]")
+            if "disabled" in next_button.get_attribute("class"):  # Check if the button is disabled
+                break  # Stop pagination if no more pages
+            next_button.click()  # Click to load next page
+            time.sleep(2)  # Wait for the next page to load
+        except (NoSuchElementException, ElementClickInterceptedException):
+            break  # Stop pagination if button is missing
+
     webscraper_driver_cleanup(driver)
     return jobs_list
 
@@ -1309,14 +1038,10 @@ def cmn_scraper13(board=None):
         # Job Location
         location_tag = job.find("span", class_="label-value location")
         job_location = location_tag.text.strip() if location_tag else "N/A"
-        job_location = job_location.replace("\n", ", ")
+        job_location = job_location.replace("\n", ", ").replace(", , ", ", ")
         if is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
@@ -1361,13 +1086,6 @@ def cmn_scraper14(board=None):
                 jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
         page_number += 1  # Move to the next page
-
-    # Print jobs if function is not called within the same module
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-
     return jobs_list
 
 
@@ -1425,169 +1143,11 @@ def cmn_scraper15(board=None):
         if is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-# Rippling WebScraper Function using API calls [Faster]
+
 def cmn_scraper16(board=None):
-    driver = webscraper_driver_init()
-
-    jobs_list = []
-    company = board.company
-
-    company_key = urlparse(board.url).path.split("/")[-2]
-    country = parse_qs(urlparse(board.url).query).get("country", [""])[0]
-
-    url = f"https://api.rippling.com/platform/api/ats/v2/board/{company_key}/jobs?country={country}"
-
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        jobs = response.json().get("items", [])
-
-        for job in jobs:
-            job_id = job.get("id") or job.get("uuid")
-            job_title = job.get("name", "").strip()
-            job_url = job.get("url", "").strip()
-
-            # Join all location names from the 'locations' list
-            locations = job.get("locations", [])
-            job_location = "; ".join(loc.get("name", "") for loc in locations)
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    except requests.exceptions.RequestException as e:
-        print(f"Company {board.company} API request failed: {e}")
-        return []
-
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-
-def cmn_scraper17(board=None):
-    # API Endpoint
-    jobs_list = []
-    company = board.company
-    board_id = urlparse(board.url).path.split("/")[-1]
-
-    gem_url = "https://jobs.gem.com/api/public/graphql/batch"
-    payload = [
-        {
-            "operationName": "JobBoardList",
-            "variables": {"boardId": board_id},
-            "query": """
-                query JobBoardList($boardId: String!) {
-                    oatsExternalJobPostings(boardId: $boardId) {
-                        jobPostings {
-                            id
-                            extId
-                            title
-                            descriptionHtml
-                            locations {
-                                name
-                                city
-                                isoCountry
-                                isRemote
-                            }
-                        }
-                    }
-                }
-            """
-        }
-    ]
-
-    # Headers
-    headers = {
-        "accept": "*/*",
-        "content-type": "application/json"
-    }
-
-    # Send POST request
-    response = requests.post(gem_url, headers=headers, data=json.dumps(payload))
-
-    # Parse JSON response
-    data = response.json()
-
-    # Navigate to job postings
-    jobs = data[0]['data']['oatsExternalJobPostings']['jobPostings']
-
-    # Print each job title + location
-    for job in jobs:
-        job_id = job['id'][-8:]
-        job_title = job['title']
-        locations = job['locations']
-        ext_id = job['extId']
-        job_url = f"{board.url}/{ext_id}"
-        job_location = ", ".join([loc['name'] for loc in locations]) if locations else "N/A"
-        # print(f"Job ID: {id}")
-        # print(f"Job URL: {job_url}")
-        # print(f"Job Title: {title}")
-        # print(f"Locations: {location_names}")
-        # print("-" * 40)
-
-        if is_valid(job_id, job_location, job_title, board):
-            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    return jobs_list
-
-
-def cmn_scraper18(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-
-    jobs_list = []
-    company = board.company
-
-    # Parse the page
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-
-    # Extract job postings
-    job_posts = soup.find_all("li")
-
-    for job in job_posts:
-        # Extract anchor tag
-        job_id = ""
-        job_title = ""
-        job_url = ""
-        a_tag = job.find('a', class_='jss-g13')
-        if a_tag:
-            relative_url = a_tag['href']
-            job_url = urljoin(board.url, relative_url)
-            job_id = relative_url.strip('/').split('/')[-1]
-            job_title = a_tag.get_text(strip=True)
-
-        # Extract location (assumes the 2nd <p> under .jss-g18 with class .jss-g17 contains location)
-        job_location = ""
-        location_div = job.find('div', class_='jss-g18')
-        paragraphs = location_div.find_all('p')
-        location_text = [p.get_text(strip=True) for p in paragraphs]
-        job_location = "; ".join(location_text)
-
-        if job_id and job_location and job_title and is_valid(job_id, job_location, job_title, board):
-            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-
-def cmn_scraper19(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
 
@@ -1614,15 +1174,11 @@ def cmn_scraper19(board=None):
         if is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url, published_at=job_date))
 
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
 
-def cmn_scraper20(board=None):
+def cmn_scraper17(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
 
@@ -1652,118 +1208,16 @@ def cmn_scraper20(board=None):
         if is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-
-def click_all_show_more_buttons(driver):
-    """Keep clicking 'Show 10 More' until it's no longer visible."""
-    while True:
-        try:
-            show_more_button = WebDriverWait(driver, 5).until(
-                EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'show-more-label')]/a"))
-            )
-            show_more_button.click()
-            print("Clicked 'Show 10 More'")
-            time.sleep(2)
-        except (NoSuchElementException, ElementClickInterceptedException, Exception):
-            print("'Show 10 More' button not found")
-            break
-
-def cmn_scraper21(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-
-    click_all_show_more_buttons(driver)
-
-    jobs_list = []
-    company = board.company
-
-    # Parse the page
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-
-    # Extract job postings
-    job_elements = soup.select("div.flex-container.reqs-list.list-view-content")
-    for job_div in job_elements:
-        try:
-            job_title = job_div.select_one("h2.cx-job-title").get_text(strip=True)
-            job_location = job_div.select_one("span.reqLocation").get_text(strip=True)
-            job_id_raw = job_div.select_one("span.reqId").get_text(strip=True)
-            job_id = job_id_raw.replace("|", "").strip().lstrip("#")
-            job_url = board.url
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        except Exception as e:
-            print("Error extracting a job:", e)
-
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
 
 # Specific Webscraper Functions
-def encora(board=None):
+def beyondtrust(board=None):
     job_list = cmn_scraper1(board)
     for job in job_list:
-        job.url = job.url.replace("?gh", "&gh")
-    print_jobs(job_list)
+        job.url = f"https://www.beyondtrust.com/company/careers/{job.id}"
     return job_list
-
-def moloco(board=None):
-    job_list = cmn_scraper1(board)
-    for job in job_list:
-        job.url = "https://job-boards.greenhouse.io/moloco/jobs/" + job.id
-    print_jobs(job_list)
-    return job_list
-
-def trmlabs(board=None):
-    job_list = cmn_scraper2(board)
-    for job in job_list:
-        job.url = f"https://job-boards.greenhouse.io/embed/job_app?for={board.func}&token={job.id}"
-    print_jobs(job_list)
-    return job_list
-
-def elastic(board=None):
-    func = board.url.split("for=")[-1]
-    resp = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{func}/jobs")
-    resp.raise_for_status()  # throw error if request failed
-
-    job_posts = resp.json().get("jobs", [])
-
-    def get_posting_location(job):
-        # Greenhouse stores the real city/country info inside metadata under the key 'Job Posting Location'.
-        job_locations = [job.get("location").get("name")]
-        for m in job.get("metadata", []):
-            if m.get("name") == "Target Remote Countries / States Locations [For Job Wrapping]":
-                job_locations.extend(m.get("value") if isinstance(m.get("value"), list) else [m.get("value")])
-        return "; ".join(job_locations) if isinstance(job_locations, list) else job_locations
-
-    jobs_list = []
-    company = board.company
-    for job in job_posts:
-        job_id = job.get("id")
-        job_title = job.get("title")
-        job_url = job.get("absolute_url")
-        job_location = get_posting_location(job)
-
-        if is_valid(job_id, job_location, job_title, board):
-            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-
-    return jobs_list
 
 def cloudflare(board=None):
     resp = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{board.func}/jobs")
@@ -1789,194 +1243,6 @@ def cloudflare(board=None):
         if is_valid(job_id, job_location, job_title, board):
             jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-
-    return jobs_list
-
-def vectra(board=None):
-    driver = webscraper_driver_init()
-
-    jobs_list = []
-    company = board.company
-
-    page_num = 1
-    while True:  # Pagination loop
-        sep = "&" if urlparse(board.url).query else "?"
-        page_url = f"{board.url}{sep}page={page_num}"
-        page_num += 1
-        webscraper_driver_get(driver, page_url)  # Load the current page
-        time.sleep(2)  # Allow time for elements to load
-
-        job_posts = driver.find_elements(By.CLASS_NAME, "job-post")
-        if not job_posts:
-            break  # Stop if no more job listings are found
-
-        for job in job_posts:
-            outer_html = job.get_attribute("outerHTML")
-            soup = BeautifulSoup(outer_html, "html.parser")
-
-            job_link = soup.find("a")
-            job_title_elem = soup.find("p", class_="body body--medium")
-
-            # Extract the span text if it exists
-            new_post_label = job_title_elem.find("span")
-            new_label = new_post_label.get_text(strip=True) if new_post_label else ""
-
-            job_location_elem = soup.find("p", class_="body body__secondary body--metadata")
-
-            if job_link and job_title_elem:
-                job_url = urljoin(board.url, job_link["href"])  # Convert relative URL to absolute
-                job_id = urlparse(job_url).query.split("=")[-1]
-                # Remove the span text manually (alternative method)
-                for span in job_title_elem.find_all("span"):
-                    span.extract()  # Removes all span elements
-                job_title = job_title_elem.get_text(strip=True)
-
-                job_location = job_location_elem.get_text(strip=True) if job_location_elem else "Not specified"
-
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url, published_at=new_label))
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-
-def nationwide(board):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-    wait = WebDriverWait(driver, 10)
-
-    jobs_list = []
-    company = board.company
-
-    while True:
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-
-        # Find all job listings
-        job_posts = soup.find_all("li", class_="css-1q2dra3")
-
-        for job in job_posts:
-            job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_id_elem_list = job.find_all("li", class_="css-h2nt8k")
-
-            if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
-                job_title = job_title_elem.text.strip()
-                _, job_id, job_location = [elem.text.strip() for elem in job_id_elem_list] if job_id_elem_list else ["", "N/A", "N/A"]
-
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        # Try to click the "Next" button if it exists
-        try:
-            # Locate the Next button using 'data-uxi-element-id'
-            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
-            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
-            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
-            print("Navigating to next page...")
-            time.sleep(1)
-        except:
-            print("No more pages to navigate.")
-            break  # Exit loop if no "Next" button is found
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-
-def gm(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-    wait = WebDriverWait(driver, 10)
-
-    jobs_list = []
-    company = board.company
-    pages = 5
-
-    while pages > 0:
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-
-        # Find all job listings
-        job_posts = soup.find_all("li", class_="css-1q2dra3")
-
-        for job in job_posts:
-            job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_location_elem = job.find_all("dd", class_="css-129m7dg")  # Location
-            job_id_list = job.find_all("li", class_="css-h2nt8k")
-
-            if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"])
-                job_title = job_title_elem.text.strip()
-                job_id = job_id_list[0].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
-                job_location = job_location_elem[1].text.strip() if job_location_elem and len(job_location_elem) > 1 else "Not specified"
-
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        # Try to click the "Next" button if it exists
-        try:
-            # Locate the Next button using 'data-uxi-element-id'
-            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
-            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
-            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
-            print("Navigating to next page...")
-            time.sleep(1)
-        except:
-            print("No more pages to navigate.")
-            break  # Exit loop if no "Next" button is found
-        pages -= 1
-
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-
-def arista(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-
-    jobs_list = []
-    company = board.company
-
-    # Keep clicking "Show more jobs" and scrolling until all jobs are loaded
-    scroll_to_load_jobs(driver)
-
-    # Parse the page after all jobs are loaded
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    job_posts = soup.find_all("li", class_="opening-job")
-
-    for job in job_posts:
-        job_link_elem = job.find("a", class_="link--block details")
-        job_title_elem = job_link_elem.find("h4", class_="details-title job-title link--block-target") if job_link_elem else None
-        job_location_elem_list = job.find_all("li", class_="job-desc")
-
-        if job_link_elem and job_title_elem:
-            job_url = job_link_elem["href"]
-            job_title = job_title_elem.text.strip()
-            job_location = job_location_elem_list[1].text.strip() if job_location_elem_list and len(job_location_elem_list) > 1 else "Not specified"
-            job_id = (job_url.split("/")[-1]).split("-")[0]
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    caller = inspect.stack()[1]
-    caller_module = inspect.getmodule(caller[0])
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
-    webscraper_driver_cleanup(driver)
     return jobs_list
 
 def enverus(board=None):
@@ -2015,12 +1281,81 @@ def enverus(board=None):
         except (NoSuchElementException, ElementClickInterceptedException):
             break  # Stop pagination if button is missing
 
-    caller = inspect.stack()[1]  # Get caller's frame
-    caller_module = inspect.getmodule(caller[0])  # Get caller's module
-    if caller_module is None or caller_module.__name__ != __name__:
-        print_jobs(jobs_list)
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+def fidelity(board=None):
+    driver = webscraper_driver_init()
+    webscraper_driver_get(driver, board.url)
+    time.sleep(1)
+    wait = WebDriverWait(driver, 5)
 
+    jobs_list = []
+    company = board.company
 
+    while True:
+        soup = BeautifulSoup(driver.page_source, "html.parser")
+
+        # Find all job listings
+        job_posts = soup.find_all("li", class_="css-1q2dra3")
+
+        for job in job_posts:
+            # Extract title and url
+            title_tag = job.find("a", {"data-automation-id": "jobTitle"})
+            job_title = title_tag.text.strip()
+            job_url =  urljoin(board.url, title_tag["href"]).split('?', 1)[0]
+
+            # Extract subtitle list items
+            subtitles = job.find("ul", {"data-automation-id": "subtitle"}).find_all("li")
+            job_location = subtitles[0].text.strip()
+
+            # Job ID is inside the second <li>, before the first space
+            job_id = subtitles[1].text.strip().split()[0]  # "J62034"
+
+            # Posting Date appears as "Posting Date: DD/MM/YYYY"
+            posting_date = subtitles[2].text.replace("Posting Date:", "").strip()
+
+            if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url, published_at=posting_date))
+
+        # Try to click the "Next" button if it exists
+        try:
+            # Locate the Next button using 'data-uxi-element-id'
+            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
+            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
+            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
+            print("Navigating to next page...")
+            time.sleep(1)
+        except:
+            print("No more pages to navigate.")
+            break  # Exit loop if no "Next" button is found
+
+    webscraper_driver_cleanup(driver)
+    return jobs_list
+
+def adp(board=None):
+    jobs_list = []
+
+    def is_title_qualified(job_title, title_qualifiers):
+        return any(title_qualifier.lower() in job_title.lower() for title_qualifier in title_qualifiers) if title_qualifiers else True
+
+    def is_title_disqualified(job_title, title_disqualifiers):
+        return not any(title_disqualifier.lower() in job_title.lower() for title_disqualifier in title_disqualifiers) if title_disqualifiers else True
+
+    def is_valid_description(job_description, job_title_qualifiers):
+        job_description_lower = job_description.lower() if job_description else ""
+        return any(qualifier.lower() in job_description_lower for qualifier in job_title_qualifiers)
+
+    api_func = extract_adp_func(board.url)
+    encoded_filter = encode_filter_expression(board.url)
+    my_jobs_token = fetch_jobs_token(api_func)
+
+    job_posts = fetch_adp_jobs(my_jobs_token, encoded_filter)
+    for job in job_posts:
+        job_id, job_title, job_location, job_url, job_description = fetch_adp_job_details(job, api_func)
+
+        if ((not is_id_visited(str(job_id), board.visited_ids)) and is_valid_location(job_location, board.location_qualifiers) and
+                (is_title_qualified(job_title, board.job_title_qualifiers) or is_valid_description(job_description, board.job_title_qualifiers)) and is_title_disqualified(job_title, board.job_title_disqualifiers)):
+            jobs_list.append(Job(board.company, job_id, job_title, job_location, job_url))
+
+    return jobs_list

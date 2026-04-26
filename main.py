@@ -6,14 +6,14 @@ from classes import *
 from scraper_functions import *  # Importing functions dynamically
 from multiprocessing import Pool, cpu_count
 
-from typing import Callable, Dict, List, Tuple, Any
+from typing import Callable, Dict, List, Tuple, Any, Set
 
 # Load the JSON config file
 with open("config.json", "r") as f:
     job_sources = json.load(f)
 
 
-def scrape_source(source: Dict[str, Any], func: Callable[[Any], List[Any]], visited_ids: List[str]) -> Tuple[str, List[Any]]:
+def scrape_source(source: Dict[str, Any], func: Callable[[Any], List[Any]], visited_ids: Set[str]) -> Tuple[str, List[Any]]:
     try:
         print(f"Scraping jobs from {source['name']}...")
         board = Board(
@@ -24,11 +24,11 @@ def scrape_source(source: Dict[str, Any], func: Callable[[Any], List[Any]], visi
             visited_ids = visited_ids
         )
         jobs = func(board)
+        print_jobs(jobs)
         return source["function"], jobs
     except Exception as e:
         print(f"Exception while scraping jobs from {source['name']}: {e}")
         return source["function"], []
-
 
 if __name__ == "__main__":
     start_time = time.time()  # Record start time
@@ -77,12 +77,12 @@ if __name__ == "__main__":
     tasks = []
     for source in job_sources:
         func_name = source["function"]
-        func = function_map.get(func_name)
-        visited_ids = visited_data.get(func_name, [])
+        func = function_map.get(func_name) or infer_scraper_from_url(source["url"])
+        visited_ids = {str(job_id) for job_id in visited_data.get(func_name, [])}
         if func is not None:
             tasks.append((source, func, visited_ids))
         else:
-            print(f"Function {func_name} not found in function_map. Skipping {source['name']}.")
+            print(f"Function {func_name} not found in function_map and cannot be inferred from url. Skipping {source['name']}.")
 
     efficiency = 50   # For peak performance, do not use all cpus
     cpu_cores = int(cpu_count() * (efficiency/100))

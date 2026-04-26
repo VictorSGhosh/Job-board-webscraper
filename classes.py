@@ -9,7 +9,7 @@ class Board:
         self.location_qualifiers = location_qualifiers
         self.job_title_qualifiers = job_title_qualifiers
         self.job_title_disqualifiers = job_title_disqualifiers
-        self.visited_ids = visited_ids
+        self.visited_ids = {str(v) for v in visited_ids}
 
 class Job:
     def __init__(self, company, job_id, title, location, url, content=None, published_at=None):
