@@ -16,7 +16,6 @@ from urllib.parse import urlparse, parse_qs, ParseResult, urlunparse, urljoin, q
 
 import time
 import json
-import inspect
 import re
 
 from classes import Job
@@ -30,7 +29,7 @@ def function_init():
 
         "fanduel": cmn_scraper1_1,      "sprout_social": cmn_scraper1_2,
 
-        "magnite": cmn_scraper10_1,     "pjt": cmn_scraper10_1,     "motorola": cmn_scraper10_2,    "lego": cmn_scraper10_2,        "pernod_richard": cmn_scraper10_2,
+        "magnite": cmn_scraper10_1,     "pjt": cmn_scraper10_1,     "motorola": cmn_scraper10_2,    "lego": cmn_scraper10_2, "pernod_richard": cmn_scraper10_2,"thomson_reuters": cmn_scraper10_2,
         "sony": cmn_scraper10_3,        "kion": cmn_scraper10_3,    "f5": cmn_scraper10_4,          "accenture": cmn_scraper10_5,
 
         "oracle": cmn_scraper11,        "akamai": cmn_scraper11,    "honeywell": cmn_scraper11,
@@ -52,7 +51,7 @@ def function_init():
 def infer_scraper_from_url(url: str) -> Optional[Callable[[Any], List[Any]]]:
     url_lower = url.lower()
     url_rules = [
-        (".greenhouse.", cmn_scraper1), (".lever.co", cmn_scraper2), ("ashbyhq", cmn_scraper3), ("workable", cmn_scraper4), ("smartrecruiters", cmn_scraper5), ("rippling", cmn_scraper6), ("bamboohr", cmn_scraper7), (".adp.", cmn_scraper8), (".gem.", cmn_scraper9), # API Functions
+        (".greenhouse.", cmn_scraper1), (".lever.co", cmn_scraper2), ("ashbyhq", cmn_scraper3), ("workable", cmn_scraper4), ("smartrecruiters", cmn_scraper5), ("rippling", cmn_scraper6), ("bamboohr", cmn_scraper7), (".adp.", cmn_scraper8), (".gem.", cmn_scraper9), ("jobs.dayforcehcm.com", cmn_scraper18), # API Functions
         ("myworkdayjobs", cmn_scraper10),  ("myworkdaysite", cmn_scraper10), ("oraclecloud", cmn_scraper11), ("jobvite", cmn_scraper12), (".icims.", cmn_scraper14), ("ultipro", cmn_scraper15), (".paylocity.", cmn_scraper16), ("applytojob", cmn_scraper17),   # Web Scaper Functions
     ]
     for pattern, scraper_func in url_rules:
@@ -506,6 +505,86 @@ def cmn_scraper9(board=None):
 
     return jobs_list
 
+def format_locations(posting_locations):
+    locations = []
+
+    for location in posting_locations:
+        values = []
+        for field in ("cityName", "stateCode", "formattedAddress"):
+            (value:= location.get(field)) and value not in values and values.append(value)
+        values and locations.append(", ".join(values))
+
+    return "; ".join(locations) if locations else "Not specified"
+
+def cmn_scraper18(board):
+    jobs_list = []
+    company = board.company
+    parsed = urlparse(board.url)
+    parts = parsed.path.strip("/").split("/")
+
+    if len(parts) not in (2, 3):
+        raise ValueError("Invalid Dayforce job board URL")
+
+    client_namespace, job_board_code = parts[-2:]
+
+    session = requests.Session()
+
+    # Get CSRF token
+    csrf_response = session.get("https://jobs.dayforcehcm.com/api/auth/csrf")
+    csrf_response.raise_for_status()
+    csrf_token = csrf_response.json()["csrfToken"]
+
+    headers = {
+        "Content-Type": "application/json",
+        "x-csrf-token": csrf_token
+    }
+    search_url = (
+        f"https://jobs.dayforcehcm.com/api/geo/"
+        f"{client_namespace}/jobposting/search"
+    )
+    body = {
+        "clientNamespace": client_namespace,
+        "jobBoardCode": job_board_code,
+        "cultureCode": "en-US",
+        "distanceUnit": 0,
+        "paginationStart": 0
+    }
+
+    jobs = []
+
+    while True:
+        response = session.post(search_url, headers=headers, json=body)
+        response.raise_for_status()
+
+        data = response.json()
+        page_jobs = data.get("jobPostings", [])
+
+        if not page_jobs:
+            break
+
+        jobs.extend(page_jobs)
+        total_count = data.get("maxCount", len(page_jobs))
+
+        if len(jobs) >= total_count:
+            break
+
+        body["paginationStart"] += 25
+
+
+    for job in jobs:
+        job_id = job.get("jobPostingId")
+        job_title = job.get("jobTitle")
+        job_location = format_locations(job.get("postingLocations") or [])
+        job_url = (
+            f"https://jobs.dayforcehcm.com/en-US/"
+            f"{client_namespace}/"
+            f"{job_board_code}/"
+            f"jobs/{job_id}"
+        )
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    return jobs_list
 
 def cmn_scraper10(board):
     driver = webscraper_driver_init()
@@ -650,9 +729,8 @@ def cmn_scraper10_2(board):
             if job_title_elem:
                 job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
                 job_title = job_title_elem.text.strip()
-                job_location, job_id  = [elem.text.strip() for elem in job_id_elem_list][:2] if job_id_elem_list else ["N/A", "N/A"]
-
-                if is_valid(job_id, job_location, job_title, board):
+                job_location, job_id  = [";".join([elem.text.strip() for elem in job_id_elem_list][:-1]), job_id_elem_list[-1].text.strip()] if job_id_elem_list else ["N/A", "N/A"]
+                if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
 
         # Try to click the "Next" button if it exists
