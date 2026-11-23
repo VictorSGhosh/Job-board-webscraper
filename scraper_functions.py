@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, parse_qs, ParseResult, urlunparse, urljoin, quote
+from urllib.parse import urlparse, parse_qs, ParseResult, urlunparse, urljoin, quote, parse_qsl, urlencode
 
 import time
 import json
@@ -25,38 +25,42 @@ qualifiers = None
 
 def function_init():
     function_map = {
-        "beyondtrust": beyondtrust,     "cloudflare": cloudflare,   "enverus": enverus,             "fidelity": fidelity,           "adp":adp,
+        "beyondtrust": beyondtrust,     "cloudflare": cloudflare,   "enverus": enverus,             "fidelity": fidelity,           "adp":adp,              "atlassian": atlassian,
+        "aristocrat": aristocrat,
 
         "fanduel": cmn_scraper1_1,      "sprout_social": cmn_scraper1_2,
 
-        "magnite": cmn_scraper10_1,     "pjt": cmn_scraper10_1,     "motorola": cmn_scraper10_2,    "lego": cmn_scraper10_2, "pernod_richard": cmn_scraper10_2,"thomson_reuters": cmn_scraper10_2,
-        "sony": cmn_scraper10_3,        "kion": cmn_scraper10_3,    "f5": cmn_scraper10_4,          "accenture": cmn_scraper10_5,
-
-        "oracle": cmn_scraper11,        "akamai": cmn_scraper11,    "honeywell": cmn_scraper11,
-
-        "varonis": cmn_scraper12_1,     "pulsepoint": cmn_scraper12_1,
-
         # iCiMS Career Pages
-        "github": cmn_scraper13,        "sirius": cmn_scraper13,    "rivian": cmn_scraper13,        "amd": cmn_scraper13,           "booking": cmn_scraper13,   "hinge_health": cmn_scraper13,
-        "ice": cmn_scraper13,           "incyte": cmn_scraper13,    "paychex": cmn_scraper13,       "mcgraw_hill": cmn_scraper13,   "medallia": cmn_scraper13,  "osi_systems": cmn_scraper13,
-        "blackline": cmn_scraper13,     "emmes": cmn_scraper13,     "docusign": cmn_scraper13,      "echostar": cmn_scraper13,      "sita": cmn_scraper13,      "publicis_groupe": cmn_scraper13,
-        "mouser": cmn_scraper13,        "medpace": cmn_scraper13,
+        "github": cmn_scraper11,        "sita": cmn_scraper11,      "osi_systems": cmn_scraper11,
 
-        "hme": cmn_scraper15,
+        "magnite": cmn_scraper13_1,     "pjt": cmn_scraper13_1,     "motorola": cmn_scraper13_2,    "lego": cmn_scraper13_2,        "pernod_richard": cmn_scraper13_2, "thomson_reuters": cmn_scraper13_2,
+        "epicor": cmn_scraper13_2,      "sony": cmn_scraper13_3,        "kion": cmn_scraper13_3,    "f5": cmn_scraper13_4,          "rbs": cmn_scraper13_4,         "accenture": cmn_scraper13_5,
+
+        # Oracle Cloud Pages
+        "oracle": cmn_scraper14,        "akamai": cmn_scraper14,    "honeywell": cmn_scraper14,
+
+        "varonis": cmn_scraper15_1,     "pulsepoint": cmn_scraper15_1,
+
+        "hme": cmn_scraper16,
     }
     # Dictionary to map function names to actual functions
     return function_map
 
 
 def infer_scraper_from_url(url: str) -> Optional[Callable[[Any], List[Any]]]:
-    url_lower = url.lower()
+    hostname = urlparse(url.lower()).hostname or ""
+
     url_rules = [
-        (".greenhouse.", cmn_scraper1), (".lever.co", cmn_scraper2), ("ashbyhq", cmn_scraper3), ("workable", cmn_scraper4), ("smartrecruiters", cmn_scraper5), ("rippling", cmn_scraper6), ("bamboohr", cmn_scraper7), (".adp.", cmn_scraper8), (".gem.", cmn_scraper9), ("jobs.dayforcehcm.com", cmn_scraper18), # API Functions
-        ("myworkdayjobs", cmn_scraper10),  ("myworkdaysite", cmn_scraper10), ("oraclecloud", cmn_scraper11), ("jobvite", cmn_scraper12), (".icims.", cmn_scraper14), ("ultipro", cmn_scraper15), (".paylocity.", cmn_scraper16), ("applytojob", cmn_scraper17),   # Web Scaper Functions
+        (r"\.greenhouse\.", cmn_scraper1), (r"\.lever\.co$", cmn_scraper2), (r"ashbyhq", cmn_scraper3), (r"workable", cmn_scraper4), (r"smartrecruiters", cmn_scraper5),
+        (r"rippling", cmn_scraper6), (r"bamboohr", cmn_scraper7), (r"\.adp\.", cmn_scraper8), (r"\.gem\.", cmn_scraper9), (r"jobs\.dayforcehcm\.com$", cmn_scraper10), (r"^(?:https?://)?(?:www\.)?(?:careers|jobs)\.(?!jobvite\.com)", cmn_scraper11), # API Calls
+
+        (r"\.icims\.", cmn_scraper12), (r"myworkday(?:jobs|site)", cmn_scraper13), (r"oraclecloud", cmn_scraper14), (r"jobvite", cmn_scraper15), (r"ultipro", cmn_scraper16), (r"\.paylocity\.", cmn_scraper17), (r"applytojob", cmn_scraper18), # Webscraper
     ]
+
     for pattern, scraper_func in url_rules:
-        if pattern in url_lower:
+        if re.search(pattern, hostname):
             return scraper_func
+
     return None
 
 
@@ -233,14 +237,8 @@ def cmn_scraper4(board=None):
     jobs_posts = data.get("results", [])
     for job in jobs_posts:
         job_id, job_title = job.get("id"), job.get("title")
-        location = job.get("location") or {}
-        job_location = ", ".join(
-            filter(None, [
-                location.get("city"),
-                location.get("region"),
-                location.get("country")
-            ])
-        )
+        locations = job.get("locations") or {}
+        job_location = "; ".join([", ".join(filter(None, [location.get("city"), location.get("region"), location.get("country")])) for location in locations])
         shortcode = job.get("shortcode")
         job_url = f"https://apply.workable.com/{api_func}/j/{shortcode}/"
 
@@ -516,7 +514,7 @@ def format_locations(posting_locations):
 
     return "; ".join(locations) if locations else "Not specified"
 
-def cmn_scraper18(board):
+def cmn_scraper10(board):
     jobs_list = []
     company = board.company
     parsed = urlparse(board.url)
@@ -586,7 +584,104 @@ def cmn_scraper18(board):
 
     return jobs_list
 
-def cmn_scraper10(board):
+def slugify(title: str) -> str:
+    # lowercase
+    title = title.lower()
+
+    # replace non-alphanumeric with hyphens
+    title = re.sub(r"[^a-z0-9]+", "-", title)
+
+    # remove leading/trailing hyphens
+    return title.strip("-")
+
+# iCiMS API Caller
+def cmn_scraper11(board=None):
+    jobs_list = []
+    company = board.company
+    job_board_url = board.url
+
+    parsed = urlparse(job_board_url)
+
+    # Preserve all existing query parameters
+    params = dict(parse_qsl(parsed.query))
+
+    # Required by the API
+    params.setdefault("internal", "false")
+    path = parsed.path
+
+    api_path = "/api/jobs" if path == "/jobs" else re.sub(r"/[^/]+(?=/jobs$)", "/api", path)
+
+    request_url = parsed._replace(
+        path=api_path,
+        query=urlencode(params),
+    ).geturl()
+    HEADERS = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 Chrome/138.0.0.0 Safari/537.36"
+        )
+    }
+    response = requests.get(request_url, headers=HEADERS, timeout=30)
+    response.raise_for_status()
+    data = response.json()
+
+    for item in data.get("jobs", []):
+        job = item.get("data", {})
+        job_id = job.get("req_id") or job.get("slug")
+        job_title = job.get("title")
+        job_location =  job.get("full_location") or job.get("location_name")
+        job_url = job.get("meta_data", {}).get("canonical_url") or (lambda p: f"{p.scheme}://{p.netloc}/jobs/{job_id}/{slugify(job_title)}/job")(urlparse(job.get("apply_url")))
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    return jobs_list
+
+# iCiMS Web-Crawler
+def cmn_scraper12(board=None):
+    jobs_list = []
+    company = board.company
+    base_url = board.url  # Base URL without pagination parameter
+    headers = {"User-Agent": "Mozilla/5.0"}  # Prevent blocking by servers
+
+    page_number = 0  # Start pagination from page 1
+
+    while True:
+        paginated_url = f"{base_url}&pr={page_number}"  # Append pagination parameter
+        response = requests.get(paginated_url, headers=headers)
+
+        if response.status_code != 200:
+            break  # Stop if the request fails
+
+        soup = BeautifulSoup(response.text, "html.parser")
+        job_entries = soup.find_all("div", class_="row")  # Adjust based on actual structure
+
+        if not job_entries:
+            break  # Stop if no more jobs are found on the page
+
+        for job in job_entries:
+            job_title_element = job.find("h3")
+            job_title = job_title_element.text.strip() if job_title_element else "N/A"
+
+            job_link = job.find("a", class_="iCIMS_Anchor")
+            job_url = job_link["href"] if job_link else "N/A"
+            job_id = job_url.split("/")[-3] if job_url != "N/A" else "N/A"
+
+            location_element = job.find("span", string=re.compile(r"^(Job Locations|Location|Location : Location)$"))
+            job_location = location_element.parent.find_all("span")[-1].text.strip() if location_element else "N/A"
+
+            if location_element is None or job_location in ["Job Locations", "Location"]:
+                job_location = ", ".join(
+                    [span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
+
+            if is_valid(job_id, job_location, job_title, board):
+                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+        page_number += 1  # Move to the next page
+    return jobs_list
+
+
+def cmn_scraper13(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     time.sleep(3)
@@ -636,7 +731,7 @@ def cmn_scraper10(board):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper10_1(board=None):
+def cmn_scraper13_1(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     time.sleep(1)
@@ -707,7 +802,7 @@ def cmn_scraper10_1(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper10_2(board):
+def cmn_scraper13_2(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     time.sleep(1)
@@ -748,7 +843,7 @@ def cmn_scraper10_2(board):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper10_3(board):
+def cmn_scraper13_3(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     time.sleep(1)
@@ -793,7 +888,7 @@ def cmn_scraper10_3(board):
     return jobs_list
 
 
-def cmn_scraper10_4(board):
+def cmn_scraper13_4(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     wait = WebDriverWait(driver, 5)
@@ -816,7 +911,7 @@ def cmn_scraper10_4(board):
                 job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
                 job_title = job_title_elem.text.strip()
                 job_location = job_location_elem.text.strip() if job_location_elem else "Not specified"
-                job_id = job_id_list[1].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
+                job_id = job_id_list[-1].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
 
                 if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
                     jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
@@ -836,7 +931,7 @@ def cmn_scraper10_4(board):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper10_5(board):
+def cmn_scraper13_5(board):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     time.sleep(1)
@@ -879,50 +974,6 @@ def cmn_scraper10_5(board):
     return jobs_list
 
 
-def cmn_scraper10_6(board):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-    time.sleep(1)
-    wait = WebDriverWait(driver, 10)
-
-    jobs_list = []
-    company = board.company
-
-    while True:
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-
-        # Find all job listings
-        job_posts = soup.find_all("li", class_="css-1q2dra3")
-
-        for job in job_posts:
-            job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
-            job_id_elem_list = job.find_all("li", class_="css-h2nt8k")
-
-            if job_title_elem:
-                job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
-                job_title = job_title_elem.text.strip()
-                subtext = [elem.text.strip() for elem in job_id_elem_list]
-                job_id = subtext[-1] if len(subtext) > 0 else "N/A"
-                job_location = "; ".join(subtext[:-1]) if len(subtext) > 1 else "N/A"
-
-                if is_valid(job_id, job_location, job_title, board):
-                    jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        # Try to click the "Next" button if it exists
-        try:
-            # Locate the Next button using 'data-uxi-element-id'
-            next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
-            driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
-            driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
-            print("Navigating to next page...")
-            time.sleep(1)
-        except:
-            print("No more pages to navigate.")
-            break  # Exit loop if no "Next" button is found
-
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
 def scroll_to_load_jobs(driver):
     last_height = driver.execute_script("return document.body.scrollHeight")
     while True:
@@ -950,7 +1001,6 @@ def click_show_more(driver):
         except Exception:
             print("No more 'Show More Results' button found.")
             break
-
 
 def grid_style_job_posts(driver, board=None):
     jobs_list = []
@@ -992,8 +1042,8 @@ def list_style_job_posts(driver, board=None):
             continue  # Skip if any field is missing
     return jobs_list
 
-
-def cmn_scraper11(board=None):
+# Oracle Cloud WebPages
+def cmn_scraper14(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     time.sleep(2)
@@ -1009,8 +1059,8 @@ def cmn_scraper11(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-
-def cmn_scraper12(board=None):
+# JobVite Web-Crawler
+def cmn_scraper15(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     jobs_list = []
@@ -1049,7 +1099,7 @@ def cmn_scraper12(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-def cmn_scraper12_1(board=None):
+def cmn_scraper15_1(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
     jobs_list = []
@@ -1090,81 +1140,7 @@ def cmn_scraper12_1(board=None):
     return jobs_list
 
 
-def cmn_scraper13(board=None):
-    driver = webscraper_driver_init()
-    webscraper_driver_get(driver, board.url)
-    time.sleep(1)
 
-    jobs_list = []
-    company = board.company
-
-    # Parse the page after all jobs are loaded
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    # Extract job details
-    job_posts = soup.find_all("mat-expansion-panel", class_="search-result-item")
-
-    for job in job_posts:
-        # Job Title
-        title_tag = job.find("span", itemprop="title")
-        job_title = title_tag.text.strip() if title_tag else "N/A"
-
-        # Job ID (Extracted from the URL)
-        job_link = job.find("a", class_="job-title-link")
-        job_url = urljoin(board.url, job_link["href"]) if job_link else "N/A"
-        job_id = job_link["href"].split("/")[-1].split("?")[0] if job_link else "N/A"
-
-        # Job Location
-        location_tag = job.find("span", class_="label-value location")
-        job_location = location_tag.text.strip() if location_tag else "N/A"
-        job_location = job_location.replace("\n", ", ").replace(", , ", ", ")
-        if is_valid(job_id, job_location, job_title, board):
-            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-    webscraper_driver_cleanup(driver)
-    return jobs_list
-
-
-def cmn_scraper14(board=None):
-    jobs_list = []
-    company = board.company
-    base_url = board.url  # Base URL without pagination parameter
-    headers = {"User-Agent": "Mozilla/5.0"}  # Prevent blocking by servers
-
-    page_number = 0  # Start pagination from page 1
-
-    while True:
-        paginated_url = f"{base_url}&pr={page_number}"  # Append pagination parameter
-        response = requests.get(paginated_url, headers=headers)
-
-        if response.status_code != 200:
-            break  # Stop if the request fails
-
-        soup = BeautifulSoup(response.text, "html.parser")
-        job_entries = soup.find_all("div", class_="row")  # Adjust based on actual structure
-
-        if not job_entries:
-            break  # Stop if no more jobs are found on the page
-
-        for job in job_entries:
-            job_title_element = job.find("h3")
-            job_title = job_title_element.text.strip() if job_title_element else "N/A"
-
-            job_link = job.find("a", class_="iCIMS_Anchor")
-            job_url = job_link["href"] if job_link else "N/A"
-            job_id = job_url.split("/")[-3] if job_url != "N/A" else "N/A"
-
-            location_element = job.find("span", string=re.compile(r"^(Job Locations|Location|Location : Location)$"))
-            job_location = location_element.parent.find_all("span")[-1].text.strip() if location_element else "N/A"
-
-            if location_element is None or job_location in ["Job Locations", "Location"]:
-                job_location = ", ".join(
-                    [span.find("dd").text.strip() for span in reversed([div for div in job.find_all("div", class_="iCIMS_JobHeaderTag") if div.find("dt").find("span", class_="glyphicons glyphicons-map-marker") if div.find("dt")])])
-
-            if is_valid(job_id, job_location, job_title, board):
-                jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
-
-        page_number += 1  # Move to the next page
-    return jobs_list
 
 
 def load_more_jobs_on_ultipro(driver):
@@ -1185,7 +1161,7 @@ def load_more_jobs_on_ultipro(driver):
         time.sleep(1)  # Sleep to wait for the page to load new job posts
 
 
-def cmn_scraper15(board=None):
+def cmn_scraper16(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
 
@@ -1224,8 +1200,8 @@ def cmn_scraper15(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-
-def cmn_scraper16(board=None):
+# Paylocity WebCrawler
+def cmn_scraper17(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
 
@@ -1255,8 +1231,8 @@ def cmn_scraper16(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
-
-def cmn_scraper17(board=None):
+# JazzHR Web-Crawler
+def cmn_scraper18(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
 
@@ -1362,6 +1338,35 @@ def enverus(board=None):
     webscraper_driver_cleanup(driver)
     return jobs_list
 
+
+def atlassian(board=None):
+    jobs_list = []
+    company = board.company
+
+    request_url = "https://www.atlassian.com/endpoint/careers/listings"
+
+    HEADERS = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 Chrome/138.0.0.0 Safari/537.36"
+        )
+    }
+
+    response = requests.get(request_url, headers=HEADERS, timeout=30)
+    response.raise_for_status()
+    data = response.json()
+
+    for item in data:
+        job_id = item.get("id")
+        job_title = item.get("title")
+        job_location = ", ".join(item.get("locations", []))
+        job_url = item.get("portalJobPost", {}).get("portalUrl")
+
+        if is_valid(job_id, job_location, job_title, board):
+            jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+    return jobs_list
+
 def fidelity(board=None):
     driver = webscraper_driver_init()
     webscraper_driver_get(driver, board.url)
@@ -1410,6 +1415,50 @@ def fidelity(board=None):
 
     webscraper_driver_cleanup(driver)
     return jobs_list
+
+def aristocrat(board=None):
+        driver = webscraper_driver_init()
+        webscraper_driver_get(driver, board.url)
+        time.sleep(1)
+        wait = WebDriverWait(driver, 5)
+
+        jobs_list = []
+        company = board.company
+
+        while True:
+            soup = BeautifulSoup(driver.page_source, "html.parser")
+
+            # Find all job listings
+            job_posts = soup.find_all("li", class_="css-1q2dra3")
+
+            for job in job_posts:
+                job_title_elem = job.find("a", {"data-automation-id": "jobTitle"})
+                job_location_elem = job.find("dd", class_="css-129m7dg")  # Location
+                job_id_list = job.find_all("li", class_="css-h2nt8k")
+
+                if job_title_elem:
+                    job_url = urljoin(board.url, job_title_elem["href"]).split('?', 1)[0]
+                    job_title = job_title_elem.text.strip()
+                    job_location = "; ". join([x.text.strip() for x in job_id_list[1:-3]])
+                    job_id = job_id_list[-2].text.strip() if job_id_list and len(job_id_list) > 1 else "N/A"
+
+                    if is_valid(job_id, job_location, job_title, board) and job_id not in [job.id for job in jobs_list]:
+                        jobs_list.append(Job(company, job_id, job_title, job_location, job_url))
+
+            # Try to click the "Next" button if it exists
+            try:
+                # Locate the Next button using 'data-uxi-element-id'
+                next_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-uxi-element-id='next']")))
+                driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Scroll to button
+                driver.execute_script("arguments[0].click();", next_button)  # Click using JavaScript
+                print("Navigating to next page...")
+                time.sleep(1)
+            except:
+                print("No more pages to navigate.")
+                break  # Exit loop if no "Next" button is found
+
+        webscraper_driver_cleanup(driver)
+        return jobs_list
 
 def adp(board=None):
     jobs_list = []
